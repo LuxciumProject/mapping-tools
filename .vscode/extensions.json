@@ -1,0 +1,32 @@
+{
+  "unwantedRecommendations": [],
+  "recommendations": [
+    "aaron-bond.better-comments",
+    "alefragnani.Bookmarks",
+    "another-guy.jest-faster",
+    "christian-kohler.path-intellisense",
+    "coachrichbart.better-jest",
+    "CoenraadS.bracket-pair-colorizer-2",
+    "dbaeumer.vscode-eslint",
+    "dlech.chmod",
+    "dplain.jest-test-language-support",
+    "esbenp.prettier-vscode",
+    "formulahendry.code-runner",
+    "ghmcadams.lintlens",
+    "gruntfuggly.todo-tree",
+    "joeberria.statusbarerror",
+    "latitude55.jest-snippets",
+    "Luxcium.pop-n-lock-theme-vscode",
+    "ms-vscode.vscode-typescript-next",
+    "orta.vscode-jest",
+    "PKief.material-icon-theme",
+    "raathigeshan.jest-tools",
+    "salbert.comment-ts",
+    "SophodorosLLC.codevalet-vscode",
+    "svenliebig.jest-typescript-toolbox",
+    "ue.alphabetical-sorter",
+    "usernamehw.errorlens",
+    "vespa-dev-works.jestrunit",
+    "VisualStudioExptTeam.vscodeintellicode"
+  ]
+}

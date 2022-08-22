@@ -1,0 +1,56 @@
+## ROOT .gitignore CONFIG FILE
+build
+dist
+out
+release
+
+## RESET ANYTHING ABOVE IN HIERARCHY
+!*
+!.*
+!*.*
+!**/*
+!**/.*
+!**/*.*
+
+## FOLDERS and FOLDER infos files
+node_modules/
+web_modules/
+.history
+.directory
+.DS_Store
+out/
+.tmp/
+# dist/
+# publish/
+# bin/
+
+## ROOT FOLDERS
+/build
+/cache
+/coverage
+/keys
+/log
+/obj
+/out
+/target
+
+## FILES
+*.zwc
+*.ZWC
+*.env
+nohup.out
+
+## MISC & OTHERS
+~*
+.~*
+._*
+__pycache__
+__pycache__/
+_Chutzpah*
+_NCrunch_*
+_pkginfo.txt
+_Pvt_Extensions
+_ReSharper*/
+_TeamCity*
+_UpgradeReport_Files/
+listings.txt
