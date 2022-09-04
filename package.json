@@ -1,0 +1,26 @@
+{
+  "name": "luxcium-monorpo-one",
+  "version": "1.0.0",
+  "description": "Luxcium Monorpo One",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Luxcium/luxcium-monorpo-One.git"
+  },
+  "keywords": [],
+  "author": "Luxcium (Benjamin Vincent)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Luxcium/luxcium-monorpo-One/issues"
+  },
+  "homepage": "https://github.com/Luxcium/luxcium-monorpo-One#readme",
+  "devDependencies": {
+    "//": "NO DEPENDECIES"
+  },
+  "dependencies": {
+    "//": "NO DEPENDECIES"
+  }
+}
