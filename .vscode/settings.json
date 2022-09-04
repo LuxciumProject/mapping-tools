@@ -1552,9 +1552,10 @@
   "jest.autoRun": {
     "watch": true,
     "onSave": "test-only",
-    "onStartup": [
-      "all-tests"
-    ]
+    "onStartup": ["all-tests"]
+  },
+  "[shellscript]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format"
   }
   // #endregion: TODO TREE                                                      !
 }
