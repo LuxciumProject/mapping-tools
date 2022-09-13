@@ -1556,6 +1556,10 @@
   },
   "[shellscript]": {
     "editor.defaultFormatter": "foxundermoon.shell-format"
-  }
+  },
+  "[properties]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format"
+  },
+  "conventionalCommits.scopes": ["home-react"]
   // #endregion: TODO TREE                                                      !
 }
