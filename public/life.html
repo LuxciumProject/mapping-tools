@@ -34,14 +34,25 @@
 
   <script>   // governing parameters
     var seed = 91651088029;
-    const Colors = ['gold', 'goldenrod', 'hotpink', 'indianred', 'lawngreen', 'mediumspringgreen', 'mediumvioletred', 'midnightblue', 'palevioletred', 'mediumturquoise'];   // four particle types
+    const Colors = [
+      // 'gold',
+      // 'goldenrod',
+      'hotpink',
+      // 'indianred',
+      'lawngreen',
+      // 'mediumspringgreen',
+      // 'mediumvioletred',
+      'midnightblue',
+      'palevioletred',
+      'mediumturquoise'
+    ];   // four particle types
     // const Colors = ['green', 'red', 'yellow'];
     // const Colors = ['green', 'red'];
     let time_scale = 1.0;
-    var cutOff = 4400;       // interaction distance cut-off
-    const viscosity = 0.5;   // speed-dampening
+    var cutOff = 6400;       // interaction distance cut-off
+    const viscosity = 0.9;   // speed-dampening
     const pulseDuration = 10;
-    const atomsQuantity = 75;
+    const atomsQuantity = 300;
     const atomSize = 8
   </script>
 
@@ -166,9 +177,9 @@
               const dx = a.x - b.x;
               const dy = a.y - b.y;
               if (dx !== 0 || dy !== 0) {
-                const d = (dx * dx + dy * dy) ** 0.5;
+                const d = (dx * dx + dy * dy);
                 if (d < cutOff) {
-                  const F = g / d;
+                  const F = g / Math.sqrt(d);
                   fx += F * dx;
                   fy += F * dy;
                 }

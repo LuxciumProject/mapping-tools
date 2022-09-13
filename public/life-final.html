@@ -35,7 +35,7 @@
     // const Colors = ['green', 'red', 'yellow'];
     // const Colors = ['green', 'red'];
     let time_scale = 1.0;
-    var cutOff = 6400;       // interaction distance cut-off
+    var cutOff = 8400;       // interaction distance cut-off
     const viscosity = 0.7;   // speed-dampening
     const pulseDuration = 10;
   </script>
@@ -110,7 +110,7 @@
     const m = canvas.getContext("2d");
     const draw = (x, y, c, s) => {
       m.fillStyle = c;
-      m.fillRect(x, y, s, s);
+      m.arc(x, y, s, 0, Math.PI * 2);
     };
 
     // Atoms array
@@ -243,7 +243,7 @@
       applyRules();
       m.clearRect(0, 0, canvas.width, canvas.height);
       for (i = 0; i < atoms.length; ++i) {
-        draw(atoms[i].x, atoms[i].y, atoms[i].color, 2);
+        draw(atoms[i].x, atoms[i].y, atoms[i].color, 30);
       }
       if (show_fps) {
         var curT = Date.now();
