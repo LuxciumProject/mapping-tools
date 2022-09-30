@@ -2,6 +2,11 @@
   /*
   |-····―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――··-|
   */
+
+  "files.associations": {
+    "*.json": "jsonc"
+  },
+
   // #region: EDITOR & TERMINAL                                      !
   "workbench.iconTheme": "material-icon-theme",
   // "editor.fontFamily": "'VictorMono Nerd Font',Victor Mono, Fira Code",
@@ -1545,7 +1550,7 @@
   "todo-tree.highlights.backgroundColourScheme": [],
   "todo-tree.highlights.foregroundColourScheme": [],
   "[javascript]": {
-    "editor.defaultFormatter": "vscode.typescript-language-features"
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "workbench.editor.titleScrollbarSizing": "large",
   "task.allowAutomaticTasks": "on",
@@ -1560,6 +1565,12 @@
   "[properties]": {
     "editor.defaultFormatter": "foxundermoon.shell-format"
   },
-  "conventionalCommits.scopes": ["home-react", "public", "service-two"]
+  "conventionalCommits.scopes": [
+    "home-react",
+    "public",
+    "service-two",
+    "utils",
+    "common"
+  ]
   // #endregion: TODO TREE                                                      !
 }
