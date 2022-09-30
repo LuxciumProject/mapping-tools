@@ -1565,6 +1565,6 @@
   "[properties]": {
     "editor.defaultFormatter": "foxundermoon.shell-format"
   },
-  "conventionalCommits.scopes": ["home-react", "public", "service-two", "utils", "common", "servers"]
+  "conventionalCommits.scopes": ["home-react", "public", "service-two", "utils", "common", "servers", "api-server"]
   // #endregion: TODO TREE                                                      !
 }
