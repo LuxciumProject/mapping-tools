@@ -1,26 +1,26 @@
 #!/usr/bin/env bash
 pwd
-pnpm i -D \
-  @types/eslint-config-prettier \
-  @types/eslint-plugin-prettier \
-  @types/jest \
-  @types/node@latest \
-  @typescript-eslint/eslint-plugin \
-  @typescript-eslint/parser \
-  eslint \
-  eslint-config-prettier \
-  eslint-import-resolver-typescript \
-  eslint-plugin-import \
-  eslint-plugin-jsdoc \
-  eslint-plugin-jsonc \
-  eslint-plugin-prettier \
-  eslint-plugin-react \
-  eslint-plugin-react-hooks \
-  eslint-plugin-simple-import-sort \
-  eslint-plugin-unicorn \
-  jest \
-  nodemon \
-  prettier \
-  ts-jest \
-  ts-node \
-  typescript
+pnpm add -D \
+  @types/eslint-config-prettier@latest \
+  @types/eslint-plugin-prettier@latest \
+  @types/jest@latest \
+  @types/node \
+  @typescript-eslint/eslint-plugin@latest \
+  @typescript-eslint/parser@latest \
+  eslint@latest \
+  eslint-config-prettier@latest \
+  eslint-import-resolver-typescript@latest \
+  eslint-plugin-import@latest \
+  eslint-plugin-jsdoc@latest \
+  eslint-plugin-jsonc@latest \
+  eslint-plugin-prettier@latest \
+  eslint-plugin-react@latest \
+  eslint-plugin-react-hooks@latest \
+  eslint-plugin-simple-import-sort@latest \
+  eslint-plugin-unicorn@latest \
+  jest@latest \
+  nodemon@latest \
+  prettier@latest \
+  ts-jest@latest \
+  ts-node@latest \
+  typescript@latest
