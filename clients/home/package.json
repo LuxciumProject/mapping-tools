@@ -3,8 +3,15 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "analyze": "source-map-explorer 'build/static/js/*.js'",
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "docker:build": "docker build --force-rm --tag client-home:latest .",
+    "docker:run": "docker run --name home-react -d --rm -p 5000:80 client-home:latest",
+    "docker:build:run": "npm run docker:build && npm run docker:run",
+    "docker:stop": "docker stop home-react",
+    "build:local": "react-scripts build; yarn analyze",
+    "build": "npm shrinkwrap",
+    "build:prod": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -19,7 +26,8 @@
     "@babel/plugin-syntax-flow": "~7.18.6",
     "@babel/plugin-transform-react-jsx": "~7.19.0",
     "@testing-library/dom": "~8.18.1",
-    "@babel/core": "~7.19.3"
+    "@babel/core": "~7.19.3",
+    "source-map-explorer": "~2.5.3"
   },
   "devDependencies": {
     "@types/eslint-config-prettier": "^6.11.0",
