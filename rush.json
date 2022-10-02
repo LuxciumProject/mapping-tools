@@ -369,7 +369,7 @@
    */
   "projects": [
     {
-      "packageName": "home-page",
+      "packageName": "home-react",
       "projectFolder": "clients/home",
       "tags": ["clients"]
     },
