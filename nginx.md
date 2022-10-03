@@ -1,6 +1,8 @@
-# Modules reference
+# NGINX Documentation
 
-## Alphabetical index of directives
+# Modules Reference
+
+## Alphabetical Index Of Directives
 
 1. [absolute_redirect](https://nginx.org/en/docs/http/ngx_http_core_module.html#absolute_redirect)
 1. [accept_mutex](https://nginx.org/en/docs/ngx_core_module.html#accept_mutex)
