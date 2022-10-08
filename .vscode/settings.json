@@ -1565,7 +1565,16 @@
   "[properties]": {
     "editor.defaultFormatter": "foxundermoon.shell-format"
   },
-  "conventionalCommits.scopes": ["home-react", "public", "service-two", "utils", "common", "servers", "api-server"],
+  "conventionalCommits.scopes": [
+    "home-react",
+    "public",
+    "service-two",
+    "utils",
+    "common",
+    "servers",
+    "api-server",
+    "services"
+  ],
   "[dockerfile]": {
     "editor.defaultFormatter": "ms-azuretools.vscode-docker"
   },
