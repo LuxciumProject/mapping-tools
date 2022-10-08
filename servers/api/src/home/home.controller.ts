@@ -1,11 +1,11 @@
-import { Body, Controller, Get, Param, Post, Query } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, Query, Req } from '@nestjs/common';
 import { CreateMessageDto } from './dtos/create-message.dto';
 
 @Controller('home')
 export class HomeController {
   @Get()
-  sayHello(@Query() query: any) {
-    console.log('HomeController created', query);
+  sayHello(@Query() query: any, @Req() req: any) {
+    console.log('HomeController created', query, req);
     return 'HomeController created';
   }
 
