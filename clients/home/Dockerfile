@@ -5,11 +5,12 @@ FROM node:${version} as builder
 WORKDIR /app
 
 # Copy app files
-COPY . /app
+COPY ./package.json /app/package.json
 
 # Install dependencies (npm ci makes sure the exact versions in the lockfile gets installed)
 RUN npm install || cat /root/.npm/_logs/*.log; ls -1a; ls -1a /root/.npm/_logs
 
+COPY . /app
 # Build the app
 RUN npm run build:prod
 
