@@ -374,6 +374,11 @@
       "tags": ["clients"]
     },
     {
+      "packageName": "home-react-two",
+      "projectFolder": "clients/home2",
+      "tags": ["clients"]
+    },
+    {
       "packageName": "api-server",
       "projectFolder": "servers/api",
       "tags": ["servers"]
@@ -382,11 +387,6 @@
       "packageName": "scratch-server",
       "projectFolder": "servers/scratch",
       "tags": ["servers"]
-    },
-    {
-      "packageName": "letter-rdp-source",
-      "projectFolder": "services/letter-rdp-source",
-      "tags": ["services"]
     },
     {
       "packageName": "service-one",
