@@ -8,10 +8,10 @@
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "nest build",
-    "docker:build": "docker build --label image:api-serverS --force-rm --progress plain --tag server-api:latest .",
+    "docker:build": "docker build --label image:api-server --progress plain --tag server-api:latest .",
     "docker:run": "docker run --network networkOne -l 'container:api-server' --name api-server -d --rm -p 3000:80 server-api:latest",
     "docker:run:local": "docker run --network networkOne -l 'local:api-server' --name api-server -d --rm --cpus 4 -p 3000:80 server-api:latest",
-    "docker:run:live": "docker run --network networkOne -l 'live:api-server' --name api-server -it --rm --cpus 4 -p 3000:80 server-api:latest",
+    "docker:run:live": "docker run --network networkOne -l 'live:api-server' --name api-server -t -i --rm --cpus 4 -p 3000:80 server-api:latest",
     "docker:build:run": "npm run docker:build && npm run docker:run",
     "docker:build:run:local": "npm run docker:build && npm run docker:run:local",
     "docker:build:run:live": "npm run docker:build && npm run docker:run:live",

@@ -1,14 +1,16 @@
 ARG version=16.17.1
-FROM node:${version} as builder
+FROM node:${version}-alpine as builder
 
 # Set the working directory to /app inside the container
 WORKDIR /app
 
 # Copy app files
-COPY ./ /app
+COPY ./package.json /app/package.json
 
 # Install dependencies.
 RUN yarn
+
+COPY ./ /app
 
 # Build the app
 RUN npm run build:prod
