@@ -6,6 +6,12 @@
       "dom.iterable",
       "esnext"
     ],
+    "types": [
+      "@types/node",
+      "@types/react",
+      "@types/react-dom",
+      "@testing-library/jest-dom"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -18,7 +24,7 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx"
+    "jsx": "react"
   },
   "include": [
     "src"
