@@ -1573,7 +1573,8 @@
     "common",
     "servers",
     "api-server",
-    "services"
+    "services",
+    "RushStack"
   ],
   "[dockerfile]": {
     "editor.defaultFormatter": "ms-azuretools.vscode-docker"
