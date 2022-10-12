@@ -402,6 +402,11 @@
       "packageName": "bigintstring",
       "projectFolder": "utils/bigintString",
       "tags": ["utils"]
+    },
+    {
+      "packageName": "@luxcium/human-size",
+      "projectFolder": "utils/human-size",
+      "tags": ["utils"]
     }
     // {
     //   /**
