@@ -399,7 +399,7 @@
       "tags": ["services"]
     },
     {
-      "packageName": "bigintstring",
+      "packageName": "@luxcium/bigintstring",
       "projectFolder": "utils/bigintString",
       "tags": ["utils"]
     },
