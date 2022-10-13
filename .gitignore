@@ -18,10 +18,10 @@ web_modules/
 .history
 .directory
 .DS_Store
+dist/
 out/
 .tmp/
 # build/
-# dist/
 # publish/
 # bin/
 
