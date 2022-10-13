@@ -1,6 +1,6 @@
 {
   "include": ["."],
-  "exclude": ["out", "**/*test.ts"],
+  "exclude": ["out", "**/*test.ts", "**/jest.*.js"],
   "compilerOptions": {
     /* Module Resolution Interop Constraints */
     "target": "ESNext",
@@ -21,13 +21,13 @@
     "declarationDir": "../dist/human-size/typings",
     "generateCpuProfile": "../dist/human-size/performance/cpu-info.cpuprofile",
     "outDir": "../dist/human-size/src",
-    "tsBuildInfoFile": "../dist/human-size/src-ts-out-info.lib",
+    "tsBuildInfoFile": "../dist/human-size/ts-out-info.lib",
     "downlevelIteration": true,
     "emitBOM": false,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "importHelpers": true,
-    "importsNotUsedAsValues": "remove",
+    // "importsNotUsedAsValues": "remove",
     "incremental": true,
     "newLine": "lf",
     "noEmit": false,
