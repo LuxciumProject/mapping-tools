@@ -4,7 +4,8 @@
 * A permissive non-copyleft free software license,
 * compatible with the GNU GPL
 
-* Copyright (c) 2014 Andrew Kelley
+* Copyright © 2022 Luxcium✨ (Benjamin Vincent)
+* Copyright © 2014-2022 Andrew Kelley
 *
 * Permission is hereby granted, free of charge, to any person
 * obtaining a copy of this software and associated documentation files
