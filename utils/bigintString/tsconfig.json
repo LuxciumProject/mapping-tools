@@ -1,5 +1,5 @@
 {
-  "include": ["."],
+  "include": ["./src", "tests"],
   "exclude": ["out", "**/*test.ts"],
   "compilerOptions": {
     /* Module Resolution Interop Constraints */
@@ -18,10 +18,11 @@
     "maxNodeModuleJsDepth": 1,
     "disableSizeLimit": false,
     /* Emit Options */
-    "declarationDir": "../dist/bigintstring/typings",
-    "generateCpuProfile": "../dist/bigintstring.cpuprofile",
-    "outDir": "../dist/bigintstring/src",
-    "tsBuildInfoFile": "../dist/bigintstring/ts-out-info.lib",
+    "rootDir": "./src",
+    "declarationDir": "./out/typings",
+    "generateCpuProfile": "./out/bigintstring.cpuprofile",
+    "outDir": "./out/src",
+    "tsBuildInfoFile": "./out/ts-out-info.lib",
     "downlevelIteration": true,
     "emitBOM": false,
     "emitDecoratorMetadata": true,
@@ -37,7 +38,6 @@
     "preserveValueImports": false,
     "pretty": true,
     "removeComments": false,
-    "rootDir": ".",
     "stripInternal": false,
     "preserveWatchOutput": false,
     "sourceMap": false,

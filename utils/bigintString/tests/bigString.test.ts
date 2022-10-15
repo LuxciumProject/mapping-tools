@@ -1,4 +1,4 @@
-import { bigString } from '../bigString';
+import { bigString } from '../src/bigString';
 
 describe('Converts 64 binary string ("0" | "1") to integer string.\n      it...', () => {
   it('...should convert from 64 binary string to integer string.', () => {
