@@ -16,11 +16,12 @@
     "@nestjs/platform-express": "^9.0.11",
     "eslint-plugin-import": "~2.26.0",
     "reflect-metadata": "^0.1.13",
-    "rxjs": "^7.5.6"
+    "rxjs": "^7.5.6",
+    "tslib": "2.4.0"
   },
   "devDependencies": {
-    "@types/jest": "~29.1.2",
-    "@types/node": "~18.8.5",
+    "@types/jest": "29.1.2",
+    "@types/node": "16",
     "@typescript-eslint/eslint-plugin": "~5.40.0",
     "@typescript-eslint/parser": "~5.40.0",
     "eslint": "~8.25.0",
@@ -31,8 +32,8 @@
     "ts-jest": "~29.0.3",
     "typescript": "~4.8.4",
     "eslint-plugin-import": "~2.26.0",
-    "@types/eslint-config-prettier": "~6.11.0",
-    "@types/eslint-plugin-prettier": "~3.1.0",
+    "@types/eslint-config-prettier": "6.11.0",
+    "@types/eslint-plugin-prettier": "3.1.0",
     "eslint-config-prettier": "~8.5.0",
     "eslint-plugin-jsdoc": "~39.3.6",
     "eslint-plugin-jsonc": "~2.4.0",
@@ -41,6 +42,9 @@
     "eslint-plugin-react-hooks": "~4.6.0",
     "eslint-plugin-unicorn": "~44.0.2",
     "prettier": "~2.7.1",
-    "ts-node": "~10.9.1"
+    "ts-node": "~10.9.1",
+    "@rushstack/heft": "~0.48.4",
+    "@rushstack/heft-jest-plugin": "~0.3.41",
+    "@types/heft-jest": "1.0.3"
   }
 }
