@@ -1,10 +1,9 @@
 #!/bin/sh
 pwd
+
 rush add \
-  -p @types/eslint-config-prettier@latest \
-  -p @types/eslint-plugin-prettier@latest \
-  -p @types/jest@latest \
-  -p @types/node \
+  -p @rushstack/heft \
+  -p @rushstack/heft-jest-plugin \
   -p @typescript-eslint/eslint-plugin@latest \
   -p @typescript-eslint/parser@latest \
   -p eslint-config-prettier@latest \
@@ -21,10 +20,20 @@ rush add \
   -p jest@latest \
   -p nodemon@latest \
   -p prettier@latest \
-  -p ts-jest@latest \
   -p ts-node@latest \
   -p typescript@latest \
   --dev --all --make-consistent
+
+rush add \
+  -p @types/eslint-config-prettier@latest \
+  -p @types/eslint-plugin-prettier@latest \
+  -p @types/heft-jest \
+  -p @types/jest@latest \
+  -p @types/node@16 \
+  --exact --dev --all --make-consistent
+
+rush add --package tslib@latest --exact --all --make-consistent
+
 rush purge
 rush update
 rush rebuild
