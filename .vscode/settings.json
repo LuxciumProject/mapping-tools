@@ -1566,7 +1566,7 @@
     "editor.defaultFormatter": "foxundermoon.shell-format"
   },
   "conventionalCommits.scopes": [
-    "home-react",
+    "apps",
     "public",
     "service-two",
     "library",

@@ -5,7 +5,7 @@ importers:
   .:
     specifiers: {}
 
-  ../../clients/home:
+  ../../apps/home:
     specifiers:
       '@babel/core': ~7.19.3
       '@babel/plugin-syntax-flow': ~7.18.6
@@ -86,7 +86,7 @@ importers:
       ts-node: 10.9.1_ptpocrdt7oaz4ni5mlvucph5pa
       typescript: 4.8.4
 
-  ../../clients/home2:
+  ../../apps/home2:
     specifiers:
       '@babel/core': ~7.19.3
       '@babel/plugin-syntax-flow': ~7.18.6
@@ -3457,7 +3457,7 @@ packages:
     resolution: {integrity: sha512-9K4zoImiZc3HlIp6AVUDE4CWYx22a+lhSZMYNpbjW04+YF0KWj4pJXnEMjdnFTiQibFFmElcsasJXDbdI/EPhA==}
     dependencies:
       '@types/eslint': 8.4.6
-      '@types/estree': 0.0.51
+      '@types/estree': 1.0.0
 
   /@types/eslint/8.4.6:
     resolution: {integrity: sha512-/fqTbjxyFUaYNO7VcW5g+4npmqVACz1bB7RTHYuLj+PRjw9hrCwrUXVQFpChUS0JsyEFvMZ7U/PfmvWgxJhI9g==}

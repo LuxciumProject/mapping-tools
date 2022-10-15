@@ -369,16 +369,16 @@
   "projects": [
     {
       "packageName": "home-react",
-      "projectFolder": "clients/home",
+      "projectFolder": "apps/home",
       "tags": [
-        "clients"
+        "apps"
       ]
     },
     {
       "packageName": "home-react-two",
-      "projectFolder": "clients/home2",
+      "projectFolder": "apps/home2",
       "tags": [
-        "clients"
+        "apps"
       ]
     },
     {
