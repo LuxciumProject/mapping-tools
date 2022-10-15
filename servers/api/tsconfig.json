@@ -1,5 +1,9 @@
 {
-  "exclude": ["node_modules", "dist"],
+  "$schema": "http://json.schemastore.org/tsconfig",
+  "exclude": [
+    "node_modules",
+    "dist"
+  ],
   "compilerOptions": {
     "module": "commonjs",
     "declaration": true,

@@ -1,6 +1,13 @@
 {
-  "include": ["."],
-  "exclude": ["out", "**/*test.ts", "**/jest.*.js"],
+  "$schema": "http://json.schemastore.org/tsconfig",
+  "include": [
+    "."
+  ],
+  "exclude": [
+    "out",
+    "**/*test.ts",
+    "**/jest.*.js"
+  ],
   "compilerOptions": {
     /* Module Resolution Interop Constraints */
     "target": "ESNext",
@@ -56,9 +63,15 @@
     "useDefineForClassFields": true,
     "assumeChangesOnlyAffectDirectDependencies": false,
     /* Specify a set of bundled library declaration files that describe the target runtime environment. */
-    "lib": ["dom", "esnext"],
+    "lib": [
+      "dom",
+      "esnext"
+    ],
     /* Specify type package names to be included without being referenced in a source file. */
-    "types": ["node", "jest"],
+    "types": [
+      "node",
+      "jest"
+    ],
     /* Completeness */
     "skipDefaultLibCheck": false,
     "skipLibCheck": true,
