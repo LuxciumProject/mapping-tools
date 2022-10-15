@@ -1,5 +1,6 @@
 {
   "extends": "../tsconfig.json",
+  "exclude": ["out", "dist", "build", "../src/helpers"],
   "compilerOptions": {
     "module": "commonjs",
     "target": "ESNext",
