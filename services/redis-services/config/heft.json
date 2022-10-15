@@ -3,13 +3,11 @@
  */
 {
   "$schema": "https://developer.microsoft.com/json-schemas/heft/heft.schema.json",
-
   /**
    * Optionally specifies another JSON config file that this file extends from. This provides a way for standard
    * settings to be shared across multiple projects.
    */
   // "extends": "base-project/config/heft.json",
-
   "eventActions": [
     {
       //   /**
@@ -43,8 +41,10 @@
       //     "lib-esnext",
       //     "temp"
       //   ]
-
-      "globsToDelete": ["out", "temp"]
+      "globsToDelete": [
+        "out",
+        "temp"
+      ]
     }
     //
     // {
@@ -128,11 +128,13 @@
     //   ]
     // }
   ],
-
   /**
    * The list of Heft plugins to be loaded.
    */
   "heftPlugins": [
+    {
+      "plugin": "@rushstack/heft-jest-plugin"
+    }
     // {
     //  /**
     //   * The path to the plugin package.

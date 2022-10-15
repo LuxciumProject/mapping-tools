@@ -4,8 +4,8 @@
     "./src"
   ],
   "exclude": [
-    "out",
-    "**/*test.ts"
+    "out"
+    // "**/*test.ts"
   ],
   "compilerOptions": {
     /* Module Resolution Interop Constraints */
@@ -46,10 +46,10 @@
     "removeComments": false,
     "stripInternal": false,
     "preserveWatchOutput": false,
-    "sourceMap": false,
+    "sourceMap": true,
     "declaration": true,
     "declarationMap": true,
-    "inlineSourceMap": true,
+    "inlineSourceMap": false,
     "inlineSources": true,
     "emitDeclarationOnly": false,
     /* Projects */
@@ -69,7 +69,8 @@
     /* Specify type package names to be included without being referenced in a source file. */
     "types": [
       "node",
-      "jest"
+      "jest",
+      "heft-jest"
     ],
     /* Completeness */
     "skipDefaultLibCheck": false,
