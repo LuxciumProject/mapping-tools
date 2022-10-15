@@ -4,6 +4,7 @@ pwd
 rush add \
   -p @rushstack/heft \
   -p @rushstack/heft-jest-plugin \
+  -p @types/node@16 \
   -p @typescript-eslint/eslint-plugin@latest \
   -p @typescript-eslint/parser@latest \
   -p eslint-config-prettier@latest \
@@ -29,11 +30,6 @@ rush add \
   -p @types/eslint-plugin-prettier@latest \
   -p @types/heft-jest \
   -p @types/jest@latest \
-  -p @types/node@16 \
   --exact --dev --all --make-consistent
 
 rush add --package tslib@latest --exact --all --make-consistent
-
-rush purge
-rush update
-rush rebuild

@@ -431,6 +431,20 @@
       ]
     },
     {
+      "packageName": "@luxcium/boxed-list",
+      "projectFolder": "library/boxed-list",
+      "tags": [
+        "library"
+      ]
+    },
+    {
+      "packageName": "@luxcium/restraining-zalgo",
+      "projectFolder": "library/restraining-zalgo",
+      "tags": [
+        "library"
+      ]
+    },
+    {
       "packageName": "@luxcium/human-size",
       "projectFolder": "library/human-size",
       "tags": [
