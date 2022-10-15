@@ -389,6 +389,16 @@
       "tags": ["servers"]
     },
     {
+      "packageName": "@luxcium/phash-convertor",
+      "projectFolder": "services/phash-convertor",
+      "tags": ["services"]
+    },
+    {
+      "packageName": "@luxcium/redis-services",
+      "projectFolder": "services/redis-services",
+      "tags": ["services"]
+    },
+    {
       "packageName": "service-one",
       "projectFolder": "services/service-one",
       "tags": ["services"]
