@@ -20,7 +20,7 @@ module.exports = {
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
   collectCoverage: true,
   collectCoverageFrom: [
-    './src/utils/**/*.{ts,tsx}',
+    './src/**/*.{ts,tsx}',
     '!**/node_modules/**',
     '!**/vendor/**',
     '!**/out/**',

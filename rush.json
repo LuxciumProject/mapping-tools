@@ -25,7 +25,6 @@
    * for details about these alternatives.
    */
   "pnpmVersion": "7.11.0",
-
   /**
    * Options that are only used when the PNPM package manager is selected
    */
@@ -371,52 +370,72 @@
     {
       "packageName": "home-react",
       "projectFolder": "clients/home",
-      "tags": ["clients"]
+      "tags": [
+        "clients"
+      ]
     },
     {
       "packageName": "home-react-two",
       "projectFolder": "clients/home2",
-      "tags": ["clients"]
+      "tags": [
+        "clients"
+      ]
     },
     {
       "packageName": "api-server",
       "projectFolder": "servers/api",
-      "tags": ["servers"]
+      "tags": [
+        "servers"
+      ]
     },
     {
       "packageName": "scratch-server",
       "projectFolder": "servers/scratch",
-      "tags": ["servers"]
+      "tags": [
+        "servers"
+      ]
     },
     {
       "packageName": "@luxcium/phash-convertor",
       "projectFolder": "services/phash-convertor",
-      "tags": ["services"]
+      "tags": [
+        "services"
+      ]
     },
     {
       "packageName": "@luxcium/redis-services",
       "projectFolder": "services/redis-services",
-      "tags": ["services"]
+      "tags": [
+        "services"
+      ]
     },
     {
       "packageName": "service-one",
       "projectFolder": "services/service-one",
-      "tags": ["services"]
+      "tags": [
+        "services"
+      ]
     },
     {
       "packageName": "service-two",
       "projectFolder": "services/service-two",
-      "tags": ["services"]
+      "tags": [
+        "services"
+      ]
     },
     {
       "packageName": "@luxcium/bigintstring",
-      "projectFolder": "utils/bigintString",
-      "tags": ["utils"]
+      "projectFolder": "library/bigintString",
+      "tags": [
+        "library"
+      ]
     },
     {
       "packageName": "@luxcium/human-size",
-      "projectFolder": "utils/human-size",
-      "tags": ["utils"]
+      "projectFolder": "library/human-size",
+      "tags": [
+        "library"
+      ]
     }
     // {
     //   /**
