@@ -21,7 +21,9 @@ web_modules/
 dist/
 out/
 .tmp/
+temp/
 build/
+/*/*/lib/
 # publish/
 # bin/
 
