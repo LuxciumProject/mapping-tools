@@ -25,6 +25,6 @@ module.exports = {
     '!**/vendor/**',
     '!**/out/**',
   ],
-  coverageDirectory: '../dist/coverage/human-size',
+  coverageDirectory: './lib/coverage',
   coverageReporters: ['json', 'lcov', 'text', 'clover'],
 };
