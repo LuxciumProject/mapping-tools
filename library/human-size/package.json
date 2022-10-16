@@ -5,6 +5,7 @@
   "main": "lib/src/index.js",
   "types": "lib/typings/index.d.ts",
   "scripts": {
+    "install": "bash scripts/build.sh",
     "build": "bash scripts/build.sh",
     "test": "jest"
   },

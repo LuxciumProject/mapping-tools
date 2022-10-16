@@ -2,6 +2,8 @@
   "name": "@luxcium/restraining-zalgo",
   "version": "1.0.0",
   "description": "",
+  "author": "Luxcium (Benjamin Vincent)",
+  "license": "MIT",
   "main": "lib/src/index.js",
   "types": "lib/typings/index.d.ts",
   "scripts": {
@@ -9,9 +11,6 @@
     "build": "bash scripts/build.sh",
     "test": "jest"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "devDependencies": {
     "@types/eslint-config-prettier": "6.11.0",
     "@types/eslint-plugin-prettier": "3.1.0",
