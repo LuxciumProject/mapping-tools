@@ -1,28 +1,18 @@
-## Development folder
-LICENSE
-node_modules/
-jest.config.js
-package.json
-tsconfig.json
-human-size.build.log
-README.md
+.env
 .npmignore
-.prettierrc
 .rush/
-humanSize.test.ts
-humanSize.ts
-index.ts
-readme.test.ts
-types.ts
+boxed-list.build.log
+boxed-list.cpuprofile
+config/
+node_modules/
+scripts/
+src/
+ts-out-info.lib
+tsconfig.json
+typedoc.json
 
-## Dist folder
-
-src-ts-out-info.lib
-human-size.cpuprofile
-
+!lib/src/
+!lib/typings/
 !LICENSE
-!src/
-!typings/
 !package.json
 !README.md
-!.npmignore
