@@ -288,9 +288,7 @@
     /**
      * The list of shell commands to run before the Rush installation starts
      */
-    "preRushInstall": [
-      // "common/scripts/pre-rush-install.js"
-    ],
+    "preRushInstall": [],
     /**
      * The list of shell commands to run after the Rush installation finishes
      */
@@ -357,7 +355,13 @@
    * separated by hyphens or slashes, where a word may contain lowercase ASCII letters, digits,
    * ".", and "@" characters.
    */
-  // "allowedProjectTags": [ "tools", "frontend-team", "1.0.0-release" ],
+  "allowedProjectTags": [
+    "backend",
+    "frontend",
+    "library",
+    "services",
+    "tools"
+  ],
   /**
    * (Required) This is the inventory of projects to be managed by Rush.
    *
@@ -449,6 +453,14 @@
       "projectFolder": "library/human-size",
       "tags": [
         "library"
+      ]
+    },
+    {
+      "packageName": "@luxcium/tools",
+      "projectFolder": "library/tools",
+      "tags": [
+        "library",
+        "tools"
       ]
     }
     // {

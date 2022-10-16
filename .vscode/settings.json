@@ -22,6 +22,7 @@
   // #region: excludes                                               !
   "files.exclude": {
     ".directory": true,
+    "*.build.log": true,
     "dist": false,
     "out": false
   },
@@ -1563,6 +1564,7 @@
     "common",
     "frontend",
     "library",
+    "tools",
     "public",
     "RushStack",
     "services"
