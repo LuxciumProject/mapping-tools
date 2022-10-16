@@ -383,16 +383,16 @@
     },
     {
       "packageName": "api-server",
-      "projectFolder": "servers/api",
+      "projectFolder": "backend/api",
       "tags": [
-        "servers"
+        "backend"
       ]
     },
     {
       "packageName": "scratch-server",
-      "projectFolder": "servers/scratch",
+      "projectFolder": "backend/scratch",
       "tags": [
-        "servers"
+        "backend"
       ]
     },
     {

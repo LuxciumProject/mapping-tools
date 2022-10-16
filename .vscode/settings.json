@@ -1566,12 +1566,12 @@
     "editor.defaultFormatter": "foxundermoon.shell-format"
   },
   "conventionalCommits.scopes": [
+    "backend",
     "common",
     "frontend",
     "library",
     "public",
     "RushStack",
-    "servers",
     "services"
   ],
   "[dockerfile]": {
