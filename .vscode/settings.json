@@ -1566,15 +1566,13 @@
     "editor.defaultFormatter": "foxundermoon.shell-format"
   },
   "conventionalCommits.scopes": [
-    "apps",
-    "public",
-    "service-two",
-    "library",
     "common",
+    "frontend",
+    "library",
+    "public",
+    "RushStack",
     "servers",
-    "api-server",
-    "services",
-    "RushStack"
+    "services"
   ],
   "[dockerfile]": {
     "editor.defaultFormatter": "ms-azuretools.vscode-docker"
