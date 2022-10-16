@@ -2,12 +2,11 @@
   "name": "@luxcium/bigintstring",
   "version": "1.0.0",
   "description": "",
-  "main": "out/src/index.js",
-  "types": "out/typings/index.d.ts",
+  "main": "lib/src/index.js",
+  "types": "lib/typings/index.d.ts",
   "scripts": {
     "install": "bash scripts/build.sh",
     "build": "bash scripts/build.sh",
-    ":dist:": "tsc --noEmit false --generateCpuProfile \"../dist/bigintstring.cpuprofile\" || exit 1; cp ./package.json ./LICENSE ./README.md ./.npmignore ../dist/bigintstring/",
     "test": "jest"
   },
   "keywords": [],

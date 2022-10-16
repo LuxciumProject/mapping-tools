@@ -2,8 +2,8 @@
   "name": "@luxcium/restraining-zalgo",
   "version": "1.0.0",
   "description": "",
-  "main": "out/src/index.js",
-  "types": "out/typings/index.d.ts",
+  "main": "lib/src/index.js",
+  "types": "lib/typings/index.d.ts",
   "scripts": {
     "install": "bash scripts/build.sh",
     "build": "bash scripts/build.sh",

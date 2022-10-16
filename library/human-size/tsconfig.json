@@ -5,6 +5,7 @@
   ],
   "exclude": [
     "out",
+    "lib",
     "**/*test.ts",
     "**/jest.*.js"
   ],
@@ -26,9 +27,9 @@
     "disableSizeLimit": false,
     /* Emit Options */
     "rootDir": "./src",
-    "declarationDir": "../out/typings",
-    "outDir": "../out/src",
-    "tsBuildInfoFile": "../out/ts-out-info.lib",
+    "declarationDir": "./lib/typings",
+    "outDir": "./lib/src",
+    "tsBuildInfoFile": "./lib/ts-out-info.lib",
     "downlevelIteration": true,
     "emitBOM": false,
     "emitDecoratorMetadata": true,
@@ -76,8 +77,8 @@
     "skipLibCheck": true,
     "noResolve": false,
     /* Vebosity */
-    "diagnostics": true,
-    "extendedDiagnostics": true,
+    "diagnostics": false,
+    "extendedDiagnostics": false,
     "listEmittedFiles": false,
     "listFiles": false,
     "traceResolution": false,

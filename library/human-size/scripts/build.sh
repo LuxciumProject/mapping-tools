@@ -1,3 +1,3 @@
 #!/bin/sh
 
-tsc --noEmit false --generateCpuProfile ./out/human-size.cpuprofile || exit 1
+tsc --noEmit false --generateCpuProfile ./lib/human-size.cpuprofile || exit 1

@@ -3,7 +3,8 @@
     "./src"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "lib"
   ],
   "compilerOptions": {
     // ----------
@@ -12,9 +13,9 @@
     // ----------
     /* Emit Options */
     "rootDir": "./src",
-    "outDir": "./out/src",
-    "declarationDir": "./out/typings",
-    "tsBuildInfoFile": "./out/ts-out-info.lib",
+    "outDir": "./lib/src",
+    "declarationDir": "./lib/typings",
+    "tsBuildInfoFile": "./lib/ts-out-info.lib",
     "noEmit": false,
     "composite": true,
     "emitDeclarationOnly": false,
@@ -97,8 +98,8 @@
     /*                */
     /* Extra settings */
     /* Vebosity */
-    "diagnostics": true,
-    // "extendedDiagnostics": true,
+    "diagnostics": false,
+    "extendedDiagnostics": false,
     // "listEmittedFiles": true,
     // "listFiles": true,
     // "traceResolution": true,

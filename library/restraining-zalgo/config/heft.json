@@ -43,6 +43,7 @@
       //   ]
       "globsToDelete": [
         "out",
+        "lib",
         "temp"
       ]
     }

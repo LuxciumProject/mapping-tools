@@ -38,7 +38,7 @@
    *
    * The default value is "lib".
    */
-  "emitFolderNameForTests": "out/src",
+  "emitFolderNameForTests": "lib/src",
   /**
    * If set to "true", the TSlint task will not be invoked.
    */

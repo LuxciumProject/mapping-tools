@@ -16,10 +16,13 @@ readme.test.ts
 types.ts
 
 ## Dist folder
+
+src-ts-out-info.lib
+human-size.cpuprofile
+
 !LICENSE
 !src/
 !typings/
 !package.json
-src-ts-out-info.lib
 !README.md
 !.npmignore
