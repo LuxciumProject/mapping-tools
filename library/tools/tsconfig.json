@@ -3,30 +3,18 @@
   "extends": "../typescript/tsconfig.json",
   "compilerOptions": {
     /* Emit Options */
+    "target": "ESNext",
+    "module": "CommonJS",
+    "moduleResolution": "node",
     "rootDir": "./src",
     "declarationDir": "./lib/typings",
     "outDir": "./lib/src",
     "tsBuildInfoFile": "./lib/ts-out-info.lib",
-    "target": "ESNext",
-    "module": "CommonJS",
-    "moduleResolution": "node",
+    "emitDecoratorMetadata": false,
+    "experimentalDecorators": false,
     /* JavaScript Support */
     "allowJs": true,
     "checkJs": false,
-    "emitDecoratorMetadata": false,
-    "experimentalDecorators": false,
-    /* Completeness */
-    "importHelpers": true,
-    "skipLibCheck": true,
-    "noResolve": false,
-    "skipDefaultLibCheck": false,
-    /* Vebosity */
-    "diagnostics": false,
-    "extendedDiagnostics": false,
-    "listEmittedFiles": false,
-    "listFiles": false,
-    "traceResolution": false,
-    "listFilesOnly": false,
     /* Bundled library declaration files that describe the target runtime environment. */
     "lib": [
       "dom",

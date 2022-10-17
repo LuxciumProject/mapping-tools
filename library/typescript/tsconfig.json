@@ -46,9 +46,17 @@
     "useDefineForClassFields": true,
     "assumeChangesOnlyAffectDirectDependencies": false,
     /* Completeness */
+    "importHelpers": true,
     "skipDefaultLibCheck": false,
     "skipLibCheck": true,
     "noResolve": false,
+    /* Vebosity */
+    "diagnostics": true,
+    "extendedDiagnostics": true,
+    "listEmittedFiles": false,
+    "listFiles": false,
+    "traceResolution": false,
+    "listFilesOnly": false,
     /* Type Checking */
     /* ALWAYS FALSE NEVER ALLOW-UNUSED-LABELS & ALLOW-UNREACHABLE-CODE FALSE!  */
     /* ALWAYS FALSE                                               ALWAYS FALSE */
