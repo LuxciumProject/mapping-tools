@@ -2,8 +2,8 @@
 pwd
 
 rush add \
-  -p @rushstack/heft \
-  -p @rushstack/heft-jest-plugin \
+  -p @rushstack/heft@latest \
+  -p @rushstack/heft-jest-plugin@latest \
   -p @types/node@16 \
   -p @typescript-eslint/eslint-plugin@latest \
   -p @typescript-eslint/parser@latest \
@@ -28,8 +28,10 @@ rush add \
 rush add \
   -p @types/eslint-config-prettier@latest \
   -p @types/eslint-plugin-prettier@latest \
-  -p @types/heft-jest \
+  -p @types/heft-jest@latest \
   -p @types/jest@latest \
   --exact --dev --all --make-consistent
 
 rush add --package tslib@latest --exact --all --make-consistent
+rush update -p
+pwd
