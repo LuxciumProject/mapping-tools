@@ -18,12 +18,14 @@ web_modules/
 .history
 .directory
 .DS_Store
-dist/
-out/
+# dist/
+# out/
 .tmp/
 temp/
 build/
 /*/*/lib/
+/*/*/out/
+/*/*/dist/
 # publish/
 # bin/
 
@@ -42,6 +44,10 @@ build/
 *.zwc
 *.env
 nohup.out
+env.txt
+listings.txt
+listing.txt
+**/*list.txt
 
 ## Logs
 *.log
@@ -68,7 +74,6 @@ _Pvt_Extensions
 _ReSharper*/
 _TeamCity*
 _UpgradeReport_Files/
-listings.txt
 
 # Heft temporary files
 .heft
@@ -197,5 +202,3 @@ fabric.properties
 
 # Android studio 3.1+ serialized cache file
 .idea/caches/build_file_checksums.ser
-services/redis-services/temp/ts_l9Fw4VUO.json
-env.txt
