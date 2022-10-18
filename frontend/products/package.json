@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "webpack",
     "build": "echo \"Error: no build task specified\" && exit 0"
   },
   "keywords": [],
@@ -34,9 +35,16 @@
     "@types/eslint-config-prettier": "6.11.0",
     "@types/eslint-plugin-prettier": "3.1.0",
     "@types/heft-jest": "1.0.3",
-    "@types/jest": "29.2.0"
+    "@types/jest": "29.2.0",
+    "@types/faker": "5.1.0"
   },
   "dependencies": {
-    "tslib": "2.4.0"
+    "tslib": "2.4.0",
+    "faker": "5.1.0",
+    "html-webpack-plugin": "5.5.0",
+    "webpack": "^5.74.0",
+    "webpack-cli": "4.10.0",
+    "webpack-dev-server": "4.7.4",
+    "esbuild": "~0.15.11"
   }
 }
