@@ -1,3 +1,6 @@
 [submodule "/home/luxcium/projects/monorepo-one/services/image-scout"]
 	path = /home/luxcium/projects/monorepo-one/services/image-scout
 	url = https://github.com/Luxcium/Redis-ImageScout.git
+[submodule "/home/luxcium/projects/monorepo-one/services/questrade-ts"]
+	path = /home/luxcium/projects/monorepo-one/services/questrade-ts
+	url = https://github.com/Luxcium/questrade-ts.git
