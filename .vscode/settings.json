@@ -1596,6 +1596,9 @@
   },
   "[nginx]": {
     "editor.defaultFormatter": "ahmadalli.vscode-nginx-conf"
+  },
+  "[dotenv]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format"
   }
   // #endregion: TODO TREE                                                      !
 }
