@@ -8,7 +8,9 @@ export namespace types {
 }
 
 export const tools = {
-  ScanDirs,
+  ScanDirs
 };
 
 export default tools;
+
+
