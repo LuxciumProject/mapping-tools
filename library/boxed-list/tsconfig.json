@@ -23,7 +23,7 @@
     /* Package names to be included without being referenced in a source file. */
     "types": [
       "node",
-      "jest"
+      "heft-jest"
     ]
   },
   "include": [

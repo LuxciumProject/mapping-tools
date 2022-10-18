@@ -23,14 +23,14 @@
     /* Package names to be included without being referenced in a source file. */
     "types": [
       "node",
-      "jest"
+      "heft-jest"
     ]
   },
   "include": [
     "./src"
   ],
   "exclude": [
-    "lib",
-    "**/jest.*.js"
+    // "lib",
+    // "**/jest.*.js"
   ]
 }

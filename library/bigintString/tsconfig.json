@@ -10,8 +10,8 @@
     "declarationDir": "./lib/typings",
     "outDir": "./lib/src",
     "tsBuildInfoFile": "./lib/ts-out-info.lib",
-    "emitDecoratorMetadata": false,
-    "experimentalDecorators": false,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
     /* JavaScript Support */
     "allowJs": true,
     "checkJs": false,
@@ -21,16 +21,36 @@
       "esnext"
     ],
     /* Package names to be included without being referenced in a source file. */
+    // "types": [
+    //   "node",
+    //   "heft-jest"
+    // ],
+    "forceConsistentCasingInFileNames": true,
+    "jsx": "react",
+    "declaration": true,
+    "sourceMap": true,
+    "declarationMap": true,
+    "inlineSources": true,
+    // "experimentalDecorators": true,
+    "strictNullChecks": true,
+    "noUnusedLocals": true,
     "types": [
-      "node",
-      "jest"
+      "heft-jest",
+      "node"
     ]
+    // ,
+    // "module": "commonjs",
+    // "target": "es2017",
+    // "lib": [
+    //   "es2017"
+    // ]
   },
   "include": [
     "./src"
   ],
   "exclude": [
     "lib",
+    // "**/*.test.ts",
     "**/jest.*.js"
   ]
 }
