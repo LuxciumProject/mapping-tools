@@ -32,7 +32,8 @@
     "react-scripts": "5.0.1",
     "source-map-explorer": "~2.5.3",
     "web-vitals": "~3.0.3",
-    "tslib": "2.4.0"
+    "tslib": "2.4.0",
+    "webpack": "^5.74.0"
   },
   "devDependencies": {
     "@types/eslint-config-prettier": "6.11.0",

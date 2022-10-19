@@ -4,7 +4,7 @@
   "description": "Stephen Grider's (Microfrontends with React, A Complete Developer's Guide)[https://www.udemy.com/course/microfrontend-course/?kw=Microfrontends+with+React%3A+A+Complete+Developer%27s+Guide]",
   "main": "index.js",
   "scripts": {
-    "start": "webpack",
+    "start": "webpack serve",
     "build": "echo \"Error: no build task specified\" && exit 0"
   },
   "keywords": [],
@@ -38,7 +38,11 @@
     "@types/jest": "29.2.0",
     "@types/faker": "5.1.0",
     "webpack-bundle-analyzer": "~4.6.1",
-    "@types/webpack-bundle-analyzer": "4.6.0"
+    "@types/webpack-bundle-analyzer": "4.6.0",
+    "html-webpack-plugin": "5.5.0",
+    "webpack": "^5.74.0",
+    "webpack-cli": "4.10.0",
+    "webpack-dev-server": "4.7.4"
   },
   "dependencies": {
     "tslib": "2.4.0",
