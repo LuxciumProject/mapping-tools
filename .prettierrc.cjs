@@ -21,15 +21,15 @@ void {
       files: [],
       options: {
         printWidth: 120,
-        proseWrap: 'never'
-      }
+        proseWrap: 'never',
+      },
     },
     {
       files: '*.js',
       options: {
-        parser: 'typescript'
-      }
-    }
+        parser: 'typescript',
+      },
+    },
   ],
   // overrides: [
   //   {
@@ -46,7 +46,7 @@ void {
   //     },
   //   },
   // ],
-  semi: true
+  semi: true,
 };
 
 // Documentation for this file: https://prettier.io/en/configuration.html
@@ -61,7 +61,7 @@ module.exports = {
   singleQuote: true,
   // For ES5, trailing commas cannot be used in function parameters; it is counterintuitive
   // to use them for arrays only
-  trailingComma: 'ES5',
+  trailingComma: 'es5',
   insertPragma: false,
   requirePragma: false,
   tabWidth: 2,
@@ -73,5 +73,5 @@ module.exports = {
   bracketSpacing: true,
   embeddedLanguageFormatting: 'auto',
   htmlWhitespaceSensitivity: 'css',
-  semi: true
+  semi: true,
 };

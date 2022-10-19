@@ -131,6 +131,7 @@ importers:
       ts-node: ~10.9.1
       tslib: 2.4.0
       typescript: ~4.8.4
+      webpack: ^5.74.0
     dependencies:
       '@nestjs/common': 9.1.4_yzt46al3aifnexifjjdb4dxxja
       '@nestjs/core': 9.1.4_os3bpar6zvfsuh6rrdsifrg6hi
@@ -139,6 +140,7 @@ importers:
       reflect-metadata: 0.1.13
       rxjs: 7.5.7
       tslib: 2.4.0
+      webpack: 5.74.0
     devDependencies:
       '@rushstack/heft': 0.48.6
       '@rushstack/heft-jest-plugin': 0.3.43_4eocicii6l3rivyi7q4eevm5m4
@@ -208,6 +210,7 @@ importers:
       tslib: 2.4.0
       typescript: ~4.8.4
       web-vitals: ~3.0.3
+      webpack: ^5.74.0
     dependencies:
       '@babel/core': 7.19.3
       '@babel/plugin-syntax-flow': 7.18.6_@babel+core@7.19.3
@@ -222,6 +225,7 @@ importers:
       source-map-explorer: 2.5.3
       tslib: 2.4.0
       web-vitals: 3.0.3
+      webpack: 5.74.0
     devDependencies:
       '@rushstack/heft': 0.48.6
       '@rushstack/heft-jest-plugin': 0.3.43_4eocicii6l3rivyi7q4eevm5m4
@@ -295,6 +299,7 @@ importers:
       tslib: 2.4.0
       typescript: ~4.8.4
       web-vitals: ~3.0.3
+      webpack: ^5.74.0
     dependencies:
       '@babel/core': 7.19.3
       '@babel/plugin-syntax-flow': 7.18.6_@babel+core@7.19.3
@@ -309,6 +314,7 @@ importers:
       source-map-explorer: 2.5.3
       tslib: 2.4.0
       web-vitals: 3.0.3
+      webpack: 5.74.0
     devDependencies:
       '@rushstack/heft': 0.48.6
       '@rushstack/heft-jest-plugin': 0.3.43_4eocicii6l3rivyi7q4eevm5m4
@@ -443,8 +449,10 @@ importers:
       ts-node: ~10.9.1
       tslib: 2.4.0
       typescript: ~4.8.4
+      webpack: ^5.74.0
     dependencies:
       tslib: 2.4.0
+      webpack: 5.74.0
     devDependencies:
       '@rushstack/eslint-config': 2.6.2_z4bbprzjrhnsfa24uvmcbu7f5q
       '@rushstack/heft': 0.48.6
@@ -519,9 +527,11 @@ importers:
       ts-node: ~10.9.1
       tslib: 2.4.0
       typescript: ~4.8.4
+      webpack: ^5.74.0
     dependencies:
       '@luxcium/restraining-zalgo': link:../restraining-zalgo
       tslib: 2.4.0
+      webpack: 5.74.0
     devDependencies:
       '@babel/core': 7.19.3
       '@babel/plugin-transform-typescript': 7.19.3_@babel+core@7.19.3
@@ -594,8 +604,10 @@ importers:
       ts-node: ~10.9.1
       tslib: 2.4.0
       typescript: ~4.8.4
+      webpack: ^5.74.0
     dependencies:
       tslib: 2.4.0
+      webpack: 5.74.0
     devDependencies:
       '@rushstack/heft': 0.48.6
       '@rushstack/heft-jest-plugin': 0.3.43_4eocicii6l3rivyi7q4eevm5m4
@@ -651,8 +663,10 @@ importers:
       ts-node: ~10.9.1
       tslib: 2.4.0
       typescript: ~4.8.4
+      webpack: ^5.74.0
     dependencies:
       tslib: 2.4.0
+      webpack: 5.74.0
     devDependencies:
       '@rushstack/heft': 0.48.6
       '@rushstack/heft-jest-plugin': 0.3.43_4eocicii6l3rivyi7q4eevm5m4
@@ -708,8 +722,10 @@ importers:
       ts-node: ~10.9.1
       tslib: 2.4.0
       typescript: ~4.8.4
+      webpack: ^5.74.0
     dependencies:
       tslib: 2.4.0
+      webpack: 5.74.0
     devDependencies:
       '@rushstack/heft': 0.48.6
       '@rushstack/heft-jest-plugin': 0.3.43_4eocicii6l3rivyi7q4eevm5m4
@@ -768,11 +784,13 @@ importers:
       ts-node: ~10.9.1
       tslib: 2.4.0
       typescript: ~4.8.4
+      webpack: ^5.74.0
     dependencies:
       '@luxcium/bigintstring': link:../../library/bigintString
       sharp: 0.31.1
       sharp-phash: 2.0.0_sharp@0.31.1
       tslib: 2.4.0
+      webpack: 5.74.0
     devDependencies:
       '@rushstack/heft': 0.48.6
       '@rushstack/heft-jest-plugin': 0.3.43_4eocicii6l3rivyi7q4eevm5m4
@@ -829,9 +847,11 @@ importers:
       ts-node: ~10.9.1
       tslib: 2.4.0
       typescript: ~4.8.4
+      webpack: ^5.74.0
     dependencies:
       redis: 4.3.1
       tslib: 2.4.0
+      webpack: 5.74.0
     devDependencies:
       '@rushstack/heft': 0.48.6
       '@rushstack/heft-jest-plugin': 0.3.43_4eocicii6l3rivyi7q4eevm5m4
@@ -888,9 +908,11 @@ importers:
       ts-node: ~10.9.1
       tslib: 2.4.0
       typescript: ~4.8.4
+      webpack: ^5.74.0
     dependencies:
       '@luxcium/redis-services': link:../redis-services
       tslib: 2.4.0
+      webpack: 5.74.0
     devDependencies:
       '@rushstack/heft': 0.48.6
       '@rushstack/heft-jest-plugin': 0.3.43_4eocicii6l3rivyi7q4eevm5m4
@@ -946,8 +968,10 @@ importers:
       ts-node: ~10.9.1
       tslib: 2.4.0
       typescript: ~4.8.4
+      webpack: ^5.74.0
     dependencies:
       tslib: 2.4.0
+      webpack: 5.74.0
     devDependencies:
       '@rushstack/heft': 0.48.6
       '@rushstack/heft-jest-plugin': 0.3.43_4eocicii6l3rivyi7q4eevm5m4

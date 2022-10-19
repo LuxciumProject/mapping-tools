@@ -51,6 +51,7 @@
     //   /**
     //    * (Required) The kind of built-in operation that should be performed.
     //    * The "copyFiles" action copies files that match the specified patterns.
+    //    * ["deleteGlobs", "copyFiles", "runScript"]
     //    */
     //   "actionKind": "copyFiles",
     //
