@@ -1,9 +1,17 @@
+const HtmlWebpackPluggin = require('html-webpack-plugin');
+
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
-  plugins: [
-    new BundleAnalyzerPlugin()
-  ],
+  mode: 'development', // or production
+  plugins: [new BundleAnalyzerPlugin()],
+  devServer: {
+    port: 8081,
+  },
 
-  mode: 'development' // or production
+  plugins: [
+    new HtmlWebpackPluggin({
+      template: './public/index.html',
+    }),
+  ],
 };
