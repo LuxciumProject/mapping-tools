@@ -371,6 +371,13 @@
   */
   "projects": [
     {
+      "packageName": "federal-container",
+      "projectFolder": "frontend/federal-container",
+      "tags": [
+        "frontend"
+      ]
+    },
+    {
       "packageName": "products",
       "projectFolder": "frontend/products",
       "tags": [
