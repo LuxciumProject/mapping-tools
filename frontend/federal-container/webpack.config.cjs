@@ -1,5 +1,5 @@
 const HtmlWebpackPluggin = require('html-webpack-plugin');
-const ModuleFederationPlugin = require('webpack/lib/container/Module/FederationPlugin');
+const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin');
 
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
