@@ -7,24 +7,32 @@
   //   },
   "presentation": {
     "clear": true,
-    "close": false,
-    "echo": true,
+    "close": true,
+    "echo": false,
     "focus": false,
-    "group": "tasks",
     "panel": "shared",
     "reveal": "silent",
     "revealProblems": "onProblem",
     "showReuseMessage": false
   },
+
+  /*
+phash-compute/
+phash-convertor/
+questrade-ts/
+redis-services/
+service-one/
+service-two/
+/home/luxcium/projects/monorepo-one/services
+
+  */
   "tasks": [
     {
-      "label": "Start_6383",
+      "label": "Start/redis-6383",
       "type": "shell",
       "detail": "Start REDIS container on port 6383 this project",
       "command": "bash",
-      "args": [
-        "${workspaceFolder}/scripts/start_6383.sh"
-      ],
+      "args": ["${workspaceFolder}/scripts/start_6383.sh"],
       "runOptions": {
         "reevaluateOnRerun": true,
         "instanceLimit": 1,
@@ -34,6 +42,261 @@
         "panel": "dedicated",
         "group": "MAIN"
       }
+    },
+    {
+      "label": "build-all",
+      "detail": "Build each subprojects using TSC and problemMatcher",
+      "runOptions": {
+        "reevaluateOnRerun": true,
+        "instanceLimit": 1,
+        "runOn": "folderOpen"
+      },
+      "icon": {
+        "id": "server-process",
+        "color": "terminal.ansiYellow"
+      },
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "dependsOrder": "sequence",
+      "dependsOn": ["Build/all/library", "Build/all/services"]
+    },
+    {
+      "label": "Build/all/services",
+      "dependsOrder": "parallel",
+      "dependsOn": [
+        "Build/services/phash-compute",
+        "Build/services/phash-convertor",
+        // "Build/services/questrade-ts",
+        "Build/services/redis-services",
+        "Build/services/service-one",
+        "Build/services/service-two"
+      ]
+    },
+    {
+      "label": "Build/services/phash-compute",
+      "detail": "Build task for phash-compute",
+      "type": "shell",
+      "command": "npx",
+      "isBackground": false,
+      "problemMatcher": {
+        "base": "$tsc",
+        "applyTo": "allDocuments"
+      },
+      "args": [
+        "tsc",
+        "-b",
+        "${workspaceFolder}/services/phash-compute/tsconfig.json",
+        "--generateCpuProfile",
+        "${workspaceFolder}/common/performance/phash-compute.cpuprofile",
+        "--verbose"
+      ]
+    },
+    {
+      "label": "Build/services/phash-convertor",
+      "detail": "Build task for phash-convertor",
+      "type": "shell",
+      "command": "npx",
+      "isBackground": false,
+      "problemMatcher": {
+        "base": "$tsc",
+        "applyTo": "allDocuments"
+      },
+      "args": [
+        "tsc",
+        "-b",
+        "${workspaceFolder}/services/phash-convertor/tsconfig.json",
+        "--generateCpuProfile",
+        "${workspaceFolder}/common/performance/phash-convertor.cpuprofile",
+        "--verbose"
+      ]
+    },
+    {
+      "label": "Build/services/questrade-ts",
+      "detail": "Build task for questrade-ts",
+      "type": "shell",
+      "command": "npx",
+      "isBackground": false,
+      "problemMatcher": {
+        "base": "$tsc",
+        "applyTo": "allDocuments"
+      },
+      "args": [
+        "tsc",
+        "-b",
+        "${workspaceFolder}/services/questrade-ts/tsconfig.json",
+        "--generateCpuProfile",
+        "${workspaceFolder}/common/performance/questrade-ts.cpuprofile",
+        "--verbose"
+      ]
+    },
+    {
+      "label": "Build/services/redis-services",
+      "detail": "Build task for redis-services",
+      "type": "shell",
+      "command": "npx",
+      "isBackground": false,
+      "problemMatcher": {
+        "base": "$tsc",
+        "applyTo": "allDocuments"
+      },
+      "args": [
+        "tsc",
+        "-b",
+        "${workspaceFolder}/services/redis-services/tsconfig.json",
+        "--generateCpuProfile",
+        "${workspaceFolder}/common/performance/redis-services.cpuprofile",
+        "--verbose"
+      ]
+    },
+    {
+      "label": "Build/services/service-one",
+      "detail": "Build task for service-one",
+      "type": "shell",
+      "command": "npx",
+      "isBackground": false,
+      "problemMatcher": {
+        "base": "$tsc",
+        "applyTo": "allDocuments"
+      },
+      "args": [
+        "tsc",
+        "-b",
+        "${workspaceFolder}/services/service-one/tsconfig.json",
+        "--generateCpuProfile",
+        "${workspaceFolder}/common/performance/service-one.cpuprofile",
+        "--verbose"
+      ]
+    },
+    {
+      "label": "Build/services/service-two",
+      "detail": "Build task for service-two",
+      "type": "shell",
+      "command": "npx",
+      "isBackground": false,
+      "problemMatcher": {
+        "base": "$tsc",
+        "applyTo": "allDocuments"
+      },
+      "args": [
+        "tsc",
+        "-b",
+        "${workspaceFolder}/services/service-two/tsconfig.json",
+        "--generateCpuProfile",
+        "${workspaceFolder}/common/performance/service-two.cpuprofile",
+        "--verbose"
+      ]
+    },
+    {
+      "label": "Build/all/library",
+      "dependsOrder": "parallel",
+      "dependsOn": [
+        "Build/library/bigintString",
+        "Build/library/boxed-list",
+        "Build/library/human-size",
+        "Build/library/restraining-zalgo",
+        "Build/library/tools"
+      ]
+    },
+    {
+      "label": "Build/library/bigintString",
+      "detail": "Build task for bigintString",
+      "type": "shell",
+      "command": "npx",
+      "isBackground": false,
+      "problemMatcher": {
+        "base": "$tsc",
+        "applyTo": "allDocuments"
+      },
+      "args": [
+        "tsc",
+        "-b",
+        "${workspaceFolder}/library/bigintString/tsconfig.json",
+        "--generateCpuProfile",
+        "${workspaceFolder}/common/performance/bigintString.cpuprofile",
+        "--verbose"
+      ]
+    },
+
+    {
+      "label": "Build/library/boxed-list",
+      "detail": "Build task for boxed-list",
+      "type": "shell",
+      "command": "npx",
+      "isBackground": false,
+      "problemMatcher": {
+        "base": "$tsc",
+        "applyTo": "allDocuments"
+      },
+      "args": [
+        "tsc",
+        "-b",
+        "${workspaceFolder}/library/boxed-list/tsconfig.json",
+        "--generateCpuProfile",
+        "${workspaceFolder}/common/performance/boxed-list.cpuprofile",
+        "--verbose"
+      ]
+    },
+
+    {
+      "label": "Build/library/human-size",
+      "detail": "Build task for human-size",
+      "type": "shell",
+      "command": "npx",
+      "isBackground": false,
+      "problemMatcher": {
+        "base": "$tsc",
+        "applyTo": "allDocuments"
+      },
+      "args": [
+        "tsc",
+        "-b",
+        "${workspaceFolder}/library/human-size/tsconfig.json",
+        "--generateCpuProfile",
+        "${workspaceFolder}/common/performance/human-size.cpuprofile",
+        "--verbose"
+      ]
+    },
+
+    {
+      "label": "Build/library/restraining-zalgo",
+      "detail": "Build task for restraining-zalgo",
+      "type": "shell",
+      "command": "npx",
+      "isBackground": false,
+      "problemMatcher": {
+        "base": "$tsc",
+        "applyTo": "allDocuments"
+      },
+      "args": [
+        "tsc",
+        "-b",
+        "${workspaceFolder}/library/restraining-zalgo/tsconfig.json",
+        "--generateCpuProfile",
+        "${workspaceFolder}/common/performance/restraining-zalgo.cpuprofile",
+        "--verbose"
+      ]
+    },
+
+    {
+      "label": "Build/library/tools",
+      "detail": "Build task for tools",
+      "type": "shell",
+      "command": "npx",
+      "isBackground": false,
+      "problemMatcher": {
+        "base": "$tsc",
+        "applyTo": "allDocuments"
+      },
+      "args": [
+        "tsc",
+        "-b",
+        "${workspaceFolder}/library/tools/tsconfig.json",
+        "--generateCpuProfile",
+        "${workspaceFolder}/common/performance/tools.cpuprofile",
+        "--verbose"
+      ]
     }
   ]
 }
