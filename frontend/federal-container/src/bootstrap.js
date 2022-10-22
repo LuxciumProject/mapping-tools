@@ -1,2 +1,2 @@
 import 'products/ProductsIndex';
-console.log('container');
+console.log('From Container !!!');
