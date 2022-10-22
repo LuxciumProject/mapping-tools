@@ -6,7 +6,7 @@ import { pHashGetLookUp } from './pHashGetLookUp';
 import { redisSetK } from './redisSetK';
 
 export const debug = false;
-
+debug && console.error('debug on in ', __filename);
 export function getCachedPhashString_core(R: RedisClientType | null = null) {
   return async (filePath: string) => {
     const pathObj = {
