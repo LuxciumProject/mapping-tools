@@ -1,4 +1,4 @@
-import { createRedisClient } from '.';
+import { createRedisClient, RedisClientType } from '.';
 
 
 const REDIS_DEFAULT_PORT = 6379;
@@ -22,7 +22,7 @@ export async function rConnect(
   port: number | null = REDIS_DEFAULT_PORT,
   dbNumber: number | null = 0,
   host: string | null = '0.0.0.0'
-): Promise<any> {
+): Promise<RedisClientType> {
   /** *REDIS CLIENT* */
 
   const R = createRedisClient({
