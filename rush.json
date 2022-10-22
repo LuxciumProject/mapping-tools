@@ -368,6 +368,11 @@
       "tags": ["frontend"]
     },
     {
+      "packageName": "cart",
+      "projectFolder": "frontend/cart",
+      "tags": ["frontend"]
+    },
+    {
       "packageName": "products",
       "projectFolder": "frontend/products",
       "tags": ["frontend"]
