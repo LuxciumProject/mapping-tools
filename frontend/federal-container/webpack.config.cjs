@@ -5,6 +5,7 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPl
 
 module.exports = {
   mode: 'development', // or production
+
   plugins: [new BundleAnalyzerPlugin()],
   devServer: {
     port: 8080,
@@ -13,7 +14,10 @@ module.exports = {
   plugins: [
     new ModuleFederationPlugin({
       name: 'container',
-      remotes: { products: 'products@http://localhost:8081/remoteEntry.js' },
+      remotes: {
+        products: 'products@http://localhost:8081/remoteEntry.js',
+        cart: 'cart@http://localhost:8082/remoteEntry.js',
+      },
     }),
     new HtmlWebpackPluggin({
       template: './public/index.html',
