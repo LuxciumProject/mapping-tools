@@ -46,7 +46,7 @@
     "readme.md": false,
     "rush.json": false,
     "scripts/": false,
-    "services/": false,
+    "services/": false
   },
   "search.exclude": {
     "docs": true,
@@ -58,10 +58,10 @@
   |-····―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――··-|
   */
   // #region: FORMAT BEHAVIOUR                                       !
-  "editor.formatOnPaste": true,
+  "editor.formatOnPaste": false,
   "editor.formatOnSave": true,
   "editor.formatOnSaveMode": "file",
-  "editor.formatOnType": true,
+  "editor.formatOnType": false,
   "editor.suggest.showFiles": true,
   "editor.suggest.showFolders": true,
   "editor.tabSize": 2,
@@ -987,7 +987,7 @@
     // "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
   "[jsonc]": {
-    "editor.defaultFormatter": "vscode.json-language-features",
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.fontFamily": "'VictorMono Nerd Font', 'hurmit Nerd Font mono','ProFontWindows Nerd Font mono','meslolgl Nerd Font mono','Iosevka Nerd Font Mono','SauceCodePro Nerd Font','ProFontIIx Nerd Font',mono"
     // "editor.fontSize": 22,
     // "editor.fontWeight": "500",
