@@ -1,14 +1,29 @@
 import { faker } from '@faker-js/faker';
 
-const carText = `<div>${faker.random.numeric(4)} items in your cart!</div>`;
-// let products = '';
+export const mount = (/** @type {Element} */ element) => {
+  const carText = `<div>${faker.random.numeric(4)} items in your cart!</div>`;
 
-// for (let i = 0; i < 10; i++) {
-//   const name = faker.commerce.productName();
-//   products += `<div>${name}</div>`;
-// }
-const devCart = document.querySelector('#dev-cart');
+  element ? (element.innerHTML = carText) : void null;
+  return element;
+};
 
-devCart ? (devCart.innerHTML = carText) : void null;
+/**
+ * Will be used in development only in isolation mode to render
+ * into the #isolation-dev-cart element
+ */
+function automount(/** @type {'#isolation-dev-cart'} */ selector) {
+  const devProductsElement = document.querySelector(selector);
+  console.log('From Products Page (before mount)!!!');
+  if (devProductsElement) {
+    mount(devProductsElement);
+    return console.log('From Products Page (after mount)!!!');
+  }
+  return console.error(`Did not find element ${selector}`);
+}
 
-console.log('From Cart Page !!!');
+if (process.env['NODE_ENV'] === 'development') {
+  console.log('From Cart Page !!!');
+  automount('#isolation-dev-cart');
+}
+
+export default mount;
