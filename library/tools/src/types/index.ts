@@ -1,1 +1,1 @@
-export {};
+export type { Mapper } from './scan-dir';
