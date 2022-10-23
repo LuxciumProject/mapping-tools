@@ -13,17 +13,34 @@ export const mount = (/** @type {Element} */ element) => {
  */
 function automount(/** @type {'#isolation-dev-cart'} */ selector) {
   const devProductsElement = document.querySelector(selector);
-  console.log('From Products Page (before mount)!!!');
   if (devProductsElement) {
+    console.log('From Cart Page (before mount)!!!');
     mount(devProductsElement);
-    return console.log('From Products Page (after mount)!!!');
+    return console.log('From Cart Page (after mount)!!!');
   }
-  return console.error(`Did not find element ${selector}`);
+  return console.error(`Will not automount: Did not find element ${selector}`);
 }
 
+// if (process.env['NODE_ENV'] === 'development') {
+//   automount('#isolation-dev-cart');
+// }
+
+// Context/Situation #1
+// We are running this file in development in isolation
+// We are using our local index.html file
+// Which DEFNITELY has an element with an id of 'isolation-dev-cart'
+// We want to immediately render our app into that element
 if (process.env['NODE_ENV'] === 'development') {
+  // Assuming our container doesnt have an element
+  // with id '#isolation-dev-cart'....
   console.log('From Cart Page !!!');
   automount('#isolation-dev-cart');
+  // We are probably running in isolation
 }
 
+// Context/Situation #2
+// We are running this file in develpment or production
+// through the CONTAINER app
+// NO GUARANTEE that an element with an id of 'isolation-dev-cart' exists
+// WE DO NOT WANT try to immediately render the app
 export default mount;
