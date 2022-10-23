@@ -383,8 +383,8 @@
       "tags": ["frontend"]
     },
     {
-      "packageName": "home-react-two",
-      "projectFolder": "frontend/home2",
+      "packageName": "old-home-backup",
+      "projectFolder": "frontend/home-bak",
       "tags": ["frontend"]
     },
     {

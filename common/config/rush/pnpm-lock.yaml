@@ -402,7 +402,7 @@ importers:
       ts-node: 10.9.1_gy6k6bedrshoc5b4zgt3uehy7q
       typescript: 4.8.4
 
-  ../../frontend/home2:
+  ../../frontend/home-bak:
     specifiers:
       '@babel/core': ~7.19.3
       '@babel/plugin-syntax-flow': ~7.18.6
