@@ -1,5 +1,5 @@
 {
-  "name": "@luxcium/phash-convertor",
+  "name": "@luxcium/scan-dirs",
   "version": "1.0.0",
   "description": "internal project",
   "main": "out/src/index.js",
@@ -39,10 +39,7 @@
     "@types/jest": "29.2.0"
   },
   "dependencies": {
-    "@luxcium/bigintstring": "workspace:*",
-    "sharp-phash": "~2.0.0",
-    "sharp": "~0.31.1",
     "tslib": "2.4.0",
-    "webpack": "^5.74.0"
+    "@luxcium/tools": "workspace:*"
   }
 }

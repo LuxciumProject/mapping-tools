@@ -397,14 +397,15 @@
       "projectFolder": "backend/scratch",
       "tags": ["backend"]
     },
-    {
-      "packageName": "@luxcium/phash-convertor",
-      "projectFolder": "services/phash-convertor",
-      "tags": ["services"]
-    },
+
     {
       "packageName": "@luxcium/phash-compute",
       "projectFolder": "services/phash-compute",
+      "tags": ["services"]
+    },
+    {
+      "packageName": "@luxcium/scan-dirs",
+      "projectFolder": "services/scan-directories",
       "tags": ["services"]
     },
     {

@@ -28,17 +28,19 @@ service-two/
   */
   "tasks": [
     {
-      "label": "Start/redis-6383",
+      "label": "Build/all/start/redis-6383",
       "type": "shell",
       "detail": "Start REDIS container on port 6383 this project",
       "command": "bash",
       "args": ["${workspaceFolder}/scripts/start_6383.sh"],
+      "isBackground": true,
       "runOptions": {
         "reevaluateOnRerun": true,
         "instanceLimit": 1,
         "runOn": "folderOpen"
       },
       "presentation": {
+        "revealProblems": "onProblem",
         "panel": "dedicated",
         "group": "MAIN"
       }
@@ -67,7 +69,7 @@ service-two/
       "dependsOrder": "parallel",
       "dependsOn": [
         "Build/services/phash-compute",
-        "Build/services/phash-convertor",
+        "Build/services/scan-directories",
         // "Build/services/questrade-ts",
         "Build/services/redis-services",
         "Build/services/service-one",
@@ -94,23 +96,28 @@ service-two/
       ]
     },
     {
-      "label": "Build/services/phash-convertor",
-      "detail": "Build task for phash-convertor",
+      "label": "Build/services/scan-directories",
+      "detail": "Build task for scan-directories",
       "type": "shell",
       "command": "npx",
-      "isBackground": false,
-      "problemMatcher": {
-        "base": "$tsc",
-        "applyTo": "allDocuments"
-      },
       "args": [
         "tsc",
         "-b",
-        "${workspaceFolder}/services/phash-convertor/tsconfig.json",
+        "${workspaceFolder}/services/scan-directories/tsconfig.json",
         "--generateCpuProfile",
-        "${workspaceFolder}/common/performance/phash-convertor.cpuprofile",
+        "${workspaceFolder}/common/performance/scan-directories.cpuprofile",
         "--verbose"
-      ]
+      ],
+      "isBackground": false,
+      "presentation": {
+        "revealProblems": "onProblem",
+        "panel": "dedicated",
+        "group": "MAIN"
+      },
+      "problemMatcher": {
+        "base": "$tsc",
+        "applyTo": "allDocuments"
+      }
     },
     {
       "label": "Build/services/questrade-ts",

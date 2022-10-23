@@ -48,6 +48,7 @@ env.txt
 listings.txt
 listing.txt
 **/*list.txt
+*.cpuprofile
 
 ## Logs
 *.log
@@ -202,4 +203,3 @@ fabric.properties
 
 # Android studio 3.1+ serialized cache file
 .idea/caches/build_file_checksums.ser
-common/performance

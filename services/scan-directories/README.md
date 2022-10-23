@@ -1,4 +1,4 @@
-# @luxcium/phash-convertor
+# @luxcium/scan-dirs
 
 ###### MIT © 2022 Luxcium (Benjamin Vincent)
 
