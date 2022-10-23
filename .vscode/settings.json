@@ -1573,7 +1573,6 @@
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "workbench.editor.titleScrollbarSizing": "large",
   "task.allowAutomaticTasks": "on",
   "[shellscript]": {
     "editor.defaultFormatter": "foxundermoon.shell-format"
