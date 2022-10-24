@@ -45,7 +45,8 @@
     "webpack": "^5.74.0",
     "tslib": "2.4.0",
     "@luxcium/redis-services": "workspace:*",
-    "@luxcium/phash-compute": "workspace:*"
+    "@luxcium/phash-compute": "workspace:*",
+    "@luxcium/scan-dirs": "workspace:*"
   },
   "devDependencies": {
     "@nestjs/cli": "^9.0.0",
