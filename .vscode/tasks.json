@@ -111,6 +111,24 @@
       },
     },
     {
+      "label": "Start/frontend/home",
+      "detail": "Starts frontend/home.",
+      "type": "shell",
+      "options": {
+        "cwd": "${workspaceFolder}/frontend/home"
+      },
+      "command": "npm",
+      "args": [
+        "start"
+      ],
+      "isBackground": true,
+      "runOptions": {
+        "reevaluateOnRerun": true,
+        "instanceLimit": 1,
+        "runOn": "default"
+      },
+    },
+    {
       "label": "build-all",
       "detail": "Build each subprojects using TSC and problemMatcher",
       "runOptions": {
