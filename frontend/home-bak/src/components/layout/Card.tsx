@@ -1,6 +1,6 @@
 import React from 'react';
 
-import css from './Card.module.scss';
+import css from './Card.module.css';
 export const Card = (props: any) => {
   return (
     <div className={`${css.card}  ${props.className}`}>

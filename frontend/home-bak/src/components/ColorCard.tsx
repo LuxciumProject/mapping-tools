@@ -1,5 +1,5 @@
 import React from 'react';
-import css from './ColorCard.module.css';
+import css from './ColorCard.module.scss';
 export const ColorCard = (props: any) => {
   return (
     <div className={css.card}>
