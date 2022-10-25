@@ -46,7 +46,7 @@
     "@types/jest": "29.2.0"
   },
   "dependencies": {
-    "tslib": "2.4.0",
+    "tslib": "~2.4.0",
     "webpack": "^5.74.0"
   }
 }
