@@ -28,7 +28,7 @@
     /* Module Resolution Interop Constraints */
     "isolatedModules": true,
     "esModuleInterop": true,
-    "preserveSymlinks": true,
+    "preserveSymlinks": false,
     "resolveJsonModule": true,
     "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,

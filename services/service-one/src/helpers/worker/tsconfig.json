@@ -1,10 +1,16 @@
 {
   // "extends": "../tsconfig.json",
-  "exclude": ["*"],
+  "exclude": [
+    "*"
+  ],
   // "exclude": ["node_modules", "out", "*"],
   "include": [],
-  "files": ["./rpc-worker.js", "./worker.js", "./server.js", "./actor.js"],
-
+  "files": [
+    "./rpc-worker.js",
+    "./worker.js",
+    "./server.js",
+    "./actor.js"
+  ],
   "compilerOptions": {
     /* Module Resolution Interop Constraints */
     "target": "ESNext",
@@ -16,11 +22,14 @@
     "checkJs": false,
     "maxNodeModuleJsDepth": 1,
     "disableSizeLimit": false,
-
     /* Specify a set of bundled library declaration files that describe the target runtime environment. */
-    "lib": ["esnext"],
+    "lib": [
+      "esnext"
+    ],
     /* Specify type package names to be included without being referenced in a source file. */
-    "types": ["node"],
+    "types": [
+      "node"
+    ],
     /* Emit Options */
     "emitBOM": false,
     // "rootDir": ".",
@@ -40,7 +49,6 @@
     "inlineSources": false,
     "sourceMap": false,
     "emitDeclarationOnly": false,
-
     //     "declaration":"",
     // "declarationDir":"",
     // "declarationMap":"",
@@ -61,7 +69,6 @@
     // "removeComments":"",
     // "sourceMap":"",
     // "stripInternal":"",
-
     "incremental": true,
     "pretty": true,
     /* Vebosity */
@@ -73,7 +80,7 @@
     "listFilesOnly": false,
     //
     "isolatedModules": true,
-    // "preserveSymlinks": true,
+    // "preserveSymlinks": false,
     // "resolveJsonModule": true,
     // "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
@@ -88,7 +95,6 @@
     // "stripInternal": false,
     // "preserveWatchOutput": false,
     // "watch": true,
-
     /* Projects */
     // "composite": true,
     // "disableSourceOfProjectReferenceRedirect": false,
@@ -98,7 +104,6 @@
     "noErrorTruncation": true,
     // "useDefineForClassFields": true,
     // "assumeChangesOnlyAffectDirectDependencies": false,
-
     // /* Type Checking */
     // /* ALWAYS FALSE NEVER ALLOW-UNUSED-LABELS & ALLOW-UNREACHABLE-CODE FALSE!  */
     // /* ALWAYS FALSE                                               ALWAYS FALSE */
