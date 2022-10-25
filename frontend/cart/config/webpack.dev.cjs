@@ -23,7 +23,7 @@ const devConfig = {
       exposes: {
         './CartShow': './src/bootstrap',
       },
-      shared: ['@faker-js/faker'],
+      shared: ['@luxcium/faker'],
     }),
     new HtmlWebpackPluggin({
       template: './public/index.html',

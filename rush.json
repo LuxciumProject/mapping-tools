@@ -226,7 +226,9 @@
      * IMPORTANT: Because these are regular expressions encoded as JSON string literals,
      * RegExp escapes need two backslashes, and ordinary periods should be "\\.".
      */
-    "allowedEmailRegExps": ["[^@]+@users\\.noreply\\.github\\.com"],
+    "allowedEmailRegExps": [
+      "[^@]+@users\\.noreply\\.github\\.com"
+    ],
     /**
      * When Rush reports that the address is malformed, the notice can include an example
      * of a recommended email.  Make sure it conforms to one of the allowedEmailRegExps
@@ -352,7 +354,13 @@
    * separated by hyphens or slashes, where a word may contain lowercase ASCII letters, digits,
    * ".", and "@" characters.
    */
-  "allowedProjectTags": ["backend", "frontend", "library", "services", "tools"],
+  "allowedProjectTags": [
+    "backend",
+    "frontend",
+    "library",
+    "services",
+    "tools"
+  ],
   /**
    * (Required) This is the inventory of projects to be managed by Rush.
    *
@@ -365,93 +373,136 @@
     {
       "packageName": "federal-container",
       "projectFolder": "frontend/federal-container",
-      "tags": ["frontend"]
+      "tags": [
+        "frontend"
+      ]
     },
     {
       "packageName": "cart",
       "projectFolder": "frontend/cart",
-      "tags": ["frontend"]
+      "tags": [
+        "frontend"
+      ]
     },
     {
       "packageName": "products",
       "projectFolder": "frontend/products",
-      "tags": ["frontend"]
+      "tags": [
+        "frontend"
+      ]
     },
     {
       "packageName": "home-react",
       "projectFolder": "frontend/home",
-      "tags": ["frontend"]
+      "tags": [
+        "frontend"
+      ]
     },
     {
       "packageName": "old-home-backup",
       "projectFolder": "frontend/home-bak",
-      "tags": ["frontend"]
+      "tags": [
+        "frontend"
+      ]
     },
     {
       "packageName": "api-server",
       "projectFolder": "backend/api",
-      "tags": ["backend"]
+      "tags": [
+        "backend"
+      ]
     },
     {
       "packageName": "scratch-server",
       "projectFolder": "backend/scratch",
-      "tags": ["backend"]
+      "tags": [
+        "backend"
+      ]
     },
-
     {
       "packageName": "@luxcium/phash-compute",
       "projectFolder": "services/phash-compute",
-      "tags": ["services"]
+      "tags": [
+        "services"
+      ]
     },
     {
       "packageName": "@luxcium/scan-dirs",
       "projectFolder": "services/scan-directories",
-      "tags": ["services"]
+      "tags": [
+        "services"
+      ]
     },
     {
       "packageName": "@luxcium/redis-services",
       "projectFolder": "services/redis-services",
-      "tags": ["services"]
+      "tags": [
+        "services"
+      ]
     },
     {
       "packageName": "questrade-ts",
       "projectFolder": "services/questrade-ts",
-      "tags": ["services"]
+      "tags": [
+        "services"
+      ]
     },
     {
       "packageName": "service-one",
       "projectFolder": "services/service-one",
-      "tags": ["services"]
+      "tags": [
+        "services"
+      ]
     },
     {
       "packageName": "service-two",
       "projectFolder": "services/service-two",
-      "tags": ["services"]
+      "tags": [
+        "services"
+      ]
     },
     {
       "packageName": "@luxcium/bigintstring",
       "projectFolder": "library/bigintString",
-      "tags": ["library"]
+      "tags": [
+        "library"
+      ]
+    },
+    {
+      "packageName": "@luxcium/faker",
+      "projectFolder": "library/faker",
+      "tags": [
+        "library"
+      ]
     },
     {
       "packageName": "@luxcium/boxed-list",
       "projectFolder": "library/boxed-list",
-      "tags": ["library"]
+      "tags": [
+        "library"
+      ]
     },
     {
       "packageName": "@luxcium/restraining-zalgo",
       "projectFolder": "library/restraining-zalgo",
-      "tags": ["library"]
+      "tags": [
+        "library"
+      ]
     },
     {
       "packageName": "@luxcium/human-size",
       "projectFolder": "library/human-size",
-      "tags": ["library"]
+      "tags": [
+        "library"
+      ]
     },
     {
       "packageName": "@luxcium/tools",
       "projectFolder": "library/tools",
-      "tags": ["library", "tools"]
+      "tags": [
+        "library",
+        "tools"
+      ]
     }
     // {
     //   /**

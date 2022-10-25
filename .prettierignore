@@ -20,7 +20,9 @@ lib
 out
 # Prettier reformats code blocks inside Markdown, which affects rendered output
 *.md
-
+coverage/
+test/scripts/apidoc/temp/
+CHANGELOG_old.md
 #-------------------------------------------------------------------------------------------------------------------
 # Keep this section in sync with .gitignore
 #-------------------------------------------------------------------------------------------------------------------
