@@ -469,13 +469,6 @@
       ]
     },
     {
-      "packageName": "@luxcium/faker",
-      "projectFolder": "library/faker",
-      "tags": [
-        "library"
-      ]
-    },
-    {
       "packageName": "@luxcium/boxed-list",
       "projectFolder": "library/boxed-list",
       "tags": [

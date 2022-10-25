@@ -20,7 +20,7 @@ const devConfig = {
       exposes: {
         './ProductsIndex': './src/bootstrap',
       },
-      shared: ['@luxcium/faker'],
+      shared: ['@faker-js/faker'],
     }),
     new HtmlWebpackPluggin({
       template: './public/index.html',
