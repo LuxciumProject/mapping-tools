@@ -1,16 +1,22 @@
 const HtmlWebpackPluggin = require('html-webpack-plugin');
 const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin');
+// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const { merge } = require('webpack-merge');
+const commonConfig = require('./webpack.common.cjs');
 
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
-
-module.exports = {
-  mode: 'development', // or production
-
+const devConfig = {
+  mode: 'development', // 'development' or 'production',
+  optimization: {
+    usedExports: true,
+  },
   devServer: {
     port: 8080,
+    historyApiFallback: {
+      index: 'index.html',
+    },
   },
-
   plugins: [
+    // new BundleAnalyzerPlugin(),
     new ModuleFederationPlugin({
       name: 'container',
       remotes: {
@@ -23,3 +29,5 @@ module.exports = {
     }),
   ],
 };
+
+module.exports = merge(commonConfig, devConfig);

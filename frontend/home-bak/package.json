@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "analyze": "source-map-explorer 'build/static/js/*.js'",
-    "start": "PORT=3007 react-scripts start",
+    "start": "PORT=3002 react-scripts start",
     "docker:build": "docker build --force-rm --tag app-home:latest .",
     "docker:run": "docker run --network networkOne -l 'container:home-react' --name home-react -d --rm -p 5000:80 app-home:latest",
     "docker:run:local": "docker run --network networkOne -l 'local:home-react' --name home-react -d --cpus 4 --rm -p 5000:80 app-home:latest",
@@ -63,7 +63,8 @@
     "@rushstack/heft-jest-plugin": "~0.3.43",
     "@types/heft-jest": "1.0.3",
     "jest": "~29.2.1",
-    "@types/jest": "29.2.0"
+    "@types/jest": "29.2.0",
+    "sass": "~1.55.0"
   },
   "browserslist": {
     "production": [

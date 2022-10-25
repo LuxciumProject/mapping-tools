@@ -3,7 +3,7 @@
   "compilerOptions": {
     /* Emit Options */
     "target": "ESNext",
-    "module": "CommonJS",
+    "module": "ESNext",
     "moduleResolution": "node",
     "rootDir": "./src",
     "declarationDir": "./lib/typings",

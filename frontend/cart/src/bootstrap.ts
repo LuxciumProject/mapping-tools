@@ -1,6 +1,6 @@
 import { faker } from '@faker-js/faker';
 
-export const mount = (/** @type {Element} */ element) => {
+export const mount = (element: Element) => {
   const carText = `<div>${faker.random.numeric(4)} items in your cart!</div>`;
 
   element ? (element.innerHTML = carText) : void null;
@@ -11,7 +11,7 @@ export const mount = (/** @type {Element} */ element) => {
  * Will be used in development only in isolation mode to render
  * into the #isolation-dev-cart element
  */
-function automount(/** @type {'#isolation-dev-cart'} */ selector) {
+function automount(selector: '#isolation-dev-cart') {
   const devProductsElement = document.querySelector(selector);
   if (devProductsElement) {
     console.log('From Cart Page (before mount)!!!');

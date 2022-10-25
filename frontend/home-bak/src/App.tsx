@@ -2,7 +2,7 @@ import React from 'react';
 // import ColorCard from './components/ColorCard';
 import AddUser from './components/Users/AddUser';
 
-import './App.css';
+import './App.scss';
 
 // const hostName = '';
 
