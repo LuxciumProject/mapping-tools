@@ -9,9 +9,6 @@ const devConfig = {
   output: {
     filename: '[name].[contenthash]_dev.js',
   },
-  optimization: {
-    usedExports: true,
-  },
   devServer: {
     port: 8080,
     historyApiFallback: {

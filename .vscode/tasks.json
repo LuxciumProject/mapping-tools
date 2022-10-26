@@ -145,14 +145,69 @@
         "isDefault": true
       },
       "dependsOrder": "sequence",
+      "isBackground": true,
       "dependsOn": [
         "Build/all/library",
-        "Build/all/services"
+        "Build/all/services",
+        "Build/all/frontend"
       ]
+    },
+    {
+      "label": "Build/all/frontend",
+      "dependsOrder": "parallel",
+      "isBackground": true,
+      "dependsOn": [
+        "Build/frontend/cart",
+        "Build/frontend/products",
+        "Build/frontend/federal-container"
+      ]
+    },
+    {
+      "label": "Build/frontend/federal-container",
+      "detail": "Build task for frontend (federal-container)",
+      "type": "shell",
+      "isBackground": false,
+      "options": {
+        "cwd": "${workspaceFolder}/frontend/federal-container"
+      },
+      "command": "npm",
+      "args": [
+        "run",
+        "build"
+      ],
+    },
+    {
+      "label": "Build/frontend/products",
+      "detail": "Build task for frontend (products)",
+      "type": "shell",
+      "isBackground": false,
+      "options": {
+        "cwd": "${workspaceFolder}/frontend/products"
+      },
+      "command": "npm",
+      "args": [
+        "run",
+        "build"
+      ],
+    },
+    {
+      "label": "Build/frontend/cart",
+      "detail": "Build task for frontend (cart)",
+      "type": "shell",
+      "isBackground": false,
+      "options": {
+        "cwd": "${workspaceFolder}/frontend/cart"
+      },
+      "command": "npm",
+      "args": [
+        "run",
+        "build"
+      ],
     },
     {
       "label": "Build/all/services",
       "dependsOrder": "parallel",
+      "isBackground": true,
       "dependsOn": [
         "Build/services/phash-compute",
         "Build/services/scan-directories",

@@ -1,10 +1,11 @@
 const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin');
-const { merge } = require('webpack-merge');
-const commonConfig = require('./webpack.common.cjs');
-const packageJson = require('../package.json');
-packageJson;
 
-const domain = process.env[PRODUCTION_DOMAIN] || '';
+const { merge } = require('webpack-merge');
+
+const packageJson = require('../package.json');
+const commonConfig = require('./webpack.common.cjs');
+
+const domain = process.env['PRODUCTION_DOMAIN'] || '';
 
 const prodConfig = {
   mode: 'production',

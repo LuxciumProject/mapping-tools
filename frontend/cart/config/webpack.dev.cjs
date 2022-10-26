@@ -1,13 +1,14 @@
-const HtmlWebpackPluggin = require('html-webpack-plugin');
 const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin');
 // const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const { merge } = require('webpack-merge');
+
+const packageJson = require('../package.json');
 const commonConfig = require('./webpack.common.cjs');
 
 const devConfig = {
   mode: 'development', // 'development' or 'production',
-  optimization: {
-    usedExports: true,
+  output: {
+    filename: '[name].[contenthash]_dev.js',
   },
   devServer: {
     port: 8082,
@@ -23,10 +24,7 @@ const devConfig = {
       exposes: {
         './CartShow': './src/bootstrap',
       },
-      shared: ['@faker-js/faker'],
-    }),
-    new HtmlWebpackPluggin({
-      template: './public/index.html',
+      shared: packageJson.dependencies,
     }),
   ],
 };
