@@ -1,4 +1,5 @@
-// const path = require('path');
+const HtmlWebpackPluggin = require('html-webpack-plugin');
+const path = require('path');
 
 module.exports = {
   entry: './src/index.js',
@@ -14,10 +15,16 @@ module.exports = {
   resolve: {
     extensions: ['.jsx', '.tsx', '.js', '.ts', '.mjs', '.mts', '.cjs', '.cts'],
   },
-  // output: {
-  //   filename: 'bundle.js',
-  //   path: path.resolve(__dirname, 'dist'),
-  // },
+  output: {
+    filename: 'bundle.js',
+    path: path.resolve(__dirname, '..', 'dist'),
+  },
+
+  plugins: [
+    new HtmlWebpackPluggin({
+      template: './public/index.html',
+    }),
+  ],
 };
 
 // module.exports = {
