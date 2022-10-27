@@ -342,6 +342,7 @@
       "dependsOn": [
         "Build/library/bigintString",
         "Build/library/boxed-list",
+        "Build/library/parallel-mapper",
         "Build/library/human-size",
         "Build/library/restraining-zalgo",
         "Build/library/tools"
@@ -382,6 +383,25 @@
         "${workspaceFolder}/library/boxed-list/tsconfig.json",
         "--generateCpuProfile",
         "${workspaceFolder}/common/performance/boxed-list.cpuprofile",
+        "--verbose"
+      ]
+    },
+    {
+      "label": "Build/library/parallel-mapper",
+      "detail": "Build task for parallel-mapper",
+      "type": "shell",
+      "command": "npx",
+      "isBackground": false,
+      "problemMatcher": {
+        "base": "$tsc",
+        "applyTo": "allDocuments"
+      },
+      "args": [
+        "tsc",
+        "-b",
+        "${workspaceFolder}/library/parallel-mapper/tsconfig.json",
+        "--generateCpuProfile",
+        "${workspaceFolder}/common/performance/parallel-mapper.cpuprofile",
         "--verbose"
       ]
     },

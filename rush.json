@@ -476,6 +476,13 @@
       ]
     },
     {
+      "packageName": "@luxcium/parallel-mapper",
+      "projectFolder": "library/parallel-mapper",
+      "tags": [
+        "library"
+      ]
+    },
+    {
       "packageName": "@luxcium/restraining-zalgo",
       "projectFolder": "library/restraining-zalgo",
       "tags": [

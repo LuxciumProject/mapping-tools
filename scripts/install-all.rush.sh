@@ -23,15 +23,15 @@ rush add \
   -p prettier@latest \
   -p ts-node@latest \
   -p typescript@latest \
-  --dev --all --make-consistent
+  --dev --make-consistent
 
 rush add \
   -p @types/eslint-config-prettier@latest \
   -p @types/eslint-plugin-prettier@latest \
   -p @types/heft-jest@latest \
   -p @types/jest@latest \
-  --exact --dev --all --make-consistent
+  --exact --dev --make-consistent
 
-rush add --package tslib@latest --exact --all --make-consistent
+rush add --package tslib@latest --exact --make-consistent
 rush update -p
 pwd
