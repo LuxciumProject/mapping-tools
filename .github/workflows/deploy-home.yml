@@ -1,15 +1,17 @@
-name: deploy-container
+# yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
+
+name: deploy-home
 
 on:
   push:
     branches:
-      - principal
+      - deploy
     paths:
-      - "frontend/federal-container/**"
+      - "frontend/home/**"
 
 defaults:
   run:
-    working-directory: frontend/federal-container
+    working-directory: frontend/home
 
 jobs:
   build:
