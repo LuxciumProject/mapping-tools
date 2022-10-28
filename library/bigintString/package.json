@@ -1,6 +1,6 @@
 {
   "name": "@luxcium/bigintstring",
-  "version": "1.0.0",
+  "version": "0.0.0-PREALPHA-UNSAFE-v0.0x",
   "description": "",
   "main": "lib/src/index.js",
   "types": "lib/typings/index.d.ts",
