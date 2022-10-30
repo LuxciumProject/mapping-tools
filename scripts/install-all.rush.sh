@@ -4,7 +4,7 @@ pwd
 rush add \
   -p @rushstack/heft@latest \
   -p @rushstack/heft-jest-plugin@latest \
-  -p @types/node@16 \
+  -p @types/node@18 \
   -p @typescript-eslint/eslint-plugin@latest \
   -p @typescript-eslint/parser@latest \
   -p eslint-config-prettier@latest \
