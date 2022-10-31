@@ -980,7 +980,7 @@
   */
   // #region: CUSTOMS RULES                                          !
   "[typescript]": {
-    "editor.defaultFormatter": "vscode.typescript-language-features",
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.fontFamily": "'VictorMono Nerd Font', 'hurmit Nerd Font mono','ProFontWindows Nerd Font mono','meslolgl Nerd Font mono','Iosevka Nerd Font Mono','SauceCodePro Nerd Font','ProFontIIx Nerd Font',mono"
     // "editor.fontSize": 26,
     // "editor.fontWeight": "400",
@@ -1598,6 +1598,18 @@
   },
   "[dotenv]": {
     "editor.defaultFormatter": "foxundermoon.shell-format"
-  }
+  },
+  "workbench.colorCustomizations": {
+    "activityBar.activeBackground": "#ff33334d",
+    "activityBar.background": "#ff33334d",
+    "activityBar.foreground": "#e7e7e7",
+    "activityBar.inactiveForeground": "#e7e7e799",
+    "activityBarBadge.background": "#00df00",
+    "activityBarBadge.foreground": "#15202b",
+    "sash.hoverBorder": "#ff33334d",
+    "sideBar.border": "#ff33334d",
+    "tab.activeBorder": "#ff33334d"
+  },
+  "peacock.color": "#FF00004D"
   // #endregion: TODO TREE                                                      !
 }

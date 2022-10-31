@@ -356,6 +356,7 @@
    */
   "allowedProjectTags": [
     "backend",
+    "examples",
     "frontend",
     "library",
     "services",
@@ -370,6 +371,13 @@
    * 3. It's useful to have a centralized inventory of all projects and their important metadata.
    */
   "projects": [
+    {
+      "packageName": "examples-phash-scout",
+      "projectFolder": "examples/phash-scout",
+      "tags": [
+        "examples"
+      ]
+    },
     {
       "packageName": "federal-container",
       "projectFolder": "frontend/federal-container",

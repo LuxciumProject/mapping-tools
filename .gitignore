@@ -47,6 +47,7 @@ nohup.out
 env.txt
 listings.txt
 listing.txt
+*listing*.txt
 **/*list.txt
 *.cpuprofile
 
