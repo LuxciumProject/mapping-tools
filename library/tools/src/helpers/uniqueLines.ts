@@ -1,8 +1,5 @@
 // Attribution-ShareAlike 4.0 International
-export function uniqByKeepFirst<U extends Object>(
-  list: U[],
-  byKey: (arg0: U) => U | U[keyof U]
-) {
+export function uniqueByKeepFirst<U extends Object>(list: U[], byKey: (arg0: U) => U | U[keyof U]) {
   let seen = new Set();
   return list.filter(item => {
     let k = byKey(item);
@@ -10,14 +7,10 @@ export function uniqByKeepFirst<U extends Object>(
   });
 }
 
-export function uniqByKeepLast<U>(
-  list: U[],
-  byKey: (arg0: U) => U | U[keyof U]
-) {
+export function uniqueByKeepLast<U>(list: U[], byKey: (arg0: U) => U | U[keyof U]) {
   return [...new Map(list.map(x => [byKey(x), x])).values()];
 }
-export const uniqueLines = <U>(list: U[]) =>
-  uniqByKeepLast(list, (it: U) => it);
+export const uniqueLines = <U>(list: U[]) => uniqueByKeepLast(list, (it: U) => it);
 
 /*
 // https://stackoverflow.com/a/9229821/10269298

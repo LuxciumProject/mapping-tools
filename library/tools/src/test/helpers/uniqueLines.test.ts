@@ -1,4 +1,4 @@
-import { uniqByKeepFirst, uniqByKeepLast, uniqueLines } from '../../helpers';
+import { uniqueByKeepFirst, uniqueByKeepLast, uniqueLines } from '../../helpers';
 
 describe('Sort unique objects.', () => {
   const data = [
@@ -11,7 +11,7 @@ describe('Sort unique objects.', () => {
   ];
 
   it('should have a function to uniqByKeepFirst.', () => {
-    expect(uniqByKeepFirst(data, it => it.u)).toStrictEqual([
+    expect(uniqueByKeepFirst(data, it => it.u)).toStrictEqual([
       { a: 1, u: 1 },
       { a: 2, u: 2 },
       { a: 3, u: 3 },
@@ -19,7 +19,7 @@ describe('Sort unique objects.', () => {
   });
 
   it('should have a function to uniqByKeepLast', () => {
-    expect(uniqByKeepLast(data, it => it.u)).toStrictEqual([
+    expect(uniqueByKeepLast(data, it => it.u)).toStrictEqual([
       { a: 4, u: 1 },
       { a: 5, u: 2 },
       { a: 6, u: 3 },
@@ -28,19 +28,10 @@ describe('Sort unique objects.', () => {
 });
 
 describe('Sort unique lines.', () => {
-  const data2 = [
-    'Unique data !!!',
-    'Unique data ???',
-    'Unique data ???',
-    'Unique data ???',
-    'Unique data ???',
-  ];
+  const data2 = ['Unique data !!!', 'Unique data ???', 'Unique data ???', 'Unique data ???', 'Unique data ???'];
 
   it('should have a function to uniqueLines.', () => {
-    expect(uniqueLines(data2)).toStrictEqual([
-      'Unique data !!!',
-      'Unique data ???',
-    ]);
+    expect(uniqueLines(data2)).toStrictEqual(['Unique data !!!', 'Unique data ???']);
   });
 });
 
