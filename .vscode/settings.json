@@ -1588,7 +1588,8 @@
     "tools",
     "public",
     "RushStack",
-    "services"
+    "services",
+    "examples"
   ],
   "[dockerfile]": {
     "editor.defaultFormatter": "ms-azuretools.vscode-docker"
