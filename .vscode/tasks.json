@@ -341,6 +341,7 @@
       "dependsOrder": "parallel",
       "dependsOn": [
         "Build/library/bigintString",
+        "Build/library/colors-tools",
         "Build/library/boxed-list",
         "Build/library/parallel-mapper",
         "Build/library/human-size",
@@ -364,6 +365,25 @@
         "${workspaceFolder}/library/bigintString/tsconfig.json",
         "--generateCpuProfile",
         "${workspaceFolder}/common/performance/bigintString.cpuprofile",
+        "--verbose"
+      ]
+    },
+    {
+      "label": "Build/library/colors-tools",
+      "detail": "Build task for colors-tools",
+      "type": "shell",
+      "command": "npx",
+      "isBackground": false,
+      "problemMatcher": {
+        "base": "$tsc",
+        "applyTo": "allDocuments"
+      },
+      "args": [
+        "tsc",
+        "-b",
+        "${workspaceFolder}/library/colors-tools/tsconfig.json",
+        "--generateCpuProfile",
+        "${workspaceFolder}/common/performance/colors-tools.cpuprofile",
         "--verbose"
       ]
     },
