@@ -1599,7 +1599,18 @@
 		"todo-tree.filtering.excludeGlobs": [],
 		"todo-tree.general.tagGroups": {},
 		"todo-tree.highlights.backgroundColourScheme": [],
-		"todo-tree.highlights.foregroundColourScheme": []
+		"todo-tree.highlights.foregroundColourScheme": [],
 		// #endregion: TODO TREE                                                      !
+		"conventionalCommits.scopes": [
+			"backend",
+			"common",
+			"frontend",
+			"library",
+			"tools",
+			"public",
+			"RushStack",
+			"services",
+			"examples"
+		],
 	}
 }
