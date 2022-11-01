@@ -1,107 +1,107 @@
 {
 	"folders": [
 		{
-			"name": " ✨ MONOREPO-ONE",
+			"name": " ✨✨✨ MONOREPO-ONE",
 			"path": "."
 		},
 		{
-			"name": " 📚 bigintString",
+			"name": " 📚 📓 bigintString",
 			"path": "library/bigintString"
 		},
 		{
-			"name": " 📚 boxed-list",
+			"name": " 📚 📓 boxed-list",
 			"path": "library/boxed-list"
 		},
 		{
-			"name": " 📚 colors-tools",
+			"name": " 📚 📓 colors-tools",
 			"path": "library/colors-tools"
 		},
 		{
-			"name": " 📚 human-size",
+			"name": " 📚 📓 human-size",
 			"path": "library/human-size"
 		},
 		{
-			"name": " 📚 parallel-mapper",
+			"name": " 📚 📓 parallel-mapper",
 			"path": "library/parallel-mapper"
 		},
 		{
-			"name": " 📚 restraining-zalgo",
+			"name": " 📚 📓 restraining-zalgo",
 			"path": "library/restraining-zalgo"
 		},
 		{
-			"name": " 📚 tools",
+			"name": " 📚 🛠️ tools",
 			"path": "library/tools"
 		},
 		{
-			"name": " 📚 typescript",
+			"name": " 📚 📘 typescript",
 			"path": "library/typescript"
 		},
 		{
-			"name": " 💁 image-scout",
-			"path": "services/image-scout"
-		},
-		{
-			"name": " 💁 phash-compute",
+			"name": " 💁 🖥️ phash-compute",
 			"path": "services/phash-compute"
 		},
 		{
-			"name": " 💁 questrade-ts",
-			"path": "services/questrade-ts"
-		},
-		{
-			"name": " 💁 redis-services",
+			"name": " 💁 🖥️ redis-services",
 			"path": "services/redis-services"
 		},
 		{
-			"name": " 💁 scan-directories",
+			"name": " 💁 🖥️ scan-directories",
 			"path": "services/scan-directories"
 		},
 		{
-			"name": " 💁 service-one",
+			"name": " 💁 🖥️ service-one",
 			"path": "services/service-one"
 		},
 		{
-			"name": " 💁 service-two",
+			"name": " 💁 🖥️ service-two",
 			"path": "services/service-two"
 		},
 		{
-			"name": " 👨‍💻 cart",
-			"path": "frontend/cart"
+			"name": " 💁 🔸 image-scout",
+			"path": "services/image-scout"
 		},
 		{
-			"name": " 👨‍💻 federal-container",
-			"path": "frontend/federal-container"
+			"name": " 💁 🔹 questrade-ts",
+			"path": "services/questrade-ts"
 		},
 		{
-			"name": " 👨‍💻 home",
-			"path": "frontend/home"
-		},
-		{
-			"name": " 👨‍💻 home-bak",
-			"path": "frontend/home-bak"
-		},
-		{
-			"name": " 👨‍💻 home-ejector",
-			"path": "frontend/home-ejector"
-		},
-		{
-			"name": " 👨‍💻 products",
-			"path": "frontend/products"
-		},
-		{
-			"name": " 🗜️ api",
+			"name": " 💾 🗜️ api",
 			"path": "backend/api"
 		},
 		{
-			"name": " 🗜️ scratch",
+			"name": " 💾 🗜️ scratch",
 			"path": "backend/scratch"
 		},
 		{
-			"name": " 🌐 public",
+			"name": " 💻 👨‍💻 cart",
+			"path": "frontend/cart"
+		},
+		{
+			"name": " 💻 👨‍💻 federal-container",
+			"path": "frontend/federal-container"
+		},
+		{
+			"name": " 💻 👨‍💻 home",
+			"path": "frontend/home"
+		},
+		{
+			"name": " 💻 👨‍💻 home-bak",
+			"path": "frontend/home-bak"
+		},
+		{
+			"name": " 💻 👨‍💻 home-ejector",
+			"path": "frontend/home-ejector"
+		},
+		{
+			"name": " 💻 👨‍💻 products",
+			"path": "frontend/products"
+		},
+		{
+			"name": " 🌐 💫 public",
 			"path": "public"
 		},
 		{
-			"name": " 🪄 examples",
+			"name": " 🪄 🎱 examples",
 			"path": "examples"
 		}
 	],
