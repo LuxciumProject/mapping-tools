@@ -1,14 +1,12 @@
 import { promises } from 'fs';
 import { RedisClientType } from 'redis';
+import { DebugFlag } from './types';
 
 import { getBigStrPHashFromFile } from './getBigStrPHashFromFile';
 import { pHashGetLookUp } from './pHashGetLookUp';
 import { redisSetK } from './redisSetK';
 
-export const debug = false;
-debug && console.error('debug on in ', __filename);
-
-export function getCachedPhashString_core(R: RedisClientType | null = null) {
+export function getCachedPhashString_core(R: RedisClientType | null = null, debug: DebugFlag = null) {
   return async (compatibleImagefilePath: string) => {
     const pathObj = {
       path: compatibleImagefilePath,
@@ -26,7 +24,7 @@ export function getCachedPhashString_core(R: RedisClientType | null = null) {
 
     // if LookUP is positive (not false and not emptystring)
     if (lookUP !== false && lookUP !== '') {
-      debug && console.warn(`lookUP: ${lookUP}`);
+      !!debug && console.warn(`lookUP: ${lookUP}`);
       // Then return from cache
       return lookUP;
     } else {
@@ -37,12 +35,12 @@ export function getCachedPhashString_core(R: RedisClientType | null = null) {
       if (bigStr !== '') {
         // And if we can set it into the cache
         if (await redisSetK(R, pathObj.path, bigStr)) {
-          debug && console.warn(`computed: ${bigStr}`);
+          !!debug && console.warn(`computed: ${bigStr}`);
           // Return the newly calculated value
           return bigStr;
         }
       }
-      debug && console.error(`Error: '<empty string>'`, pathObj);
+      !!debug && console.error(`Error (can't compute phashString): '<empty string>'`, pathObj);
       // Return the newly calculated value
       return bigStr;
     }
