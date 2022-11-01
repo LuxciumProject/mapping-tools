@@ -1,15 +1,4 @@
-// import { stat } from 'node:fs/promises';
-// import {
-//   ImageFilePathWithAwaitedStats,
-//   WithAwaited
-// } from '../types/ImageFilePath';
-
-// export type WithAwaitedStats = WithAwaited<{
-//   stat: Promise<Stats>;
-// }>;
-
-// export type ImageFilePathWithAwaitedStats = WithAwaitedStats & ImageFilePath;
-// https://tsplay.dev/with_awaited-001
+// https://tsplay.dev/with_awaited-002
 export type With<T extends Object> = T;
 
 export type ImageFilePath = With<{
@@ -47,19 +36,45 @@ export const fakeResult_001 = {
 console.log('fakeResult_001:', fakeResult_001);
 
 export function mixAwaited<
-  A extends {},
-  B extends {},
+  A extends Object,
+  B extends Object,
   T extends WithAwaited<A>,
   U extends WithAwaited<B>
 >(a: A & T, b: B & U): { awaited: A & B } {
   return { awaited: { ...a.awaited, ...b.awaited } };
 }
 
+export function mixAwaited2<
+  T extends { awaited: object },
+  U extends { awaited: object },
+  A extends Pick<T, 'awaited'>,
+  B extends Pick<U, 'awaited'>
+>(a: A, b: B) {
+  const { awaited: awaitedA } = a;
+  const { awaited: awaitedB } = b;
+  const awaited = { ...awaitedA, ...awaitedB };
+  return { awaited } as A & B;
+}
 export const fakeResult_002 = {
-  ...mixAwaited(foo1, bar1),
+  ...mixAwaited2(foo1, bar1),
 };
-
 console.log('fakeResult_002:', fakeResult_002);
+
+const fakeResult_003 = { ...fakeResult_001, ...fakeResult_002 };
+console.log('fakeResult_003:', fakeResult_003);
+
+const fakeResult_004 = { ...fakeResult_002, ...fakeResult_001 };
+console.log('fakeResult_004:', fakeResult_004);
+
+export const fakeResult_005 = {
+  foo: 'machin',
+  bar: 'bidule',
+  awaited: {
+    bolo: (async () => 'await bolo')(),
+    toto: (async () => 'await toto')(),
+  },
+};
+console.log('fakeResult_005:', fakeResult_005);
 
 /*
 export function boxImageFileWithStats(
@@ -121,3 +136,16 @@ export const resultDummy3 = {
 
 // ... awaited(resultDummy, dummyImageFileWithStats)
  */
+
+// import { stat } from 'node:fs/promises';
+// import {
+//   ImageFilePathWithAwaitedStats,
+//   WithAwaited
+// } from '../types/ImageFilePath';
+
+// export type WithAwaitedStats = WithAwaited<{
+//   stat: Promise<Stats>;
+// }>;
+
+// export type ImageFilePathWithAwaitedStats = WithAwaitedStats & ImageFilePath;
+// https://tsplay.dev/with_awaited-001
