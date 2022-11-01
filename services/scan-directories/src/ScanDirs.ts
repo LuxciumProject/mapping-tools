@@ -24,13 +24,15 @@ import { constants } from 'node:os';
 import path, { normalize } from 'node:path';
 import { chdir } from 'node:process';
 
+const debug = false;
+debug && console.error('debug on in ', __filename);
 
 // HACK: for missing import { logHigh, logLow } from '../../../constants';
 const logHigh = console.error;
 const logLow = console.log;
 
 export class ScanDirs {
-  private _cwd: { path: string; };
+  private _cwd: { path: string };
   private _parents: string[];
   private _queue: string[];
 
@@ -52,9 +54,7 @@ export class ScanDirs {
   }
   private _absolutePath: string[];
   private constructor(absolutePath: string | string[]) {
-    this._absolutePath = Array.isArray(absolutePath)
-      ? [...absolutePath]
-      : [absolutePath];
+    this._absolutePath = Array.isArray(absolutePath) ? [...absolutePath] : [absolutePath];
     this._parents = [];
     this._cwd = { path: '' };
     this._queue = [...this._absolutePath];
@@ -74,10 +74,7 @@ export class ScanDirs {
   }
   public get map() {
     const self = this;
-    return async function* (
-      transformFn: (fullPath: string) => unknown = (fullPath: string) =>
-        fullPath
-    ) {
+    return async function* (transformFn: (fullPath: string) => unknown = (fullPath: string) => fullPath) {
       for await (const fullPath of self.scan()) {
         const extname = path.extname(fullPath).toLowerCase();
         extname;
@@ -110,18 +107,12 @@ export class ScanDirs {
       throw error;
     }
     if (next === '..') {
-      this._cwd.path = this._cwd.path.slice(
-        0,
-        -(this._parents.pop()!.length + 1)
-      );
+      this._cwd.path = this._cwd.path.slice(0, -(this._parents.pop()!.length + 1));
       return false;
     } else {
       this._parents.push(next);
-      this._cwd.path =
-        this._cwd.path.length === 0
-          ? next
-          : normalize(`${this._cwd.path}/${next}`);
-      logHigh(this._cwd.path);
+      this._cwd.path = this._cwd.path.length === 0 ? next : normalize(`${this._cwd.path}/${next}`);
+      debug && logHigh(this._cwd.path);
       this._queue.push('..');
       return true;
     }
@@ -135,7 +126,13 @@ export class ScanDirs {
           self._queue.push(ent.name);
         } else {
           const fullPath = normalize(`${self._cwd.path}/${ent.name}`);
-          yield fullPath;
+          const extname = path.extname(fullPath).toLowerCase();
+          extname;
+          if (self.hasValidExts) {
+            if (self.hasExt(extname)) {
+              yield fullPath;
+            }
+          }
         }
       }
       d.close();
@@ -187,14 +184,11 @@ export class ScanDirs {
   hasExt(ext: string) {
     return this._validExts.has(ext.toLowerCase());
   }
-  private _hasKey<K extends PropertyKey>(
-    o: unknown,
-    key: K
-  ): o is { [P in K]: unknown } {
+  private _hasKey<K extends PropertyKey>(o: unknown, key: K): o is { [P in K]: unknown } {
     return typeof o === 'object' && o !== null && key in o;
   }
 }
 export default ScanDirs;
 
-export const scanFrom = ScanDirs.scanFrom;
-export const from = ScanDirs.from;
+export const scanDirs = ScanDirs.scanFrom;
+export const scanDirsFrom = ScanDirs.from;

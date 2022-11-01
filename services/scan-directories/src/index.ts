@@ -1,1 +1,1 @@
-export { from, scanFrom } from './ScanDirs';
+export { scanDirs, scanDirsFrom } from './ScanDirs';

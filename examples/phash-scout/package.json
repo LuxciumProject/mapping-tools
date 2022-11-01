@@ -43,6 +43,7 @@
     "tslib": "~2.4.0",
     "@luxcium/phash-compute": "workspace:*",
     "@luxcium/redis-services": "workspace:*",
-    "@luxcium/scan-dirs": "workspace:*"
+    "@luxcium/scan-dirs": "workspace:*",
+    "@luxcium/boxed-list": "workspace:*"
   }
 }
