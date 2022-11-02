@@ -33,11 +33,15 @@
 			"path": "library/human-size"
 		},
 		{
-			"name": "          📚💙 parallel-mapper",
+			"name": "          📚💙 object-with-awaited",
+			"path": "library/object-with-awaited"
+		},
+		{
+			"name": "          📚💜 parallel-mapper",
 			"path": "library/parallel-mapper"
 		},
 		{
-			"name": "          📚💜 restraining-zalgo",
+			"name": "          📚🧌 restraining-zalgo",
 			"path": "library/restraining-zalgo"
 		},
 		{
