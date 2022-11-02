@@ -1,108 +1,128 @@
 {
 	"folders": [
 		{
-			"name": " ✨✨✨ MONOREPO-ONE",
+			"name": "↓✨🖥️ MONOREPO-ONE",
 			"path": "."
 		},
 		{
-			"name": " 📚❤ 📓 bigintString",
-			"path": "library/bigintString"
+			"name": "  ↓📚📓 📔 LIBRARY",
+			"path": "library"
 		},
 		{
-			"name": " 📚🧡 📓 boxed-list",
-			"path": "library/boxed-list"
-		},
-		{
-			"name": " 📚💛 📓 colors-tools",
-			"path": "library/colors-tools"
-		},
-		{
-			"name": " 📚💚 📓 human-size",
-			"path": "library/human-size"
-		},
-		{
-			"name": " 📚💙 📓 parallel-mapper",
-			"path": "library/parallel-mapper"
-		},
-		{
-			"name": " 📚💜 📓 restraining-zalgo",
-			"path": "library/restraining-zalgo"
-		},
-		{
-			"name": " 📚🖤 🛠️ tools",
-			"path": "library/tools"
-		},
-		{
-			"name": " 📚🤍 📘 typescript",
+			"name": "          📚📓 📘 Typescript",
 			"path": "library/typescript"
 		},
 		{
-			"name": " 💁❤ 🖥️ phash-compute",
-			"path": "services/phash-compute"
+			"name": "          📚📓 🛠️ Tools",
+			"path": "library/tools"
 		},
 		{
-			"name": " 💁🧡 🖥️ redis-services",
-			"path": "services/redis-services"
+			"name": "          📚❤ bigintString",
+			"path": "library/bigintString"
 		},
 		{
-			"name": " 💁💛 🖥️ scan-directories",
-			"path": "services/scan-directories"
+			"name": "          📚🧡 boxed-list",
+			"path": "library/boxed-list"
 		},
 		{
-			"name": " 💁💚 🖥️ image-scout",
+			"name": "          📚💛 colors-tools",
+			"path": "library/colors-tools"
+		},
+		{
+			"name": "          📚💚 human-size",
+			"path": "library/human-size"
+		},
+		{
+			"name": "          📚💙 parallel-mapper",
+			"path": "library/parallel-mapper"
+		},
+		{
+			"name": "          📚💜 restraining-zalgo",
+			"path": "library/restraining-zalgo"
+		},
+		{
+			"name": "  ↓💁🖥️ 📒 SERVICES",
+			"path": "services"
+		},
+		{
+			"name": "          🛵🖥️ image-scout",
 			"path": "services/image-scout"
 		},
 		{
-			"name": " 💁💙 🖥️ questrade-ts",
+			"name": "          📊🖥️ questrade-ts",
 			"path": "services/questrade-ts"
 		},
 		{
-			"name": " 💁🖤 🖥️ service-one",
+			"name": "          💁❤ phash-compute",
+			"path": "services/phash-compute"
+		},
+		{
+			"name": "          💁🧡 redis-services",
+			"path": "services/redis-services"
+		},
+		{
+			"name": "          💁💛 scan-directories",
+			"path": "services/scan-directories"
+		},
+		{
+			"name": "          💁💚 service-one",
 			"path": "services/service-one"
 		},
 		{
-			"name": " 💁🤍 🖥️ service-two",
+			"name": "          💁💙 service-two",
 			"path": "services/service-two"
 		},
 		{
-			"name": " 💾💖 🗜️ api",
+			"name": "  ↓🏦🗜️ BACKEND",
+			"path": "backend"
+		},
+		{
+			"name": "          🏦💖 🗜️ api",
 			"path": "backend/api"
 		},
 		{
-			"name": " 💾💘 🗜️ scratch",
+			"name": "          🏫💘 🗜️ scratch",
 			"path": "backend/scratch"
 		},
 		{
-			"name": " 💻💅 👨‍💻 home",
+			"name": "  ↓💻👨‍💻 FRONTEND",
+			"path": "frontend"
+		},
+		{
+			"name": "          💻👨‍💻 💅 home",
 			"path": "frontend/home"
 		},
 		{
-			"name": " 💻❤ 👨‍💻 cart",
-			"path": "frontend/cart"
-		},
-		{
-			"name": " 💻🧡 👨‍💻 federal-container",
-			"path": "frontend/federal-container"
-		},
-		{
-			"name": " 💻💚 👨‍💻 home-bak",
+			"name": "          💻👨‍💻 home-bak",
 			"path": "frontend/home-bak"
 		},
 		{
-			"name": " 💻💙 👨‍💻 home-ejector",
+			"name": "          💻👨‍💻 home-ejector",
 			"path": "frontend/home-ejector"
 		},
 		{
-			"name": " 💻💜 👨‍💻 products",
+			"name": "          💻🏫 cart",
+			"path": "frontend/cart"
+		},
+		{
+			"name": "          💻🏫 federal-container",
+			"path": "frontend/federal-container"
+		},
+		{
+			"name": "          💻🏫 products",
 			"path": "frontend/products"
 		},
 		{
-			"name": " 🌐🤍 💫 public",
+			"name": "  ↓🌐💫 PUBLIC",
 			"path": "public"
 		},
 		{
-			"name": " 🎱💝 🪄 examples",
+			"name": "  ↓🪄🎱 EXAMPLES",
 			"path": "examples"
+		},
+		{
+			"name": "        🛵🎱 phash-scout",
+			"path": "examples/phash-scout"
 		},
 	],
 	"tasks": {
