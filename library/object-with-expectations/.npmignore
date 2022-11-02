@@ -10,6 +10,16 @@ src/
 ts-out-info.lib
 tsconfig.json
 typedoc.json
+lib/
+temp/
+.prettierrc.cjs
+.gitattributes
+.heft/
+package.json
+bigintstring.build.log
+object-with-expectations.build.log
+README.md
+*.tgz
 
 !lib/src/
 !lib/typings/

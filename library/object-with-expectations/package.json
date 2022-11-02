@@ -1,6 +1,6 @@
 {
   "name": "@luxcium/object-with-expectations",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "",
   "main": "lib/src/index.js",
   "types": "lib/typings/index.d.ts",
