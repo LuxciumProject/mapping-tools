@@ -1,0 +1,1 @@
+export { boxImageFileWithStats } from './boxImageFilePath';
