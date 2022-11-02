@@ -9,7 +9,7 @@ const bar1 = {
   bar: 'bidule',
   awaited: { toto: (async () => 'await toto')() },
 };
-function mixBase_a<
+export function mixBase_a<
   T extends { awaited?: any },
   U extends { awaited?: any },
   A extends Omit<T, 'awaited'>,
