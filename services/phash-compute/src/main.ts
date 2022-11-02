@@ -3,6 +3,7 @@ import { promises } from 'fs';
 
 // import { ScanDirs } from '..';
 import { getCachedPhashString_core } from './getCachedPhashString_core';
+import { boxImageFileWithStats } from './tools/boxImageFilePath';
 
 //  HACK: ============================================================
 const ScanDirs: any = {};
@@ -17,7 +18,7 @@ export async function main() {
     .addValidExt(['.jpg', '.jpeg', '.png'])
     .map(async (filePath: string) => {
       return {
-        phashString: await getPhashString(filePath),
+        phashString: await getPhashString(boxImageFileWithStats(filePath)),
         filePath,
         size: (await promises.stat(filePath)).size,
         count: count++,
