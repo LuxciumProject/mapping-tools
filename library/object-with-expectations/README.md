@@ -4,9 +4,10 @@
 
     pnpm add @luxcium/object-with-expectations
 
+### All example imply this code:
+
 ```typescript
-import { mixBases } from './mixBases';
-import { mixExpected } from './mixExpected';
+import { mixBases, mixExpected } from '@luxcium/object-with-expectations';
 
 const onlyFoo = {
   foo: 'machin',
@@ -27,19 +28,11 @@ const bar = {
 ### Use mixBases to mix 2 objects without an `expected` property.
 
 ```typescript
-/**
- * Testing the mixBases without an expected property/object
- * @example
- *    const expectOnly: {
- *      foo: string;
- *      bar: string;
- *    }
- */
-const expectOnly = {
+const withBaseOnly = {
   ...mixBases<any, any, { foo: string }, { bar: string }>(onlyFoo, onlyBar),
 };
-console.log('at expectOnly:', expectOnly);
-// at expectOnly: { foo: 'machin', bar: 'bidule' }
+console.log('at withBaseOnly:', withBaseOnly);
+// at withBaseOnly: { foo: 'machin', bar: 'bidule' }
 
 /**
  * Testing the mixBases with an expected
