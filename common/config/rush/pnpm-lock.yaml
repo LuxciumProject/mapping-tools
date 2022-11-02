@@ -1364,7 +1364,6 @@ importers:
       nodemon: 2.0.20
       prettier: 2.7.1
       rimraf: 3.0.2
-      source-map-support: ~0.5.21
       ts-jest: 29.0.3
       ts-loader: 9.4.1
       ts-node: 10.9.1
@@ -1372,9 +1371,6 @@ importers:
       tslib: 2.4.1
       typescript: 4.8.4
       webpack: 5.74.0
-    dependencies:
-      source-map-support: 0.5.21
-      tslib: 2.4.1
     devDependencies:
       '@babel/core': 7.19.6
       '@babel/plugin-transform-typescript': 7.20.0_@babel+core@7.19.6
@@ -1417,6 +1413,7 @@ importers:
       ts-loader: 9.4.1_qqxisngxjbp7lstdk7boexbu3e
       ts-node: 10.9.1_cbe7ovvae6zqfnmtgctpgpys54
       tsconfig-paths: 4.1.0
+      tslib: 2.4.1
       typescript: 4.8.4
       webpack: 5.74.0
 
@@ -5895,10 +5892,6 @@ packages:
     resolution: {integrity: sha512-yxDeaQIAJlMav7fH5AQqPH1u8YIuhYJXYBzxaQ4PifsU0GDO38MSdmEDeRlIxrKbC6NbEaaEHDanWb+y30U8SQ==}
     dev: true
 
-  /@types/node/16.18.3:
-    resolution: {integrity: sha512-jh6m0QUhIRcZpNv7Z/rpN+ZWXOicUUQbSoWks7Htkbb9IjFQj4kzcX/xFCkjstCj5flMsN8FiSvt+q+Tcs4Llg==}
-    dev: true
-
   /@types/node/18.11.9:
     resolution: {integrity: sha512-CRpX21/kGdzjOpFsZSkcrXMGIBWMGNIHXXBVFSH+ggkftxg+XYP20TESbh+zFvFj3EQOl5byk0HTRn1IL6hbqg==}
 
@@ -6032,7 +6025,7 @@ packages:
   /@types/webpack-bundle-analyzer/4.6.0_na2qyddqajkdtu6l4otwoergp4:
     resolution: {integrity: sha512-XeQmQCCXdZdap+A/60UKmxW5Mz31Vp9uieGlHB3T4z/o2OLVLtTI3bvTuS6A2OWd/rbAAQiGGWIEFQACu16szA==}
     dependencies:
-      '@types/node': 16.18.3
+      '@types/node': 18.11.9
       tapable: 2.2.1
       webpack: 5.74.0_na2qyddqajkdtu6l4otwoergp4
     transitivePeerDependencies:

@@ -72,7 +72,7 @@ describe('Example Test', () => {
         toto: Promise.resolve('await toto'),
       },
     });
-    console.log('at expects1:', expects1);
+    // console.log('at expects1:', expects1);
     // at expects1: {
     //    expected: { bolo: Promise { 'await bolo' }, toto: Promise { 'await toto' } }
     // }
