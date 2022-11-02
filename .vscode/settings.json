@@ -86,7 +86,7 @@
   "prettier.requireConfig": true,
   "prettier.trailingComma": "all",
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "prettier.printWidth": 80,
+  // "prettier.printWidth": 80,
   "prettier.proseWrap": "preserve",
   // #endregion: PRETTIER                                            !
   /*
@@ -178,6 +178,7 @@
   // "#FB04",
   "better-comments.highlightPlainText": true,
   "better-comments.multilineComments": true,
+  // #region: BETTER COMMENTS                                     !
   "better-comments.tags": [
     // #region
     {
@@ -1004,6 +1005,25 @@
   "[yaml]": {
     "editor.defaultFormatter": "redhat.vscode-yaml"
   },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "task.allowAutomaticTasks": "on",
+  "[shellscript]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format"
+  },
+  "[properties]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format"
+  },
+  "[dockerfile]": {
+    "editor.defaultFormatter": "ms-azuretools.vscode-docker"
+  },
+  "[nginx]": {
+    "editor.defaultFormatter": "ahmadalli.vscode-nginx-conf"
+  },
+  "[dotenv]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format"
+  },
   // #endregion: CUSTOMS RULES                                       !
   // #region: TODO TREE                                                         !
   "todo-tree.highlights.defaultHighlight": {
@@ -1571,16 +1591,6 @@
   "todo-tree.highlights.backgroundColourScheme": [],
   "todo-tree.highlights.foregroundColourScheme": [],
   // #endregion: TODO TREE                                                      !
-  "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "task.allowAutomaticTasks": "on",
-  "[shellscript]": {
-    "editor.defaultFormatter": "foxundermoon.shell-format"
-  },
-  "[properties]": {
-    "editor.defaultFormatter": "foxundermoon.shell-format"
-  },
   "conventionalCommits.scopes": [
     "backend",
     "common",
@@ -1592,15 +1602,6 @@
     "services",
     "examples"
   ],
-  "[dockerfile]": {
-    "editor.defaultFormatter": "ms-azuretools.vscode-docker"
-  },
-  "[nginx]": {
-    "editor.defaultFormatter": "ahmadalli.vscode-nginx-conf"
-  },
-  "[dotenv]": {
-    "editor.defaultFormatter": "foxundermoon.shell-format"
-  },
   "workbench.colorCustomizations": {
     "activityBar.activeBackground": "#ff33334d",
     "activityBar.background": "#ff33334d",

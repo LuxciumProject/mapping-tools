@@ -505,6 +505,13 @@
       ]
     },
     {
+      "packageName": "@luxcium/object-with-awaited",
+      "projectFolder": "library/object-with-awaited",
+      "tags": [
+        "library"
+      ]
+    },
+    {
       "packageName": "@luxcium/human-size",
       "projectFolder": "library/human-size",
       "tags": [

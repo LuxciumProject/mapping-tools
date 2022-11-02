@@ -5,106 +5,611 @@
 			"path": "."
 		},
 		{
-			"name": " 📚 📓 bigintString",
+			"name": " 📚❤ 📓 bigintString",
 			"path": "library/bigintString"
 		},
 		{
-			"name": " 📚 📓 boxed-list",
+			"name": " 📚🧡 📓 boxed-list",
 			"path": "library/boxed-list"
 		},
 		{
-			"name": " 📚 📓 colors-tools",
+			"name": " 📚💛 📓 colors-tools",
 			"path": "library/colors-tools"
 		},
 		{
-			"name": " 📚 📓 human-size",
+			"name": " 📚💚 📓 human-size",
 			"path": "library/human-size"
 		},
 		{
-			"name": " 📚 📓 parallel-mapper",
+			"name": " 📚💙 📓 parallel-mapper",
 			"path": "library/parallel-mapper"
 		},
 		{
-			"name": " 📚 📓 restraining-zalgo",
+			"name": " 📚💜 📓 restraining-zalgo",
 			"path": "library/restraining-zalgo"
 		},
 		{
-			"name": " 📚 🛠️ tools",
+			"name": " 📚🖤 🛠️ tools",
 			"path": "library/tools"
 		},
 		{
-			"name": " 📚 📘 typescript",
+			"name": " 📚🤍 📘 typescript",
 			"path": "library/typescript"
 		},
 		{
-			"name": " 💁 🖥️ phash-compute",
+			"name": " 💁❤ 🖥️ phash-compute",
 			"path": "services/phash-compute"
 		},
 		{
-			"name": " 💁 🖥️ redis-services",
+			"name": " 💁🧡 🖥️ redis-services",
 			"path": "services/redis-services"
 		},
 		{
-			"name": " 💁 🖥️ scan-directories",
+			"name": " 💁💛 🖥️ scan-directories",
 			"path": "services/scan-directories"
 		},
 		{
-			"name": " 💁 🖥️ service-one",
-			"path": "services/service-one"
-		},
-		{
-			"name": " 💁 🖥️ service-two",
-			"path": "services/service-two"
-		},
-		{
-			"name": " 💁 🔸 image-scout",
+			"name": " 💁💚 🖥️ image-scout",
 			"path": "services/image-scout"
 		},
 		{
-			"name": " 💁 🔹 questrade-ts",
+			"name": " 💁💙 🖥️ questrade-ts",
 			"path": "services/questrade-ts"
 		},
 		{
-			"name": " 💾 🗜️ api",
+			"name": " 💁🖤 🖥️ service-one",
+			"path": "services/service-one"
+		},
+		{
+			"name": " 💁🤍 🖥️ service-two",
+			"path": "services/service-two"
+		},
+		{
+			"name": " 💾💖 🗜️ api",
 			"path": "backend/api"
 		},
 		{
-			"name": " 💾 🗜️ scratch",
+			"name": " 💾💘 🗜️ scratch",
 			"path": "backend/scratch"
 		},
 		{
-			"name": " 💻 👨‍💻 cart",
-			"path": "frontend/cart"
-		},
-		{
-			"name": " 💻 👨‍💻 federal-container",
-			"path": "frontend/federal-container"
-		},
-		{
-			"name": " 💻 👨‍💻 home",
+			"name": " 💻💅 👨‍💻 home",
 			"path": "frontend/home"
 		},
 		{
-			"name": " 💻 👨‍💻 home-bak",
+			"name": " 💻❤ 👨‍💻 cart",
+			"path": "frontend/cart"
+		},
+		{
+			"name": " 💻🧡 👨‍💻 federal-container",
+			"path": "frontend/federal-container"
+		},
+		{
+			"name": " 💻💚 👨‍💻 home-bak",
 			"path": "frontend/home-bak"
 		},
 		{
-			"name": " 💻 👨‍💻 home-ejector",
+			"name": " 💻💙 👨‍💻 home-ejector",
 			"path": "frontend/home-ejector"
 		},
 		{
-			"name": " 💻 👨‍💻 products",
+			"name": " 💻💜 👨‍💻 products",
 			"path": "frontend/products"
 		},
 		{
-			"name": " 🌐 💫 public",
+			"name": " 🌐🤍 💫 public",
 			"path": "public"
 		},
 		{
-			"name": " 🪄 🎱 examples",
+			"name": " 🎱💝 🪄 examples",
 			"path": "examples"
-		}
+		},
 	],
+	"tasks": {
+		// See https://go.microsoft.com/fwlink/?LinkId=733558
+		// for the documentation about the tasks.json format
+		"version": "2.0.0",
+		"presentation": {
+			"clear": true,
+			"close": true,
+			"echo": true,
+			"focus": false,
+			"panel": "dedicated",
+			"reveal": "silent",
+			"revealProblems": "onProblem",
+			"showReuseMessage": false
+		},
+		"tasks": [
+			{
+				"label": "Start/redis-6383",
+				"type": "shell",
+				"detail": "Start REDIS container on port 6383 this project",
+				"command": "bash",
+				"args": [
+					"${workspaceFolder}/scripts/start_6383.sh"
+				],
+				"isBackground": true,
+				"runOptions": {
+					"reevaluateOnRerun": true,
+					"instanceLimit": 1,
+					"runOn": "folderOpen"
+				},
+				"presentation": {
+					"revealProblems": "onProblem",
+					"panel": "dedicated",
+					"group": "MAIN"
+				}
+			},
+			{
+				"label": "Start/all/frontend",
+				"detail": "Start projects in frontend.",
+				"isBackground": false,
+				"runOptions": {
+					"reevaluateOnRerun": true,
+					"instanceLimit": 1,
+					"runOn": "default"
+				},
+				"icon": {
+					"id": "server-process",
+					"color": "terminal.ansiYellow"
+				},
+				"group": {
+					"kind": "none",
+					"isDefault": false
+				},
+				"dependsOrder": "parallel",
+				"dependsOn": [
+					"Start/frontend/products",
+					"Start/frontend/cart"
+				]
+			},
+			{
+				"label": "Start/frontend/products",
+				"detail": "Starts frontend/products.",
+				"type": "shell",
+				"options": {
+					"cwd": "${workspaceFolder}/frontend/products"
+				},
+				"command": "npm",
+				"args": [
+					"start"
+				],
+				"isBackground": true,
+				"runOptions": {
+					"reevaluateOnRerun": true,
+					"instanceLimit": 1,
+					"runOn": "default"
+				},
+			},
+			{
+				"label": "Start/frontend/cart",
+				"detail": "Starts frontend/cart.",
+				"type": "shell",
+				"options": {
+					"cwd": "${workspaceFolder}/frontend/cart"
+				},
+				"command": "npm",
+				"args": [
+					"start"
+				],
+				"isBackground": true,
+				"runOptions": {
+					"reevaluateOnRerun": true,
+					"instanceLimit": 1,
+					"runOn": "default"
+				},
+			},
+			{
+				"label": "Start/frontend/federal-container",
+				"detail": "Starts frontend/federal-container.",
+				"type": "shell",
+				"options": {
+					"cwd": "${workspaceFolder}/frontend/federal-container"
+				},
+				"command": "npm",
+				"args": [
+					"start"
+				],
+				"isBackground": true,
+				"runOptions": {
+					"reevaluateOnRerun": true,
+					"instanceLimit": 1,
+					"runOn": "default"
+				},
+			},
+			{
+				"label": "Start/frontend/home",
+				"detail": "Starts frontend/home.",
+				"type": "shell",
+				"options": {
+					"cwd": "${workspaceFolder}/frontend/home"
+				},
+				"command": "npm",
+				"args": [
+					"start"
+				],
+				"isBackground": true,
+				"runOptions": {
+					"reevaluateOnRerun": true,
+					"instanceLimit": 1,
+					"runOn": "default"
+				},
+			},
+			{
+				"label": "build-all",
+				"detail": "Build each subprojects using TSC and problemMatcher",
+				"runOptions": {
+					"reevaluateOnRerun": true,
+					"instanceLimit": 1,
+					"runOn": "folderOpen"
+				},
+				"icon": {
+					"id": "server-process",
+					"color": "terminal.ansiYellow"
+				},
+				"group": {
+					"kind": "build",
+					"isDefault": true
+				},
+				"dependsOrder": "sequence",
+				"isBackground": true,
+				"dependsOn": [
+					"Build/all/library",
+					"Build/all/services",
+					"Build/all/frontend"
+				]
+			},
+			{
+				"group": "build",
+				"label": "Build/all/frontend",
+				"dependsOrder": "parallel",
+				"isBackground": true,
+				"dependsOn": [
+					"Build/frontend/cart",
+					"Build/frontend/products",
+					"Build/frontend/federal-container"
+				]
+			},
+			{
+				"group": "build",
+				"label": "Build/frontend/federal-container",
+				"detail": "Build task for frontend (federal-container)",
+				"type": "shell",
+				"isBackground": false,
+				"options": {
+					"cwd": "${workspaceFolder}/frontend/federal-container"
+				},
+				"command": "npm",
+				"args": [
+					"run",
+					"build"
+				],
+			},
+			{
+				"group": "build",
+				"label": "Build/frontend/products",
+				"detail": "Build task for frontend (products)",
+				"type": "shell",
+				"isBackground": false,
+				"options": {
+					"cwd": "${workspaceFolder}/frontend/products"
+				},
+				"command": "npm",
+				"args": [
+					"run",
+					"build"
+				],
+			},
+			{
+				"group": "build",
+				"label": "Build/frontend/cart",
+				"detail": "Build task for frontend (cart)",
+				"type": "shell",
+				"isBackground": false,
+				"options": {
+					"cwd": "${workspaceFolder}/frontend/cart"
+				},
+				"command": "npm",
+				"args": [
+					"run",
+					"build"
+				],
+			},
+			{
+				"group": "build",
+				"label": "Build/all/services",
+				"dependsOrder": "parallel",
+				"isBackground": true,
+				"dependsOn": [
+					"Build/services/phash-compute",
+					"Build/services/scan-directories",
+					"Build/services/questrade-ts",
+					"Build/services/redis-services",
+					"Build/services/service-one",
+					"Build/services/service-two"
+				]
+			},
+			{
+				"group": "build",
+				"label": "Build/services/phash-compute",
+				"detail": "Build task for phash-compute",
+				"type": "shell",
+				"command": "npx",
+				"isBackground": false,
+				"problemMatcher": {
+					"base": "$tsc",
+					"applyTo": "allDocuments"
+				},
+				"args": [
+					"tsc",
+					"-b",
+					"${workspaceFolder}/services/phash-compute/tsconfig.json",
+					"--generateCpuProfile",
+					"${workspaceFolder}/common/performance/phash-compute.cpuprofile",
+					"--verbose"
+				]
+			},
+			{
+				"group": "build",
+				"label": "Build/services/scan-directories",
+				"detail": "Build task for scan-directories",
+				"type": "shell",
+				"command": "npx",
+				"args": [
+					"tsc",
+					"-b",
+					"${workspaceFolder}/services/scan-directories/tsconfig.json",
+					"--generateCpuProfile",
+					"${workspaceFolder}/common/performance/scan-directories.cpuprofile",
+					"--verbose"
+				],
+				"isBackground": false,
+				"presentation": {
+					"revealProblems": "onProblem",
+					"panel": "dedicated",
+					"group": "MAIN"
+				},
+				"problemMatcher": {
+					"base": "$tsc",
+					"applyTo": "allDocuments"
+				}
+			},
+			{
+				"group": "build",
+				"label": "Build/services/questrade-ts",
+				"detail": "Build task for questrade-ts",
+				"type": "shell",
+				"command": "npx",
+				"isBackground": false,
+				"problemMatcher": {
+					"base": "$tsc",
+					"applyTo": "allDocuments"
+				},
+				"args": [
+					"tsc",
+					"-b",
+					"${workspaceFolder}/services/questrade-ts/tsconfig.json",
+					"--generateCpuProfile",
+					"${workspaceFolder}/common/performance/questrade-ts.cpuprofile",
+					"--verbose"
+				]
+			},
+			{
+				"group": "build",
+				"label": "Build/services/redis-services",
+				"detail": "Build task for redis-services",
+				"type": "shell",
+				"command": "npx",
+				"isBackground": false,
+				"problemMatcher": {
+					"base": "$tsc",
+					"applyTo": "allDocuments"
+				},
+				"args": [
+					"tsc",
+					"-b",
+					"${workspaceFolder}/services/redis-services/tsconfig.json",
+					"--generateCpuProfile",
+					"${workspaceFolder}/common/performance/redis-services.cpuprofile",
+					"--verbose"
+				]
+			},
+			{
+				"group": "build",
+				"label": "Build/services/service-one",
+				"detail": "Build task for service-one",
+				"type": "shell",
+				"command": "npx",
+				"isBackground": false,
+				"problemMatcher": {
+					"base": "$tsc",
+					"applyTo": "allDocuments"
+				},
+				"args": [
+					"tsc",
+					"-b",
+					"${workspaceFolder}/services/service-one/tsconfig.json",
+					"--generateCpuProfile",
+					"${workspaceFolder}/common/performance/service-one.cpuprofile",
+					"--verbose"
+				]
+			},
+			{
+				"group": "build",
+				"label": "Build/services/service-two",
+				"detail": "Build task for service-two",
+				"type": "shell",
+				"command": "npx",
+				"isBackground": false,
+				"problemMatcher": {
+					"base": "$tsc",
+					"applyTo": "allDocuments"
+				},
+				"args": [
+					"tsc",
+					"-b",
+					"${workspaceFolder}/services/service-two/tsconfig.json",
+					"--generateCpuProfile",
+					"${workspaceFolder}/common/performance/service-two.cpuprofile",
+					"--verbose"
+				]
+			},
+			{
+				"group": "build",
+				"label": "Build/all/library",
+				"dependsOrder": "parallel",
+				"dependsOn": [
+					"Build/library/bigintString",
+					"Build/library/colors-tools",
+					"Build/library/boxed-list",
+					"Build/library/parallel-mapper",
+					"Build/library/human-size",
+					"Build/library/restraining-zalgo",
+					"Build/library/tools"
+				]
+			},
+			{
+				"group": "build",
+				"label": "Build/library/bigintString",
+				"detail": "Build task for bigintString",
+				"type": "shell",
+				"command": "npx",
+				"isBackground": false,
+				"problemMatcher": {
+					"base": "$tsc",
+					"applyTo": "allDocuments"
+				},
+				"args": [
+					"tsc",
+					"-b",
+					"${workspaceFolder}/library/bigintString/tsconfig.json",
+					"--generateCpuProfile",
+					"${workspaceFolder}/common/performance/bigintString.cpuprofile",
+					"--verbose"
+				]
+			},
+			{
+				"group": "build",
+				"label": "Build/library/colors-tools",
+				"detail": "Build task for colors-tools",
+				"type": "shell",
+				"command": "npx",
+				"isBackground": false,
+				"problemMatcher": {
+					"base": "$tsc",
+					"applyTo": "allDocuments"
+				},
+				"args": [
+					"tsc",
+					"-b",
+					"${workspaceFolder}/library/colors-tools/tsconfig.json",
+					"--generateCpuProfile",
+					"${workspaceFolder}/common/performance/colors-tools.cpuprofile",
+					"--verbose"
+				]
+			},
+			{
+				"group": "build",
+				"label": "Build/library/boxed-list",
+				"detail": "Build task for boxed-list",
+				"type": "shell",
+				"command": "npx",
+				"isBackground": false,
+				"problemMatcher": {
+					"base": "$tsc",
+					"applyTo": "allDocuments"
+				},
+				"args": [
+					"tsc",
+					"-b",
+					"${workspaceFolder}/library/boxed-list/tsconfig.json",
+					"--generateCpuProfile",
+					"${workspaceFolder}/common/performance/boxed-list.cpuprofile",
+					"--verbose"
+				]
+			},
+			{
+				"group": "build",
+				"label": "Build/library/parallel-mapper",
+				"detail": "Build task for parallel-mapper",
+				"type": "shell",
+				"command": "npx",
+				"isBackground": false,
+				"problemMatcher": {
+					"base": "$tsc",
+					"applyTo": "allDocuments"
+				},
+				"args": [
+					"tsc",
+					"-b",
+					"${workspaceFolder}/library/parallel-mapper/tsconfig.json",
+					"--generateCpuProfile",
+					"${workspaceFolder}/common/performance/parallel-mapper.cpuprofile",
+					"--verbose"
+				]
+			},
+			{
+				"group": "build",
+				"label": "Build/library/human-size",
+				"detail": "Build task for human-size",
+				"type": "shell",
+				"command": "npx",
+				"isBackground": false,
+				"problemMatcher": {
+					"base": "$tsc",
+					"applyTo": "allDocuments"
+				},
+				"args": [
+					"tsc",
+					"-b",
+					"${workspaceFolder}/library/human-size/tsconfig.json",
+					"--generateCpuProfile",
+					"${workspaceFolder}/common/performance/human-size.cpuprofile",
+					"--verbose"
+				]
+			},
+			{
+				"group": "build",
+				"label": "Build/library/restraining-zalgo",
+				"detail": "Build task for restraining-zalgo",
+				"type": "shell",
+				"command": "npx",
+				"isBackground": false,
+				"problemMatcher": {
+					"base": "$tsc",
+					"applyTo": "allDocuments"
+				},
+				"args": [
+					"tsc",
+					"-b",
+					"${workspaceFolder}/library/restraining-zalgo/tsconfig.json",
+					"--generateCpuProfile",
+					"${workspaceFolder}/common/performance/restraining-zalgo.cpuprofile",
+					"--verbose"
+				]
+			},
+			{
+				"group": "build",
+				"label": "Build/library/tools",
+				"detail": "Build task for tools",
+				"type": "shell",
+				"command": "npx",
+				"isBackground": false,
+				"problemMatcher": {
+					"base": "$tsc",
+					"applyTo": "allDocuments"
+				},
+				"args": [
+					"tsc",
+					"-b",
+					"${workspaceFolder}/library/tools/tsconfig.json",
+					"--generateCpuProfile",
+					"${workspaceFolder}/common/performance/tools.cpuprofile",
+					"--verbose"
+				]
+			}
+		]
+	},
 	"settings": {
 		"task.allowAutomaticTasks": "on",
 		"files.associations": {
@@ -1612,5 +2117,20 @@
 			"services",
 			"examples"
 		],
+		"workbench.colorCustomizations": {
+			"activityBar.activeBackground": "#6a2bd499",
+			"activityBar.background": "#6a2bd499",
+			"activityBar.foreground": "#e7e7e7",
+			"activityBar.inactiveForeground": "#e7e7e799",
+			"activityBarBadge.background": "#d46a2b",
+			"activityBarBadge.foreground": "#15202b",
+			"sash.hoverBorder": "#6a2bd499",
+			"sideBar.border": "#6a2bd499",
+			"tab.activeBorder": "#6a2bd499",
+			"problemsErrorIcon.foreground": "#ff3366",
+			"problemsInfoIcon.foreground": "#ffcc44ee",
+			"problemsWarningIcon.foreground": "#ccff44"
+		},
+		"peacock.color": "#5522aa99"
 	}
 }
