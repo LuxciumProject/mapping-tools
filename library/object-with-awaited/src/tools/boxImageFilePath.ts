@@ -1,59 +1,98 @@
 // https://tsplay.dev/mixWithawaited-002
 
-type WithFoo = { foo: string; };
-type WithAwaited<T> = { awaited: T; };
-type WithAwaitedBolo = WithAwaited<{ bolo: Promise<string>; }>;  // { awaited: { bolo: Promise<string>; }; };
+import { WithExpected } from '../types';
+import { mixBases } from './mixBases';
+import { mixExpected } from './mixExpected';
 
-const foo1: WithFoo & WithAwaitedBolo = {
+export type WithBar = { bar: string };
+export type WithFoo = { foo: string };
+export type WithPath = { path: string };
+export type WithAllThat = WithBar & WithFoo & WithPath;
+export const dummy: WithAllThat = {
+  bar: 'string',
+  foo: 'string',
+  path: '/dummy/path/toFile.ext',
+};
+
+export const withFoo: WithFoo = {
+  foo: 'string',
+};
+
+export const withBar: WithBar = {
+  bar: 'string',
+};
+
+export const withPath: WithPath = {
+  path: '/dummy/path/toFile.ext',
+};
+
+const partial = mixBases<any, any, { foo: string }, { bar: string }>(
+  withFoo,
+  withBar
+);
+partial;
+
+type WithExpectedBolo = WithExpected<{ bolo: Promise<string> }>;
+
+export const dummy2: WithAllThat & WithExpectedBolo = {
+  bar: 'string',
+  foo: 'string',
+  path: '/dummy/path/toFile.ext',
+  expected: { bolo: Promise.resolve('string') },
+};
+
+const foo1: WithFoo & WithExpectedBolo = {
   foo: 'machin',
-  awaited: { bolo: (async () => 'await bolo')() },
+  expected: { bolo: (async () => 'await bolo')() },
 };
 
-type WithBar = { bar: string; };
-type WithAwaitedToto = { awaited: { toto: Promise<string>; }; };
+type WithExpectedToto = { expected: { toto: Promise<string> } };
 
-const bar1: WithBar & WithAwaitedToto = {
+const bar1 = {
   bar: 'bidule',
-  awaited: { toto: (async () => 'await toto')() },
+  expected: { toto: (async () => 'await toto')() },
 };
-export function mixBase_a<
-  T extends { awaited?: any; },
-  U extends { awaited?: any; },
-  A extends Omit<T, 'awaited'>,
-  B extends Omit<U, 'awaited'>
->(a: T, b: U): A & B {
-  const { awaited: awaitedA, ...restA } = a;
-  const { awaited: awaitedB, ...restB } = b;
 
-  return { ...restA, ...restB } as A & B;
-}
-
-export function mixAwaited_a<
-  A extends { awaited: object; },
-  B extends { awaited: object; },
-  T = Pick<A, 'awaited'>,
-  U = Pick<B, 'awaited'>
->(a: A, b: B) {
-  const { awaited: awaitedA } = a;
-  const { awaited: awaitedB } = b;
-
-  const awaited = { ...awaitedA, ...awaitedB };
-  return { awaited } as T & U;
-}
-
-const base_a/* : WithAwaitedBolo& WithAwaitedToto& WithFoo& WithBar */ = {
-  ...mixBase_a<WithAwaitedBolo, WithAwaitedToto, WithFoo, WithBar>(foo1, bar1),
+const base_a /* : WithExpectedBolo& WithExpectedToto& WithFoo& WithBar */ = {
+  ...mixBases<WithExpectedBolo, WithExpectedToto, WithFoo, WithBar>(foo1, bar1),
 };
-const { awaited } = {
-  ...mixAwaited_a<WithAwaitedBolo, WithAwaitedToto>(foo1, bar1),
+const { expected } = {
+  ...mixExpected<WithExpectedBolo, WithExpectedToto>(foo1, bar1),
 };
-const awaited_a = { awaited: { ...awaited } };
-const mixed_a = { ...base_a, ...awaited_a };
-const mixed_b = { ...awaited_a, ...base_a };
+const expected_a = { expected: { ...expected } };
+const mixed_a = { ...base_a, ...expected_a };
+const mixed_b = { ...expected_a, ...base_a };
 
 console.log('mixed_a:', mixed_a);
 console.log('mixed_b:', mixed_b);
 
+export function mixedObj_a<
+  A extends { expected: object },
+  B extends { expected: object },
+  C extends Omit<A, 'expected'>,
+  D extends Omit<B, 'expected'>,
+  E = Pick<A, 'expected'>,
+  F = Pick<B, 'expected'>
+>(foo1: A, bar1: B) {
+  const base_a = {
+    ...mixBases(foo1, bar1),
+  };
+  base_a;
+  const none: any = null;
+  const voiderA: E & F = none;
+  const voiderB: C & D = none;
+  void voiderA;
+  void voiderB;
+
+  const { expected } = {
+    ...mixExpected(foo1, bar1),
+  };
+
+  return { ...base_a, expected };
+}
+
+const mixed_c = mixedObj_a(foo1, bar1);
+mixed_c;
 /*
   // +KEEP THIS
 
@@ -63,70 +102,70 @@ console.log('mixed_b:', mixed_b);
       //   compatibleImagefilePath: string;
       // }>;
 
-      // export type WithAwaited<T extends Object> = {
-      //   awaited: T;
+      // export type WithExpected<T extends Object> = {
+      //   expected: T;
       // };
 
   // +KEEP THIS
 */
 
 // const together = {
-//   ...awaitedA
+//   ...expectedA
 //   ,
-//   ...awaitedB
+//   ...expectedB
 // };
-// console.log('\nall a:', a, '\nall b:', b, '\njust awaited a:', awaitedA, '\njust awaited b:', awaitedB, '\nspread awaited a:', { ...awaitedA }, '\nspread awaited b:', { ...awaitedB }, '\nspeaded together:', together);
-// const mixAwaited_a_1 = mixAwaited_a(foo1, bar1);
-// console.log('\n\nmixAwaited_a_1:', mixAwaited_a_1, '\n\n');
-// const mixAwaited_a_2 = { ...mixAwaited_a(foo1, bar1) };
-// console.log('\n\nmixAwaited_a_2:', mixAwaited_a_2, '\n\n');
+// console.log('\nall a:', a, '\nall b:', b, '\njust expected a:', expectedA, '\njust expected b:', expectedB, '\nspread expected a:', { ...expectedA }, '\nspread expected b:', { ...expectedB }, '\nspeaded together:', together);
+// const mixExpected_a_1 = mixExpected_a(foo1, bar1);
+// console.log('\n\nmixExpected_a_1:', mixExpected_a_1, '\n\n');
+// const mixExpected_a_2 = { ...mixExpected_a(foo1, bar1) };
+// console.log('\n\nmixExpected_a_2:', mixExpected_a_2, '\n\n');
 // console.log(mixed_a.foo);
 // console.log(mixed_a.bar);
-// console.log(mixed_a.awaited.bolo);
-// console.log(mixed_a.awaited.toto);
+// console.log(mixed_a.expected.bolo);
+// console.log(mixed_a.expected.toto);
 
-// export function mixWithAwaited_a<
-//   T extends { awaited: object; },
-//   U extends { awaited: object; },
-//   A extends Pick<T, 'awaited'>,
-//   B extends Pick<U, 'awaited'>
+// export function mixWithExpected_a<
+//   T extends { expected: object; },
+//   U extends { expected: object; },
+//   A extends Pick<T, 'expected'>,
+//   B extends Pick<U, 'expected'>
 // >(a: A, b: B) {
-//   const { awaited: awaitedA } = a;
-//   const { awaited: awaitedB } = b;
-//   const awaited = { ...awaitedA, ...awaitedB };
-//   return { awaited } as A & B;
+//   const { expected: expectedA } = a;
+//   const { expected: expectedB } = b;
+//   const expected = { ...expectedA, ...expectedB };
+//   return { expected } as A & B;
 // }
 
 // export function mixBase<
-//   T extends { awaited?: any; },
-//   U extends { awaited?: any; },
-//   A extends Omit<T, 'awaited'>,
-//   B extends Omit<U, 'awaited'>
+//   T extends { expected?: any; },
+//   U extends { expected?: any; },
+//   A extends Omit<T, 'expected'>,
+//   B extends Omit<U, 'expected'>
 // >(a: T, b: U): A & B {
-//   const { awaited: awaitedA, ...restA } = a;
-//   const { awaited: awaitedB, ...restB } = b;
+//   const { expected: expectedA, ...restA } = a;
+//   const { expected: expectedB, ...restB } = b;
 
 //   return { ...restA, ...restB } as A & B;
 // }
-// export function mixAwaited<
+// export function mixExpected<
 //   A extends Object,
 //   B extends Object,
-//   T extends WithAwaited<A>,
-//   U extends WithAwaited<B>
-// >(a: A & T, b: B & U): { awaited: A & B; } {
-//   return { awaited: { ...a.awaited, ...b.awaited } };
+//   T extends WithExpected<A>,
+//   U extends WithExpected<B>
+// >(a: A & T, b: B & U): { expected: A & B; } {
+//   return { expected: { ...a.expected, ...b.expected } };
 // }
 
-// export function mixWithAwaited<
-//   T extends { awaited: object; },
-//   U extends { awaited: object; },
-//   A extends Pick<T, 'awaited'>,
-//   B extends Pick<U, 'awaited'>
+// export function mixWithExpected<
+//   T extends { expected: object; },
+//   U extends { expected: object; },
+//   A extends Pick<T, 'expected'>,
+//   B extends Pick<U, 'expected'>
 // >(a: A, b: B) {
-//   const { awaited: awaitedA } = a;
-//   const { awaited: awaitedB } = b;
-//   const awaited = { ...awaitedA, ...awaitedB };
-//   return { awaited } as A & B;
+//   const { expected: expectedA } = a;
+//   const { expected: expectedB } = b;
+//   const expected = { ...expectedA, ...expectedB };
+//   return { expected } as A & B;
 // }
 
 // export const fakeResult_001 = {
@@ -135,7 +174,7 @@ console.log('mixed_b:', mixed_b);
 // console.log('fakeResult_001:', fakeResult_001);
 
 // export const fakeResult_002 = {
-//   ...mixWithAwaited(foo1, bar1),
+//   ...mixWithExpected(foo1, bar1),
 // };
 // console.log('fakeResult_002:', fakeResult_002);
 
@@ -148,7 +187,7 @@ console.log('mixed_b:', mixed_b);
 // export const fakeResult_005 = {
 //   foo: 'machin',
 //   bar: 'bidule',
-//   awaited: {
+//   expected: {
 //     bolo: (async () => 'await bolo')(),
 //     toto: (async () => 'await toto')(),
 //   },
@@ -158,73 +197,73 @@ console.log('mixed_b:', mixed_b);
 /*
 export function boxImageFileWithStats(
   compatibleImagefilePath: string
-): ImageFilePathWithAwaitedStats {
+): ImageFilePathWithExpectedStats {
   return {
     compatibleImagefilePath,
-    awaited: {
+    expected: {
       stat: (async () => await stat(compatibleImagefilePath))(),
     },
   };
 }
 
-export function mixAwaited2<
+export function mixExpected2<
   A extends {},
   B extends {},
-  T extends WithAwaited<A>,
-  U extends WithAwaited<B>
+  T extends WithExpected<A>,
+  U extends WithExpected<B>
 >(
   a: T,
   b: U
 ): T &
   U & {
-    awaited: A & B;
+    expected: A & B;
   } {
-  return { ...mixAwaited(a, b) };
+  return { ...mixExpected(a, b) };
 }
 
-export function mixAwaited<
+export function mixExpected<
   A extends {},
   B extends {},
-  T extends WithAwaited<A>,
-  U extends WithAwaited<B>
->(a: T, b: U): { awaited: A & B } {
-  return { awaited: { ...a.awaited, ...b.awaited } };
+  T extends WithExpected<A>,
+  U extends WithExpected<B>
+>(a: T, b: U): { expected: A & B } {
+  return { expected: { ...a.expected, ...b.expected } };
 }
 
 const dummyImageFileWithStats = boxImageFileWithStats('');
-const dummyImageWithAwaited = {
+const dummyImageWithExpected = {
   dummy: 'value',
-  awaited: { statDummy: (async () => 'Dummy await')() },
+  expected: { statDummy: (async () => 'Dummy await')() },
 };
 
-const dommyImageWithAwaited = {
+const dommyImageWithExpected = {
   dommy: 'value',
-  awaited: { statDommy: (async () => 'Dummy await')() },
+  expected: { statDommy: (async () => 'Dummy await')() },
 };
 dummyImageFileWithStats;
-dummyImageWithAwaited;
+dummyImageWithExpected;
 
-export const resultDummy = mixAwaited2(
-  dummyImageWithAwaited,
-  dommyImageWithAwaited
+export const resultDummy = mixExpected2(
+  dummyImageWithExpected,
+  dommyImageWithExpected
 );
-export const resultDummy2 = mixAwaited2(resultDummy, dummyImageFileWithStats);
+export const resultDummy2 = mixExpected2(resultDummy, dummyImageFileWithStats);
 export const resultDummy3 = {
   ...mixBase(resultDummy, dummyImageFileWithStats),
 };
 
-// ... awaited(resultDummy, dummyImageFileWithStats)
+// ... expected(resultDummy, dummyImageFileWithStats)
  */
 
 // import { stat } from 'node:fs/promises';
 // import {
-//   ImageFilePathWithAwaitedStats,
-//   WithAwaited
+//   ImageFilePathWithExpectedStats,
+//   WithExpected
 // } from '../types/ImageFilePath';
 
-// export type WithAwaitedStats = WithAwaited<{
+// export type WithExpectedStats = WithExpected<{
 //   stat: Promise<Stats>;
 // }>;
 
-// export type ImageFilePathWithAwaitedStats = WithAwaitedStats & ImageFilePath;
-// https://tsplay.dev/with_awaited-001
+// export type ImageFilePathWithExpectedStats = WithExpectedStats & ImageFilePath;
+// https://tsplay.dev/with_expected-001
