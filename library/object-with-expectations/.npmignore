@@ -20,7 +20,7 @@ bigintstring.build.log
 object-with-expectations.build.log
 README.md
 *.tgz
-
+**/coverage
 !lib/src/
 !lib/typings/
 !LICENSE

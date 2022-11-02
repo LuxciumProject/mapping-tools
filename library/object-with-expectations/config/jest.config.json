@@ -1,6 +1,7 @@
 {
   "extends": "@rushstack/heft-jest-plugin/includes/jest-shared.config.json",
   "collectCoverage": true,
+  "coverageDirectory": "../coverage",
   "verbose": true,
   "transform": {
     "^.+\\.(ts|tsx)?$": [

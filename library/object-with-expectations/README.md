@@ -1,6 +1,6 @@
 # 📚💙 object-with-expectations
 
-## @luxcium/object-with-expectations
+## @luxcium/object-with-expectations@0.2.1
 
 ### install with pnpm npm or yarn
 
