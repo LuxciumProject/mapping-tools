@@ -2155,6 +2155,9 @@
 			"problemsInfoIcon.foreground": "#ffcc44ee",
 			"problemsWarningIcon.foreground": "#ccff44"
 		},
-		"peacock.color": "#5522aa99"
+		"peacock.color": "#5522aa99",
+		"[typescript]": {
+			"editor.defaultFormatter": "esbenp.prettier-vscode"
+		}
 	}
 }
