@@ -1,4 +1,27 @@
 {
+	"extensions": {
+		"recommendations": [
+			"aaron-bond.better-comments",
+			"alefragnani.Bookmarks",
+			"christian-kohler.path-intellisense",
+			"dbaeumer.vscode-eslint",
+			"dlech.chmod",
+			"dplain.jest-test-language-support",
+			"esbenp.prettier-vscode",
+			"formulahendry.code-runner",
+			"ghmcadams.lintlens",
+			"gruntfuggly.todo-tree",
+			"joeberria.statusbarerror",
+			"latitude55.jest-snippets",
+			"Luxcium.pop-n-lock-theme-vscode",
+			"PKief.material-icon-theme",
+			"salbert.comment-ts",
+			"SophodorosLLC.codevalet-vscode",
+			"ue.alphabetical-sorter",
+			"usernamehw.errorlens",
+			"VisualStudioExptTeam.vscodeintellicode"
+		]
+	},
 	"folders": [
 		{
 			"name": "→✨🖥️ MONOREPO-ONE",
@@ -33,8 +56,8 @@
 			"path": "library/human-size"
 		},
 		{
-			"name": "          📚💙 object-with-awaited",
-			"path": "library/object-with-awaited"
+			"name": "          📚💙 object-with-expectations",
+			"path": "library/object-with-expectations"
 		},
 		{
 			"name": "          📚💜 parallel-mapper",
@@ -639,6 +662,44 @@
 		"files.associations": {
 			"*.json": "jsonc"
 		},
+		/*
+  |-····―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――··-|
+  */
+		// #region: excludes                                               !
+		"files.exclude": {
+			".directory": true,
+			"**/*.build.log": true,
+			".editorconfig": false,
+			".git/": true,
+			".gitattributes": true,
+			".gitignore": false,
+			".gitmodules": true,
+			".history/": true,
+			".nvmrc": true,
+			".prettierignore": true,
+			".prettierrc.cjs": false,
+			".vscode/": false,
+			"backend/": false,
+			"common/": false,
+			"dist": false,
+			"docs/": false,
+			"frontend/": false,
+			"library/": false,
+			"LICENSE": false,
+			"out": false,
+			"pnpm-workspace.yaml": true,
+			"public/": false,
+			"readme.md": false,
+			"rush.json": false,
+			"scripts/": false,
+			"services/": false
+		},
+		"search.exclude": {
+			"docs": true,
+			"dist": true,
+			"out": true
+		},
+		// #endregion: excludes                                            !
 		/*
   |-····―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――··-|
   */
@@ -2158,6 +2219,7 @@
 		"peacock.color": "#5522aa99",
 		"[typescript]": {
 			"editor.defaultFormatter": "esbenp.prettier-vscode"
-		}
+		},
+		"liveServer.settings.multiRootWorkspaceName": "→✨🖥️ MONOREPO-ONE"
 	}
 }

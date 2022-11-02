@@ -505,8 +505,8 @@
       ]
     },
     {
-      "packageName": "@luxcium/object-with-awaited",
-      "projectFolder": "library/object-with-awaited",
+      "packageName": "@luxcium/object-with-expectations",
+      "projectFolder": "library/object-with-expectations",
       "tags": [
         "library"
       ]
