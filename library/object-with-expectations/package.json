@@ -1,13 +1,13 @@
 {
-  "name": "@luxcium/object-with-awaited",
-  "version": "0.0.0-PREALPHA-UNSAFE-v0.0x",
+  "name": "@luxcium/object-with-expectations",
+  "version": "0.1.0",
   "description": "",
   "main": "lib/src/index.js",
   "types": "lib/typings/index.d.ts",
   "author": "Luxcium (Benjamin Vincent)",
   "license": "MIT",
   "scripts": {
-    "install": "#bash scripts/build.sh",
+    "install": "bash scripts/build.sh",
     "build": "bash scripts/build.sh",
     "test": "heft test",
     "jest": "jest --config='config/jest.config.json'"

@@ -1,5 +1,4 @@
-import { mixBases } from '../..';
-import { mixExpected } from '../../tools/mixExpected';
+import { mixBases, mixExpected } from '../..';
 
 const onlyFoo = {
   foo: 'machin',
