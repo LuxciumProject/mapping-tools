@@ -1,9 +1,9 @@
-// export function mixBase<T extends {}, U extends {}, A = T, B = U>(a: T, b: U): T & U;
-// export function mixBase<T extends {}, U extends { expected?: any }, B extends Omit<U, 'expected'>, A = T>(
+// export function mixBases<T extends {}, U extends {}, A = T, B = U>(a: T, b: U): T & U;
+// export function mixBases<T extends {}, U extends { expected?: any }, B extends Omit<U, 'expected'>, A = T>(
 //   a: T,
 //   b: U
 // ): T & B;
-// export function mixBase<T extends { expected?: any }, U extends {}, A extends Omit<T, 'expected'>, B = U>(
+// export function mixBases<T extends { expected?: any }, U extends {}, A extends Omit<T, 'expected'>, B = U>(
 //   a: T,
 //   b: U
 // ): A & U;

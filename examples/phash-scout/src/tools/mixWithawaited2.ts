@@ -16,7 +16,7 @@ const bar1: WithBar & WithAwaitedToto = {
   bar: 'bidule',
   awaited: { toto: (async () => 'await toto')() },
 };
-export function mixBase_a<
+export function mixBases_a<
   T extends { awaited?: any },
   U extends { awaited?: any },
   A extends Omit<T, 'awaited'>,
@@ -42,7 +42,7 @@ export function mixAwaited_a<
 }
 
 const base_a /* : WithAwaitedBolo& WithAwaitedToto& WithFoo& WithBar */ = {
-  ...mixBase_a<WithAwaitedBolo, WithAwaitedToto, WithFoo, WithBar>(foo1, bar1),
+  ...mixBases_a<WithAwaitedBolo, WithAwaitedToto, WithFoo, WithBar>(foo1, bar1),
 };
 const { awaited } = {
   ...mixAwaited_a(foo1, bar1),
