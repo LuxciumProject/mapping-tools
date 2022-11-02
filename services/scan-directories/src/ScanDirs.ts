@@ -73,8 +73,9 @@ export class ScanDirs {
     };
   }
   public get map() {
+    // = (fullPath: string) => fullPath
     const self = this;
-    return async function* (transformFn: (fullPath: string) => unknown = (fullPath: string) => fullPath) {
+    return async function* <R>(transformFn: (fullPath: string) => R ) {
       for await (const fullPath of self.scan()) {
         const extname = path.extname(fullPath).toLowerCase();
         extname;
