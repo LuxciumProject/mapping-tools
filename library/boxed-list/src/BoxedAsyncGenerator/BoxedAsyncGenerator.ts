@@ -5,21 +5,29 @@ import type { IUnbox, IUnboxList, Mapper } from '../types';
 export class BoxedAsyncGenerator<T> {
   #valueAsyncGenerator: () => AsyncGenerator<T>;
 
-  public static fromGen = <TVal>(asyncGeneratorFn: () => AsyncGenerator<TVal>): BoxedAsyncGenerator<TVal> => {
+  public static fromGen = <TVal>(
+    asyncGeneratorFn: () => AsyncGenerator<TVal>
+  ): BoxedAsyncGenerator<TVal> => {
     return new BoxedAsyncGenerator<TVal>(asyncGeneratorFn);
   };
 
   // static ==========================================-| from() |-====
-  public static from<TVal>(boxedList: IUnboxList<TVal> | IUnbox<TVal[]>): BoxedAsyncGenerator<TVal> {
+  public static from<TVal>(
+    boxedList: IUnboxList<TVal> | IUnbox<TVal[]>
+  ): BoxedAsyncGenerator<TVal> {
     return BoxedAsyncGenerator.of<TVal>(boxedList.unbox());
   }
 
   // static ==========================================-| from() |-====
-  public static fromAsyncGen<TVal>(asyncGenerator: AsyncGenerator<TVal>): BoxedAsyncGenerator<TVal> {
+  public static fromAsyncGen<TVal, TReturn = any, TNext = unknown>(
+    asyncGenerator: AsyncGenerator<TVal, TReturn, TNext>
+  ): BoxedAsyncGenerator<TVal> {
     return new BoxedAsyncGenerator(() => asyncGenerator); // .of<TVal>(boxedList.unbox());
   }
   // static ============================================-| of() |-====
-  public static of = <TVal>(...values: TVal[] | TVal[][]): BoxedAsyncGenerator<TVal> => {
+  public static of = <TVal>(
+    ...values: TVal[] | TVal[][]
+  ): BoxedAsyncGenerator<TVal> => {
     const arrayGenerator = (array: TVal[]): (() => AsyncGenerator<TVal>) =>
       async function* (): AsyncGenerator<TVal> {
         const array_ = array.map(i => immediateZalgo(i));
@@ -34,20 +42,27 @@ export class BoxedAsyncGenerator<T> {
       }
     }
 
-    return new BoxedAsyncGenerator<TVal>(arrayGenerator([...(values as TVal[])]));
+    return new BoxedAsyncGenerator<TVal>(
+      arrayGenerator([...(values as TVal[])])
+    );
   };
 
   // constructor ======================-| BoxedAsyncGenerator() |-====
   protected constructor(valueGenerator: () => AsyncGenerator<T>) {
     this.#valueAsyncGenerator = valueGenerator;
   }
-  public mapAwait<R>(fn: Mapper<T, Promise<R> | R>, delay: number = 0): BoxedAsyncGenerator<Awaited<R>> {
+  public mapAwait<R>(
+    fn: Mapper<T, Promise<R> | R>,
+    delay: number = 0
+  ): BoxedAsyncGenerator<Awaited<R>> {
     const asyncGenerator = this.#valueAsyncGenerator;
     async function* asyncGeneratorFn(): AsyncGenerator<Awaited<R>> {
       let index = 0;
 
       for await (const item of asyncGenerator()) {
-        yield delay === 0 ? immediateZalgo(fn(item, index++)) : timeoutZalgo(fn(item, index++), delay);
+        yield delay === 0
+          ? immediateZalgo(fn(item, index++))
+          : timeoutZalgo(fn(item, index++), delay);
       }
     }
     return BoxedAsyncGenerator.fromGen(asyncGeneratorFn);
@@ -61,11 +76,17 @@ export class BoxedAsyncGenerator<T> {
     return this.asyncGen();
   }
 
+  public async asyncSpark() {
+    for await (const looping of this.unboxAsyncGen()) {
+      void looping;
+    }
+    return void 15;
+  }
+  /*
+
+
+ */
   async *[Symbol.asyncIterator]() {
-    return this.#valueAsyncGenerator
-    // const asyncGenerator = this.#valueAsyncGenerator;
-    // for await (const item of asyncGenerator()) {
-    //   yield item;
-    // }
+    return this.#valueAsyncGenerator;
   }
 }
