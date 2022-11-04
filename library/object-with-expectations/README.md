@@ -1,6 +1,8 @@
 # 📚💙 object-with-expectations
 
-## @luxcium/object-with-expectations@0.2.1
+Let you merge objects with expected asyncronious results and normal properties.
+
+## @luxcium/object-with-expectations@0.2.2
 
 ### install with pnpm npm or yarn
 

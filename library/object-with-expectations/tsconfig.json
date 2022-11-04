@@ -8,7 +8,7 @@
     "moduleResolution": "node",
     "rootDir": "./src",
     "declarationDir": "./lib/typings",
-    "outDir": "./lib/src",
+    "outDir": "./lib/",
     "tsBuildInfoFile": "./lib/ts-out-info.lib",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,

@@ -1,15 +1,15 @@
 {
   "name": "@luxcium/object-with-expectations",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "",
   "private": false,
-  "main": "lib/src/index.js",
+  "main": "lib/index.js",
   "types": "lib/typings/index.d.ts",
   "author": "Luxcium (Benjamin Vincent)",
   "license": "MIT",
   "scripts": {
-    "install": "bash scripts/build.sh",
-    "build": "bash scripts/build.sh",
+    "install": "bash scripts/build.sh || exit 0",
+    "build": "bash scripts/build.sh || exit 15",
     "test": "heft test",
     "jest": "jest --config='config/jest.config.json'"
   },
