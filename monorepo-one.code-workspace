@@ -303,7 +303,8 @@
 				"dependsOn": [
 					"Build/all/library",
 					"Build/all/services",
-					"Build/all/frontend"
+					"Build/all/frontend",
+					"Build/all/examples"
 				]
 			},
 			{
@@ -617,6 +618,26 @@
 			},
 			{
 				"group": "build",
+				"label": "Build/library/object-with-expectations",
+				"detail": "Build task for object-with-expectations",
+				"type": "shell",
+				"command": "npx",
+				"isBackground": false,
+				"problemMatcher": {
+					"base": "$tsc",
+					"applyTo": "allDocuments"
+				},
+				"args": [
+					"tsc",
+					"-b",
+					"${workspaceFolder}/library/object-with-expectations/tsconfig.json",
+					"--generateCpuProfile",
+					"${workspaceFolder}/common/performance/object-with-expectations.cpuprofile",
+					"--verbose"
+				]
+			},
+			{
+				"group": "build",
 				"label": "Build/library/restraining-zalgo",
 				"detail": "Build task for restraining-zalgo",
 				"type": "shell",
@@ -652,6 +673,35 @@
 					"${workspaceFolder}/library/tools/tsconfig.json",
 					"--generateCpuProfile",
 					"${workspaceFolder}/common/performance/tools.cpuprofile",
+					"--verbose"
+				]
+			},
+			{
+				"group": "build",
+				"label": "Build/all/examples",
+				"dependsOrder": "parallel",
+				"dependsOn": [
+					"Build/examples/phash-scout"
+				]
+			},
+			// /home/luxcium/projects/monorepo-one/examples/phash-scout
+			{
+				"group": "build",
+				"label": "Build/examples/phash-scout",
+				"detail": "Build task for phash-scout",
+				"type": "shell",
+				"command": "npx",
+				"isBackground": false,
+				"problemMatcher": {
+					"base": "$tsc",
+					"applyTo": "allDocuments"
+				},
+				"args": [
+					"tsc",
+					"-b",
+					"${workspaceFolder}/examples/phash-scout/tsconfig.json",
+					"--generateCpuProfile",
+					"${workspaceFolder}/common/performance/phash-scout.cpuprofile",
 					"--verbose"
 				]
 			}
