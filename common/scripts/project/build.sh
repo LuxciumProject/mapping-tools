@@ -1,3 +1,3 @@
 #!/bin/sh
 
-tsc --noEmit false --generateCpuProfile ./out/bigintstring.cpuprofile || exit 1
+tsc --noEmit false --generateCpuProfile ./out/performance/compile-task.cpuprofile || exit 1
