@@ -1,73 +1,88 @@
-// import { BoxedGenerator } from '@luxcium/boxed-list';
-// import { BoxedAsyncGenerator } from '@luxcium/boxed-list';
-import { boxImageFileWithStats, getPhashCompute } from '@luxcium/phash-compute';
+import { BoxedAsyncGenerator } from '@luxcium/boxed-list';
+import { getPhashCompute } from '@luxcium/phash-compute';
 import { rConnect } from '@luxcium/redis-services';
 import { scanDirsFrom } from '@luxcium/scan-dirs';
-import { readFileSync, Stats } from 'node:fs';
+import { readFileSync } from 'node:fs';
+import { boxImageFileWithStats } from './tools';
 
-const configs = JSON.parse(readFileSync('/home/luxcium/projects/configs/mono-repo.jsonc').toString());
+const configs = JSON.parse(
+  readFileSync('/home/luxcium/projects/configs/mono-repo.jsonc').toString()
+);
 
 void (async function main() {
   //
   // -! Open the connection to the redis cache server
-
   const R = await rConnect(6383);
-
+  //
   // -! Link the connection with the pHashCompute
-
   const phashCompute = getPhashCompute(R, false);
 
+  const pathToFolder = configs['examples-phash-scout'].links.example;
   // -! Initialise the file scaner to scan each folders from the link provided
-
-  const folders = scanDirsFrom(configs['examples-phash-scout'].links.example);
+  const folders = scanDirsFrom(pathToFolder);
 
   // -! Then set the valid files extensions to be used from the file scanner
-
   folders.addValidExt(['.jpg', '.png']);
 
   // -! Use the pHashCompute on each filesPaths with valid extensions
+  // const computedResult: AsyncGenerator<
+  //   WithExpectedStats & ImageFileWithPHashString,
+  //   boolean,
+  //   unknown
+  // > = folders.map(imagePath => phashCompute(boxImageFileWithStats(imagePath)));
 
-  const computedResult = folders.map(imagePath => phashCompute(boxImageFileWithStats(imagePath)));
+  const result = BoxedAsyncGenerator.fromAsyncGen(folders.map(idem => idem))
+    .mapAwait(imagePath => phashCompute(boxImageFileWithStats(imagePath)))
+    .mapAwait(pHash => {
+      console.log('loging:', pHash);
+      void pHash;
+    });
+
+  console.log(
+    Object.getPrototypeOf(
+      Object.getPrototypeOf(async function* () {}.prototype)
+    )
+  );
+  console.log(Object.getPrototypeOf(async function* () {}.prototype));
+  console.log(async function* () {}.prototype);
+  result;
+  // await result.asyncSpark();
+  process.exit(0);
 
   // -! Spark the scanner (starting it) login the computed or cached
-
-  for await (const pHash of computedResult) {
-    console.log('loging:', pHash);
-    void pHash;
-  }
+  // for await (const looping of result.unboxAsyncGen()) {
+  //   console.log('looping!');
+  //   void looping;
+  // }
 })();
 
-// const scaner = BoxedGenerator.fromGen<any>(folders.scan);
-// const computedResult = scaner.map(phashCompute);
-// pHash to the console
-// const asyncComputedResult = BoxedAsyncGenerator.fromAsyncGen(folders.map(idem => idem));
-// const computedResult = asyncComputedResult.mapAwait(phashCompute);
-
-export type WithStats1 = {
-  awaited: {
-    stat: Promise<Stats>;
-  };
-};
-
-export type WithAwaited<T extends Object> = {
-  awaited: T;
-};
-
-export type WithStats = WithAwaited<{
-  stat: Promise<Stats>;
-}>;
-
-// function someAwaited() {}
 /*
-type WithStats2 = {
-    awaited: {
-        stat: Promise<Stats>;
-    };
+next()
+A function that accepts zero or one argument and returns a promise. The promise fulfills to an object conforming to the IteratorResult interface, and the properties have the same semantics as those of the sync iterator's.
+
+type IteratorResult<T, TReturn = any> =
+  | IteratorYieldResult<T>
+  | IteratorReturnResult<TReturn>;
+
+interface IteratorYieldResult<TYield> {
+  done?: false;
+  value: TYield;
 }
-type WithStats1 = {
-    awaited: {
-        stat: Promise<Stats>;
-    };
-}
+interface IteratorReturnResult<TReturn> {
+  done: true;
+  val
+
+return(value) Optional
+A function that accepts zero or one argument and returns a promise. The promise fulfills to an object conforming to the IteratorResult interface, and the properties have the same semantics as those of the sync iterator's.
+
+throw(exception) Optional
+A function that accepts zero or one argument and returns a promise. The promise fulfills to an object conforming to the IteratorResult interface, and the properties have the same semantics as those of the sync iterator's.
+
 
  */
+export interface Iterator<T, TReturn = any, TNext = undefined> {
+  // Takes either 0 or 1 arguments - doesn't accept 'undefined'
+  next(...args: [] | [TNext]): IteratorResult<T, TReturn>;
+  return?(value?: TReturn): IteratorResult<T, TReturn>;
+  throw?(e?: any): IteratorResult<T, TReturn>;
+}

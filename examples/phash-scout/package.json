@@ -2,8 +2,8 @@
   "name": "examples-phash-scout",
   "version": "1.0.0",
   "description": "",
-  "main": "lib/src/index.js",
-  "types": "lib/typings/index.d.ts",
+  "main": "out/index.js",
+  "types": "out/typings/index.d.ts",
   "scripts": {
     "install": "bash scripts/build.sh",
     "build": "bash scripts/build.sh",
@@ -63,6 +63,7 @@
     "@luxcium/redis-services": "workspace:*",
     "@luxcium/scan-dirs": "workspace:*",
     "@luxcium/boxed-list": "workspace:*",
-    "source-map-support": "~0.5.21"
+    "source-map-support": "~0.5.21",
+    "@luxcium/object-with-expectations": "workspace:*"
   }
 }
