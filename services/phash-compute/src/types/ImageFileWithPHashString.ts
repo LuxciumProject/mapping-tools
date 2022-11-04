@@ -2,5 +2,9 @@ export type ImageFileWithPHashString = {
   compatibleImagefilePath: string;
   pHashString: string;
   pHashMethod: string | null;
-  size: number;
+};
+
+export type WithPHashString = {
+  pHashString: string;
+  pHashMethod: string | null;
 };

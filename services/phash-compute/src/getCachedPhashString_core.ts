@@ -1,15 +1,15 @@
 import { RedisClientType } from 'redis';
 import type {
   DebugFlag,
-  ImageFilePathWithAwaitedStats,
+  ImageFilePathWithExpectedStats,
   ImageFileWithPHashString,
-  WithAwaited,
 } from './types';
 
+import { mixBases, mixExpected } from '@luxcium/object-with-expectations';
 import { getBigStrPHashFromFile } from './getBigStrPHashFromFile';
 import { pHashGetLookUp } from './pHashGetLookUp';
 import { redisSetK } from './redisSetK';
-
+// import { WithPHashString } from './types/ImageFileWithPHashString';
 /**
  *
  * @param R
@@ -27,37 +27,41 @@ export function getCachedPhashString_core(
   R: RedisClientType | null = null,
   debug: DebugFlag = null
 ) {
-  return async <T extends ImageFilePathWithAwaitedStats>(
+  return async <T extends ImageFilePathWithExpectedStats>(
     imageFilePath: T
   ): Promise<T & ImageFileWithPHashString> => {
     const { compatibleImagefilePath } = imageFilePath;
-    const { size } = await imageFilePath.awaited.stat;
     const pathObj = {
       path: compatibleImagefilePath,
-      size,
     };
 
     // Without RedisClient no need to look into the cache
     if (!R) {
       const bigStr = await getBigStrPHashFromFile(pathObj.path);
+      const pHashString = bigStr;
+      const pHashMethod = 'direct';
+      const lookup = { pHashString, pHashMethod };
+
       return {
-        ...imageFilePath,
-        pHashString: bigStr,
-        pHashMethod: 'direct',
-        size,
+        ...mixBases<any, any, any, any>(imageFilePath, lookup), //
+        ...mixExpected<any, any>(imageFilePath, lookup),
       };
+      // return { ...joinPhashExpected(imageFilePath,  {pHashString, pHashMethod}) };
     }
 
     // Lookup if available from inside the cache
     const lookUP = await pHashGetLookUp(R, pathObj.path);
-    const { pHashString, pHashMethod } = lookUP;
+    const { pHashString } = lookUP;
 
     // if LookUP is positive (not false and not emptystring)
     if (pHashString !== false && pHashString !== '') {
       !!debug && console.warn(`lookUP:`, lookUP);
 
       // Then return from cache
-      return { ...imageFilePath, pHashString, pHashMethod, size };
+      return {
+        ...mixBases<any, any, any, any>(imageFilePath, lookUP), //
+        ...mixExpected<any, any>(imageFilePath, lookUP),
+      };
     } else {
       // Else calculate the value
       const bigStr = await getBigStrPHashFromFile(pathObj.path);
@@ -69,11 +73,13 @@ export function getCachedPhashString_core(
           !!debug && console.warn(`computed: ${bigStr}`);
 
           // Return the newly calculated value
+          const pHashString = bigStr;
+          const pHashMethod = 'cached';
+          const lookup = { pHashString, pHashMethod };
+
           return {
-            ...imageFilePath,
-            pHashString: bigStr,
-            pHashMethod: 'cached',
-            size,
+            ...mixBases<any, any, any, any>(imageFilePath, lookup), //
+            ...mixExpected<any, any>(imageFilePath, lookup),
           };
         }
       }
@@ -84,19 +90,46 @@ export function getCachedPhashString_core(
         );
 
       // Return the newly calculated value
-      return { ...imageFilePath, pHashString: bigStr, pHashMethod: null, size };
+
+      const pHashString = bigStr;
+      const pHashMethod = null;
+      const lookup = { pHashString, pHashMethod };
+
+      return {
+        ...mixBases<any, any, any, any>(imageFilePath, lookup), //
+        ...mixExpected<any, any>(imageFilePath, lookup),
+      };
     }
   };
 }
 
-export function mixAwaited<
-  A extends Object,
-  B extends Object,
-  T extends WithAwaited<A>,
-  U extends WithAwaited<B>
->(a: T, b: U) {
-  const awaitedA = a.awaited;
-  const awaitedB = b.awaited;
+// function joinPhashString<
+//   T extends Omit<any, 'expected'>,
+//   U extends Omit<any, 'expected'>
+// >(imageFilePath: T, lookup: U) {
+//   return {
+//     ...mixBases<any, any, T, typeof lookup>(imageFilePath, lookup),
+//   };
+// }
 
-  return { ...a, ...b, awaited: { ...awaitedA, ...awaitedB } };
-}
+//  function joinPhashExpected<
+//   T extends { expected: object },
+//   U extends { expected: object }
+// >(
+//   imageFilePath: T,
+//   lookup: U
+//   // pHashString: string,
+//   // pHashMethod: string | null
+// ) {
+//   const bases = joinPhashString(imageFilePath, lookup);
+
+//   return {
+//     ...bases, //  ...mixBases
+//     ...mixExpected(imageFilePath, lookup),
+//   };
+// }
+
+/*
+     const bases = joinPhashString(imageFilePath, bigStr, 'direct');
+      return { ...bases, ...joinPhashExpected(imageFilePath) };
+ */
