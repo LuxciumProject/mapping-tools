@@ -17,12 +17,30 @@ void (async function main() {
   // -! Link the connection with the pHashCompute
   const phashCompute = getPhashCompute(R, false);
 
-  const pathToFolder = configs['examples-phash-scout'].links.example;
+  const pathToFolder: string = configs['examples-phash-scout'].links.example;
   // -! Initialise the file scaner to scan each folders from the link provided
-  const folders = scanDirsFrom(pathToFolder);
+  const folders = scanDirsFrom(pathToFolder).addValidExt(['.jpg', '.png']);
 
   // -! Then set the valid files extensions to be used from the file scanner
-  folders.addValidExt(['.jpg', '.png']);
+  BoxedAsyncGenerator;
+  boxImageFileWithStats;
+  phashCompute;
+  folders;
+
+  // const result = BoxedAsyncGenerator.fromAsyncGen(folders)
+  //   .mapAwait(imagePath => phashCompute(boxImageFileWithStats(imagePath)))
+  //   .mapAwait(pHash => {
+  //     console.log('loging:', pHash);
+  //     void pHash;
+  //   });
+
+  // await result.asyncSpark();
+
+  for await (const imagePath of folders) {
+    const item = boxImageFileWithStats(imagePath);
+    console.log('item :>> ', item);
+    //   console.log('looping!', looping);
+  }
 
   // -! Use the pHashCompute on each filesPaths with valid extensions
   // const computedResult: AsyncGenerator<
@@ -31,22 +49,21 @@ void (async function main() {
   //   unknown
   // > = folders.map(imagePath => phashCompute(boxImageFileWithStats(imagePath)));
 
-  const result = BoxedAsyncGenerator.fromAsyncGen(folders.map(idem => idem))
-    .mapAwait(imagePath => phashCompute(boxImageFileWithStats(imagePath)))
-    .mapAwait(pHash => {
-      console.log('loging:', pHash);
-      void pHash;
-    });
+  // console.log(
+  //   Object.getPrototypeOf(
+  //     Object.getPrototypeOf(async function* () {}.prototype)
+  //   )
+  // );
+  // console.log(Object.getPrototypeOf(async function* () {}.prototype));
+  // console.log(async function* () {}.prototype);
+  // result;
 
-  console.log(
-    Object.getPrototypeOf(
-      Object.getPrototypeOf(async function* () {}.prototype)
-    )
-  );
-  console.log(Object.getPrototypeOf(async function* () {}.prototype));
-  console.log(async function* () {}.prototype);
-  result;
-  // await result.asyncSpark();
+  //   void looping;
+  // }
+  // for await (const looping of result.unboxAsyncGen()) {
+  //   console.log('looping!');
+  //   void looping;
+
   process.exit(0);
 
   // -! Spark the scanner (starting it) login the computed or cached

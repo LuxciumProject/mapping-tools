@@ -208,10 +208,31 @@ export class ScanDirs {
 
   async *[Symbol.asyncIterator]() {
     this.asyncIteratorPrototype;
-    return this.map(idem => idem);
+    yield* this.map(idem => idem);
   }
 
+  async next() {}
+
   /* https://stackoverflow.com/a/66552487/10269298#CC-BY-SA-4.0
+//% The async iterator and async iterable protocols
+There are another pair of protocols used for async iteration, named async iterator and async iterable protocols. They have very similar interfaces compared to the iterable and iterator protocols, except that each return value from the calls to the iterator methods is wrapped in a promise.
+
+An object implements the async iterable protocol when it implements the following methods:
+
+//%+ [Symbol.asyncIterator]
+A zero-argument function that returns an object, conforming to the async iterator protocol.
+
+An object implements the async iterator protocol when it implements the following methods:
+
+//%+ next()
+A function that accepts zero or one argument and returns a promise. The promise fulfills to an object conforming to the IteratorResult interface, and the properties have the same semantics as those of the sync iterator's.
+
+//%+ return(value) Optional
+A function that accepts zero or one argument and returns a promise. The promise fulfills to an object conforming to the IteratorResult interface, and the properties have the same semantics as those of the sync iterator's.
+
+//%+ throw(exception) Optional
+A function that accepts zero or one argument and returns a promise. The promise fulfills to an object conforming to the IteratorResult interface, and the properties have the same semantics as those of the sync iterator's.
+
 
 
 

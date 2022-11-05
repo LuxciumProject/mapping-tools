@@ -1,4 +1,24 @@
 {
+	// "launch": {
+	// 	"version": "0.2.0",
+	// 	"configurations": [],
+	// 	"compounds": [
+	// 		{
+	// 			"name": "Launch Server & Client",
+	// 			"configurations": [
+	// 				"Attach",
+	// 				{
+	// 					"folder": "        🛵🎱 phash-scout",
+	// 					"name": "Node Debug Launch"
+	// 				},
+	// 				{
+	// 					"folder": "          💻👨‍💻 💅 home",
+	// 					"name": "Node Debug Launch"
+	// 				}
+	// 			]
+	// 		}
+	// 	]
+	// },
 	"extensions": {
 		"recommendations": [
 			"aaron-bond.better-comments",
