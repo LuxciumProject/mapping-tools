@@ -13,7 +13,9 @@
   "isLibrary": true,
   "scripts": {
     "install": "#bash scripts/build.sh",
-    "build": "bash scripts/build.sh"
+    "build": "bash scripts/build.sh",
+    "test": "heft test",
+    "jest": "jest --config='config/jest.config.json'"
   },
   "devDependencies": {
     "@babel/core": "7.19.6",

@@ -11,7 +11,8 @@
     "prestart": "pnpm run build",
     "dist": "tsc -b configs/tsconfig.dist.json",
     "start": "node out/main.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "heft test",
+    "jest": "jest --config='config/jest.config.json'"
   },
   "keywords": [],
   "author": "",

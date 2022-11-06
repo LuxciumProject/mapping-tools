@@ -41,11 +41,13 @@
     "fix": "npm run lint:fix && npm run pretty:fix || exit 4",
     "fix:json": "npm run lint:fix:json && npm run pretty:fix:json || exit 4",
     "fix:and:json": "npm run fix:json && npm run fix || exit 8",
-    "test": "jest --verbose true || exit 1",
+    "test:": "jest --verbose true || exit 1",
     "precheck": "npm run fix || exit 5",
     "check": "npm run test && tsc --noEmit --listFiles ||exit 3",
     "postcheck": "npm run coverage || exit 2",
-    "tsc:version": "tsc --version"
+    "tsc:version": "tsc --version",
+    "test": "heft test",
+    "jest": "jest --config='config/jest.config.json'"
   },
   "keywords": [],
   "author": "Benjamin Vincent (Luxcium)",
