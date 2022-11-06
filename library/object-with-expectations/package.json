@@ -11,8 +11,7 @@
     "install": "bash scripts/build.sh || exit 0",
     "build": "bash scripts/build.sh || exit 15",
     "prepack": "npm run jest && rimraf lib && npm run build",
-    "test": "heft test",
-    "jest": "jest --config='config/jest.config.json'"
+    "test": "jest --config='config/jest.config.json'"
   },
   "keywords": [],
   "devDependencies": {

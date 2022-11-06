@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc",
-    "test": "heft test",
-    "jest": "jest --config='config/jest.config.json'"
+    "test": "jest --config='config/jest.config.json'"
   },
   "keywords": [],
   "author": "",

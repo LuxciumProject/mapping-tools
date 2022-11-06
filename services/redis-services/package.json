@@ -8,8 +8,7 @@
     "prebuild": "jest",
     "install": "heft build --clean #tsc --noEmit false --generateCpuProfile \"./out/redis-services.cpuprofile\" || exit 1;",
     "build": "heft build --clean #tsc --noEmit false --generateCpuProfile \"./out/redis-services.cpuprofile\" || exit 1;",
-    "test": "heft test",
-    "jest": "jest --config='config/jest.config.json'"
+    "test": "jest --config='config/jest.config.json'"
   },
   "author": "Benjamin Vincent",
   "license": "MIT",

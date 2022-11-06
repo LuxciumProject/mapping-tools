@@ -46,8 +46,7 @@
     "check": "npm run test && tsc --noEmit --listFiles ||exit 3",
     "postcheck": "npm run coverage || exit 2",
     "tsc:version": "tsc --version",
-    "test": "heft test",
-    "jest": "jest --config='config/jest.config.json'"
+    "test": "jest --config='config/jest.config.json'"
   },
   "keywords": [],
   "author": "Benjamin Vincent (Luxcium)",

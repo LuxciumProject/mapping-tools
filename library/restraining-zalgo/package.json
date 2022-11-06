@@ -9,8 +9,7 @@
   "scripts": {
     "install": "#bash scripts/build.sh",
     "build": "bash scripts/build.sh",
-    "test": "heft test",
-    "jest": "jest --config='config/jest.config.json'"
+    "test": "jest --config='config/jest.config.json'"
   },
   "devDependencies": {
     "@types/eslint-config-prettier": "6.11.0",

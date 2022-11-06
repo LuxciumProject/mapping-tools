@@ -7,8 +7,7 @@
   "scripts": {
     "prebuild": "jest",
     "build": "sh scripts/build.sh; #heft build --clean #tsc --noEmit false --generateCpuProfile \"./out/phash-convertor.cpuprofile\" || exit 1;",
-    "test": "heft test",
-    "jest": "jest --config='config/jest.config.json'"
+    "test": "jest --config='config/jest.config.json'"
   },
   "author": "Benjamin Vincent",
   "license": "MIT",

@@ -879,6 +879,26 @@
 					"group": "redis-6383"
 				}
 			},
+			{
+				"label": "Test/redis-6383",
+				"type": "shell",
+				"detail": "Start REDIS container on port 6383 this project",
+				"command": "bash",
+				"args": [
+					"${workspaceFolder}/scripts/start_6383.sh"
+				],
+				"isBackground": true,
+				"runOptions": {
+					"reevaluateOnRerun": true,
+					"instanceLimit": 1,
+					"runOn": "folderOpen"
+				},
+				"presentation": {
+					"revealProblems": "onProblem",
+					"panel": "dedicated",
+					"group": "redis-6383"
+				}
+			},
 		]
 	},
 	"settings": {
