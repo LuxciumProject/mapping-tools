@@ -368,7 +368,7 @@
    * Rush does not automatically scan for projects using wildcards, for a few reasons:
    * 1. Depth-first scans are expensive, particularly when tools need to repeatedly collect the list.
    * 2. On a caching CI machine, scans can accidentally pick up files left behind from a previous build.
-   * 3. It's useful to have a centralized inventory of all projects and their important metadata.
+   * 3. It's useful to have a centralized inventory of all projects and their important metadata. // frontend/my-next-js-app
    */
   "projects": [
     {
@@ -376,6 +376,20 @@
       "projectFolder": "examples/phash-scout",
       "tags": [
         "examples"
+      ]
+    },
+    {
+      "packageName": "home-react",
+      "projectFolder": "frontend/home",
+      "tags": [
+        "frontend"
+      ]
+    },
+    {
+      "packageName": "my-next-js-app",
+      "projectFolder": "frontend/my-next-js-app",
+      "tags": [
+        "frontend"
       ]
     },
     {
@@ -395,13 +409,6 @@
     {
       "packageName": "products",
       "projectFolder": "frontend/products",
-      "tags": [
-        "frontend"
-      ]
-    },
-    {
-      "packageName": "home-react",
-      "projectFolder": "frontend/home",
       "tags": [
         "frontend"
       ]

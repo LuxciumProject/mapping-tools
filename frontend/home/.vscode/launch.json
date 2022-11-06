@@ -6,6 +6,11 @@
       "request": "launch",
       "url": "http://localhost:3001",
       "webRoot": "${workspaceFolder}/src",
+      // "preLaunchTask": "Start/frontend/home",
+      "server": {
+        "command": "npm start"
+      },
+      "preLaunchTask": "Start/frontend/home",
       "sourceMapPathOverrides": {
         "webpack:///src/*": "${webRoot}/*"
       }
