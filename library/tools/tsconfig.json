@@ -9,7 +9,7 @@
     "rootDir": "./src",
     "composite": true,
     "declarationDir": "./lib/typings",
-    "outDir": "./lib/src",
+    "outDir": "./lib",
     "tsBuildInfoFile": "./lib/ts-out-info.lib",
     "emitDecoratorMetadata": false,
     "experimentalDecorators": false,

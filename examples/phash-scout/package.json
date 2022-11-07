@@ -1,12 +1,12 @@
 {
-  "name": "examples-phash-scout",
+  "name": "phash-scout-examples",
   "version": "1.0.0",
   "description": "",
   "main": "out/index.js",
   "types": "out/typings/index.d.ts",
   "scripts": {
-    "install": "bash scripts/build.sh",
     "build": "bash scripts/build.sh",
+    "install": "#bash scripts/build.sh",
     "test": "heft test"
   },
   "keywords": [],

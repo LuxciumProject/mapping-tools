@@ -2,7 +2,7 @@
   "name": "@luxcium/tools",
   "version": "1.0.0",
   "description": "",
-  "main": "lib/src/index.js",
+  "main": "lib/index.js",
   "types": "lib/typings/index.d.ts",
   "scripts": {
     "install": "#bash scripts/build.sh",
@@ -12,6 +12,13 @@
   "keywords": [],
   "author": "",
   "license": "MIT",
+    "dependencies": {
+    "tslib": "2.4.1",
+    "@tensorflow/tfjs-node-gpu": "~4.0.0",
+    "seedrandom": "~3.0.5",
+    "source-map-support": "~0.5.21"
+  },
+
   "devDependencies": {
     "@rushstack/heft-jest-plugin": "0.3.44",
     "@rushstack/heft": "0.48.7",
@@ -56,11 +63,6 @@
     "@types/heft-jest": "1.0.3",
     "eslint-plugin-import": "2.26.0",
     "webpack": "5.74.0"
-  },
-  "dependencies": {
-    "tslib": "2.4.1",
-    "@tensorflow/tfjs-node-gpu": "~4.0.0",
-    "seedrandom": "~3.0.5",
-    "source-map-support": "~0.5.21"
   }
+
 }

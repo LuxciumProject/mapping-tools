@@ -5,9 +5,10 @@
   "main": "out/src/index.js",
   "types": "out/typings/index.d.ts",
   "scripts": {
-    "prebuild": "jest",
-    "install": "heft build --clean #tsc --noEmit false --generateCpuProfile \"./out/redis-services.cpuprofile\" || exit 1;",
-    "build": "heft build --clean #tsc --noEmit false --generateCpuProfile \"./out/redis-services.cpuprofile\" || exit 1;",
+    "build": "bash scripts/build.sh",
+    "install": "#bash scripts/build.sh",
+    "prebuild:": "jest",
+    "install:": "#heft build --clean #tsc --noEmit false --generateCpuProfile \"./out/redis-services.cpuprofile\" || exit 1;",
     "test": "jest --config='config/jest.config.json'"
   },
   "author": "Benjamin Vincent",

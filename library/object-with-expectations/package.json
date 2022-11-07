@@ -8,8 +8,8 @@
   "author": "Luxcium (Benjamin Vincent)",
   "license": "MIT",
   "scripts": {
-    "install": "bash scripts/build.sh || exit 0",
     "build": "bash scripts/build.sh || exit 15",
+    "install": "#bash scripts/build.sh || exit 0",
     "prepack": "npm run jest && rimraf lib && npm run build",
     "test": "jest --config='config/jest.config.json'"
   },
