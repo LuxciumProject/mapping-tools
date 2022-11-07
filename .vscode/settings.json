@@ -988,7 +988,7 @@
     // "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
   "[jsonc]": {
-    "editor.defaultFormatter": "vscode.json-language-features",
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.fontFamily": "'VictorMono Nerd Font', 'hurmit Nerd Font mono','ProFontWindows Nerd Font mono','meslolgl Nerd Font mono','Iosevka Nerd Font Mono','SauceCodePro Nerd Font','ProFontIIx Nerd Font',mono"
     // "editor.fontSize": 22,
     // "editor.fontWeight": "500",
@@ -1597,7 +1597,7 @@
     "frontend",
     "library",
     "tools",
-    "public",
+    "private",
     "RushStack",
     "services",
     "examples"
