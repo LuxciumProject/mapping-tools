@@ -96,16 +96,16 @@
     },
 
     {
-      "name": "  ↓💁🖥️ 📒 SERVICES",
-      "path": "services"
-    },
-    {
-      "name": "          →🛵🖥️ image-scout",
+      "name": "→🛵🖥️ image-scout",
       "path": "services/image-scout"
     },
     {
-      "name": "          →📊🖥️ questrade-ts",
+      "name": "→📊🖥️ questrade-ts",
       "path": "services/questrade-ts"
+    },
+    {
+      "name": "  ↓💁🖥️ 📒 SERVICES",
+      "path": "services"
     },
     {
       "name": "          💁❤ phash-compute",
