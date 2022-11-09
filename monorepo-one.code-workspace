@@ -451,19 +451,11 @@ typescript/
           "runOn": "default"
         },
         "type": "shell",
-        "command": "npx",
-        "problemMatcher": {
-          "base": "$tsc",
-          "applyTo": "allDocuments"
+        "options": {
+          "cwd": "${workspaceFolder}/services/phash-compute"
         },
-        "args": [
-          "tsc",
-          "-b",
-          "${workspaceFolder}/services/phash-compute/tsconfig.json",
-          "--generateCpuProfile",
-          "${workspaceFolder}/common/performance/phash-compute.cpuprofile",
-          "--verbose"
-        ]
+        "command": "npm",
+        "args": ["run", "build"]
       },
       {
         "label": "Build/services/scan-directories",
@@ -479,15 +471,11 @@ typescript/
           "runOn": "default"
         },
         "type": "shell",
-        "command": "npx",
-        "args": [
-          "tsc",
-          "-b",
-          "${workspaceFolder}/services/scan-directories/tsconfig.json",
-          "--generateCpuProfile",
-          "${workspaceFolder}/common/performance/scan-directories.cpuprofile",
-          "--verbose"
-        ],
+        "options": {
+          "cwd": "${workspaceFolder}/services/scan-directories"
+        },
+        "command": "npm",
+        "args": ["run", "build"],
         "problemMatcher": {
           "base": "$tsc",
           "applyTo": "allDocuments"
@@ -507,19 +495,11 @@ typescript/
           "runOn": "default"
         },
         "type": "shell",
-        "command": "npx",
-        "problemMatcher": {
-          "base": "$tsc",
-          "applyTo": "allDocuments"
+        "options": {
+          "cwd": "${workspaceFolder}/services/questrade-ts"
         },
-        "args": [
-          "tsc",
-          "-b",
-          "${workspaceFolder}/services/questrade-ts/tsconfig.json",
-          "--generateCpuProfile",
-          "${workspaceFolder}/common/performance/questrade-ts.cpuprofile",
-          "--verbose"
-        ]
+        "command": "npm",
+        "args": ["run", "build"]
       },
       {
         "label": "Build/services/redis-services",
@@ -535,19 +515,11 @@ typescript/
           "runOn": "default"
         },
         "type": "shell",
-        "command": "npx",
-        "problemMatcher": {
-          "base": "$tsc",
-          "applyTo": "allDocuments"
+        "options": {
+          "cwd": "${workspaceFolder}/services/redis-services"
         },
-        "args": [
-          "tsc",
-          "-b",
-          "${workspaceFolder}/services/redis-services/tsconfig.json",
-          "--generateCpuProfile",
-          "${workspaceFolder}/common/performance/redis-services.cpuprofile",
-          "--verbose"
-        ]
+        "command": "npm",
+        "args": ["run", "build"]
       },
       {
         "label": "Build/services/service-one",
@@ -563,19 +535,11 @@ typescript/
           "runOn": "default"
         },
         "type": "shell",
-        "command": "npx",
-        "problemMatcher": {
-          "base": "$tsc",
-          "applyTo": "allDocuments"
+        "options": {
+          "cwd": "${workspaceFolder}/services/service-one"
         },
-        "args": [
-          "tsc",
-          "-b",
-          "${workspaceFolder}/services/service-one/tsconfig.json",
-          "--generateCpuProfile",
-          "${workspaceFolder}/common/performance/service-one.cpuprofile",
-          "--verbose"
-        ]
+        "command": "npm",
+        "args": ["run", "build"]
       },
       {
         "label": "Build/services/service-two",
@@ -591,19 +555,11 @@ typescript/
           "runOn": "default"
         },
         "type": "shell",
-        "command": "npx",
-        "problemMatcher": {
-          "base": "$tsc",
-          "applyTo": "allDocuments"
+        "options": {
+          "cwd": "${workspaceFolder}/services/service-two"
         },
-        "args": [
-          "tsc",
-          "-b",
-          "${workspaceFolder}/services/service-two/tsconfig.json",
-          "--generateCpuProfile",
-          "${workspaceFolder}/common/performance/service-two.cpuprofile",
-          "--verbose"
-        ]
+        "command": "npm",
+        "args": ["run", "build"]
       },
       {
         "label": "Build/all/library",
@@ -642,19 +598,11 @@ typescript/
           "runOn": "default"
         },
         "type": "shell",
-        "command": "npx",
-        "problemMatcher": {
-          "base": "$tsc",
-          "applyTo": "allDocuments"
+        "options": {
+          "cwd": "${workspaceFolder}/library/bigintString"
         },
-        "args": [
-          "tsc",
-          "-b",
-          "${workspaceFolder}/library/bigintString/tsconfig.json",
-          "--generateCpuProfile",
-          "${workspaceFolder}/common/performance/bigintString.cpuprofile",
-          "--verbose"
-        ]
+        "command": "npm",
+        "args": ["run", "build"]
       },
       {
         "label": "Build/library/colors-tools",
@@ -670,19 +618,11 @@ typescript/
           "runOn": "default"
         },
         "type": "shell",
-        "command": "npx",
-        "problemMatcher": {
-          "base": "$tsc",
-          "applyTo": "allDocuments"
+        "options": {
+          "cwd": "${workspaceFolder}/library/colors-tools"
         },
-        "args": [
-          "tsc",
-          "-b",
-          "${workspaceFolder}/library/colors-tools/tsconfig.json",
-          "--generateCpuProfile",
-          "${workspaceFolder}/common/performance/colors-tools.cpuprofile",
-          "--verbose"
-        ]
+        "command": "npm",
+        "args": ["run", "build"]
       },
       {
         "label": "Build/library/boxed-list",
@@ -698,19 +638,11 @@ typescript/
           "runOn": "default"
         },
         "type": "shell",
-        "command": "npx",
-        "problemMatcher": {
-          "base": "$tsc",
-          "applyTo": "allDocuments"
+        "options": {
+          "cwd": "${workspaceFolder}/library/boxed-list"
         },
-        "args": [
-          "tsc",
-          "-b",
-          "${workspaceFolder}/library/boxed-list/tsconfig.json",
-          "--generateCpuProfile",
-          "${workspaceFolder}/common/performance/boxed-list.cpuprofile",
-          "--verbose"
-        ]
+        "command": "npm",
+        "args": ["run", "build"]
       },
       {
         "label": "Build/library/parallel-mapper",
@@ -726,19 +658,11 @@ typescript/
           "runOn": "default"
         },
         "type": "shell",
-        "command": "npx",
-        "problemMatcher": {
-          "base": "$tsc",
-          "applyTo": "allDocuments"
+        "options": {
+          "cwd": "${workspaceFolder}/library/parallel-mapper"
         },
-        "args": [
-          "tsc",
-          "-b",
-          "${workspaceFolder}/library/parallel-mapper/tsconfig.json",
-          "--generateCpuProfile",
-          "${workspaceFolder}/common/performance/parallel-mapper.cpuprofile",
-          "--verbose"
-        ]
+        "command": "npm",
+        "args": ["run", "build"]
       },
       {
         "label": "Build/library/human-size",
@@ -754,19 +678,11 @@ typescript/
           "runOn": "default"
         },
         "type": "shell",
-        "command": "npx",
-        "problemMatcher": {
-          "base": "$tsc",
-          "applyTo": "allDocuments"
+        "options": {
+          "cwd": "${workspaceFolder}/library/human-size"
         },
-        "args": [
-          "tsc",
-          "-b",
-          "${workspaceFolder}/library/human-size/tsconfig.json",
-          "--generateCpuProfile",
-          "${workspaceFolder}/common/performance/human-size.cpuprofile",
-          "--verbose"
-        ]
+        "command": "npm",
+        "args": ["run", "build"]
       },
       {
         "label": "Build/library/object-with-expectations",
@@ -782,19 +698,11 @@ typescript/
           "runOn": "default"
         },
         "type": "shell",
-        "command": "npx",
-        "problemMatcher": {
-          "base": "$tsc",
-          "applyTo": "allDocuments"
+        "options": {
+          "cwd": "${workspaceFolder}/library/object-with-expectations"
         },
-        "args": [
-          "tsc",
-          "-b",
-          "${workspaceFolder}/library/object-with-expectations/tsconfig.json",
-          "--generateCpuProfile",
-          "${workspaceFolder}/common/performance/object-with-expectations.cpuprofile",
-          "--verbose"
-        ]
+        "command": "npm",
+        "args": ["run", "build"]
       },
       {
         "label": "Build/library/restraining-zalgo",
@@ -810,19 +718,11 @@ typescript/
           "runOn": "default"
         },
         "type": "shell",
-        "command": "npx",
-        "problemMatcher": {
-          "base": "$tsc",
-          "applyTo": "allDocuments"
+        "options": {
+          "cwd": "${workspaceFolder}/library/restraining-zalgo"
         },
-        "args": [
-          "tsc",
-          "-b",
-          "${workspaceFolder}/library/restraining-zalgo/tsconfig.json",
-          "--generateCpuProfile",
-          "${workspaceFolder}/common/performance/restraining-zalgo.cpuprofile",
-          "--verbose"
-        ]
+        "command": "npm",
+        "args": ["run", "build"]
       },
       {
         "label": "Build/library/tools",
@@ -838,19 +738,11 @@ typescript/
           "runOn": "default"
         },
         "type": "shell",
-        "command": "npx",
-        "problemMatcher": {
-          "base": "$tsc",
-          "applyTo": "allDocuments"
+        "options": {
+          "cwd": "${workspaceFolder}/library/tools"
         },
-        "args": [
-          "tsc",
-          "-b",
-          "${workspaceFolder}/library/tools/tsconfig.json",
-          "--generateCpuProfile",
-          "${workspaceFolder}/common/performance/tools.cpuprofile",
-          "--verbose"
-        ]
+        "command": "npm",
+        "args": ["run", "build"]
       },
       {
         "label": "Build/all/examples",
@@ -867,7 +759,6 @@ typescript/
         },
         "dependsOn": ["Build/examples/phash-scout"]
       },
-      // /home/luxcium/projects/monorepo-one/examples/phash-scout
       {
         "label": "Build/examples/phash-scout",
         "detail": "Build task for phash-scout",
@@ -882,19 +773,11 @@ typescript/
           "runOn": "default"
         },
         "type": "shell",
-        "command": "npx",
-        "problemMatcher": {
-          "base": "$tsc",
-          "applyTo": "allDocuments"
+        "options": {
+          "cwd": "${workspaceFolder}/examples/phash-scout"
         },
-        "args": [
-          "tsc",
-          "-b",
-          "${workspaceFolder}/examples/phash-scout/tsconfig.json",
-          "--generateCpuProfile",
-          "${workspaceFolder}/common/performance/phash-scout.cpuprofile",
-          "--verbose"
-        ]
+        "command": "npm",
+        "args": ["run", "build"]
       },
       {
         "label": "Start/redis-6383",
@@ -2519,7 +2402,6 @@ typescript/
       "ghmcadams.lintlens",
       "gruntfuggly.todo-tree",
       "joeberria.statusbarerror",
-      "latitude55.jest-snippets",
       "Luxcium.pop-n-lock-theme-vscode",
       "PKief.material-icon-theme",
       "salbert.comment-ts",

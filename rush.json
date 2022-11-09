@@ -491,12 +491,12 @@
       "tags": ["examples"]
     },
     {
-      "packageName": "playground",
+      "packageName": "playground-example",
       "projectFolder": "examples/playground",
       "tags": ["examples"]
     },
     {
-      "packageName": "node-js-examples",
+      "packageName": "node-js-example",
       "projectFolder": "examples/node-js",
       "tags": ["examples"]
     }

@@ -5,7 +5,7 @@
   "main": "out/index.js",
   "types": "out/typings/index.d.ts",
   "scripts": {
-    "build": "bash scripts/build.sh",
+    "build": "pwd;bash scripts/build.sh",
     "install": "#bash scripts/build.sh",
     "test": "heft test"
   },

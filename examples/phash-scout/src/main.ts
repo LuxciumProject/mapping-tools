@@ -1,4 +1,4 @@
-import { BoxedAsyncGenerator } from '@luxcium/boxed-list';
+import { BoxedAsyncGenerator, fromAsyncIterable } from '@luxcium/boxed-list';
 import { getPhashCompute } from '@luxcium/phash-compute';
 import { rConnect } from '@luxcium/redis-services';
 import { scanDirsFrom } from '@luxcium/scan-dirs';
@@ -26,21 +26,23 @@ void (async function main() {
   boxImageFileWithStats;
   phashCompute;
   folders;
+  const none: any = null;
+  const asynIter: AsyncGenerator<unknown, any, unknown> = none;
+  asynIter;
+  const result = fromAsyncIterable(folders);
+  result
+    .mapAwait(imagePath => phashCompute(boxImageFileWithStats(imagePath)))
+    .mapAwait(pHash => {
+      console.log('loging:', pHash);
+      void pHash;
+    });
 
-  // const result = BoxedAsyncGenerator.fromAsyncGen(folders)
-  //   .mapAwait(imagePath => phashCompute(boxImageFileWithStats(imagePath)))
-  //   .mapAwait(pHash => {
-  //     console.log('loging:', pHash);
-  //     void pHash;
-  //   });
+  await result.asyncSpark();
 
-  // await result.asyncSpark();
-
-  for await (const imagePath of folders) {
-    const item = boxImageFileWithStats(imagePath);
-    console.log('item :>> ', item);
-    //   console.log('looping!', looping);
-  }
+  // for await (const imagePath of folders) {
+  //   const item = await phashCompute(boxImageFileWithStats(imagePath));
+  //   console.log('item :>> ', item);
+  // }
 
   // -! Use the pHashCompute on each filesPaths with valid extensions
   // const computedResult: AsyncGenerator<
