@@ -4,7 +4,10 @@
  */
 
 export { Box, boxFrom, boxOf } from './Box';
-export { BoxedAsyncGenerator } from './BoxedAsyncGenerator/BoxedAsyncGenerator';
+export {
+  BoxedAsyncGenerator,
+  fromAsyncIterable,
+} from './BoxedAsyncGenerator/BoxedAsyncGenerator';
 export {
   BoxedGenerator,
   generateFrom,

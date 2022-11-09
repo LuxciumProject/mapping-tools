@@ -31,7 +31,7 @@ debug && console.error('debug on in ', __filename);
 const logHigh = console.error;
 const logLow = console.log;
 
-export class ScanDirs {
+export class ScanDirs implements AsyncIterable<string> {
   private _cwd: { path: string };
   private _parents: string[];
   private _queue: string[];
@@ -206,14 +206,76 @@ export class ScanDirs {
     return typeof o === 'object' && o !== null && key in o;
   }
 
-  async *[Symbol.asyncIterator]() {
+  async *[Symbol.asyncIterator](): AsyncIterator<string> {
     this.asyncIteratorPrototype;
     yield* this.map(idem => idem);
   }
 
-  async next() {}
+  /**
+   * A function that accepts zero or one argument and returns a
+   * promise. The promise fulfills to an object conforming to the
+   * the IteratorResult interface, and the properties have the same
+   * semantics as those of the sync iterator's.
+   * @param value
+   */
+  // async next(value?: any): Promise<never> {
+  //   void value as never;
+  //   throw Error('Method not implemented');
+  // }
+  /**
+   * A function that accepts zero or one argument and returns a
+   * promise. The promise fulfills to an object conforming to
+   * the IteratorResult interface, and the properties have the
+   * same semantics as those of the sync iterator's.
+   * @param value
+   */
+  // async return(value: any): Promise<never> {
+  //   void value as never;
+  //   throw Error('Method not implemented');
+  // }
+  /**
+   * A function that accepts zero or one argument and returns a
+   * promise. The promise fulfills to an object conforming to
+   * the IteratorResult interface, and the properties have the same
+   * semantics as those of the sync iterator's.
+   * @param exception
+   */
+  // async throw(exception: any): Promise<never> {
+  //   void exception as never;
+  //   throw Error('Method not implemented');
+  // }
 
-  /* https://stackoverflow.com/a/66552487/10269298#CC-BY-SA-4.0
+  /*
+interface AsyncIterator<T, TReturn = any, TNext = undefined> {
+    // NOTE: 'next' is defined using a tuple to ensure we report the correct assignability errors in all places.
+    next(...args: [] | [TNext]): Promise<IteratorResult<T, TReturn>>;
+    return?(value?: TReturn | PromiseLike<TReturn>): Promise<IteratorResult<T, TReturn>>;
+    throw?(e?: any): Promise<IteratorResult<T, TReturn>>;
+}
+
+interface AsyncIterable<T> {
+    [Symbol.asyncIterator](): AsyncIterator<T>;
+}
+
+interface AsyncIterableIterator<T> extends AsyncIterator<T> {
+    [Symbol.asyncIterator](): AsyncIterableIterator<T>;
+}
+
+interface AsyncGenerator<T = unknown, TReturn = any, TNext = unknown> extends AsyncIterator<T, TReturn, TNext> {
+    // NOTE: 'next' is defined using a tuple to ensure we report the correct assignability errors in all places.
+    next(...args: [] | [TNext]): Promise<IteratorResult<T, TReturn>>;
+    return(value: TReturn | PromiseLike<TReturn>): Promise<IteratorResult<T, TReturn>>;
+    throw(e: any): Promise<IteratorResult<T, TReturn>>;
+    [Symbol.asyncIterator](): AsyncGenerator<T, TReturn, TNext>;
+}
+
+
+    next(...args: [] | [TNext]): Promise<IteratorResult<T, TReturn>>;
+    return(value: TReturn | PromiseLike<TReturn>): Promise<IteratorResult<T, TReturn>>;
+    throw(e: any): Promise<IteratorResult<T, TReturn>>;
+    [Symbol.asyncIterator](): AsyncGenerator<T, TReturn, TNext>;
+
+  =https://stackoverflow.com/a/66552487/10269298#CC-BY-SA-4.0
 //% The async iterator and async iterable protocols
 There are another pair of protocols used for async iteration, named async iterator and async iterable protocols. They have very similar interfaces compared to the iterable and iterator protocols, except that each return value from the calls to the iterator methods is wrapped in a promise.
 

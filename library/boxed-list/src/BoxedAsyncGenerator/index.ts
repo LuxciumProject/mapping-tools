@@ -1,1 +1,1 @@
-export { BoxedAsyncGenerator } from './BoxedAsyncGenerator';
+export { BoxedAsyncGenerator, fromAsyncIterable } from './BoxedAsyncGenerator';

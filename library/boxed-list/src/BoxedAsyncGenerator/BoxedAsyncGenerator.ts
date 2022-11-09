@@ -2,7 +2,7 @@ import { immediateZalgo, timeoutZalgo } from '@luxcium/restraining-zalgo';
 import type { IUnbox, IUnboxList, Mapper } from '../types';
 
 /** Create a container to hold a value as an AsyncGenerator on wich you could map */
-export class BoxedAsyncGenerator<T> {
+export class BoxedAsyncGenerator<T> implements AsyncIterable<T> {
   #valueAsyncGenerator: () => AsyncGenerator<T>;
 
   public static fromGen = <TVal>(
@@ -16,6 +16,20 @@ export class BoxedAsyncGenerator<T> {
     boxedList: IUnboxList<TVal> | IUnbox<TVal[]>
   ): BoxedAsyncGenerator<TVal> {
     return BoxedAsyncGenerator.of<TVal>(boxedList.unbox());
+  }
+  /*
+interface AsyncIterable<T> {
+    [Symbol.asyncIterator](): AsyncIterator<T>;
+}
+ */
+  // static ==========================================-| from() |-====
+  public static fromAsyncIterable<TVal>(
+    asyncIterable: AsyncIterable<TVal>
+  ): BoxedAsyncGenerator<TVal> {
+    const asyncGenerator = async function* () {
+      for await (const iterator of asyncIterable) yield iterator;
+    };
+    return new BoxedAsyncGenerator(asyncGenerator);
   }
 
   // static ==========================================-| from() |-====
@@ -68,11 +82,11 @@ export class BoxedAsyncGenerator<T> {
     return BoxedAsyncGenerator.fromGen(asyncGeneratorFn);
   }
 
-  public get asyncGen(): () => AsyncGenerator<T> {
+  public get asyncGen() {
     return this.#valueAsyncGenerator;
   }
 
-  public unboxAsyncGen(): AsyncGenerator<T> {
+  public unboxAsyncGen() {
     return this.asyncGen();
   }
 
@@ -87,6 +101,8 @@ export class BoxedAsyncGenerator<T> {
 
  */
   async *[Symbol.asyncIterator]() {
-    return this.#valueAsyncGenerator;
+    return this.unboxAsyncGen();
   }
 }
+
+export const fromAsyncIterable = BoxedAsyncGenerator.fromAsyncIterable;
