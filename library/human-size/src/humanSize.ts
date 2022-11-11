@@ -31,17 +31,36 @@
 
 var mags: `${Mags}`[] = ['', 'K', 'M', 'G', 'T', 'P', 'E', 'Z', 'Y'];
 type Mags = '' | 'K' | 'M' | 'G' | 'T' | 'P' | 'E' | 'Z' | 'Y';
+
 export function humanSize(
   bytes: number,
-  precision?: number
+  spaced?: boolean
+): `${string}${Mags}B`;
+export function humanSize(
+  bytes: number,
+  precision?: number,
+  spaced?: boolean
+): `${string}${Mags}B`;
+export function humanSize(
+  bytes: number,
+  precision?: number | boolean,
+  spaced: boolean = false
 ): `${string}${Mags}B` {
+  if (precision === true || precision === false) {
+    spaced = precision;
+    precision = undefined;
+  }
   var magnitude = Math.min(
     (Math.log(bytes) / Math.log(1024)) | 0,
     mags.length - 1
   );
+  let spacer: '' | ' ' = '';
+  if (spaced) {
+    spacer = ' ';
+  }
   var result = bytes / Math.pow(1024, magnitude);
   var suffix: `${Mags}B` = `${mags[magnitude]}${'B'}`;
-  return `${result.toFixed(precision)}${suffix}`;
+  return `${result.toFixed(precision)}${spacer}${suffix}`;
 }
 
 export default humanSize;

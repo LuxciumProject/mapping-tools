@@ -1,12 +1,12 @@
 {
   "name": "@luxcium/human-size",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "human readable file size",
   "main": "lib/src/index.js",
   "types": "lib/typings/index.d.ts",
   "scripts": {
     "install": "#bash scripts/build.sh",
-    "build": "bash scripts/build.sh",
+    "build": "(npm test && bash scripts/build.sh) || exit 15",
     "test": "jest --config='config/jest.config.json'"
   },
   "author": "Benjamin Vincent",

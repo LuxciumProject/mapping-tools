@@ -1,4 +1,4 @@
-import { default as humanSize } from '.';
+import { default as humanSize } from '..';
 
 describe('Validate 1000B vs. 1024B', () => {
   it('Should be less than 1KB when it is 1000B', () => {
@@ -74,65 +74,75 @@ describe("Check suffixes for power of 1024  Suffix of type '' | K | M | G | T | 
 
 describe('description', () => {
   let b = 1.345_678_929;
-  it('description', () => {
+  it('Should have 0 decimal', () => {
     expect(humanSize(Math.pow(1024, 0) * b, 0)).toBe('1B');
   });
-  it('description', () => {
+  it('Should have 1 decimals', () => {
     expect(humanSize(Math.pow(1024, 1) * b, 1)).toBe('1.3KB');
   });
-  it('description', () => {
+  it('Should have 2 decimals', () => {
     expect(humanSize(Math.pow(1024, 2) * b, 2)).toBe('1.35MB');
   });
-  it('description', () => {
+  it('Should have 3 decimals', () => {
     expect(humanSize(Math.pow(1024, 3) * b, 3)).toBe('1.346GB');
   });
-  it('description', () => {
+  it('Should have 4 decimals', () => {
     expect(humanSize(Math.pow(1024, 4) * b, 4)).toBe('1.3457TB');
   });
-  it('description', () => {
+  it('Should have 5 decimals', () => {
     expect(humanSize(Math.pow(1024, 5) * b, 5)).toBe('1.34568PB');
   });
-  it('description', () => {
+  it('Should have 6 decimals', () => {
     expect(humanSize(Math.pow(1024, 6) * b, 6)).toBe('1.345679EB');
   });
-  it('description', () => {
+  it('Should have 7 decimals', () => {
     expect(humanSize(Math.pow(1024, 7) * b, 7)).toBe('1.3456789ZB');
   });
-  it('description', () => {
+  it('Should have 8 decimals', () => {
     expect(humanSize(Math.pow(1024, 8) * b, 8)).toBe('1.34567893YB');
   });
-  it('description', () => {
+  it('Should have 9 decimals', () => {
     expect(humanSize(Math.pow(1024, 9) * b, 9)).toBe(
       '1377.975223296YB'
     );
   });
-  it('description', () => {
+  it('Should have 2 decimals', () => {
     expect(humanSize(Math.pow(1024, 10) * b, 10)).toBe(
       '1411046.6286551040YB'
     );
   });
 });
 
-describe('description', () => {
+describe('With additional spacing betwen value and unit', () => {
   let b = 1_533_333_333;
-  it('description', () => {
-    expect(humanSize(103 * 1024 ** 3 + b, 2)).toBe('104.43GB');
-  });
-  it('description', () => {
-    expect(humanSize(106_168, 2)).toBe('103.68KB');
-  });
-  it('description', () => {
-    expect(humanSize(Math.pow(1024, 8) * 4.4, 1)).toBe('4.4YB');
-  });
-  it('description', () => {
-    expect(humanSize(Math.pow(1024, 9) * 1.4, 1)).toBe('1433.6YB');
-  });
-  it('description', () => {
-    expect(humanSize(Math.pow(1024, 9) * 1.4, 2)).toBe('1433.60YB');
-  });
-  it('description', () => {
-    expect(humanSize(Math.pow(1024, 0) * 142.69, 1)).toBe('142.7B');
-  });
+  const SPACED = true;
 
-  // /* Failling test: */ expect(1, 2);
+  it('Should have 2 decimals and spacing', () => {
+    expect(humanSize(103 * 1024 ** 3 + b, 2, SPACED)).toBe(
+      '104.43 GB'
+    );
+  });
+  it('Should have 2 decimal and spacing', () => {
+    expect(humanSize(106_168, 2, SPACED)).toBe('103.68 KB');
+  });
+  it('Should have 1 decimals and spacing', () => {
+    expect(humanSize(Math.pow(1024, 8) * 4.4, 1, SPACED)).toBe(
+      '4.4 YB'
+    );
+  });
+  it('Should have 1 decimal and spacing', () => {
+    expect(humanSize(Math.pow(1024, 9) * 1.4, 1, SPACED)).toBe(
+      '1433.6 YB'
+    );
+  });
+  it('Should have 2 decimals and spacing', () => {
+    expect(humanSize(Math.pow(1024, 9) * 1.4, 2, SPACED)).toBe(
+      '1433.60 YB'
+    );
+  });
+  it('Should have 1 decimal and spacing', () => {
+    expect(humanSize(Math.pow(1024, 0) * 142.69, 1, SPACED)).toBe(
+      '142.7 B'
+    );
+  });
 });

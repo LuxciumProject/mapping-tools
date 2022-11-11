@@ -18,6 +18,19 @@ console.log(humanSize(106168));
 
 console.log(humanSize(106168, 2));
 // prints "103.68KB"
+
+const SPACED = true;
+console.log(humanSize(10 * 1024 * 1024, SPACED));
+// prints "10 MB"
+
+console.log(humanSize(10 * 1024 * 1024, 2, SPACED));
+// prints "10.00 MB"
+
+console.log(humanSize(106168, SPACED));
+// prints "104 KB"
+
+console.log(humanSize(106168, 2, SPACED));
+// prints "103.68 KB"
 ```
 
 Based on the work of Andrew Kelley (MIT © 2014-2022)

@@ -1,4 +1,4 @@
-/*
+/**
 *
 * The MIT License (Expat)
 * A permissive non-copyleft free software license,
@@ -30,4 +30,4 @@
 */
 
 export { humanSize as default, humanSize } from './humanSize';
-export type { HUnits, Mags } from './types';
+export type { HSize, HUnits, Mags } from './types';
