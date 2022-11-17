@@ -1,9 +1,3 @@
-## ROOT .gitignore CONFIG FILE
-build
-dist
-out
-release
-
 ## RESET ANYTHING ABOVE IN HIERARCHY
 !*
 !.*
@@ -11,12 +5,117 @@ release
 !**/.*
 !typings
 
+## Medias only in permited folders
+*.jfif
+*.jif
+*.jpe
+*.jpeg
+*.pjp
+*.pjpeg
+*.tiff
+*.apng
+*.avif
+*.bmp
+*.gif
+*.ico
+*.jpg
+*.png
+*.svg
+*.tif
+*.webp
+*.xbm
+
+*.JFIF
+*.JIF
+*.JPE
+*.JPEG
+*.PJP
+*.PJPEG
+*.TIFF
+*.APNG
+*.AVIF
+*.BMP
+*.GIF
+*.ICO
+*.JPG
+*.PNG
+*.SVG
+*.TIF
+*.WEBP
+*.XBM
+
+## Medias permited folders
+#!/**/*.*
+#!/**/.*.*
+!.git/**/.*.*
+!.git/**/*.*
+!.github/**/.*.*
+!.github/**/*.*
+!.vscode/**/.*.*
+!.vscode/**/*.*
+!backend/**/.*.*
+!backend/**/*.*
+!common/**/.*.*
+!common/**/*.*
+!docker/**/.*.*
+!docker/**/*.*
+!docs/**/.*.*
+!docs/**/*.*
+!examples/**/.*.*
+!examples/**/*.*
+!frontend/**/.*.*
+!frontend/**/*.*
+!private/**/.*.*
+!private/**/*.*
+!scripts/**/.*.*
+!scripts/**/*.*
+
+!library/.vscode/**/.*.*
+!library/.vscode/**/*.*
+!library/bigintString/**/.*.*
+!library/bigintString/**/*.*
+!library/boxed-list/**/.*.*
+!library/boxed-list/**/*.*
+!library/colors-tools/**/.*.*
+!library/colors-tools/**/*.*
+!library/human-size/**/.*.*
+!library/human-size/**/*.*
+!library/object-with-expectations/**/.*.*
+!library/object-with-expectations/**/*.*
+!library/parallel-mapper/**/.*.*
+!library/parallel-mapper/**/*.*
+!library/restraining-zalgo/**/.*.*
+!library/restraining-zalgo/**/*.*
+!library/tools/**/.*.*
+!library/tools/**/*.*
+!library/typescript/**/.*.*
+!library/typescript/**/*.*
+
+#!services/image-scout/**/.*.*
+#!services/image-scout/**/*.*
+#!services/rpc-worker-pool/**/.*.*
+#!services/rpc-worker-pool/**/*.*
+#!services/scan-directories/**/.*.*
+#!services/scan-directories/**/*.*
+!services/phash-compute/**/.*.*
+!services/phash-compute/**/*.*
+!services/questrade-ts/**/.*.*
+!services/questrade-ts/**/*.*
+!services/redis-services/**/.*.*
+!services/redis-services/**/*.*
+!services/service-one/**/.*.*
+!services/service-one/**/*.*
+!services/service-two/**/.*.*
+!services/service-two/**/*.*
+!services/typescript/**/.*.*
+!services/typescript/**/*.*
+
 ## FOLDERS and FOLDER infos files
 node_modules/
 jspm_packages/
 web_modules/
-.history
 .directory
+.history
 .DS_Store
 # dist/
 # out/
@@ -26,8 +125,22 @@ build/
 /*/*/lib/
 /*/*/out/
 /*/*/dist/
+downloads
 # publish/
 # bin/
+
+**/rpc-worker-pool/docker/dist
+**/rpc-worker-pool/docker/downloads
+**/rpc-worker-pool/docker/dow*
+**/rpc-worker-pool/docker/out
+**/rpc-worker-pool/docker/typings
+**/rpc-worker-pool/**/*.jpg
+**/rpc-worker-pool/**/*.jpeg
+**/rpc-worker-pool/**/*.png
+**/rpc-worker-pool/**/*.w
+
+!**/rpc-worker-pool/docker/Dockerfile
+!**/rpc-worker-pool/docker/package.json
 
 ## ROOT FOLDERS
 /build

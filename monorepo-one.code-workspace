@@ -107,6 +107,7 @@
       "name": "  ↓💁🖥️ 📒 SERVICES",
       "path": "services"
     },
+
     {
       "name": "          💁❤ phash-compute",
       "path": "services/phash-compute"
@@ -127,7 +128,10 @@
       "name": "          💁💙 service-two",
       "path": "services/service-two"
     },
-
+    {
+      "name": "          💁💜 rpc-worker-pool",
+      "path": "services/rpc-worker-pool"
+    },
     {
       "name": "  ↓🪄🎱 EXAMPLES",
       "path": "examples"
@@ -332,7 +336,7 @@ typescript/
         "dependsOn": [
           "Build/all/library",
           "Build/all/services",
-          "Build/all/frontend",
+          // "Build/all/frontend",
           "Build/all/examples"
         ]
       },
@@ -561,189 +565,191 @@ typescript/
         "command": "npm",
         "args": ["run", "build"]
       },
-      {
-        "label": "Build/all/library",
-        "isBackground": true,
-        "group": {
-          "kind": "build",
-          "isDefault": false
-        },
-        "runOptions": {
-          "reevaluateOnRerun": true,
-          "instanceLimit": 1,
-          "runOn": "default"
-        },
-        "dependsOrder": "parallel",
-        "dependsOn": [
-          "Build/library/bigintString",
-          "Build/library/colors-tools",
-          "Build/library/boxed-list",
-          "Build/library/parallel-mapper",
-          "Build/library/human-size",
-          "Build/library/restraining-zalgo",
-          "Build/library/tools"
-        ]
-      },
-      {
-        "label": "Build/library/bigintString",
-        "detail": "Build task for bigintString",
-        "isBackground": false,
-        "group": {
-          "kind": "build",
-          "isDefault": false
-        },
-        "runOptions": {
-          "reevaluateOnRerun": true,
-          "instanceLimit": 1,
-          "runOn": "default"
-        },
-        "type": "shell",
-        "options": {
-          "cwd": "${workspaceFolder}/library/bigintString"
-        },
-        "command": "npm",
-        "args": ["run", "build"]
-      },
-      {
-        "label": "Build/library/colors-tools",
-        "detail": "Build task for colors-tools",
-        "isBackground": false,
-        "group": {
-          "kind": "build",
-          "isDefault": false
-        },
-        "runOptions": {
-          "reevaluateOnRerun": true,
-          "instanceLimit": 1,
-          "runOn": "default"
-        },
-        "type": "shell",
-        "options": {
-          "cwd": "${workspaceFolder}/library/colors-tools"
-        },
-        "command": "npm",
-        "args": ["run", "build"]
-      },
-      {
-        "label": "Build/library/boxed-list",
-        "detail": "Build task for boxed-list",
-        "isBackground": false,
-        "group": {
-          "kind": "build",
-          "isDefault": false
-        },
-        "runOptions": {
-          "reevaluateOnRerun": true,
-          "instanceLimit": 1,
-          "runOn": "default"
-        },
-        "type": "shell",
-        "options": {
-          "cwd": "${workspaceFolder}/library/boxed-list"
-        },
-        "command": "npm",
-        "args": ["run", "build"]
-      },
-      {
-        "label": "Build/library/parallel-mapper",
-        "detail": "Build task for parallel-mapper",
-        "isBackground": false,
-        "group": {
-          "kind": "build",
-          "isDefault": false
-        },
-        "runOptions": {
-          "reevaluateOnRerun": true,
-          "instanceLimit": 1,
-          "runOn": "default"
-        },
-        "type": "shell",
-        "options": {
-          "cwd": "${workspaceFolder}/library/parallel-mapper"
-        },
-        "command": "npm",
-        "args": ["run", "build"]
-      },
-      {
-        "label": "Build/library/human-size",
-        "detail": "Build task for human-size",
-        "isBackground": false,
-        "group": {
-          "kind": "build",
-          "isDefault": false
-        },
-        "runOptions": {
-          "reevaluateOnRerun": true,
-          "instanceLimit": 1,
-          "runOn": "default"
-        },
-        "type": "shell",
-        "options": {
-          "cwd": "${workspaceFolder}/library/human-size"
-        },
-        "command": "npm",
-        "args": ["run", "build"]
-      },
-      {
-        "label": "Build/library/object-with-expectations",
-        "detail": "Build task for object-with-expectations",
-        "isBackground": false,
-        "group": {
-          "kind": "build",
-          "isDefault": false
-        },
-        "runOptions": {
-          "reevaluateOnRerun": true,
-          "instanceLimit": 1,
-          "runOn": "default"
-        },
-        "type": "shell",
-        "options": {
-          "cwd": "${workspaceFolder}/library/object-with-expectations"
-        },
-        "command": "npm",
-        "args": ["run", "build"]
-      },
-      {
-        "label": "Build/library/restraining-zalgo",
-        "detail": "Build task for restraining-zalgo",
-        "isBackground": false,
-        "group": {
-          "kind": "build",
-          "isDefault": false
-        },
-        "runOptions": {
-          "reevaluateOnRerun": true,
-          "instanceLimit": 1,
-          "runOn": "default"
-        },
-        "type": "shell",
-        "options": {
-          "cwd": "${workspaceFolder}/library/restraining-zalgo"
-        },
-        "command": "npm",
-        "args": ["run", "build"]
-      },
-      {
-        "label": "Build/library/tools",
-        "detail": "Build task for tools",
-        "isBackground": false,
-        "group": {
-          "kind": "build",
-          "isDefault": false
-        },
-        "runOptions": {
-          "reevaluateOnRerun": true,
-          "instanceLimit": 1,
-          "runOn": "default"
-        },
-        "type": "shell",
-        "options": {
-          "cwd": "${workspaceFolder}/library/tools"
-        },
-        "command": "npm",
-        "args": ["run", "build"]
-      },
+      // {
+      //   "label": "Build/all/library",
+      //   "isBackground": true,
+      //   "group": {
+      //     "kind": "build",
+      //     "isDefault": false
+      //   },
+      //   "runOptions": {
+      //     "reevaluateOnRerun": true,
+      //     "instanceLimit": 1,
+      //     "runOn": "default"
+      //   },
+      //   "dependsOrder": "parallel",
+      //   "dependsOn": [
+      //     "Build/library/bigintString",
+      //     "Build/library/colors-tools",
+      //     "Build/library/boxed-list",
+      //     "Build/library/parallel-mapper",
+      //     "Build/library/human-size",
+      //     "Build/library/restraining-zalgo",
+      //     "Build/library/tools"
+      //   ]
+      // },
+      // {
+      //   "label": "Build/library/bigintString",
+      //   "detail": "Build task for bigintString",
+      //   "isBackground": false,
+      //   "group": {
+      //     "kind": "build",
+      //     "isDefault": false
+      //   },
+      //   "runOptions": {
+      //     "reevaluateOnRerun": true,
+      //     "instanceLimit": 1,
+      //     "runOn": "default"
+      //   },
+      //   "type": "shell",
+      //   "options": {
+      //     "cwd": "${workspaceFolder}/library/bigintString"
+      //   },
+      //   "command": "npm",
+      //   "args": ["run", "build"]
+      // },
+      //  {
+      //   "label": "Build/library/boxed-list",
+      //   "detail": "Build task for boxed-list",
+      //   "isBackground": false,
+      //   "group": {
+      //     "kind": "build",
+      //     "isDefault": false
+      //   },
+      //   "runOptions": {
+      //     "reevaluateOnRerun": true,
+      //     "instanceLimit": 1,
+      //     "runOn": "default"
+      //   },
+      //   "type": "shell",
+      //   "options": {
+      //     "cwd": "${workspaceFolder}/library/boxed-list"
+      //   },
+      //   "command": "npm",
+      //   "args": ["run", "build"]
+      // },
+      // {
+      //   "label": "Build/library/colors-tools",
+      //   "detail": "Build task for colors-tools",
+      //   "isBackground": false,
+      //   "group": {
+      //     "kind": "build",
+      //     "isDefault": false
+      //   },
+      //   "runOptions": {
+      //     "reevaluateOnRerun": true,
+      //     "instanceLimit": 1,
+      //     "runOn": "default"
+      //   },
+      //   "type": "shell",
+      //   "options": {
+      //     "cwd": "${workspaceFolder}/library/colors-tools"
+      //   },
+      //   "command": "npm",
+      //   "args": ["run", "build"]
+      // },
+      // {
+      //   "label": "Build/library/human-size",
+      //   "detail": "Build task for human-size",
+      //   "isBackground": false,
+      //   "group": {
+      //     "kind": "build",
+      //     "isDefault": false
+      //   },
+      //   "runOptions": {
+      //     "reevaluateOnRerun": true,
+      //     "instanceLimit": 1,
+      //     "runOn": "default"
+      //   },
+      //   "type": "shell",
+      //   "options": {
+      //     "cwd": "${workspaceFolder}/library/human-size"
+      //   },
+      //   "command": "npm",
+      //   "args": ["run", "build"]
+      // },
+      // {
+      //   "label": "Build/library/object-with-expectations",
+      //   "detail": "Build task for object-with-expectations",
+      //   "isBackground": false,
+      //   "group": {
+      //     "kind": "build",
+      //     "isDefault": false
+      //   },
+      //   "runOptions": {
+      //     "reevaluateOnRerun": true,
+      //     "instanceLimit": 1,
+      //     "runOn": "default"
+      //   },
+      //   "type": "shell",
+      //   "options": {
+      //     "cwd": "${workspaceFolder}/library/object-with-expectations"
+      //   },
+      //   "command": "npm",
+      //   "args": ["run", "build"]
+      // },
+
+      // {
+      //   "label": "Build/library/parallel-mapper",
+      //   "detail": "Build task for parallel-mapper",
+      //   "isBackground": false,
+      //   "group": {
+      //     "kind": "build",
+      //     "isDefault": false
+      //   },
+      //   "runOptions": {
+      //     "reevaluateOnRerun": true,
+      //     "instanceLimit": 1,
+      //     "runOn": "default"
+      //   },
+      //   "type": "shell",
+      //   "options": {
+      //     "cwd": "${workspaceFolder}/library/parallel-mapper"
+      //   },
+      //   "command": "npm",
+      //   "args": ["run", "build"]
+      // },
+
+      // {
+      //   "label": "Build/library/restraining-zalgo",
+      //   "detail": "Build task for restraining-zalgo",
+      //   "isBackground": false,
+      //   "group": {
+      //     "kind": "build",
+      //     "isDefault": false
+      //   },
+      //   "runOptions": {
+      //     "reevaluateOnRerun": true,
+      //     "instanceLimit": 1,
+      //     "runOn": "default"
+      //   },
+      //   "type": "shell",
+      //   "options": {
+      //     "cwd": "${workspaceFolder}/library/restraining-zalgo"
+      //   },
+      //   "command": "npm",
+      //   "args": ["run", "build"]
+      // },
+      // {
+      //   "label": "Build/library/tools",
+      //   "detail": "Build task for tools",
+      //   "isBackground": false,
+      //   "group": {
+      //     "kind": "build",
+      //     "isDefault": false
+      //   },
+      //   "runOptions": {
+      //     "reevaluateOnRerun": true,
+      //     "instanceLimit": 1,
+      //     "runOn": "default"
+      //   },
+      //   "type": "shell",
+      //   "options": {
+      //     "cwd": "${workspaceFolder}/library/tools"
+      //   },
+      //   "command": "npm",
+      //   "args": ["run", "build"]
+      // },
       {
         "label": "Build/all/examples",
         "dependsOrder": "parallel",
@@ -804,15 +810,11 @@ typescript/
         "command": "bash",
         "args": ["${workspaceFolder}/scripts/start_6383.sh"],
         "isBackground": true,
-        // "runOptions": {
-        // 	"reevaluateOnRerun": true,
-        // 	"instanceLimit": 1,
-        // 	"runOn": "folderOpen"
-        // },
         "presentation": {
-          "revealProblems": "onProblem",
-          "panel": "dedicated",
-          "group": "redis-6383"
+          "echo": false
+          // "revealProblems": "onProblem",
+          // "panel": "dedicated",
+          // "group": "redis-6383"
         }
       }
     ]
@@ -2387,6 +2389,9 @@ typescript/
     },
     "[properties]": {
       "editor.defaultFormatter": "foxundermoon.shell-format"
+    },
+    "[dockerfile]": {
+      "editor.defaultFormatter": "ms-azuretools.vscode-docker"
     }
   },
   "extensions": {
