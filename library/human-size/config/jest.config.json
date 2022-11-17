@@ -2,12 +2,12 @@
   // "extends": "@rushstack/heft-jest-plugin/includes/jest-shared.config.json",
   "collectCoverage": true,
   "coverageDirectory": "../coverage",
-  "verbose": true,
+  "verbose": false,
   "transform": {
     "^.+\\.(ts|tsx)?$": [
       "ts-jest",
       {
-        "diagnostics": true
+        "diagnostics": false
       }
     ],
     "^.+\\.(js|jsx)$": "babel-jest"
@@ -21,7 +21,7 @@
     "tsx",
     "node"
   ],
-  "rootDir": "../src",
+  "rootDir": ".",
   "testMatch": [
     // "./tests/**/*.*.[jt]s?(x)"
     // "./tests/**/*.*"
@@ -32,10 +32,40 @@
   ],
   "coverageThreshold": {
     "global": {
-      "branches": 50,
-      "functions": 50,
-      "lines": 50,
-      "statements": 50
+      "branches": 100,
+      "functions": 100,
+      "lines": 100,
+      "statements": 100
     }
   }
 }
+// /** @type {import('ts-jest/dist/types').InitialOptionsTsJest} */
+// module.exports = {
+// preset: 'ts-jest',
+// testEnvironment: 'node',
+// verbose: true,
+// maxConcurrency: 10,
+// maxWorkers: '75%',
+// detectLeaks: true,
+// transform: {
+// '^.+\\.ts?$': 'ts-jest',
+// },
+// testEnvironment: 'node',
+// testMatch: [
+// '**/tests/**/*.[jt]s?(x)',
+// '**/?(*.)+(spec|test).[jt]s?(x)',
+// '!**/out/**/*.*',
+// '!*.d.ts',
+// ],
+// testRegex: 'src/utils.*/tests/.*\\.(test)?\\.(ts|tsx|js)$',
+// moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
+// collectCoverage: true,
+// collectCoverageFrom: [
+// './src/**/*.{ts,tsx}',
+// '!**/node_modules/**',
+// '!**/vendor/**',
+// '!**/out/**',
+// ],
+// coverageDirectory: './lib/coverage',
+// coverageReporters: ['json', 'lcov', 'text', 'clover'],
+// };

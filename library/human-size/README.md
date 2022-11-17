@@ -1,11 +1,11 @@
-# node-human-size
+# @luxcium/human-size
 
 Tiny module to get a human readable file size from a byte count.
 
 ## Usage
 
 ```ts
-import humanSize from 'human-size';
+import humanSize from '@luxcium/human-size';
 
 console.log(humanSize(10 * 1024 * 1024));
 // prints "10MB"
@@ -35,4 +35,6 @@ console.log(humanSize(106168, 2, SPACED));
 
 Based on the work of Andrew Kelley (MIT © 2014-2022)
 
-###### MIT © 2022 Luxcium (Benjamin Vincent)
+##### MIT © 2022 Luxcium (Benjamin Vincent)
+
+###### † Scientia es lux principium✨ ™
