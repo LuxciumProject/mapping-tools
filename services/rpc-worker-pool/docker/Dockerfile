@@ -27,4 +27,4 @@ EXPOSE 8081 9091
 ENTRYPOINT ["node", "/app/dist/server.js"]
 
 # default parameters to ENTRYPOINT
-CMD ["0.0.0.0:8081", "0.0.0.0:9091"]
+CMD ["0.0.0.0:8081", "0.0.0.0:9091", "1"]

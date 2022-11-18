@@ -20,7 +20,7 @@ let messages = new Map(); // message ID -> HTTP response
 const VERBOSE1 = true;
 const VERBOSE2 = true;
 
-// ++ ----------------------------------------------------------------
+// ++ TCP_Server -----------------------------------------------------
 
 const tcpServer = createTCP_Server(client => {
   const handler = data => client.write(JSON.stringify(data) + '\0\n\0'); // <1>
@@ -55,7 +55,7 @@ void tcpServer.listen(Number(actor_port), actor_hostname, () => {
   );
 });
 
-// ++ ----------------------------------------------------------------
+// ++ HTTP_Server ----------------------------------------------------
 
 const httpServer = createHTTP_Server(async (req, res) => {
   message_id++;
@@ -65,14 +65,6 @@ const httpServer = createHTTP_Server(async (req, res) => {
   const actor = randomActor();
 
   void messages.set(message_id, res);
-
-  VERBOSE2 &&
-    console.log(
-      req.url.split('/').slice(1, 2).pop(),
-      req.url.split('/').slice(2, 3).pop(),
-      '\n',
-      decodeURI(req.url.split('/').slice(3).join('/'))
-    );
 
   void actor({
     id: message_id,
@@ -92,24 +84,31 @@ void httpServer.listen(Number(web_port), web_hostname, () => {
   );
 });
 
-// ++ ----------------------------------------------------------------
+// ++ randomActor() --------------------------------------------------
 
 function randomActor() {
   const pool = [...actors];
   return pool[Math.floor(Math.random() * pool.length)];
 }
 
-// ++ ---- PART TWO BEGINS BELOW -------------------------------------
+// ++ new worker from RpcWorkerPool-----------------------------------
 
-const worker = new RpcWorkerPool(
+const workerPool = new RpcWorkerPool(
   workerScriptFileUri,
   Number(threads || 0),
   'roundrobin'
 );
 
 void actors.add(async data => {
-  VERBOSE1 && console.log('actors.add', data);
-  const value = await worker.exec(data.method, data.id, ...data.args);
+  // console.log('actors.add', { data, worker, workers: worker.workers });
+  const timeBefore = performance.now();
+  const value = await workerPool.exec(data.method, data.id, ...data.args);
+  const timeAfter = performance.now();
+
+  console.log('actors.add', {
+    id: data.id,
+    performance: timeAfter - timeBefore,
+  });
   const reply =
     JSON.stringify({
       jsonrpc: '2.0',

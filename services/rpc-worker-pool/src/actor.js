@@ -2,12 +2,11 @@
 'use strict';
 import { connect } from 'net';
 
-import { Strategie } from './consts';
+import { Strategies } from './consts';
 import { RpcWorkerPool } from './RpcWorkerPool';
 
 // HACK:------ Hard coded path will cause problems MUST FIX ----------
-const workerScriptFileUri =
-  '/home/luxcium/projects/phash-scout/out/API/worker/worker.js';
+const workerScriptFileUri = `${__dirname}/worker.js`;
 
 const [, , host] = process.argv;
 const [hostname, port] = host.split(':');
@@ -46,7 +45,7 @@ void upstream.on('end', () => {
 });
 
 function getWorker() {
-  return new RpcWorkerPool(workerScriptFileUri, 4, Strategie.leastbusy);
+  return new RpcWorkerPool(workerScriptFileUri, 1, Strategies.leastbusy);
 }
 
 /* **************************************************************** */

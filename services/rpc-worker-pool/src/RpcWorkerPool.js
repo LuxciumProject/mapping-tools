@@ -76,18 +76,19 @@ export class RpcWorkerPool {
         }
       }
     }
-    VERBOSE &&
-      console.log(
-        'Selected Worker:',
-        id + 1,
-        'for message id:',
-        message_id || 0
-      );
+
+    console.log(
+      'Selected Worker:',
+      id + 1,
+      'for message id:',
+      message_id || 0,
+      '\n\n'
+    );
     return this.workers[id];
   }
 }
 
-export default RpcWorkerPool
+export default RpcWorkerPool;
 
 /* **************************************************************** */
 /*                                                                  */

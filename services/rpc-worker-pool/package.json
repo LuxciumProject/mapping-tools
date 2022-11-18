@@ -7,10 +7,10 @@
   "scripts": {
     "build": "(npm test && bash scripts/build.sh) || exit 15",
     "deploy:local": "cp package.json ./docker/package.json;npm run build; npm run docker:build",
-    "docker:build": "docker build --label 'image:rpc-worker-pool' --force-rm --tag rpc-worker-pool:latest ./docker",
+    "docker:build": "docker build --label 'image:rpc-worker-pool' --tag rpc-worker-pool:latest ./docker",
     "docker:run:base": "docker run --rm -d  --network networkOne -p 5081:8081 -p 5091:9091 -l 'base:rpc-worker-pool' --name rpc-worker-pool-base rpc-worker-pool:latest",
     "docker:run:prod": "docker run --rm -d  --network networkOne -p 5281:8081 -p 5291:9091 -l 'prod:rpc-worker-pool' --name rpc-worker-pool-prod rpc-worker-pool:latest",
-    "docker:run:live": "docker run --rm -it --network networkOne -p 5181:8081 -p 5191:9091 -l 'live:rpc-worker-pool' --volume \"$(pwd)/docker/downloads\":\"/downloads\" --name rpc-worker-pool-live rpc-worker-pool:latest || exit 55 ",
+    "docker:run:live": "docker run --rm -it --network networkOne -p 5181:8081 -p 5191:9091 -l 'live:rpc-worker-pool' --volume \"$(pwd)/docker/downloads\":\"/downloads\" --name rpc-worker-pool-live --user 1000 --stop-signal 'SIGKILL' rpc-worker-pool:latest || exit 55 ",
     "container:start": "node ./dist/server.js",
     "test:": "jest --config='config/jest.config.json'",
     "test": "echo Tests unimplemented; exit 0"

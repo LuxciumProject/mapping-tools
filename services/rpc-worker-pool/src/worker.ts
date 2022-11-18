@@ -4,11 +4,31 @@
 import { parentPort } from 'node:worker_threads';
 import { wget } from './commands/wget';
 const commands: { [k: string]: any } = {
-  async method001(...args: any[]) {
+  ['hello-world'](...args: any[]) {
+    console.log(
+      'Hello wold will echo back:',
+      decodeURIComponent(...(args as [any]))
+    );
+    return {
+      ['hello-world']: 'Hello wold just echo back!',
+      args: decodeURIComponent(...(args as [any])),
+    };
+  },
+  async wget(...args: any[]) {
     const arg0 = (args[0] as string).split(',');
     const source = decodeURIComponent(arg0[0]);
     const localDestination = decodeURIComponent(arg0[1]);
-    return wget(source, localDestination, '/bin/bash');
+    // console.log('wget:', { source });
+    // console.log('to:', { localDestination });
+    // console.log('\n\n===========================================\n');
+
+    // const result = await wget(source, localDestination);
+    // console.error(result.stderr);
+
+    // const { stderr } = result;
+    // stderr.split('\n').forEach(line => console.log(line));
+    // const result = await wget(source, localDestination);
+    return wget(source, localDestination);
   },
 };
 
@@ -20,7 +40,7 @@ try {
       const messageRPC = {
         jsonrpc: '2.0',
         id,
-        pid: 'worker:' + process.pid,
+        pid: 'worker: ' + process.pid,
       };
       try {
         const resultRPC = await commands[method](...params);
@@ -57,31 +77,7 @@ function asyncOnMessageWrap(fn: WraperFunction) {
 }
 type MsgObjectToWrap = { method: string; params: string; id: string };
 type WraperFunction = (msgObject: MsgObjectToWrap) => Promise<any>;
-/*
-// import { commands } from './commands';
-  method002() {
-    return 'unimplemented';
-  },
-  wget,
-      console.log({ method, params, id }, __filename);
 
-console.log(
-      '\n\nXXXXXXXXXXXXXXXXXXXXXXXXXX\n',
-      { source, localDestination },
-      '\nXXXXXXXXXXXXXXXXXXXXXXXXXX source\n',
-      source,
-      '\nXXXXXXXXXXXXXXXXXXXXXXXXXX localDestination\n',
-      localDestination,
-      '\nXXXXXXXXXXXXXXXXXXXXXXXXXX\n\n'
-    );
- // return [
-    //   'at method001 calling wget',
-    //   '\nin FILEMNAME:',
-    //   __filename,
-    //   '\n\n\n',
-    // ];
-
- */
 /* **************************************************************** */
 /*                                                                  */
 /*  MIT LICENSE                                                     */
