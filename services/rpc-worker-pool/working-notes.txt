@@ -1,0 +1,73 @@
+"docker:run:base":
+"docker run --rm --network networkOne -p 5081:8081 -p 5091:9091 --stop-signal 'SIGKILL'
+-l 'base:rpc-worker-pool' --name rpc-worker-pool-base rpc-worker-pool:latest",
+
+
+"docker:server:live":
+"docker run
+
+
+rpc-worker-pool:latest || exit 55",
+
+ # docker run --rm -it -l 'live:server-pool' --volume \"$DESTINATION_PATH\":\"/downloads\" --name worker-pool-live --user 1000 --stop-signal 'SIGKILL' --network networkOne -p 5181:8081 -p 5191:9091 rpc-worker-pool:latest || exit 55 ",
+    "docker:server:live:back": "docker run --rm -it -l 'live:server-pool' --volume \"$DESTINATION_PATH\":\"/downloads\" --name worker-pool-live --user 1000 --stop-signal 'SIGKILL' --network networkOne -p 5181:8081 -p 5191:9091 rpc-worker-pool:latest || exit 55 ",
+    "docker:actors:live": "docker run --rm -it -l 'live:actors-pool' --volume \"$DESTINATION_PATH\":\"/downloads\" --name actors-pool-live --user 1000 --stop-signal 'SIGKILL' --network networkOne -p 5881:8081 -p 5991:9091 rpc-worker-pool:latest /app/dist/actor.js worker-pool-live:9091 || exit 66 ",
+    "docker:run:prod": "docker run --rm -d  --network networkOne -p 5281:8081 -p 5291:9091 -l 'prod:rpc-worker-pool' --name rpc-worker-pool-prod rpc-worker-pool:latest",
+    "container:start": "node ./dist/server.js",
+
+"docker:actors:live":
+"docker
+run
+--rm
+-it
+-l
+'live:actors-pool'
+--volume
+\"$DESTINATION_PATH\":\"/downloads\"
+--name
+actors-pool-live
+--user
+1000
+--stop-signal
+'SIGKILL'
+--network
+networkOne
+-p
+5881:8081
+-p
+5991:9091
+rpc-worker-pool:latest
+/app/dist/actor.js
+worker-pool-live:9091
+||
+exit
+66
+",
+"container:start":
+"node
+./dist/server.js",
+
+"docker:build":
+"docker build --progress plain
+--label
+'image:rpc-worker-pool'
+--tag
+rpc-worker-pool:latest
+./docker",
+
+"docker:run:prod":
+"docker
+run
+--rm
+-d
+--network
+networkOne
+-p
+5281:8081
+-p
+5291:9091
+-l
+'prod:rpc-worker-pool'
+--name
+rpc-worker-pool-prod
+rpc-worker-pool:latest",

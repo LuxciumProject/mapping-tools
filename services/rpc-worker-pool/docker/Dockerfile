@@ -22,9 +22,10 @@ COPY ./dist /app/dist/
 # Expose port
 EXPOSE 8081 9091
 
+# RUN which node
 
 # Start the server
-ENTRYPOINT ["node", "/app/dist/server.js"]
+ENTRYPOINT ["node"]
 
 # default parameters to ENTRYPOINT
-CMD ["0.0.0.0:8081", "0.0.0.0:9091", "1"]
+CMD ["/app/dist/server.js", "0.0.0.0:8081", "0.0.0.0:9091", "2"]

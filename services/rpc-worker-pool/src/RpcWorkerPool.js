@@ -34,9 +34,9 @@ export class RpcWorkerPool {
   // ++ ----------------------------------------------------------------
   onMessageHandler(msg, worker_id) {
     const worker = this.workers[worker_id];
-    const { result, error, id } = msg;
-    const { resolve, reject } = worker.in_flight_commands.get(id);
-    worker.in_flight_commands.delete(id);
+    const { result, error, job_id } = msg;
+    const { resolve, reject } = worker.in_flight_commands.get(job_id);
+    worker.in_flight_commands.delete(job_id);
     if (error) reject(error);
     else resolve(result);
   }
@@ -44,16 +44,16 @@ export class RpcWorkerPool {
   /**
    * @param {string} method - The first input number
    */
-  exec(method, message_id, ...args) {
-    const id = ++this.next_command_id;
+  async exec(method, message_id, ...args) {
+    const job_id = ++this.next_command_id;
     let resolve, reject;
     const promise = new Promise((res, rej) => {
       resolve = res;
       reject = rej;
     });
     const worker = this.getWorker(message_id); // <1>
-    worker.in_flight_commands.set(id, { resolve, reject });
-    worker.worker.postMessage({ method, params: args, id });
+    worker.in_flight_commands.set(job_id, { resolve, reject });
+    worker.worker.postMessage({ method, params: args, job_id });
 
     return promise;
   }

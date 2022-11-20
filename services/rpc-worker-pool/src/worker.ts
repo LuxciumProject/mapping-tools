@@ -3,6 +3,7 @@
 
 import { parentPort } from 'node:worker_threads';
 import { wget } from './commands/wget';
+
 const commands: { [k: string]: any } = {
   ['hello-world'](...args: any[]) {
     console.log(
@@ -18,16 +19,6 @@ const commands: { [k: string]: any } = {
     const arg0 = (args[0] as string).split(',');
     const source = decodeURIComponent(arg0[0]);
     const localDestination = decodeURIComponent(arg0[1]);
-    // console.log('wget:', { source });
-    // console.log('to:', { localDestination });
-    // console.log('\n\n===========================================\n');
-
-    // const result = await wget(source, localDestination);
-    // console.error(result.stderr);
-
-    // const { stderr } = result;
-    // stderr.split('\n').forEach(line => console.log(line));
-    // const result = await wget(source, localDestination);
     return wget(source, localDestination);
   },
 };
@@ -36,10 +27,10 @@ try {
   if (!parentPort) throw new Error('parentPort is missing or is undefined');
   void parentPort.on(
     'message',
-    asyncOnMessageWrap(async ({ method, params, id }: MsgObjectToWrap) => {
-      const messageRPC = {
+    asyncOnMessageWrap(async ({ method, params, job_id }: MsgObjectToWrap) => {
+      const messageRPC: MessageRPC = {
         jsonrpc: '2.0',
-        id,
+        job_id,
         pid: 'worker: ' + process.pid,
       };
       try {
@@ -75,9 +66,20 @@ function asyncOnMessageWrap(fn: WraperFunction) {
     }
   };
 }
-type MsgObjectToWrap = { method: string; params: string; id: string };
+type MsgObjectToWrap = { method: string; params: string; job_id: string };
 type WraperFunction = (msgObject: MsgObjectToWrap) => Promise<any>;
 
+type MessageRPC = {
+  jsonrpc: string;
+  job_id: string;
+  pid: string;
+  result?: any;
+  errorRPC?: {
+    code: number;
+    message: string;
+    data: any;
+  };
+};
 /* **************************************************************** */
 /*                                                                  */
 /*  MIT LICENSE                                                     */

@@ -22,23 +22,24 @@ const VERBOSE2 = true;
 
 // ++ TCP_Server -----------------------------------------------------
 
-const tcpServer = createTCP_Server(client => {
-  const handler = data => client.write(JSON.stringify(data) + '\0\n\0'); // <1>
+const tcpServer = createTCP_Server(tcp_client => {
+  const handler = data => tcp_client.write(JSON.stringify(data) + '\0\n\0'); // <1>
   actors.add(handler);
-  console.info('actor pool connected', actors.size, message_id);
+  console.info('actor pool connected', actors.size);
 
-  void client.on('end', () => {
+  void tcp_client.on('end', () => {
     actors.delete(handler); // <2>
     console.info('actor pool disconnected', actors.size);
   });
 
-  void client.on('data', raw_data => {
+  void tcp_client.on('data', raw_data => {
     void String(raw_data)
       .split('\0\n\0')
-      .slice(0, -1)
+      .slice(0, -1) // Remove the last (empty) null, new line, null.
       .forEach(chunk => {
         const data = JSON.parse(chunk);
         const res = messages.get(data.id);
+
         res.end(JSON.stringify(data) + '\0\n\0');
         messages.delete(data.id);
       });
@@ -108,7 +109,9 @@ void actors.add(async data => {
   console.log('actors.add', {
     id: data.id,
     performance: timeAfter - timeBefore,
+    pid: 'actor:' + process.pid,
   });
+
   const reply =
     JSON.stringify({
       jsonrpc: '2.0',
