@@ -7,45 +7,50 @@ import { normalize } from 'node:path';
 
 import { RpcWorkerPool } from './RpcWorkerPool';
 
-const workerScriptFileUri = `${__dirname}/worker.js`;
+const VERBOSE1 = true;
+const VERBOSE2 = true;
 
-const [, , web_host, actor_host, threads] = process.argv;
-const [web_hostname, web_port] = web_host.split(':');
-const [actor_hostname, actor_port] = actor_host.split(':');
+const [, , web_host, actor_host, threads_, strategy_] = process.argv;
+const [web_hostname, web_port] = (web_host || '').split(':');
+const [actor_hostname, actor_port] = (actor_host || '').split(':');
+
+const workerScriptFileUri = `${__dirname}/worker.js`;
+const threads = Number(threads_ || 0);
+const strategy = strategy_ || 'roundrobin';
 
 let message_id = 0;
 let actors = new Set(); // collection of actor handlers
 let messages = new Map(); // message ID -> HTTP response
 
-const VERBOSE1 = true;
-const VERBOSE2 = true;
-
 // ++ TCP_Server -----------------------------------------------------
+export function TCP_Server() {
+  return createTCP_Server(tcp_client => {
+    const handler = data => tcp_client.write(JSON.stringify(data) + '\0\n\0'); // <1>
+    actors.add(handler);
+    console.info('actor pool connected', actors.size);
 
-const tcpServer = createTCP_Server(tcp_client => {
-  const handler = data => tcp_client.write(JSON.stringify(data) + '\0\n\0'); // <1>
-  actors.add(handler);
-  console.info('actor pool connected', actors.size);
+    void tcp_client.on('end', () => {
+      actors.delete(handler); // <2>
+      console.info('actor pool disconnected', actors.size);
+    });
 
-  void tcp_client.on('end', () => {
-    actors.delete(handler); // <2>
-    console.info('actor pool disconnected', actors.size);
+    void tcp_client.on('data', raw_data => {
+      void String(raw_data)
+        .split('\0\n\0')
+        .slice(0, -1) // Remove the last (empty) null, new line, null.
+        .forEach(chunk => {
+          const data = JSON.parse(chunk);
+          const res = messages.get(data.id);
+
+          res.end(JSON.stringify(data) + '\0\n\0');
+          messages.delete(data.id);
+        });
+    });
   });
+}
 
-  void tcp_client.on('data', raw_data => {
-    void String(raw_data)
-      .split('\0\n\0')
-      .slice(0, -1) // Remove the last (empty) null, new line, null.
-      .forEach(chunk => {
-        const data = JSON.parse(chunk);
-        const res = messages.get(data.id);
-
-        res.end(JSON.stringify(data) + '\0\n\0');
-        messages.delete(data.id);
-      });
-  });
-});
-
+// + tcpServer -------------------------------------------------------
+const tcpServer = TCP_Server();
 void tcpServer.listen(Number(actor_port), actor_hostname, () => {
   console.info(
     '\n\n> ' +
@@ -57,24 +62,27 @@ void tcpServer.listen(Number(actor_port), actor_hostname, () => {
 });
 
 // ++ HTTP_Server ----------------------------------------------------
+export function HTTP_Server() {
+  return createHTTP_Server(async (req, res) => {
+    message_id++;
 
-const httpServer = createHTTP_Server(async (req, res) => {
-  message_id++;
+    if (actors.size === 0) return res.end('ERROR: EMPTY ACTOR POOL');
 
-  if (actors.size === 0) return res.end('ERROR: EMPTY ACTOR POOL');
+    const actor = randomActor();
 
-  const actor = randomActor();
+    void messages.set(message_id, res);
 
-  void messages.set(message_id, res);
-
-  void actor({
-    id: message_id,
-    method: req.url.split('/').slice(1, 2).pop(),
-    args: [normalize(decodeURI(req.url.split('/').slice(2)))],
+    void actor({
+      id: message_id,
+      method: req.url.split('/').slice(1, 2).pop(),
+      args: [normalize(decodeURI(req.url.split('/').slice(2)))],
+    });
+    chalk.yellow;
   });
-  chalk.yellow;
-});
+}
 
+// + httpServer ------------------------------------------------------
+const httpServer = HTTP_Server();
 void httpServer.listen(Number(web_port), web_hostname, () => {
   console.info(
     '> ' +
@@ -86,20 +94,20 @@ void httpServer.listen(Number(web_port), web_hostname, () => {
 });
 
 // ++ randomActor() --------------------------------------------------
-
 function randomActor() {
   const pool = [...actors];
   return pool[Math.floor(Math.random() * pool.length)];
 }
 
-// ++ new worker from RpcWorkerPool-----------------------------------
-
+// + new worker from RpcWorkerPool------------------------------------
 const workerPool = new RpcWorkerPool(
   workerScriptFileUri,
-  Number(threads || 0),
-  'roundrobin'
+  threads,
+  strategy,
+  VERBOSE1
 );
 
+// + actors.add ------------------------------------------------------
 void actors.add(async data => {
   // console.log('actors.add', { data, worker, workers: worker.workers });
   const timeBefore = performance.now();
