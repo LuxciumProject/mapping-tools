@@ -2,26 +2,7 @@
 // #!! Consumed by the RpcWorkerPool class via path to file.
 
 import { parentPort } from 'node:worker_threads';
-import { wget } from './commands/wget';
-
-const commands: { [k: string]: any } = {
-  ['hello-world'](...args: any[]) {
-    console.log(
-      'Hello wold will echo back:',
-      decodeURIComponent(...(args as [any]))
-    );
-    return {
-      ['hello-world']: 'Hello wold just echo back!',
-      args: decodeURIComponent(...(args as [any])),
-    };
-  },
-  async wget(...args: any[]) {
-    const arg0 = (args[0] as string).split(',');
-    const source = decodeURIComponent(arg0[0]);
-    const localDestination = decodeURIComponent(arg0[1]);
-    return wget(source, localDestination);
-  },
-};
+import { commands } from './commands';
 
 try {
   if (!parentPort) throw new Error('parentPort is missing or is undefined');
