@@ -3,12 +3,11 @@
 import chalk from 'chalk';
 import { createServer as createHTTP_Server } from 'http';
 import { createServer as createTCP_Server } from 'net';
-import { normalize } from 'node:path';
 
 import { RpcWorkerPool } from './RpcWorkerPool';
 
 const VERBOSE1 = true;
-const VERBOSE2 = true;
+// const VERBOSE2 = true;
 
 const [, , web_host, actor_host, threads_, strategy_] = process.argv;
 const [web_hostname, web_port] = (web_host || '').split(':');
@@ -34,16 +33,18 @@ void createHTTP_Server(async (req, res) => {
 
   if (actors.size === 0) return res.end('ERROR: EMPTY ACTOR POOL');
 
-  const actor = randomActor();
+  const actor: any = randomActor();
 
   void messages.set(message_id, res);
 
+  const splitedUrl = (req?.url || '').split('/');
   void actor({
     id: message_id,
-    method: req.url.split('/').slice(1, 2).pop(),
-    args: [normalize(decodeURI(req.url.split('/').slice(2)))],
+    method: splitedUrl.slice(1, 2).pop(),
+    args: [...splitedUrl.slice(2)],
   });
   chalk.yellow;
+  return;
 }).listen(Number(web_port), web_hostname, () => {
   console.info(
     '> ' +
@@ -57,7 +58,8 @@ void createHTTP_Server(async (req, res) => {
 // ++ TCP_Server -----------------------------------------------------
 // export function TCP_Server() {
 void createTCP_Server(tcp_client => {
-  const handler = data => tcp_client.write(JSON.stringify(data) + '\0\n\0'); // <1>
+  const handler = (data: any) =>
+    tcp_client.write(JSON.stringify(data) + '\0\n\0'); // <1>
   actors.add(handler);
   console.info('actor pool connected', actors.size);
 
@@ -98,7 +100,7 @@ const workerPool = new RpcWorkerPool(
 
 let actor_id = 0;
 // ++ actors.add -----------------------------------------------------
-void actors.add(async data => {
+void actors.add(async (data: any) => {
   // Executor of the worker from pool.
   const timeBefore = performance.now();
   const value = await workerPool.exec(data.method, data.id, ...data.args);

@@ -4,11 +4,11 @@ import { Worker } from 'worker_threads';
 
 const VERBOSE = false;
 const CORES = cpus().length;
-type Strategies = 'roundrobin' | 'random' | 'leastbusy';
-const STRATEGIES = new Set<Strategies>(['roundrobin', 'random', 'leastbusy']);
+// type Strategies = 'roundrobin' | 'random' | 'leastbusy';
+const STRATEGIES = new Set<string>(['roundrobin', 'random', 'leastbusy']);
 export class RpcWorkerPool {
   private size: number;
-  private strategy: Strategies;
+  private strategy: string;
   private versosity: boolean;
   private rr_index: number;
   private next_job_id: number;
@@ -16,7 +16,7 @@ export class RpcWorkerPool {
   constructor(
     path: string,
     size: number = 0,
-    strategy: Strategies = 'leastbusy',
+    strategy: string = 'leastbusy',
     versosity = VERBOSE
   ) {
     this.size = size < 0 ? Math.max(CORES + size, 1) : size || CORES;
