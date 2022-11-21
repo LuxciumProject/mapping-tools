@@ -22,6 +22,38 @@ let message_id = 0;
 let actors = new Set(); // collection of actor handlers
 let messages = new Map(); // message ID -> HTTP response
 
+// ++ HTTP_Server ----------------------------------------------------
+export function HTTP_Server() {
+  return createHTTP_Server(async (req, res) => {
+    message_id++;
+
+    if (actors.size === 0) return res.end('ERROR: EMPTY ACTOR POOL');
+
+    const actor = randomActor();
+
+    void messages.set(message_id, res);
+
+    void actor({
+      id: message_id,
+      method: req.url.split('/').slice(1, 2).pop(),
+      args: [normalize(decodeURI(req.url.split('/').slice(2)))],
+    });
+    chalk.yellow;
+  });
+}
+
+// + httpServer ------------------------------------------------------
+const httpServer = HTTP_Server();
+void httpServer.listen(Number(web_port), web_hostname, () => {
+  console.info(
+    '> ' +
+      chalk.green('web:  ') +
+      chalk.yellow(`http:\/\/${web_hostname}`) +
+      ':' +
+      chalk.magenta(`${web_port}`)
+  );
+});
+
 // ++ TCP_Server -----------------------------------------------------
 export function TCP_Server() {
   return createTCP_Server(tcp_client => {
@@ -58,38 +90,6 @@ void tcpServer.listen(Number(actor_port), actor_hostname, () => {
       chalk.yellow(`tcp:\/\/${actor_hostname}`) +
       ':' +
       chalk.magenta(`${actor_port}`)
-  );
-});
-
-// ++ HTTP_Server ----------------------------------------------------
-export function HTTP_Server() {
-  return createHTTP_Server(async (req, res) => {
-    message_id++;
-
-    if (actors.size === 0) return res.end('ERROR: EMPTY ACTOR POOL');
-
-    const actor = randomActor();
-
-    void messages.set(message_id, res);
-
-    void actor({
-      id: message_id,
-      method: req.url.split('/').slice(1, 2).pop(),
-      args: [normalize(decodeURI(req.url.split('/').slice(2)))],
-    });
-    chalk.yellow;
-  });
-}
-
-// + httpServer ------------------------------------------------------
-const httpServer = HTTP_Server();
-void httpServer.listen(Number(web_port), web_hostname, () => {
-  console.info(
-    '> ' +
-      chalk.green('web:  ') +
-      chalk.yellow(`http:\/\/${web_hostname}`) +
-      ':' +
-      chalk.magenta(`${web_port}`)
   );
 });
 
