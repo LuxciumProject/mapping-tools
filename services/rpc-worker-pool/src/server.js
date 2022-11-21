@@ -22,29 +22,29 @@ let message_id = 0;
 let actors = new Set(); // collection of actor handlers
 let messages = new Map(); // message ID -> HTTP response
 
-// ++ HTTP_Server ----------------------------------------------------
-export function HTTP_Server() {
-  return createHTTP_Server(async (req, res) => {
-    message_id++;
-
-    if (actors.size === 0) return res.end('ERROR: EMPTY ACTOR POOL');
-
-    const actor = randomActor();
-
-    void messages.set(message_id, res);
-
-    void actor({
-      id: message_id,
-      method: req.url.split('/').slice(1, 2).pop(),
-      args: [normalize(decodeURI(req.url.split('/').slice(2)))],
-    });
-    chalk.yellow;
-  });
+// ++ randomActor() --------------------------------------------------
+function randomActor() {
+  const pool = [...actors];
+  return pool[Math.floor(Math.random() * pool.length)];
 }
 
-// + httpServer ------------------------------------------------------
-const httpServer = HTTP_Server();
-void httpServer.listen(Number(web_port), web_hostname, () => {
+// ++ HTTP_Server ----------------------------------------------------
+void createHTTP_Server(async (req, res) => {
+  message_id++;
+
+  if (actors.size === 0) return res.end('ERROR: EMPTY ACTOR POOL');
+
+  const actor = randomActor();
+
+  void messages.set(message_id, res);
+
+  void actor({
+    id: message_id,
+    method: req.url.split('/').slice(1, 2).pop(),
+    args: [normalize(decodeURI(req.url.split('/').slice(2)))],
+  });
+  chalk.yellow;
+}).listen(Number(web_port), web_hostname, () => {
   console.info(
     '> ' +
       chalk.green('web:  ') +
@@ -55,35 +55,30 @@ void httpServer.listen(Number(web_port), web_hostname, () => {
 });
 
 // ++ TCP_Server -----------------------------------------------------
-export function TCP_Server() {
-  return createTCP_Server(tcp_client => {
-    const handler = data => tcp_client.write(JSON.stringify(data) + '\0\n\0'); // <1>
-    actors.add(handler);
-    console.info('actor pool connected', actors.size);
+// export function TCP_Server() {
+void createTCP_Server(tcp_client => {
+  const handler = data => tcp_client.write(JSON.stringify(data) + '\0\n\0'); // <1>
+  actors.add(handler);
+  console.info('actor pool connected', actors.size);
 
-    void tcp_client.on('end', () => {
-      actors.delete(handler); // <2>
-      console.info('actor pool disconnected', actors.size);
-    });
-
-    void tcp_client.on('data', raw_data => {
-      void String(raw_data)
-        .split('\0\n\0')
-        .slice(0, -1) // Remove the last (empty) null, new line, null.
-        .forEach(chunk => {
-          const data = JSON.parse(chunk);
-          const res = messages.get(data.id);
-
-          res.end(JSON.stringify(data) + '\0\n\0');
-          messages.delete(data.id);
-        });
-    });
+  void tcp_client.on('end', () => {
+    actors.delete(handler); // <2>
+    console.info('actor pool disconnected', actors.size);
   });
-}
 
-// + tcpServer -------------------------------------------------------
-const tcpServer = TCP_Server();
-void tcpServer.listen(Number(actor_port), actor_hostname, () => {
+  void tcp_client.on('data', raw_data => {
+    void String(raw_data)
+      .split('\0\n\0')
+      .slice(0, -1) // Remove the last (empty) null, new line, null.
+      .forEach(chunk => {
+        const data = JSON.parse(chunk);
+        const res = messages.get(data.id);
+
+        res.end(JSON.stringify(data) + '\0\n\0');
+        messages.delete(data.id);
+      });
+  });
+}).listen(Number(actor_port), actor_hostname, () => {
   console.info(
     '\n\n> ' +
       chalk.green('actor: ') +
@@ -93,13 +88,7 @@ void tcpServer.listen(Number(actor_port), actor_hostname, () => {
   );
 });
 
-// ++ randomActor() --------------------------------------------------
-function randomActor() {
-  const pool = [...actors];
-  return pool[Math.floor(Math.random() * pool.length)];
-}
-
-// + new worker from RpcWorkerPool------------------------------------
+// ++ new worker from RpcWorkerPool-----------------------------------
 const workerPool = new RpcWorkerPool(
   workerScriptFileUri,
   threads,
@@ -107,28 +96,35 @@ const workerPool = new RpcWorkerPool(
   VERBOSE1
 );
 
-// + actors.add ------------------------------------------------------
+let actor_id = 0;
+// ++ actors.add -----------------------------------------------------
 void actors.add(async data => {
-  // console.log('actors.add', { data, worker, workers: worker.workers });
+  // Executor of the worker from pool.
   const timeBefore = performance.now();
   const value = await workerPool.exec(data.method, data.id, ...data.args);
   const timeAfter = performance.now();
 
-  console.log('actors.add', {
+  const delay = timeAfter - timeBefore;
+  const time = Math.round(delay * 100) / 100;
+
+  actor_id++;
+  const reply = {
+    jsonrpc: '2.0',
+    actor_id,
+    performance: delay,
     id: data.id,
-    performance: timeAfter - timeBefore,
-    pid: 'actor:' + process.pid,
+    pid: 'server:' + process.pid + ' (' + data.id + ')',
+  };
+
+  console.log('actors.add', {
+    ...reply,
+    performance: `${chalk.yellow(time)}ms`,
+    pid: `actor(${actor_id}) at process: ${process.pid}`,
   });
 
-  const reply =
-    JSON.stringify({
-      jsonrpc: '2.0',
-      id: data.id,
-      value,
-      pid: 'server:' + process.pid + ' (' + data.id + ')',
-    }) + '\0\n\0';
-
-  void messages.get(data.id).end(reply);
+  void messages
+    .get(data.id)
+    .end(JSON.stringify({ ...reply, value }) + '\0\n\0');
   void messages.delete(data.id);
 });
 
