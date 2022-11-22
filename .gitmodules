@@ -4,3 +4,6 @@ url = https://github.com/Luxcium/Redis-ImageScout.git
 [submodule "questrade-ts"]
 path = services/questrade-ts
 url = https://github.com/Luxcium/questrade-ts.git
+[submodule "services/rpc-worker-pool"]
+	path = services/rpc-worker-pool
+	url = https://github.com/Luxcium/rpc-worker-pool.git
