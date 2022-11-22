@@ -458,6 +458,11 @@
       "packageName": "@luxcium/scan-dirs",
       "projectFolder": "services/scan-directories",
       "tags": ["services"]
+    }, // /home/luxcium/projects/monorepo-one/services/rpc-worker-pool
+    {
+      "packageName": "@luxcium/rpc-worker-pool",
+      "projectFolder": "services/rpc-worker-pool",
+      "tags": ["services"]
     },
     {
       "packageName": "@luxcium/redis-services",
