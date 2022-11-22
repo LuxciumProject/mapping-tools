@@ -40,7 +40,7 @@ void upstreamSocket.on('data', raw_data => {
       const data = JSON.parse(chunk);
       const timeBefore = performance.now();
       const result = await getWorker().exec(
-        data.method,
+        data.command_name,
         `${data.id}`,
         ...data.args
       );

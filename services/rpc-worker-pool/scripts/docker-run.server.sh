@@ -1,7 +1,7 @@
 #!/usr/bin/bash
 
 echo DESTINATION_PATH="${DESTINATION_PATH:="$(pwd)/docker/downloads"}"
-docker run --rm -it \
+docker run --rm -t \
   --network networkOne \
   -p 5181:8081 -p 5191:9091 \
   --stop-signal 'SIGKILL' \

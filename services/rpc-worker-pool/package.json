@@ -1,5 +1,5 @@
 {
-  "name": "@mono-repo-one/rpc-worker-pool",
+  "name": "@luxcium/rpc-worker-pool",
   "version": "1.0.0",
   "description": "Actor Model task queue",
   "main": "dist/index.js",

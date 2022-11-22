@@ -12,7 +12,11 @@ export class RpcWorkerPool {
   private versosity: boolean;
   private rr_index: number;
   private next_job_id: number;
-  private workers: { worker: Worker; in_flight_commands: Map<number, any> }[];
+  private workers: {
+    worker: Worker;
+    in_flight_commands: Map<number, any>;
+    worker_id: number;
+  }[];
   constructor(
     path: string,
     size: number = 0,
@@ -28,7 +32,7 @@ export class RpcWorkerPool {
     this.workers = [];
     for (let worker_id = 0; worker_id < this.size; worker_id++) {
       const worker = new Worker(path);
-      this.workers.push({ worker, in_flight_commands: new Map() });
+      this.workers.push({ worker, in_flight_commands: new Map(), worker_id });
       worker.on('message', msg => {
         this.onMessageHandler(msg, worker_id);
       });
@@ -49,7 +53,7 @@ export class RpcWorkerPool {
   }
   // ++ --------------------------------------------------------------
 
-  async exec(method_name: string, message_id: number, ...args: string[]) {
+  async exec(command_name: string, message_id: number, ...args: string[]) {
     const job_id = this.next_job_id++;
 
     // The message_id is provided for feedback purpose only.
@@ -58,7 +62,7 @@ export class RpcWorkerPool {
     const promise = new Promise((resolve, reject) => {
       worker.in_flight_commands.set(job_id, { resolve, reject });
     });
-    worker.worker.postMessage({ method_name, params: args, job_id });
+    worker.worker.postMessage({ command_name, params: args, job_id });
 
     return promise;
   }
@@ -87,7 +91,9 @@ export class RpcWorkerPool {
     }
 
     this.versosity &&
-      console.log(`'Worker: ${worker_id + 1} Message id: ${message_id || 0}\n`);
+      console.log(
+        `\n\nWorker: ${worker_id + 1} Message id: ${message_id || 0}\n`
+      );
 
     return this.workers[worker_id];
   }
