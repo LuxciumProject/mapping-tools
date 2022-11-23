@@ -820,6 +820,10 @@ typescript/
     ]
   },
   "settings": {
+    "workbench.iconTheme": "material-icon-theme",
+    "material-icon-theme.activeIconPack": "nest",
+    "workbench.colorTheme": "Pop N' Lock Theme by Luxcium ✨",
+    "workbench.preferredDarkColorTheme": "Pop N' Lock Theme by Luxcium ✨",
     "terminal.integrated.defaultProfile.linux": "MonoRepoOne",
     "task.allowAutomaticTasks": "on",
     "files.associations": {
