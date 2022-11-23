@@ -226,7 +226,9 @@
      * IMPORTANT: Because these are regular expressions encoded as JSON string literals,
      * RegExp escapes need two backslashes, and ordinary periods should be "\\.".
      */
-    "allowedEmailRegExps": ["[^@]+@users\\.noreply\\.github\\.com"],
+    "allowedEmailRegExps": [
+      "[^@]+@users\\.noreply\\.github\\.com"
+    ],
     /**
      * When Rush reports that the address is malformed, the notice can include an example
      * of a recommended email.  Make sure it conforms to one of the allowedEmailRegExps
@@ -372,138 +374,192 @@
     {
       "packageName": "api-server",
       "projectFolder": "backend/api",
-      "tags": ["backend"]
+      "tags": [
+        "backend"
+      ]
     },
     {
       "packageName": "scratch-server",
       "projectFolder": "backend/scratch",
-      "tags": ["backend"]
+      "tags": [
+        "backend"
+      ]
     },
     {
       "packageName": "home-react",
       "projectFolder": "frontend/home",
-      "tags": ["frontend"]
+      "tags": [
+        "frontend"
+      ]
     },
     {
       "packageName": "my-next-js-app",
       "projectFolder": "frontend/my-next-js-app",
-      "tags": ["frontend"]
+      "tags": [
+        "frontend"
+      ]
     },
     {
       "packageName": "federal-container",
       "projectFolder": "frontend/federal-container",
-      "tags": ["frontend"]
+      "tags": [
+        "frontend"
+      ]
     },
     {
       "packageName": "cart",
       "projectFolder": "frontend/cart",
-      "tags": ["frontend"]
+      "tags": [
+        "frontend"
+      ]
     },
     {
       "packageName": "products",
       "projectFolder": "frontend/products",
-      "tags": ["frontend"]
+      "tags": [
+        "frontend"
+      ]
     },
     {
       "packageName": "old-home-backup",
       "projectFolder": "frontend/home-bak",
-      "tags": ["frontend"]
+      "tags": [
+        "frontend"
+      ]
     },
     {
       "packageName": "@luxcium/bigintstring",
       "projectFolder": "library/bigintString",
-      "tags": ["library"]
+      "tags": [
+        "library"
+      ]
     },
     {
       "packageName": "@luxcium/colors-tools",
       "projectFolder": "library/colors-tools",
-      "tags": ["library"]
+      "tags": [
+        "library"
+      ]
     },
     {
       "packageName": "@luxcium/boxed-list",
       "projectFolder": "library/boxed-list",
-      "tags": ["library"]
+      "tags": [
+        "library"
+      ]
     },
     {
       "packageName": "@luxcium/parallel-mapper",
       "projectFolder": "library/parallel-mapper",
-      "tags": ["library"]
+      "tags": [
+        "library"
+      ]
     },
     {
       "packageName": "@luxcium/restraining-zalgo",
       "projectFolder": "library/restraining-zalgo",
-      "tags": ["library"]
+      "tags": [
+        "library"
+      ]
     },
     {
       "packageName": "@luxcium/object-with-expectations",
       "projectFolder": "library/object-with-expectations",
-      "tags": ["library"]
+      "tags": [
+        "library"
+      ]
     },
     {
       "packageName": "@luxcium/human-size",
       "projectFolder": "library/human-size",
-      "tags": ["library"]
+      "tags": [
+        "library"
+      ]
     },
     {
       "packageName": "@luxcium/tools",
       "projectFolder": "library/tools",
-      "tags": ["library", "tools"]
+      "tags": [
+        "library",
+        "tools"
+      ]
     },
     {
       "packageName": "@luxcium/phash-compute",
       "projectFolder": "services/phash-compute",
-      "tags": ["services"]
+      "tags": [
+        "services"
+      ]
     },
     {
       "packageName": "@luxcium/scan-dirs",
       "projectFolder": "services/scan-directories",
-      "tags": ["services"]
+      "tags": [
+        "services"
+      ]
     }, // /home/luxcium/projects/monorepo-one/services/rpc-worker-pool
     {
       "packageName": "@luxcium/rpc-worker-pool",
       "projectFolder": "services/rpc-worker-pool",
-      "tags": ["services"]
+      "tags": [
+        "services"
+      ]
     },
     {
       "packageName": "@luxcium/redis-services",
       "projectFolder": "services/redis-services",
-      "tags": ["services"]
+      "tags": [
+        "services"
+      ]
     },
     {
       "packageName": "questrade-ts",
       "projectFolder": "services/questrade-ts",
-      "tags": ["services"]
+      "tags": [
+        "services"
+      ]
     },
     {
       "packageName": "service-one",
       "projectFolder": "services/service-one",
-      "tags": ["services"]
+      "tags": [
+        "services"
+      ]
     },
     {
       "packageName": "service-two",
       "projectFolder": "services/service-two",
-      "tags": ["services"]
+      "tags": [
+        "services"
+      ]
     },
-
     {
       "packageName": "phash-scout-examples",
       "projectFolder": "examples/phash-scout",
-      "tags": ["examples"]
+      "tags": [
+        "examples"
+      ]
     },
     {
       "packageName": "template-example",
       "projectFolder": "examples/template",
-      "tags": ["examples"]
+      "tags": [
+        "examples"
+      ]
     },
     {
       "packageName": "playground-example",
       "projectFolder": "examples/playground",
-      "tags": ["examples"]
+      "tags": [
+        "examples"
+      ]
     },
     {
       "packageName": "node-js-example",
       "projectFolder": "examples/node-js",
-      "tags": ["examples"]
+      "tags": [
+        "examples"
+      ]
     }
     // {
     //   /**
