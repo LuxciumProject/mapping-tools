@@ -7,18 +7,18 @@
   "scripts": {
     "install": "#bash scripts/build.sh",
     "build": "bash scripts/build.sh",
+    "rebuild": "rm -fr ./lib; bash scripts/build.sh",
     "test": "jest --config='config/jest.config.json'"
   },
   "keywords": [],
   "author": "",
   "license": "MIT",
-    "dependencies": {
+  "dependencies": {
     "tslib": "2.4.1",
     "@tensorflow/tfjs-node-gpu": "~4.0.0",
     "seedrandom": "~3.0.5",
     "source-map-support": "~0.5.21"
   },
-
   "devDependencies": {
     "@rushstack/heft-jest-plugin": "0.3.45",
     "@rushstack/heft": "0.48.8",
@@ -64,5 +64,4 @@
     "eslint-plugin-import": "2.26.0",
     "webpack": "5.75.0"
   }
-
 }

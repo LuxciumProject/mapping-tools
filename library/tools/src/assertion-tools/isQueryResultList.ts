@@ -1,4 +1,4 @@
-import { QueryResultItem } from '../types';
+import { QueryResultItem } from '../types/main';
 import { isQueryResultItem } from './isQueryResultItem';
 
 export function isQueryResultList(

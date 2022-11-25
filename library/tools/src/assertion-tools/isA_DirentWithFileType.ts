@@ -1,4 +1,4 @@
-import { DirentWithFileType } from '../types';
+import { DirentWithFileType } from '../types/main';
 
 const S = 'string';
 const B = 'boolean';

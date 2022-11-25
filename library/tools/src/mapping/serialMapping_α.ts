@@ -1,22 +1,29 @@
+import { Mapper } from '../types';
 import { OnlySideEffect } from '../types/mapping/OnlySideEffect';
 import { FULFILLED, REJECTED } from './constants';
 
 export async function serialMapping_α<R, T>(
   collection: Iterable<T>,
-  transform: (item: T) => Promise<R>,
-  lookup: (value: R) => OnlySideEffect = v => void v,
-  validate: (value: R) => Promise<OnlySideEffect> = async v => void v,
-  errLookup: (error: unknown) => OnlySideEffect = v => void v
+  transform: Mapper<T, Promise<R>>, // (item: T) => Promise<R>
+  // transform: (item: T) => Promise<R>,
+  lookup: (value: R, index: number) => OnlySideEffect = v => void v,
+  validate: (value: R, index: number) => Promise<OnlySideEffect> = async v =>
+    void v,
+  errLookup: (error: unknown, index: number) => OnlySideEffect = v => void v
 ): Promise<PromiseSettledResult<R>[]> {
+  let i = 0;
   const results: PromiseSettledResult<R>[] = [];
   for (const item of collection) {
     try {
-      const value = await transform(item);
-      lookup(value);
-      await validate(value);
+      const value = await transform(item, i++, [...collection]);
+      lookup(value, i);
+      // lookup(value);
+      await validate(value, i);
+      // await validate(value);
       results.push({ status: FULFILLED, value });
     } catch (error) {
-      errLookup(error);
+      errLookup(error, i);
+      // errLookup(error);
       results.push({ status: REJECTED, reason: error });
     }
   }

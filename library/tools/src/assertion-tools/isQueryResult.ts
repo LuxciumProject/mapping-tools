@@ -1,4 +1,4 @@
-import { QueryResult } from '../types';
+import { QueryResult } from '../types/main';
 
 export function isQueryResult(contender: unknown): contender is QueryResult {
   if (Array.isArray(contender)) {
