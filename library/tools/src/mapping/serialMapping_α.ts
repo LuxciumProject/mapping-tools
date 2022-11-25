@@ -17,13 +17,10 @@ export async function serialMapping_α<R, T>(
     try {
       const value = await transform(item, i++, [...collection]);
       lookup(value, i);
-      // lookup(value);
       await validate(value, i);
-      // await validate(value);
       results.push({ status: FULFILLED, value });
     } catch (error) {
       errLookup(error, i);
-      // errLookup(error);
       results.push({ status: REJECTED, reason: error });
     }
   }

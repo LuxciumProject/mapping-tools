@@ -1,7 +1,7 @@
 import { Mapper } from '../types';
 import { FULFILLED, REJECTED } from './constants';
 
-export async function* asyncGenerate_α<R, T>(
+export async function* generateMappingAsync_α<R, T>(
   collection: Iterable<T>,
   transform: Mapper<T, Promise<R>> // (item: T) => Promise<R>
 ): AsyncGenerator<PromiseSettledResult<R>, void, unknown> {
