@@ -57,6 +57,10 @@
       "path": "library"
     },
     {
+      "name": "          📚🧭 mapping-tools",
+      "path": "library/mapping"
+    },
+    {
       "name": "          📚❤ bigintString",
       "path": "library/bigintString"
     },
@@ -152,12 +156,6 @@
       "name": "        🪄📘 typescript",
       "path": "examples/typescript"
     }
-    /*
-		node-js/
-phash-scout/
-template/
-typescript/
-		*/
   ],
   "tasks": {
     // See https://go.microsoft.com/fwlink/?LinkId=733558
@@ -165,7 +163,7 @@ typescript/
     "version": "2.0.0",
     "presentation": {
       "clear": true,
-      "close": true,
+      "close": false,
       "echo": true,
       "focus": false,
       "panel": "dedicated",
@@ -175,36 +173,526 @@ typescript/
     },
     "tasks": [
       {
-        "label": "TASK Fail",
-        "detail": "Just to test the task processes.",
+        "label": "build-all",
+        "detail": "Build each subprojects using TSC and problemMatcher",
         "isBackground": false,
-        "command": ["false"],
-        // "args": ["Just to test the task processes."], // , "&& exit 1"
-        "presentation": {
-          "close": false,
-          "echo": true,
-          "focus": true,
-          "panel": "dedicated",
-          "group": "TASK FORCE",
-          "reveal": "always",
-          "showReuseMessage": false
-        }
+        "runOptions": {
+          "reevaluateOnRerun": true,
+          "instanceLimit": 1,
+          "runOn": "default"
+        },
+        "icon": {
+          "id": "server-process",
+          "color": "terminal.ansiYellow"
+        },
+        "group": {
+          "kind": "build",
+          "isDefault": true
+        },
+        "dependsOrder": "sequence",
+        "dependsOn": [
+          "Build/all/library",
+          "Build/all/services",
+          "Build/all/examples"
+        ]
+      }, // "build-all"
+      {
+        "label": "Build/all/services",
+        "isBackground": true,
+        "group": {
+          "kind": "build",
+          "isDefault": false
+        },
+        "runOptions": {
+          "reevaluateOnRerun": true,
+          "instanceLimit": 1,
+          "runOn": "default"
+        },
+        "dependsOrder": "parallel",
+        "dependsOn": [
+          "Build/services/phash-compute",
+          "Build/services/scan-directories",
+          "Build/services/questrade-ts",
+          "Build/services/redis-services",
+          "Build/services/service-one",
+          "Build/services/service-two"
+        ]
+      }, // "Build/all/services"
+      {
+        "label": "Build/services/phash-compute",
+        "detail": "Build task for phash-compute",
+        "isBackground": true,
+        "group": {
+          "kind": "build",
+          "isDefault": false
+        },
+        "runOptions": {
+          "reevaluateOnRerun": true,
+          "instanceLimit": 1,
+          "runOn": "default"
+        },
+        "type": "shell",
+        "options": {
+          "cwd": "${workspaceFolder}/services/phash-compute"
+        },
+        "command": "npm",
+        "args": ["run", "build"]
       },
       {
-        "label": "TASK Complete",
-        "detail": "Just to test the task processes.",
-        "isBackground": false,
-        "command": ["true"],
-        // "args": ["Just to test the task processes."], // , "&& exit 1"
+        "label": "Build/services/scan-directories",
+        "detail": "Build task for scan-directories",
+        "isBackground": true,
+        "group": {
+          "kind": "build",
+          "isDefault": false
+        },
+        "runOptions": {
+          "reevaluateOnRerun": true,
+          "instanceLimit": 1,
+          "runOn": "default"
+        },
+        "type": "shell",
+        "options": {
+          "cwd": "${workspaceFolder}/services/scan-directories"
+        },
+        "command": "npm",
+        "args": ["run", "build"]
+        // "problemMatcher": {
+        //   "base": "$tsc",
+        //   "applyTo": "allDocuments"
+        // }
+      },
+      {
+        "label": "Build/services/questrade-ts",
+        "detail": "Build task for questrade-ts",
+        "isBackground": true,
+        "group": {
+          "kind": "build",
+          "isDefault": false
+        },
+        "runOptions": {
+          "reevaluateOnRerun": true,
+          "instanceLimit": 1,
+          "runOn": "default"
+        },
+        "type": "shell",
+        "options": {
+          "cwd": "${workspaceFolder}/services/questrade-ts"
+        },
+        "command": "npm",
+        "args": ["run", "build"]
+      },
+      {
+        "label": "Build/services/redis-services",
+        "detail": "Build task for redis-services",
+        "isBackground": true,
+        "group": {
+          "kind": "build",
+          "isDefault": false
+        },
+        "runOptions": {
+          "reevaluateOnRerun": true,
+          "instanceLimit": 1,
+          "runOn": "default"
+        },
+        "type": "shell",
+        "options": {
+          "cwd": "${workspaceFolder}/services/redis-services"
+        },
+        "command": "npm",
+        "args": ["run", "build"]
+      },
+      {
+        "label": "Build/services/service-one",
+        "detail": "Build task for service-one",
+        "isBackground": true,
+        "group": {
+          "kind": "build",
+          "isDefault": false
+        },
+        "runOptions": {
+          "reevaluateOnRerun": true,
+          "instanceLimit": 1,
+          "runOn": "default"
+        },
+        "type": "shell",
+        "options": {
+          "cwd": "${workspaceFolder}/services/service-one"
+        },
+        "command": "npm",
+        "args": ["run", "build"]
+      },
+      {
+        "label": "Build/services/service-two",
+        "detail": "Build task for service-two",
+        "isBackground": true,
+        "group": {
+          "kind": "build",
+          "isDefault": false
+        },
+        "runOptions": {
+          "reevaluateOnRerun": true,
+          "instanceLimit": 1,
+          "runOn": "default"
+        },
+        "type": "shell",
+        "options": {
+          "cwd": "${workspaceFolder}/services/service-two"
+        },
+        "command": "npm",
+        "args": ["run", "build"]
+      },
+      {
+        "label": "Build/all/library",
+        "isBackground": true,
+        "group": {
+          "kind": "build",
+          "isDefault": false
+        },
         "presentation": {
-          "close": false,
-          "echo": true,
-          "focus": true,
-          "panel": "dedicated",
-          "group": "TASK FORCE",
-          "reveal": "always",
-          "showReuseMessage": false
-        }
+          "group": "library"
+        },
+        "runOptions": {
+          "reevaluateOnRerun": true,
+          "instanceLimit": 1,
+          "runOn": "default"
+        },
+        "dependsOrder": "parallel",
+        "dependsOn": [
+          "Build/library/mapping-tools",
+          "Build/library/bigintString",
+          "Build/library/colors-tools",
+          "Build/library/boxed-list",
+          "Build/library/parallel-mapper",
+          "Build/library/human-size",
+          "Build/library/restraining-zalgo",
+          "Build/library/tools"
+        ]
+      }, // "Build/all/library"
+
+      {
+        "label": "Build/library/mapping-tools",
+        "detail": "Build task for mapping-tools",
+        "isBackground": true,
+        "group": {
+          "kind": "build",
+          "isDefault": false
+        },
+        "presentation": {
+          "group": "library"
+        },
+        "runOptions": {
+          "reevaluateOnRerun": true,
+          "instanceLimit": 1,
+          "runOn": "default"
+        },
+        "type": "shell",
+        "options": {
+          "cwd": "${workspaceFolder}/library/mapping"
+        },
+        "command": "npm",
+        "args": ["run", "build"]
+      },
+      {
+        "label": "Build/library/bigintString",
+        "detail": "Build task for bigintString",
+        "isBackground": true,
+        "group": {
+          "kind": "build",
+          "isDefault": false
+        },
+        "presentation": {
+          "group": "library"
+        },
+        "runOptions": {
+          "reevaluateOnRerun": true,
+          "instanceLimit": 1,
+          "runOn": "default"
+        },
+        "type": "shell",
+        "options": {
+          "cwd": "${workspaceFolder}/library/bigintString"
+        },
+        "command": "npm",
+        "args": ["run", "build"]
+      },
+      {
+        "label": "Build/library/boxed-list",
+        "detail": "Build task for boxed-list",
+        "isBackground": true,
+        "group": {
+          "kind": "build",
+          "isDefault": false
+        },
+        "presentation": {
+          "group": "library"
+        },
+        "runOptions": {
+          "reevaluateOnRerun": true,
+          "instanceLimit": 1,
+          "runOn": "default"
+        },
+        "type": "shell",
+        "options": {
+          "cwd": "${workspaceFolder}/library/boxed-list"
+        },
+        "command": "npm",
+        "args": ["run", "build"]
+      },
+      {
+        "label": "Build/library/colors-tools",
+        "detail": "Build task for colors-tools",
+        "isBackground": true,
+        "group": {
+          "kind": "build",
+          "isDefault": false
+        },
+        "presentation": {
+          "group": "library"
+        },
+        "runOptions": {
+          "reevaluateOnRerun": true,
+          "instanceLimit": 1,
+          "runOn": "default"
+        },
+        "type": "shell",
+        "options": {
+          "cwd": "${workspaceFolder}/library/colors-tools"
+        },
+        "command": "npm",
+        "args": ["run", "build"]
+      },
+      {
+        "label": "Build/library/human-size",
+        "detail": "Build task for human-size",
+        "isBackground": true,
+        "group": {
+          "kind": "build",
+          "isDefault": false
+        },
+        "presentation": {
+          "group": "library"
+        },
+        "runOptions": {
+          "reevaluateOnRerun": true,
+          "instanceLimit": 1,
+          "runOn": "default"
+        },
+        "type": "shell",
+        "options": {
+          "cwd": "${workspaceFolder}/library/human-size"
+        },
+        "command": "npm",
+        "args": ["run", "build"]
+      },
+      {
+        "label": "Build/library/object-with-expectations",
+        "detail": "Build task for object-with-expectations",
+        "isBackground": true,
+        "group": {
+          "kind": "build",
+          "isDefault": false
+        },
+        "presentation": {
+          "group": "library"
+        },
+        "runOptions": {
+          "reevaluateOnRerun": true,
+          "instanceLimit": 1,
+          "runOn": "default"
+        },
+        "type": "shell",
+        "options": {
+          "cwd": "${workspaceFolder}/library/object-with-expectations"
+        },
+        "command": "npm",
+        "args": ["run", "build"]
+      },
+      {
+        "label": "Build/library/parallel-mapper",
+        "detail": "Build task for parallel-mapper",
+        "isBackground": true,
+        "group": {
+          "kind": "build",
+          "isDefault": false
+        },
+        "presentation": {
+          "group": "library"
+        },
+        "runOptions": {
+          "reevaluateOnRerun": true,
+          "instanceLimit": 1,
+          "runOn": "default"
+        },
+        "type": "shell",
+        "options": {
+          "cwd": "${workspaceFolder}/library/parallel-mapper"
+        },
+        "command": "npm",
+        "args": ["run", "build"]
+      },
+      {
+        "label": "Build/library/restraining-zalgo",
+        "detail": "Build task for restraining-zalgo",
+        "isBackground": true,
+        "group": {
+          "kind": "build",
+          "isDefault": false
+        },
+        "presentation": {
+          "group": "library"
+        },
+        "runOptions": {
+          "reevaluateOnRerun": true,
+          "instanceLimit": 1,
+          "runOn": "default"
+        },
+        "type": "shell",
+        "options": {
+          "cwd": "${workspaceFolder}/library/restraining-zalgo"
+        },
+        "command": "npm",
+        "args": ["run", "build"]
+      },
+      {
+        "label": "Build/library/tools",
+        "detail": "Build task for tools",
+        "isBackground": true,
+        "group": {
+          "kind": "build",
+          "isDefault": false
+        },
+        "presentation": {
+          "group": "library"
+        },
+        "runOptions": {
+          "reevaluateOnRerun": true,
+          "instanceLimit": 1,
+          "runOn": "default"
+        },
+        "type": "shell",
+        "options": {
+          "cwd": "${workspaceFolder}/library/tools"
+        },
+        "command": "npm",
+        "args": ["run", "build"]
+      },
+      {
+        "label": "Build/all/examples",
+        "dependsOrder": "parallel",
+        "isBackground": false,
+        "group": {
+          "kind": "build",
+          "isDefault": false
+        },
+        "runOptions": {
+          "reevaluateOnRerun": true,
+          "instanceLimit": 1,
+          "runOn": "default"
+        },
+        "dependsOn": ["Build/examples/phash-scout"]
+      }, // "Build/all/examples"
+      {
+        "label": "Build/examples/phash-scout",
+        "detail": "Build task for phash-scout",
+        "isBackground": true,
+        "group": {
+          "kind": "build",
+          "isDefault": false
+        },
+        "presentation": {
+          "group": "examples"
+        },
+        "runOptions": {
+          "reevaluateOnRerun": true,
+          "instanceLimit": 1,
+          "runOn": "default"
+        },
+        "type": "shell",
+        "options": {
+          "cwd": "${workspaceFolder}/examples/phash-scout"
+        },
+        "command": "npm",
+        "args": ["run", "build"]
+      },
+      {
+        "label": "Build/all/frontend",
+        "detail": "Build task for all frontend",
+        "isBackground": true,
+        "group": {
+          "kind": "build",
+          "isDefault": false
+        },
+        "runOptions": {
+          "reevaluateOnRerun": true,
+          "instanceLimit": 1,
+          "runOn": "default"
+        },
+        "dependsOn": [
+          "Build/frontend/cart",
+          "Build/frontend/products",
+          "Build/frontend/federal-container"
+        ]
+      }, // "Build/all/frontend"
+      {
+        "label": "Build/frontend/federal-container",
+        "detail": "Build task for frontend (federal-container)",
+        "isBackground": false,
+        "group": {
+          "kind": "build",
+          "isDefault": false
+        },
+        "runOptions": {
+          "reevaluateOnRerun": true,
+          "instanceLimit": 1,
+          "runOn": "default"
+        },
+        "type": "shell",
+        "options": {
+          "cwd": "${workspaceFolder}/frontend/federal-container"
+        },
+        "command": "npm",
+        "args": ["run", "build"]
+      },
+      {
+        "label": "Build/frontend/products",
+        "detail": "Build task for frontend (products)",
+        "isBackground": true,
+        "group": {
+          "kind": "build",
+          "isDefault": false
+        },
+        "runOptions": {
+          "reevaluateOnRerun": true,
+          "instanceLimit": 1,
+          "runOn": "default"
+        },
+        "type": "shell",
+        "options": {
+          "cwd": "${workspaceFolder}/frontend/products"
+        },
+        "command": "npm",
+        "args": ["run", "build"]
+      },
+      {
+        "label": "Build/frontend/cart",
+        "detail": "Build task for frontend (cart)",
+        "isBackground": false,
+        "group": {
+          "kind": "build",
+          "isDefault": false
+        },
+        "runOptions": {
+          "reevaluateOnRerun": true,
+          "instanceLimit": 1,
+          "runOn": "default"
+        },
+        "type": "shell",
+        "options": {
+          "cwd": "${workspaceFolder}/frontend/cart"
+        },
+        "command": "npm",
+        "args": ["run", "build"]
       },
       {
         "label": "Start/all/frontend",
@@ -225,7 +713,7 @@ typescript/
         },
         "dependsOrder": "parallel",
         "dependsOn": ["Start/frontend/products", "Start/frontend/cart"]
-      },
+      }, // "Start/all/frontend"
       {
         "label": "Start/frontend/home",
         "detail": "Starts frontend/home",
@@ -311,474 +799,6 @@ typescript/
         "args": ["start"]
       },
       {
-        "label": "build-all",
-        "detail": "Build each subprojects using TSC and problemMatcher",
-        "runOptions": {
-          "reevaluateOnRerun": true,
-          "instanceLimit": 1,
-          "runOn": "default"
-        },
-        "icon": {
-          "id": "server-process",
-          "color": "terminal.ansiYellow"
-        },
-        "group": {
-          "kind": "build",
-          "isDefault": true
-        },
-        "isBackground": true,
-        "dependsOrder": "sequence",
-        "dependsOn": [
-          "Build/all/library",
-          "Build/all/services",
-          // "Build/all/frontend",
-          "Build/all/examples"
-        ]
-      },
-      {
-        "label": "Build/all/frontend",
-        "detail": "Build task for all frontend",
-        "isBackground": true,
-        "group": {
-          "kind": "build",
-          "isDefault": false
-        },
-        "runOptions": {
-          "reevaluateOnRerun": true,
-          "instanceLimit": 1,
-          "runOn": "default"
-        },
-        "dependsOn": [
-          "Build/frontend/cart",
-          "Build/frontend/products",
-          "Build/frontend/federal-container"
-        ]
-      },
-      {
-        "label": "Build/frontend/federal-container",
-        "detail": "Build task for frontend (federal-container)",
-        "isBackground": false,
-        "group": {
-          "kind": "build",
-          "isDefault": false
-        },
-        "runOptions": {
-          "reevaluateOnRerun": true,
-          "instanceLimit": 1,
-          "runOn": "default"
-        },
-        "type": "shell",
-        "options": {
-          "cwd": "${workspaceFolder}/frontend/federal-container"
-        },
-        "command": "npm",
-        "args": ["run", "build"]
-      },
-      {
-        "label": "Build/frontend/products",
-        "detail": "Build task for frontend (products)",
-        "isBackground": true,
-        "group": {
-          "kind": "build",
-          "isDefault": false
-        },
-        "runOptions": {
-          "reevaluateOnRerun": true,
-          "instanceLimit": 1,
-          "runOn": "default"
-        },
-        "type": "shell",
-        "options": {
-          "cwd": "${workspaceFolder}/frontend/products"
-        },
-        "command": "npm",
-        "args": ["run", "build"]
-      },
-      {
-        "label": "Build/frontend/cart",
-        "detail": "Build task for frontend (cart)",
-        "isBackground": false,
-        "group": {
-          "kind": "build",
-          "isDefault": false
-        },
-        "runOptions": {
-          "reevaluateOnRerun": true,
-          "instanceLimit": 1,
-          "runOn": "default"
-        },
-        "type": "shell",
-        "options": {
-          "cwd": "${workspaceFolder}/frontend/cart"
-        },
-        "command": "npm",
-        "args": ["run", "build"]
-      },
-      {
-        "label": "Build/all/services",
-        "isBackground": true,
-        "group": {
-          "kind": "build",
-          "isDefault": false
-        },
-        "runOptions": {
-          "reevaluateOnRerun": true,
-          "instanceLimit": 1,
-          "runOn": "default"
-        },
-        "dependsOrder": "parallel",
-        "dependsOn": [
-          "Build/services/phash-compute",
-          "Build/services/scan-directories",
-          "Build/services/questrade-ts",
-          "Build/services/redis-services",
-          "Build/services/service-one",
-          "Build/services/service-two"
-        ]
-      },
-      {
-        "label": "Build/services/phash-compute",
-        "detail": "Build task for phash-compute",
-        "isBackground": false,
-        "group": {
-          "kind": "build",
-          "isDefault": false
-        },
-        "runOptions": {
-          "reevaluateOnRerun": true,
-          "instanceLimit": 1,
-          "runOn": "default"
-        },
-        "type": "shell",
-        "options": {
-          "cwd": "${workspaceFolder}/services/phash-compute"
-        },
-        "command": "npm",
-        "args": ["run", "build"]
-      },
-      {
-        "label": "Build/services/scan-directories",
-        "detail": "Build task for scan-directories",
-        "isBackground": false,
-        "group": {
-          "kind": "build",
-          "isDefault": false
-        },
-        "runOptions": {
-          "reevaluateOnRerun": true,
-          "instanceLimit": 1,
-          "runOn": "default"
-        },
-        "type": "shell",
-        "options": {
-          "cwd": "${workspaceFolder}/services/scan-directories"
-        },
-        "command": "npm",
-        "args": ["run", "build"],
-        "problemMatcher": {
-          "base": "$tsc",
-          "applyTo": "allDocuments"
-        }
-      },
-      {
-        "label": "Build/services/questrade-ts",
-        "detail": "Build task for questrade-ts",
-        "isBackground": false,
-        "group": {
-          "kind": "build",
-          "isDefault": false
-        },
-        "runOptions": {
-          "reevaluateOnRerun": true,
-          "instanceLimit": 1,
-          "runOn": "default"
-        },
-        "type": "shell",
-        "options": {
-          "cwd": "${workspaceFolder}/services/questrade-ts"
-        },
-        "command": "npm",
-        "args": ["run", "build"]
-      },
-      {
-        "label": "Build/services/redis-services",
-        "detail": "Build task for redis-services",
-        "isBackground": false,
-        "group": {
-          "kind": "build",
-          "isDefault": false
-        },
-        "runOptions": {
-          "reevaluateOnRerun": true,
-          "instanceLimit": 1,
-          "runOn": "default"
-        },
-        "type": "shell",
-        "options": {
-          "cwd": "${workspaceFolder}/services/redis-services"
-        },
-        "command": "npm",
-        "args": ["run", "build"]
-      },
-      {
-        "label": "Build/services/service-one",
-        "detail": "Build task for service-one",
-        "isBackground": false,
-        "group": {
-          "kind": "build",
-          "isDefault": false
-        },
-        "runOptions": {
-          "reevaluateOnRerun": true,
-          "instanceLimit": 1,
-          "runOn": "default"
-        },
-        "type": "shell",
-        "options": {
-          "cwd": "${workspaceFolder}/services/service-one"
-        },
-        "command": "npm",
-        "args": ["run", "build"]
-      },
-      {
-        "label": "Build/services/service-two",
-        "detail": "Build task for service-two",
-        "isBackground": false,
-        "group": {
-          "kind": "build",
-          "isDefault": false
-        },
-        "runOptions": {
-          "reevaluateOnRerun": true,
-          "instanceLimit": 1,
-          "runOn": "default"
-        },
-        "type": "shell",
-        "options": {
-          "cwd": "${workspaceFolder}/services/service-two"
-        },
-        "command": "npm",
-        "args": ["run", "build"]
-      },
-      {
-        "label": "Build/all/library",
-        "isBackground": true,
-        "group": {
-          "kind": "build",
-          "isDefault": false
-        },
-        "runOptions": {
-          "reevaluateOnRerun": true,
-          "instanceLimit": 1,
-          "runOn": "default"
-        },
-        "dependsOrder": "parallel",
-        "dependsOn": [
-          "Build/library/bigintString",
-          "Build/library/colors-tools",
-          "Build/library/boxed-list",
-          "Build/library/parallel-mapper",
-          "Build/library/human-size",
-          "Build/library/restraining-zalgo",
-          "Build/library/tools"
-        ]
-      },
-      {
-        "label": "Build/library/bigintString",
-        "detail": "Build task for bigintString",
-        "isBackground": false,
-        "group": {
-          "kind": "build",
-          "isDefault": false
-        },
-        "runOptions": {
-          "reevaluateOnRerun": true,
-          "instanceLimit": 1,
-          "runOn": "default"
-        },
-        "type": "shell",
-        "options": {
-          "cwd": "${workspaceFolder}/library/bigintString"
-        },
-        "command": "npm",
-        "args": ["run", "build"]
-      },
-      {
-        "label": "Build/library/boxed-list",
-        "detail": "Build task for boxed-list",
-        "isBackground": false,
-        "group": {
-          "kind": "build",
-          "isDefault": false
-        },
-        "runOptions": {
-          "reevaluateOnRerun": true,
-          "instanceLimit": 1,
-          "runOn": "default"
-        },
-        "type": "shell",
-        "options": {
-          "cwd": "${workspaceFolder}/library/boxed-list"
-        },
-        "command": "npm",
-        "args": ["run", "build"]
-      },
-      {
-        "label": "Build/library/colors-tools",
-        "detail": "Build task for colors-tools",
-        "isBackground": false,
-        "group": {
-          "kind": "build",
-          "isDefault": false
-        },
-        "runOptions": {
-          "reevaluateOnRerun": true,
-          "instanceLimit": 1,
-          "runOn": "default"
-        },
-        "type": "shell",
-        "options": {
-          "cwd": "${workspaceFolder}/library/colors-tools"
-        },
-        "command": "npm",
-        "args": ["run", "build"]
-      },
-      {
-        "label": "Build/library/human-size",
-        "detail": "Build task for human-size",
-        "isBackground": false,
-        "group": {
-          "kind": "build",
-          "isDefault": false
-        },
-        "runOptions": {
-          "reevaluateOnRerun": true,
-          "instanceLimit": 1,
-          "runOn": "default"
-        },
-        "type": "shell",
-        "options": {
-          "cwd": "${workspaceFolder}/library/human-size"
-        },
-        "command": "npm",
-        "args": ["run", "build"]
-      },
-      {
-        "label": "Build/library/object-with-expectations",
-        "detail": "Build task for object-with-expectations",
-        "isBackground": false,
-        "group": {
-          "kind": "build",
-          "isDefault": false
-        },
-        "runOptions": {
-          "reevaluateOnRerun": true,
-          "instanceLimit": 1,
-          "runOn": "default"
-        },
-        "type": "shell",
-        "options": {
-          "cwd": "${workspaceFolder}/library/object-with-expectations"
-        },
-        "command": "npm",
-        "args": ["run", "build"]
-      },
-      {
-        "label": "Build/library/parallel-mapper",
-        "detail": "Build task for parallel-mapper",
-        "isBackground": false,
-        "group": {
-          "kind": "build",
-          "isDefault": false
-        },
-        "runOptions": {
-          "reevaluateOnRerun": true,
-          "instanceLimit": 1,
-          "runOn": "default"
-        },
-        "type": "shell",
-        "options": {
-          "cwd": "${workspaceFolder}/library/parallel-mapper"
-        },
-        "command": "npm",
-        "args": ["run", "build"]
-      },
-      {
-        "label": "Build/library/restraining-zalgo",
-        "detail": "Build task for restraining-zalgo",
-        "isBackground": false,
-        "group": {
-          "kind": "build",
-          "isDefault": false
-        },
-        "runOptions": {
-          "reevaluateOnRerun": true,
-          "instanceLimit": 1,
-          "runOn": "default"
-        },
-        "type": "shell",
-        "options": {
-          "cwd": "${workspaceFolder}/library/restraining-zalgo"
-        },
-        "command": "npm",
-        "args": ["run", "build"]
-      },
-      {
-        "label": "Build/library/tools",
-        "detail": "Build task for tools",
-        "isBackground": false,
-        "group": {
-          "kind": "build",
-          "isDefault": false
-        },
-        "runOptions": {
-          "reevaluateOnRerun": true,
-          "instanceLimit": 1,
-          "runOn": "default"
-        },
-        "type": "shell",
-        "options": {
-          "cwd": "${workspaceFolder}/library/tools"
-        },
-        "command": "npm",
-        "args": ["run", "build"]
-      },
-      {
-        "label": "Build/all/examples",
-        "dependsOrder": "parallel",
-        "isBackground": false,
-        "group": {
-          "kind": "build",
-          "isDefault": false
-        },
-        "runOptions": {
-          "reevaluateOnRerun": true,
-          "instanceLimit": 1,
-          "runOn": "default"
-        },
-        "dependsOn": ["Build/examples/phash-scout"]
-      },
-      {
-        "label": "Build/examples/phash-scout",
-        "detail": "Build task for phash-scout",
-        "isBackground": false,
-        "group": {
-          "kind": "build",
-          "isDefault": false
-        },
-        "runOptions": {
-          "reevaluateOnRerun": true,
-          "instanceLimit": 1,
-          "runOn": "default"
-        },
-        "type": "shell",
-        "options": {
-          "cwd": "${workspaceFolder}/examples/phash-scout"
-        },
-        "command": "npm",
-        "args": ["run", "build"]
-      },
-      {
         "label": "Start/redis-6383",
         "type": "shell",
         "detail": "Start REDIS container on port 6383 this project",
@@ -795,21 +815,53 @@ typescript/
           "panel": "dedicated",
           "group": "redis-6383"
         }
-      },
+      }, // "Start/redis-6383"
+      // {
+      //   "label": "Test/redis-6383",
+      //   "type": "shell",
+      //   "detail": "Start REDIS container on port 6383 this project",
+      //   "command": "bash",
+      //   "args": ["${workspaceFolder}/scripts/start_6383.sh"],
+      //   "isBackground": true,
+      //   "presentation": {
+      //     "echo": false
+      //     // "revealProblems": "onProblem",
+      //     // "panel": "dedicated",
+      //     // "group": "redis-6383"
+      //   }
+      // },
       {
-        "label": "Test/redis-6383",
-        "type": "shell",
-        "detail": "Start REDIS container on port 6383 this project",
-        "command": "bash",
-        "args": ["${workspaceFolder}/scripts/start_6383.sh"],
-        "isBackground": true,
+        "label": "TASK Fail",
+        "detail": "Just to test the task processes.",
+        "isBackground": false,
+        "command": ["false"],
+        // "args": ["Just to test the task processes."], // , "&& exit 1"
         "presentation": {
-          "echo": false
-          // "revealProblems": "onProblem",
-          // "panel": "dedicated",
-          // "group": "redis-6383"
+          "close": false,
+          "echo": true,
+          "focus": true,
+          "panel": "dedicated",
+          "group": "TASK FORCE",
+          "reveal": "always",
+          "showReuseMessage": false
         }
-      }
+      }, // "TASK Fail"
+      {
+        "label": "TASK Complete",
+        "detail": "Just to test the task processes.",
+        "isBackground": false,
+        "command": ["true"],
+        // "args": ["Just to test the task processes."], // , "&& exit 1"
+        "presentation": {
+          "close": false,
+          "echo": true,
+          "focus": true,
+          "panel": "dedicated",
+          "group": "TASK FORCE",
+          "reveal": "always",
+          "showReuseMessage": false
+        }
+      } // "TASK Complete"
     ]
   },
   "settings": {
@@ -2555,7 +2607,8 @@ typescript/
     },
     "[dockerfile]": {
       "editor.defaultFormatter": "ms-azuretools.vscode-docker"
-    }
+    },
+    "audioCues.taskCompleted": "off"
   },
   "extensions": {
     "recommendations": [
