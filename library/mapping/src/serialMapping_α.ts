@@ -1,6 +1,5 @@
-import { Mapper } from '../types';
-import { OnlySideEffect } from '../types/mapping/OnlySideEffect';
 import { FULFILLED, REJECTED } from './constants';
+import { Mapper, OnlySideEffect } from './types';
 
 export async function serialMapping_α<R, T>(
   collection: Iterable<T>,
