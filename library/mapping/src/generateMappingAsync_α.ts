@@ -15,3 +15,8 @@ export async function* generateMappingAsync_α<R, T>(
     }
   }
 }
+
+export const map: <U>(
+  callbackfn: (value: never, index: number, array: never[]) => U,
+  thisArg?: any
+) => U[] = [].map;

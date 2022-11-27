@@ -1,8 +1,16 @@
-export interface SettledIso<T = any> {
+export type SettledIso<T = any> = {
   fulfilled: null | T;
   rejected: any;
-  status: 'rejected' | 'fulfilled';
   value?: undefined | T;
   reason?: any;
   index: number;
-}
+} & (
+  | {
+      status: 'fulfilled';
+      value: T;
+    }
+  | {
+      status: 'rejected';
+      reason: any;
+    }
+);

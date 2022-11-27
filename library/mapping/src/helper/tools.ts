@@ -1,6 +1,8 @@
 import { FULFILLED, REJECTED } from '../constants';
 import { Settled, SettledLeft, SettledRight } from '../types';
 
+export function mapFulfilledResults() {}
+
 export async function converToIsometricSettledResult<T>(
   collection: Array<PromiseSettledResult<T>>
 ) {

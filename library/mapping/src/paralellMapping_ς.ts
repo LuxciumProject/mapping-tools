@@ -2,7 +2,7 @@ import { FULFILLED, REJECTED } from './constants';
 import { Mapper, OnlySideEffect } from './types';
 
 export function paralellMapping_ς<R, T>(
-  collection: T[],
+  collection: Iterable<T>,
   transform: Mapper<T, Promise<R>>, //  (item: T) => Promise<R>,
   // transform: (item: T) => Promise<R>,
   lookup: (value: R, index: number) => OnlySideEffect = v => void v,
@@ -10,7 +10,7 @@ export function paralellMapping_ς<R, T>(
     void v,
   errLookup: (error: unknown, index: number) => OnlySideEffect = v => void v
 ): Promise<PromiseSettledResult<R>>[] {
-  return collection.map(async (item, index, array) => {
+  return [...collection].map(async (item, index, array) => {
     try {
       const value = await transform(item, index, array);
       lookup(value, index);
@@ -22,3 +22,7 @@ export function paralellMapping_ς<R, T>(
     }
   });
 }
+
+// Settled
+// SettledRight
+// SettledLeft
