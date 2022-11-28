@@ -13,6 +13,11 @@ export const constants: {
     REJECTED: "rejected";
 };
 
+// Warning: (ae-incompatible-release-tags) The symbol "converToIsometricSettledResult" is marked as @beta, but its signature references "Settled" which is marked as @alpha
+//
+// @beta (undocumented)
+export function converToIsometricSettledResult<T>(collection: Array<PromiseSettledResult<T>>): Promise<Settled<T>[]>;
+
 // @alpha (undocumented)
 export type ErrLookupFn = (reason: unknown, index: number, currentRejection: boolean) => OnlySideEffect;
 
@@ -21,6 +26,12 @@ export function generateMapping<T, R>(collection: Iterable<T | Settled<T>>, tran
 
 // @alpha (undocumented)
 export function generateMappingAsync<R, T>(collection: Iterable<T | Settled<T>>, transform: TransformFn<T, R>, lookup?: LookupFn<R>, validate?: ValidateFn<R>, errLookup?: ErrLookupFn): AsyncGenerator<PromiseSettledResult<R>, void, unknown>;
+
+// @beta (undocumented)
+export function getFulfilledResults<T>(collection: Array<PromiseSettledResult<T>>): PromiseFulfilledResult<T>[];
+
+// @beta (undocumented)
+export function getRejectedResults<T>(collection: Array<PromiseSettledResult<T>>): PromiseRejectedResult[];
 
 // @alpha (undocumented)
 export const helpersTools: {
@@ -37,6 +48,14 @@ export interface IMappable<T = any> {
     // (undocumented)
     map: <U = unknown>(callbackfn: Mapper<T, U>) => U[];
 }
+
+// Warning: (ae-incompatible-release-tags) The symbol "isometricSettledResult" is marked as @beta, but its signature references "Settled" which is marked as @alpha
+//
+// @beta (undocumented)
+export function isometricSettledResult<T>(item: PromiseSettledResult<T>, index?: number): Settled<T>;
+
+// @beta (undocumented)
+export function listFulfilledResults<T>(collection: Array<PromiseSettledResult<T>>): T[];
 
 // @alpha (undocumented)
 export type LookupFn<U> = (value: U, index: number) => OnlySideEffect;
@@ -132,6 +151,13 @@ export interface SettledLeft extends PromiseRejectedResult {
     value?: undefined;
 }
 
+// @beta (undocumented)
+export function settledLengts<T>(collection: Array<PromiseSettledResult<T>>): {
+    fulfilled: number;
+    rejected: number;
+    settled: number;
+};
+
 // @alpha (undocumented)
 export interface SettledRight<T> extends PromiseFulfilledResult<T> {
     // (undocumented)
@@ -157,15 +183,6 @@ export type TransformFn<T, U> = Mapper<T, Promise<U>, T | Settled<T>>;
 
 // @alpha (undocumented)
 export type ValidateFn<U> = (value: U, index: number) => Promise<OnlySideEffect>;
-
-// Warnings were encountered during analysis:
-//
-// src/index.ts:39:26 - (ae-forgotten-export) The symbol "converToIsometricSettledResult" needs to be exported by the entry point index.d.ts
-// src/index.ts:39:26 - (ae-forgotten-export) The symbol "isometricSettledResult" needs to be exported by the entry point index.d.ts
-// src/index.ts:39:26 - (ae-forgotten-export) The symbol "getFulfilledResults" needs to be exported by the entry point index.d.ts
-// src/index.ts:39:26 - (ae-forgotten-export) The symbol "listFulfilledResults" needs to be exported by the entry point index.d.ts
-// src/index.ts:39:26 - (ae-forgotten-export) The symbol "getRejectedResults" needs to be exported by the entry point index.d.ts
-// src/index.ts:39:26 - (ae-forgotten-export) The symbol "settledLengts" needs to be exported by the entry point index.d.ts
 
 // (No @packageDocumentation comment for this package)
 

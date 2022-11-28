@@ -1,14 +1,17 @@
 import { FULFILLED, REJECTED } from '../constants';
 import { Settled, SettledLeft, SettledRight } from '../types';
 
+/** @beta */
 export function mapFulfilledResults() {}
 
+/** @beta */
 export async function converToIsometricSettledResult<T>(
   collection: Array<PromiseSettledResult<T>>
 ) {
   return collection.map(isometricSettledResult);
 }
 
+/** @beta */
 export function isometricSettledResult<T>(
   item: PromiseSettledResult<T>,
   index: number = -1
@@ -38,6 +41,7 @@ export function isometricSettledResult<T>(
   };
   return settled;
 }
+/** @beta */
 export function getFulfilledResults<T>(
   collection: Array<PromiseSettledResult<T>>
 ): PromiseFulfilledResult<T>[] {
@@ -47,12 +51,14 @@ export function getFulfilledResults<T>(
   );
 }
 
+/** @beta */
 export function listFulfilledResults<T>(
   collection: Array<PromiseSettledResult<T>>
 ): T[] {
   return getFulfilledResults(collection).map(item => item.value);
 }
 
+/** @beta */
 export function getRejectedResults<T>(
   collection: Array<PromiseSettledResult<T>>
 ): PromiseRejectedResult[] {
@@ -62,6 +68,7 @@ export function getRejectedResults<T>(
   return result;
 }
 
+/** @beta */
 export function settledLengts<T>(collection: Array<PromiseSettledResult<T>>) {
   const settled = collection.length;
   const fulfilled = getFulfilledResults(collection).length;

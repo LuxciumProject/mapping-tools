@@ -34,6 +34,12 @@ export { generateMapping_ς as generateMapping };
 export { generateMappingAsync_α as generateMappingAsync };
 export { paralellMapping_ς as paralellMapping };
 export { serialMapping_α as serialMapping };
+export { converToIsometricSettledResult };
+export { isometricSettledResult };
+export { getFulfilledResults };
+export { listFulfilledResults };
+export { getRejectedResults };
+export { settledLengts };
 
 /** @alpha */
 export const helpersTools = {
