@@ -28,6 +28,7 @@ export { generateMappingAsync_α as generateMappingAsync };
 export { paralellMapping_ς as paralellMapping };
 export { serialMapping_α as serialMapping };
 
+/** @alpha */
 export const helpersTools = {
   converToIsometricSettledResult,
   isometricSettledResult,
@@ -36,11 +37,13 @@ export const helpersTools = {
   getRejectedResults,
   settledLengts,
 };
+/** @alpha */
 export const constants = {
   FULFILLED,
   REJECTED,
 };
 
+/** @alpha */
 export const mappingTools = {
   helpersTools,
   constants,
@@ -51,4 +54,5 @@ export const mappingTools = {
   serialMapping_α,
 };
 
+/** @alpha */
 export default mappingTools;

@@ -9,22 +9,22 @@
 // Warning: (ae-forgotten-export) The symbol "ValidateFn" needs to be exported by the entry point index.d.ts
 // Warning: (ae-forgotten-export) The symbol "ErrLookupFn" needs to be exported by the entry point index.d.ts
 //
-// @public (undocumented)
+// @alpha (undocumented)
 export function awaitedMapping<R, T>(collection: Iterable<T | Settled<T>>, transform: TransformFn<T, R>, lookup?: LookupFn<R>, validate?: ValidateFn<R>, errLookup?: ErrLookupFn): Promise<(SettledLeft | SettledRight<R>)[]>;
 
-// @public (undocumented)
+// @alpha (undocumented)
 export const constants: {
     FULFILLED: "fulfilled";
     REJECTED: "rejected";
 };
 
-// @public (undocumented)
+// @alpha (undocumented)
 export function generateMapping<T, R>(collection: Iterable<T | Settled<T>>, transform: TransformFn<T, R>, lookup?: LookupFn<R>, validate?: ValidateFn<R>, errLookup?: ErrLookupFn): Generator<Promise<SettledLeft | SettledRight<R>>, void, unknown>;
 
-// @public (undocumented)
+// @alpha (undocumented)
 export function generateMappingAsync<R, T>(collection: Iterable<T | Settled<T>>, transform: TransformFn<T, R>, lookup?: LookupFn<R>, validate?: ValidateFn<R>, errLookup?: ErrLookupFn): AsyncGenerator<PromiseSettledResult<R>, void, unknown>;
 
-// @public (undocumented)
+// @alpha (undocumented)
 export const helpersTools: {
     converToIsometricSettledResult: typeof converToIsometricSettledResult;
     isometricSettledResult: typeof isometricSettledResult;
@@ -34,10 +34,10 @@ export const helpersTools: {
     settledLengts: typeof settledLengts;
 };
 
-// @public (undocumented)
+// @alpha (undocumented)
 export type Mapper<T = any, U = unknown, A = T> = (value: T, index?: number, array?: readonly A[]) => U;
 
-// @public (undocumented)
+// @alpha (undocumented)
 const mappingTools: {
     helpersTools: {
         converToIsometricSettledResult: typeof converToIsometricSettledResult;
@@ -60,16 +60,16 @@ const mappingTools: {
 export default mappingTools;
 export { mappingTools }
 
-// @public (undocumented)
+// @alpha (undocumented)
 export function paralellMapping<T, R>(collection: Iterable<T | Settled<T>>, transform: TransformFn<T, R>, lookup?: LookupFn<R>, validate?: ValidateFn<R>, errLookup?: ErrLookupFn): Promise<SettledLeft | SettledRight<R>>[];
 
-// @public (undocumented)
+// @alpha (undocumented)
 export function serialMapping<T, R>(collection: Iterable<T | Settled<T>>, transform: TransformFn<T, R>, lookup?: LookupFn<R>, validate?: ValidateFn<R>, errLookup?: ErrLookupFn): Promise<(SettledLeft | SettledRight<R>)[]>;
 
-// @public (undocumented)
+// @alpha (undocumented)
 export type Settled<T = unknown> = SettledLeft | SettledRight<T>;
 
-// @public (undocumented)
+// @alpha (undocumented)
 export type SettledIso<T = any> = {
     fulfilled: null | T;
     rejected: any;
@@ -84,7 +84,7 @@ export type SettledIso<T = any> = {
     reason: any;
 });
 
-// @public (undocumented)
+// @alpha (undocumented)
 export interface SettledLeft extends PromiseRejectedResult {
     // (undocumented)
     currentRejection: true | false | undefined;
@@ -104,7 +104,7 @@ export interface SettledLeft extends PromiseRejectedResult {
     value?: undefined;
 }
 
-// @public (undocumented)
+// @alpha (undocumented)
 export interface SettledRight<T> extends PromiseFulfilledResult<T> {
     // (undocumented)
     currentRejection: null;
@@ -126,12 +126,12 @@ export interface SettledRight<T> extends PromiseFulfilledResult<T> {
 
 // Warnings were encountered during analysis:
 //
-// src/index.ts:31:26 - (ae-forgotten-export) The symbol "converToIsometricSettledResult" needs to be exported by the entry point index.d.ts
-// src/index.ts:31:26 - (ae-forgotten-export) The symbol "isometricSettledResult" needs to be exported by the entry point index.d.ts
-// src/index.ts:31:26 - (ae-forgotten-export) The symbol "getFulfilledResults" needs to be exported by the entry point index.d.ts
-// src/index.ts:31:26 - (ae-forgotten-export) The symbol "listFulfilledResults" needs to be exported by the entry point index.d.ts
-// src/index.ts:31:26 - (ae-forgotten-export) The symbol "getRejectedResults" needs to be exported by the entry point index.d.ts
-// src/index.ts:31:26 - (ae-forgotten-export) The symbol "settledLengts" needs to be exported by the entry point index.d.ts
+// src/index.ts:32:26 - (ae-forgotten-export) The symbol "converToIsometricSettledResult" needs to be exported by the entry point index.d.ts
+// src/index.ts:32:26 - (ae-forgotten-export) The symbol "isometricSettledResult" needs to be exported by the entry point index.d.ts
+// src/index.ts:32:26 - (ae-forgotten-export) The symbol "getFulfilledResults" needs to be exported by the entry point index.d.ts
+// src/index.ts:32:26 - (ae-forgotten-export) The symbol "listFulfilledResults" needs to be exported by the entry point index.d.ts
+// src/index.ts:32:26 - (ae-forgotten-export) The symbol "getRejectedResults" needs to be exported by the entry point index.d.ts
+// src/index.ts:32:26 - (ae-forgotten-export) The symbol "settledLengts" needs to be exported by the entry point index.d.ts
 
 // (No @packageDocumentation comment for this package)
 

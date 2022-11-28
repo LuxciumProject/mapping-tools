@@ -1,9 +1,14 @@
+/** @alpha */
 export type SettledResult<T = unknown> = PromiseSettledResult<T>;
+/** @alpha */
 export type FulfilledResult<T = unknown> = PromiseFulfilledResult<T>;
+/** @alpha */
 export type RejectedResult = PromiseRejectedResult;
 
+/** @alpha */
 export type Settled<T = unknown> = SettledLeft | SettledRight<T>;
 
+/** @alpha */
 export interface SettledRight<T> extends PromiseFulfilledResult<T> {
   status: 'fulfilled';
   value: T;
@@ -14,6 +19,7 @@ export interface SettledRight<T> extends PromiseFulfilledResult<T> {
   currentRejection: null;
   index: number;
 }
+/** @alpha */
 export interface SettledLeft extends PromiseRejectedResult {
   status: 'rejected';
   reason: any;

@@ -6,6 +6,7 @@ import {
 } from '../helper';
 import { MapperOptions, SettledLeft, SettledRight } from '../types';
 
+/** @internal */
 export async function fn_a1f9a<T, R>({
   item,
   index,

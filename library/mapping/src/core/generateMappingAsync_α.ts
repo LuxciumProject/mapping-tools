@@ -7,6 +7,7 @@ import {
 } from '../types';
 import { fn_a1f9a } from './fn_a1f9a';
 
+/** @alpha */
 export async function* generateMappingAsync_α<R, T>(
   collection: Iterable<T | Settled<T>>,
   transform: TransformFn<T, R>,

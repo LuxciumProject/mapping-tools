@@ -9,6 +9,7 @@ import {
 } from '../types';
 import { fn_a1f9a } from './fn_a1f9a';
 
+/** @alpha */
 export async function serialMapping_α<T, R>(
   collection: Iterable<T | Settled<T>>,
   transform: TransformFn<T, R>,
