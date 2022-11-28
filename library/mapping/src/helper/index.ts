@@ -1,4 +1,13 @@
 export {
+  isFulfilledResult,
+  isRejectedResult,
+  isSettledResult,
+  is_Settled,
+  is_SettledIso,
+  is_SettledLeft,
+  is_SettledRight,
+} from './assertions';
+export {
   converToIsometricSettledResult,
   getFulfilledResults,
   getRejectedResults,
@@ -6,14 +15,3 @@ export {
   listFulfilledResults,
   settledLengts,
 } from './tools';
-
-
-export {
-  is_SettledResult,
-is_FulfilledResult,
-is_RejectedResult,
-is_Settled,
-is_SettledIso,
-is_SettledRight,
-is_SettledLeft,
-} from './assertions'

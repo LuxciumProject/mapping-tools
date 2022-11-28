@@ -1,11 +1,13 @@
 import {
   ErrLookupFn,
-  LookupFn, Settled, TransformFn,
-  ValidateFn
+  LookupFn,
+  Settled,
+  TransformFn,
+  ValidateFn,
 } from '../types';
 import { fn_a1f9a } from './fn_a1f9a';
 
-export function paralellMapping_v2_ς<T, R>(
+export function paralellMapping_ς<T, R>(
   collection: Iterable<T | Settled<T>>,
   transform: TransformFn<T, R>,
   lookup: LookupFn<R> = v => void v,

@@ -1,18 +1,18 @@
 import { FULFILLED, REJECTED } from '../constants';
 import { Settled, SettledIso, SettledLeft, SettledRight } from '../types';
 
-export function is_SettledResult<T>(
+export function isSettledResult<T>(
   contender: any
 ): contender is PromiseSettledResult<T> {
-  return is_FulfilledResult<T>(contender) || is_RejectedResult(contender);
+  return isFulfilledResult<T>(contender) || isRejectedResult(contender);
 }
-export function is_FulfilledResult<T>(
+export function isFulfilledResult<T>(
   contender: any
 ): contender is PromiseFulfilledResult<T> {
   return contender?.status === FULFILLED && 'value' in contender;
 }
 
-export function is_RejectedResult(
+export function isRejectedResult(
   contender: any
 ): contender is PromiseRejectedResult {
   return contender?.status === REJECTED && 'reason' in contender;
@@ -29,7 +29,7 @@ export function is_SettledRight<T>(
   contender: any
 ): contender is SettledRight<T> {
   return (
-    is_FulfilledResult(contender) &&
+    isFulfilledResult(contender) &&
     FULFILLED in contender &&
     'index' in contender
   );
@@ -37,8 +37,6 @@ export function is_SettledRight<T>(
 
 export function is_SettledLeft(contender: any): contender is SettledLeft {
   return (
-    is_RejectedResult(contender) &&
-    REJECTED in contender &&
-    'index' in contender
+    isRejectedResult(contender) && REJECTED in contender && 'index' in contender
   );
 }

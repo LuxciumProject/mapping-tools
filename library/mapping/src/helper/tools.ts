@@ -20,6 +20,8 @@ export function isometricSettledResult<T>(
       reason: undefined,
       fulfilled: item.value,
       rejected: null,
+      currentRejection: null,
+      recipeSteps: -1,
       index,
     };
     return settled;
@@ -30,6 +32,8 @@ export function isometricSettledResult<T>(
     value: undefined,
     rejected: item.reason,
     fulfilled: null,
+    currentRejection: undefined,
+    recipeSteps: -1,
     index,
   };
   return settled;

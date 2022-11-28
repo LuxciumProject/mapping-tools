@@ -1,4 +1,8 @@
- export type Settled<T = unknown> = (SettledLeft | SettledRight<T>)
+export type SettledResult<T = unknown> = PromiseSettledResult<T>;
+export type FulfilledResult<T = unknown> = PromiseFulfilledResult<T>;
+export type RejectedResult = PromiseRejectedResult;
+
+export type Settled<T = unknown> = SettledLeft | SettledRight<T>;
 
 export interface SettledRight<T> extends PromiseFulfilledResult<T> {
   status: 'fulfilled';
@@ -6,6 +10,8 @@ export interface SettledRight<T> extends PromiseFulfilledResult<T> {
   reason?: undefined;
   fulfilled: T;
   rejected: null;
+  recipeSteps: number;
+  currentRejection: null;
   index: number;
 }
 export interface SettledLeft extends PromiseRejectedResult {
@@ -14,5 +20,7 @@ export interface SettledLeft extends PromiseRejectedResult {
   value?: undefined;
   rejected: any;
   fulfilled: null;
+  recipeSteps: number;
+  currentRejection: true | false | undefined;
   index: number;
 }

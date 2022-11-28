@@ -9,7 +9,7 @@ export type ValidateFn<U> = (
 export type ErrLookupFn = (
   reason: unknown,
   index: number,
-  current: boolean
+  currentRejection: boolean
 ) => OnlySideEffect;
 
 export interface MapperOptions<T, U> {

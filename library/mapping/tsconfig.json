@@ -6,16 +6,18 @@
     "target": "ESNext",
     "module": "CommonJS",
     "moduleResolution": "node",
-    "rootDir": "./src",
+    "rootDir": "src",
+    "baseUrl": "src",
     "composite": true,
-    "declarationDir": "./lib/typings",
-    "outDir": "./lib",
-    "tsBuildInfoFile": "./lib/ts-out-info.lib",
+    "declarationDir": "lib/typings",
+    "outDir": "lib",
+    "tsBuildInfoFile": "lib/ts-out-info.lib",
     "emitDecoratorMetadata": false,
     "experimentalDecorators": false,
     /* JavaScript Support */
     "allowJs": true,
     "checkJs": false,
+    "resolveJsonModule": true,
     /* Bundled library declaration files that describe the target runtime environment. */
     "lib": [
       "dom",
@@ -28,12 +30,9 @@
     ]
   },
   "include": [
-    "./src",
-    "./src/**/*.json",
-    "./src/**/*.jsonc"
+    "src"
   ],
   "exclude": [
-    "lib",
-    "**/jest.*.js"
+    "lib"
   ]
 }

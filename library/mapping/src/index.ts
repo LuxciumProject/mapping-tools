@@ -1,7 +1,11 @@
-import { awaitedMapping_α } from './awaitedMapping_α';
 import { FULFILLED, REJECTED } from './constants';
-import { generateMappingAsync_α } from './generateMappingAsync_α';
-import { generateMapping_ς } from './generate_ς';
+import {
+  awaitedMapping_α,
+  generateMappingAsync_α,
+  generateMapping_ς,
+  paralellMapping_ς,
+  serialMapping_α,
+} from './core';
 import {
   converToIsometricSettledResult,
   getFulfilledResults,
@@ -10,8 +14,6 @@ import {
   listFulfilledResults,
   settledLengts,
 } from './helper';
-import { paralellMapping_ς } from './paralellMapping_ς';
-import { serialMapping_α } from './serialMapping_α';
 
 export type {
   Mapper,
@@ -21,8 +23,8 @@ export type {
   SettledRight,
 } from './types';
 export { awaitedMapping_α as awaitedMapping };
-export { generateMappingAsync_α as generateMappingAsync };
 export { generateMapping_ς as generateMapping };
+export { generateMappingAsync_α as generateMappingAsync };
 export { paralellMapping_ς as paralellMapping };
 export { serialMapping_α as serialMapping };
 
@@ -40,13 +42,13 @@ export const constants = {
 };
 
 export const mappingTools = {
-  serialMapping_α,
-  paralellMapping_ς,
+  helpersTools,
+  constants,
   awaitedMapping_α,
   generateMapping_ς,
   generateMappingAsync_α,
-  helpersTools,
-  constants,
+  paralellMapping_ς,
+  serialMapping_α,
 };
 
 export default mappingTools;
