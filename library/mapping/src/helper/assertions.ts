@@ -43,30 +43,15 @@ export function is_SettledLeft(contender: any): contender is SettledLeft {
 
 /*
 
-
-
-// Warnings were encountered during analysis:
+// Warning: (ae-incompatible-release-tags) The symbol "serialMapping_α"
+is marked as @public, but its signature references "TransformFn" which is marked as @alpha
+// Warning: (ae-incompatible-release-tags) The symbol "serialMapping_α"
+is marked as @public, but its signature references "LookupFn" which is marked as @alpha
+// Warning: (ae-incompatible-release-tags) The symbol "serialMapping_α"
+is marked as @public, but its signature references "ValidateFn" which is marked as @alpha
+// Warning: (ae-incompatible-release-tags) The symbol "serialMapping_α"
+is marked as @public, but its signature references "ErrLookupFn" which is marked as @alpha
 //
-// src/index.ts:39:26
-(ae-forgotten-export) The symbol
-"converToIsometricSettledResult"
-// src/index.ts:39:26
-(ae-forgotten-export) The symbol
-"isometricSettledResult"
-// src/index.ts:39:26
-(ae-forgotten-export) The symbol
-"getFulfilledResults"
-// src/index.ts:39:26
-(ae-forgotten-export) The symbol
-"listFulfilledResults"
-// src/index.ts:39:26
-(ae-forgotten-export) The symbol
-"getRejectedResults"
-// src/index.ts:39:26
-(ae-forgotten-export) The symbol
-"settledLengts"
-
-// (No @packageDocumentation comment for this package)
 
 
  */

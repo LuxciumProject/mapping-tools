@@ -1,22 +1,22 @@
 import { Mapper, OnlySideEffect, Settled } from '.';
 
-/** @alpha */
+/** @public */
 export type TransformFn<T, U> = Mapper<T, Promise<U>, T | Settled<T>>;
-/** @alpha */
+/** @public */
 export type LookupFn<U> = (value: U, index: number) => OnlySideEffect;
-/** @alpha */
+/** @public */
 export type ValidateFn<U> = (
   value: U,
   index: number
 ) => Promise<OnlySideEffect>;
-/** @alpha */
+/** @public */
 export type ErrLookupFn = (
   reason: unknown,
   index: number,
   currentRejection: boolean
 ) => OnlySideEffect;
 
-/** @alpha */
+/** @public */
 export interface MapperOptions<T, U> {
   item: T | Settled<T>;
   index: number;

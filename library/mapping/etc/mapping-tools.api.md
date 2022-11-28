@@ -16,7 +16,9 @@ export const constants: {
 // @beta (undocumented)
 export function converToIsometricSettledResult<T>(collection: Array<PromiseSettledResult<T>>): Promise<Settled<T>[]>;
 
-// @alpha (undocumented)
+// Warning: (ae-incompatible-release-tags) The symbol "ErrLookupFn" is marked as @public, but its signature references "OnlySideEffect" which is marked as @alpha
+//
+// @public (undocumented)
 export type ErrLookupFn = (reason: unknown, index: number, currentRejection: boolean) => OnlySideEffect;
 
 // @alpha (undocumented)
@@ -53,13 +55,15 @@ export function isometricSettledResult<T>(item: PromiseSettledResult<T>, index?:
 // @beta (undocumented)
 export function listFulfilledResults<T>(collection: Array<PromiseSettledResult<T>>): T[];
 
-// @alpha (undocumented)
+// Warning: (ae-incompatible-release-tags) The symbol "LookupFn" is marked as @public, but its signature references "OnlySideEffect" which is marked as @alpha
+//
+// @public (undocumented)
 export type LookupFn<U> = (value: U, index: number) => OnlySideEffect;
 
 // @alpha (undocumented)
 export type Mapper<T = any, U = unknown, A = T> = (value: T, index?: number, array?: readonly A[]) => U;
 
-// @alpha (undocumented)
+// @public (undocumented)
 export interface MapperOptions<T, U> {
     // (undocumented)
     array?: (T | Settled<T>)[];
@@ -106,11 +110,6 @@ export type OnlySideEffect = void;
 // @alpha (undocumented)
 export function paralellMapping<T, R>(collection: Iterable<T | Settled<T>>, transform: TransformFn<T, R>, lookup?: LookupFn<R>, validate?: ValidateFn<R>, errLookup?: ErrLookupFn): Promise<SettledLeft | SettledRight<R>>[];
 
-// Warning: (ae-incompatible-release-tags) The symbol "serialMapping_α" is marked as @public, but its signature references "TransformFn" which is marked as @alpha
-// Warning: (ae-incompatible-release-tags) The symbol "serialMapping_α" is marked as @public, but its signature references "LookupFn" which is marked as @alpha
-// Warning: (ae-incompatible-release-tags) The symbol "serialMapping_α" is marked as @public, but its signature references "ValidateFn" which is marked as @alpha
-// Warning: (ae-incompatible-release-tags) The symbol "serialMapping_α" is marked as @public, but its signature references "ErrLookupFn" which is marked as @alpha
-//
 // @public (undocumented)
 export function serialMapping<T, R>(collection: Iterable<T | Settled<T>>, transform: TransformFn<T, R>, lookup?: LookupFn<R>, validate?: ValidateFn<R>, errLookup?: ErrLookupFn): Promise<(SettledLeft | SettledRight<R>)[]>;
 
@@ -179,10 +178,14 @@ export interface SettledRight<T> extends PromiseFulfilledResult<T> {
     value: T;
 }
 
-// @alpha (undocumented)
+// Warning: (ae-incompatible-release-tags) The symbol "TransformFn" is marked as @public, but its signature references "Mapper" which is marked as @alpha
+//
+// @public (undocumented)
 export type TransformFn<T, U> = Mapper<T, Promise<U>, T | Settled<T>>;
 
-// @alpha (undocumented)
+// Warning: (ae-incompatible-release-tags) The symbol "ValidateFn" is marked as @public, but its signature references "OnlySideEffect" which is marked as @alpha
+//
+// @public (undocumented)
 export type ValidateFn<U> = (value: U, index: number) => Promise<OnlySideEffect>;
 
 // (No @packageDocumentation comment for this package)
