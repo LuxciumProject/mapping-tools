@@ -13,8 +13,6 @@ export const constants: {
     REJECTED: "rejected";
 };
 
-// Warning: (ae-incompatible-release-tags) The symbol "converToIsometricSettledResult" is marked as @beta, but its signature references "Settled" which is marked as @alpha
-//
 // @beta (undocumented)
 export function converToIsometricSettledResult<T>(collection: Array<PromiseSettledResult<T>>): Promise<Settled<T>[]>;
 
@@ -49,8 +47,6 @@ export interface IMappable<T = any> {
     map: <U = unknown>(callbackfn: Mapper<T, U>) => U[];
 }
 
-// Warning: (ae-incompatible-release-tags) The symbol "isometricSettledResult" is marked as @beta, but its signature references "Settled" which is marked as @alpha
-//
 // @beta (undocumented)
 export function isometricSettledResult<T>(item: PromiseSettledResult<T>, index?: number): Settled<T>;
 
@@ -110,19 +106,16 @@ export type OnlySideEffect = void;
 // @alpha (undocumented)
 export function paralellMapping<T, R>(collection: Iterable<T | Settled<T>>, transform: TransformFn<T, R>, lookup?: LookupFn<R>, validate?: ValidateFn<R>, errLookup?: ErrLookupFn): Promise<SettledLeft | SettledRight<R>>[];
 
-// Warning: (ae-incompatible-release-tags) The symbol "serialMapping_α" is marked as @public, but its signature references "Settled" which is marked as @alpha
 // Warning: (ae-incompatible-release-tags) The symbol "serialMapping_α" is marked as @public, but its signature references "TransformFn" which is marked as @alpha
 // Warning: (ae-incompatible-release-tags) The symbol "serialMapping_α" is marked as @public, but its signature references "LookupFn" which is marked as @alpha
 // Warning: (ae-incompatible-release-tags) The symbol "serialMapping_α" is marked as @public, but its signature references "ValidateFn" which is marked as @alpha
 // Warning: (ae-incompatible-release-tags) The symbol "serialMapping_α" is marked as @public, but its signature references "ErrLookupFn" which is marked as @alpha
-// Warning: (ae-incompatible-release-tags) The symbol "serialMapping_α" is marked as @public, but its signature references "SettledLeft" which is marked as @alpha
-// Warning: (ae-incompatible-release-tags) The symbol "serialMapping_α" is marked as @public, but its signature references "SettledRight" which is marked as @alpha
 //
 // @public (undocumented)
 export function serialMapping<T, R>(collection: Iterable<T | Settled<T>>, transform: TransformFn<T, R>, lookup?: LookupFn<R>, validate?: ValidateFn<R>, errLookup?: ErrLookupFn): Promise<(SettledLeft | SettledRight<R>)[]>;
 
-// @alpha (undocumented)
-export type Settled<T = unknown> = SettledLeft | SettledRight<T>;
+// @public
+export type Settled<T> = SettledLeft | SettledRight<T>;
 
 // @alpha (undocumented)
 export type SettledIso<T = any> = {
@@ -139,7 +132,7 @@ export type SettledIso<T = any> = {
     reason: any;
 });
 
-// @alpha (undocumented)
+// @public
 export interface SettledLeft extends PromiseRejectedResult {
     // (undocumented)
     currentRejection: true | false | undefined;
@@ -166,7 +159,7 @@ export function settledLengts<T>(collection: Array<PromiseSettledResult<T>>): {
     settled: number;
 };
 
-// @alpha (undocumented)
+// @public
 export interface SettledRight<T> extends PromiseFulfilledResult<T> {
     // (undocumented)
     currentRejection: null;

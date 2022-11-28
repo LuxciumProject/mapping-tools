@@ -1,14 +1,42 @@
-/** @alpha */
-export type SettledResult<T = unknown> = PromiseSettledResult<T>;
-/** @alpha */
-export type FulfilledResult<T = unknown> = PromiseFulfilledResult<T>;
-/** @alpha */
+/**
+ * The type SettledResult<T> is an alias to PromiseSettledResult<T>
+ *
+ *
+ * @alias PromiseSettledResult<T>
+ * @public
+ */
+export type SettledResult<T> = PromiseSettledResult<T>;
+/**
+ * The type FulfilledResult<T> is an alias to PromiseFulfilledResult<T>
+ *
+ *
+ * @alias PromiseSettledResult<T>
+ * @public
+ */
+export type FulfilledResult<T> = PromiseFulfilledResult<T>;
+/**
+ * The type RejectedResult is an alias to PromiseRejectedResult.
+ *
+ *
+ * @alias PromiseSettledResult<T>
+ * @public
+ */
 export type RejectedResult = PromiseRejectedResult;
 
-/** @alpha */
-export type Settled<T = unknown> = SettledLeft | SettledRight<T>;
+/**
+ * The interface Settled<T> is the equivalent of
+ * PromiseSettledResult<T> with aditional properties to make it
+ * isometric and properties adding Cardinal and Ordinal indexes.
+ * @public
+ */
+export type Settled<T> = SettledLeft | SettledRight<T>;
 
-/** @alpha */
+/**
+ * The interface SettledRight<T> extends PromiseFulfilledResult<T> adding
+ * isometric parameters with PromiseRejectedResult and adding
+ * Cardinal and Ordinal indexes.
+ * @public
+ */
 export interface SettledRight<T> extends PromiseFulfilledResult<T> {
   status: 'fulfilled';
   value: T;
@@ -19,7 +47,13 @@ export interface SettledRight<T> extends PromiseFulfilledResult<T> {
   currentRejection: null;
   index: number;
 }
-/** @alpha */
+
+/**
+ * The interface SettledLeft extends PromiseRejectedResult adding
+ * isometric parameters with PromiseRejectedResult and adding
+ * Cardinal and Ordinal indexes.
+ * @public
+ */
 export interface SettledLeft extends PromiseRejectedResult {
   status: 'rejected';
   reason: any;
