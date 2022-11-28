@@ -4,11 +4,6 @@
 
 ```ts
 
-// Warning: (ae-forgotten-export) The symbol "TransformFn" needs to be exported by the entry point index.d.ts
-// Warning: (ae-forgotten-export) The symbol "LookupFn" needs to be exported by the entry point index.d.ts
-// Warning: (ae-forgotten-export) The symbol "ValidateFn" needs to be exported by the entry point index.d.ts
-// Warning: (ae-forgotten-export) The symbol "ErrLookupFn" needs to be exported by the entry point index.d.ts
-//
 // @alpha (undocumented)
 export function awaitedMapping<R, T>(collection: Iterable<T | Settled<T>>, transform: TransformFn<T, R>, lookup?: LookupFn<R>, validate?: ValidateFn<R>, errLookup?: ErrLookupFn): Promise<(SettledLeft | SettledRight<R>)[]>;
 
@@ -17,6 +12,9 @@ export const constants: {
     FULFILLED: "fulfilled";
     REJECTED: "rejected";
 };
+
+// @alpha (undocumented)
+export type ErrLookupFn = (reason: unknown, index: number, currentRejection: boolean) => OnlySideEffect;
 
 // @alpha (undocumented)
 export function generateMapping<T, R>(collection: Iterable<T | Settled<T>>, transform: TransformFn<T, R>, lookup?: LookupFn<R>, validate?: ValidateFn<R>, errLookup?: ErrLookupFn): Generator<Promise<SettledLeft | SettledRight<R>>, void, unknown>;
@@ -35,7 +33,34 @@ export const helpersTools: {
 };
 
 // @alpha (undocumented)
+export interface IMappable<T = any> {
+    // (undocumented)
+    map: <U = unknown>(callbackfn: Mapper<T, U>) => U[];
+}
+
+// @alpha (undocumented)
+export type LookupFn<U> = (value: U, index: number) => OnlySideEffect;
+
+// @alpha (undocumented)
 export type Mapper<T = any, U = unknown, A = T> = (value: T, index?: number, array?: readonly A[]) => U;
+
+// @alpha (undocumented)
+export interface MapperOptions<T, U> {
+    // (undocumented)
+    array?: (T | Settled<T>)[];
+    // (undocumented)
+    errLookup?: ErrLookupFn;
+    // (undocumented)
+    index: number;
+    // (undocumented)
+    item: T | Settled<T>;
+    // (undocumented)
+    lookup?: LookupFn<U>;
+    // (undocumented)
+    transform: TransformFn<T, U>;
+    // (undocumented)
+    validate?: ValidateFn<U>;
+}
 
 // @alpha (undocumented)
 const mappingTools: {
@@ -59,6 +84,9 @@ const mappingTools: {
 };
 export default mappingTools;
 export { mappingTools }
+
+// @alpha (undocumented)
+export type OnlySideEffect = void;
 
 // @alpha (undocumented)
 export function paralellMapping<T, R>(collection: Iterable<T | Settled<T>>, transform: TransformFn<T, R>, lookup?: LookupFn<R>, validate?: ValidateFn<R>, errLookup?: ErrLookupFn): Promise<SettledLeft | SettledRight<R>>[];
@@ -124,14 +152,20 @@ export interface SettledRight<T> extends PromiseFulfilledResult<T> {
     value: T;
 }
 
+// @alpha (undocumented)
+export type TransformFn<T, U> = Mapper<T, Promise<U>, T | Settled<T>>;
+
+// @alpha (undocumented)
+export type ValidateFn<U> = (value: U, index: number) => Promise<OnlySideEffect>;
+
 // Warnings were encountered during analysis:
 //
-// src/index.ts:32:26 - (ae-forgotten-export) The symbol "converToIsometricSettledResult" needs to be exported by the entry point index.d.ts
-// src/index.ts:32:26 - (ae-forgotten-export) The symbol "isometricSettledResult" needs to be exported by the entry point index.d.ts
-// src/index.ts:32:26 - (ae-forgotten-export) The symbol "getFulfilledResults" needs to be exported by the entry point index.d.ts
-// src/index.ts:32:26 - (ae-forgotten-export) The symbol "listFulfilledResults" needs to be exported by the entry point index.d.ts
-// src/index.ts:32:26 - (ae-forgotten-export) The symbol "getRejectedResults" needs to be exported by the entry point index.d.ts
-// src/index.ts:32:26 - (ae-forgotten-export) The symbol "settledLengts" needs to be exported by the entry point index.d.ts
+// src/index.ts:39:26 - (ae-forgotten-export) The symbol "converToIsometricSettledResult" needs to be exported by the entry point index.d.ts
+// src/index.ts:39:26 - (ae-forgotten-export) The symbol "isometricSettledResult" needs to be exported by the entry point index.d.ts
+// src/index.ts:39:26 - (ae-forgotten-export) The symbol "getFulfilledResults" needs to be exported by the entry point index.d.ts
+// src/index.ts:39:26 - (ae-forgotten-export) The symbol "listFulfilledResults" needs to be exported by the entry point index.d.ts
+// src/index.ts:39:26 - (ae-forgotten-export) The symbol "getRejectedResults" needs to be exported by the entry point index.d.ts
+// src/index.ts:39:26 - (ae-forgotten-export) The symbol "settledLengts" needs to be exported by the entry point index.d.ts
 
 // (No @packageDocumentation comment for this package)
 

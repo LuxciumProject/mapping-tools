@@ -16,11 +16,18 @@ import {
 } from './helper';
 
 export type {
+  ErrLookupFn,
+  IMappable,
+  LookupFn,
   Mapper,
+  MapperOptions,
+  OnlySideEffect,
   Settled,
   SettledIso,
   SettledLeft,
   SettledRight,
+  TransformFn,
+  ValidateFn,
 } from './types';
 export { awaitedMapping_α as awaitedMapping };
 export { generateMapping_ς as generateMapping };
