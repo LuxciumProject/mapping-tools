@@ -16,6 +16,7 @@
     /* JavaScript Support */
     "allowJs": true,
     "checkJs": false,
+    "resolveJsonModule": true,
     /* Bundled library declaration files that describe the target runtime environment. */
     "lib": [
       "dom",
@@ -29,11 +30,9 @@
   },
   "include": [
     "./src",
-    "./src/**/*.json",
-    "./src/**/*.jsonc"
+    "./src/**/*.json"
   ],
   "exclude": [
-    "lib",
-    "**/jest.*.js"
+    "./lib"
   ]
 }
