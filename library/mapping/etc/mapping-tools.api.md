@@ -4,10 +4,10 @@
 
 ```ts
 
-// @alpha (undocumented)
+// @public (undocumented)
 export function awaitedMapping<R, T>(collection: Iterable<T | Settled<T>>, transform: TransformFn<T, R>, lookup?: LookupFn<R>, validate?: ValidateFn<R>, errLookup?: ErrLookupFn): Promise<(SettledLeft | SettledRight<R>)[]>;
 
-// @alpha (undocumented)
+// @public (undocumented)
 export const constants: {
     FULFILLED: "fulfilled";
     REJECTED: "rejected";
@@ -16,15 +16,13 @@ export const constants: {
 // @beta (undocumented)
 export function converToIsometricSettledResult<T>(collection: Array<PromiseSettledResult<T>>): Promise<Settled<T>[]>;
 
-// Warning: (ae-incompatible-release-tags) The symbol "ErrLookupFn" is marked as @public, but its signature references "OnlySideEffect" which is marked as @alpha
-//
 // @public (undocumented)
 export type ErrLookupFn = (reason: unknown, index: number, currentRejection: boolean) => OnlySideEffect;
 
-// @alpha (undocumented)
+// @public (undocumented)
 export function generateMapping<T, R>(collection: Iterable<T | Settled<T>>, transform: TransformFn<T, R>, lookup?: LookupFn<R>, validate?: ValidateFn<R>, errLookup?: ErrLookupFn): Generator<Promise<SettledLeft | SettledRight<R>>, void, unknown>;
 
-// @alpha (undocumented)
+// @public (undocumented)
 export function generateMappingAsync<R, T>(collection: Iterable<T | Settled<T>>, transform: TransformFn<T, R>, lookup?: LookupFn<R>, validate?: ValidateFn<R>, errLookup?: ErrLookupFn): AsyncGenerator<PromiseSettledResult<R>, void, unknown>;
 
 // @beta (undocumented)
@@ -33,7 +31,7 @@ export function getFulfilledResults<T>(collection: Array<PromiseSettledResult<T>
 // @beta (undocumented)
 export function getRejectedResults<T>(collection: Array<PromiseSettledResult<T>>): PromiseRejectedResult[];
 
-// @alpha (undocumented)
+// @public (undocumented)
 export const helpersTools: {
     converToIsometricSettledResult: typeof converToIsometricSettledResult;
     isometricSettledResult: typeof isometricSettledResult;
@@ -43,7 +41,7 @@ export const helpersTools: {
     settledLengts: typeof settledLengts;
 };
 
-// @alpha (undocumented)
+// @public (undocumented)
 export interface IMappable<T = any> {
     // (undocumented)
     map: <U = unknown>(callbackfn: Mapper<T, U>) => U[];
@@ -55,12 +53,10 @@ export function isometricSettledResult<T>(item: PromiseSettledResult<T>, index?:
 // @beta (undocumented)
 export function listFulfilledResults<T>(collection: Array<PromiseSettledResult<T>>): T[];
 
-// Warning: (ae-incompatible-release-tags) The symbol "LookupFn" is marked as @public, but its signature references "OnlySideEffect" which is marked as @alpha
-//
 // @public (undocumented)
 export type LookupFn<U> = (value: U, index: number) => OnlySideEffect;
 
-// @alpha (undocumented)
+// @public (undocumented)
 export type Mapper<T = any, U = unknown, A = T> = (value: T, index?: number, array?: readonly A[]) => U;
 
 // @public (undocumented)
@@ -81,7 +77,7 @@ export interface MapperOptions<T, U> {
     validate?: ValidateFn<U>;
 }
 
-// @alpha (undocumented)
+// @public (undocumented)
 const mappingTools: {
     helpersTools: {
         converToIsometricSettledResult: typeof converToIsometricSettledResult;
@@ -104,10 +100,10 @@ const mappingTools: {
 export default mappingTools;
 export { mappingTools }
 
-// @alpha (undocumented)
+// @public (undocumented)
 export type OnlySideEffect = void;
 
-// @alpha (undocumented)
+// @public (undocumented)
 export function paralellMapping<T, R>(collection: Iterable<T | Settled<T>>, transform: TransformFn<T, R>, lookup?: LookupFn<R>, validate?: ValidateFn<R>, errLookup?: ErrLookupFn): Promise<SettledLeft | SettledRight<R>>[];
 
 // @public (undocumented)
@@ -116,7 +112,7 @@ export function serialMapping<T, R>(collection: Iterable<T | Settled<T>>, transf
 // @public
 export type Settled<T> = SettledLeft | SettledRight<T>;
 
-// @alpha (undocumented)
+// @public (undocumented)
 export type SettledIso<T = any> = {
     fulfilled: null | T;
     rejected: any;
@@ -178,15 +174,26 @@ export interface SettledRight<T> extends PromiseFulfilledResult<T> {
     value: T;
 }
 
-// Warning: (ae-incompatible-release-tags) The symbol "TransformFn" is marked as @public, but its signature references "Mapper" which is marked as @alpha
-//
 // @public (undocumented)
 export type TransformFn<T, U> = Mapper<T, Promise<U>, T | Settled<T>>;
 
-// Warning: (ae-incompatible-release-tags) The symbol "ValidateFn" is marked as @public, but its signature references "OnlySideEffect" which is marked as @alpha
-//
 // @public (undocumented)
 export type ValidateFn<U> = (value: U, index: number) => Promise<OnlySideEffect>;
+
+// Warnings were encountered during analysis:
+//
+// src/index.ts:45:26 - (ae-incompatible-release-tags) The symbol "converToIsometricSettledResult" is marked as @public, but its signature references "converToIsometricSettledResult" which is marked as @beta
+// src/index.ts:45:26 - (ae-incompatible-release-tags) The symbol "isometricSettledResult" is marked as @public, but its signature references "isometricSettledResult" which is marked as @beta
+// src/index.ts:45:26 - (ae-incompatible-release-tags) The symbol "getFulfilledResults" is marked as @public, but its signature references "getFulfilledResults" which is marked as @beta
+// src/index.ts:45:26 - (ae-incompatible-release-tags) The symbol "listFulfilledResults" is marked as @public, but its signature references "listFulfilledResults" which is marked as @beta
+// src/index.ts:45:26 - (ae-incompatible-release-tags) The symbol "getRejectedResults" is marked as @public, but its signature references "getRejectedResults" which is marked as @beta
+// src/index.ts:45:26 - (ae-incompatible-release-tags) The symbol "settledLengts" is marked as @public, but its signature references "settledLengts" which is marked as @beta
+// src/index.ts:62:1 - (ae-incompatible-release-tags) The symbol "converToIsometricSettledResult" is marked as @public, but its signature references "converToIsometricSettledResult" which is marked as @beta
+// src/index.ts:63:1 - (ae-incompatible-release-tags) The symbol "isometricSettledResult" is marked as @public, but its signature references "isometricSettledResult" which is marked as @beta
+// src/index.ts:64:1 - (ae-incompatible-release-tags) The symbol "getFulfilledResults" is marked as @public, but its signature references "getFulfilledResults" which is marked as @beta
+// src/index.ts:65:1 - (ae-incompatible-release-tags) The symbol "listFulfilledResults" is marked as @public, but its signature references "listFulfilledResults" which is marked as @beta
+// src/index.ts:66:1 - (ae-incompatible-release-tags) The symbol "getRejectedResults" is marked as @public, but its signature references "getRejectedResults" which is marked as @beta
+// src/index.ts:67:1 - (ae-incompatible-release-tags) The symbol "settledLengts" is marked as @public, but its signature references "settledLengts" which is marked as @beta
 
 // (No @packageDocumentation comment for this package)
 
