@@ -1,2 +1,2 @@
-/** @alpha */
+/** @public */
 export type OnlySideEffect = void;

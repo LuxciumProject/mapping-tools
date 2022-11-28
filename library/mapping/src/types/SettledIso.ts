@@ -1,4 +1,4 @@
-/** @alpha */
+/** @public */
 export type SettledIso<T = any> = {
   fulfilled: null | T;
   rejected: any;

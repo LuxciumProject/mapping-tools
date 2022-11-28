@@ -41,7 +41,7 @@ export { listFulfilledResults };
 export { getRejectedResults };
 export { settledLengts };
 
-/** @alpha */
+/** @public */
 export const helpersTools = {
   converToIsometricSettledResult,
   isometricSettledResult,
@@ -50,13 +50,13 @@ export const helpersTools = {
   getRejectedResults,
   settledLengts,
 };
-/** @alpha */
+/** @public */
 export const constants = {
   FULFILLED,
   REJECTED,
 };
 
-/** @alpha */
+/** @public */
 export const mappingTools = {
   helpersTools,
   constants,
@@ -67,5 +67,5 @@ export const mappingTools = {
   serialMapping_α,
 };
 
-/** @alpha */
+/** @public */
 export default mappingTools;

@@ -7,7 +7,7 @@ import {
 } from '../types';
 import { fn_a1f9a } from './fn_a1f9a';
 
-/** @alpha */
+/** @public */
 export function paralellMapping_ς<T, R>(
   collection: Iterable<T | Settled<T>>,
   transform: TransformFn<T, R>,

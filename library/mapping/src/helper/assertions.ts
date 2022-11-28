@@ -44,13 +44,13 @@ export function is_SettledLeft(contender: any): contender is SettledLeft {
 /*
 
 // Warning: (ae-incompatible-release-tags) The symbol "serialMapping_α"
-is marked as @public, but its signature references "TransformFn" which is marked as @alpha
+is marked as @public, but its signature references "TransformFn" which is marked as @public
 // Warning: (ae-incompatible-release-tags) The symbol "serialMapping_α"
-is marked as @public, but its signature references "LookupFn" which is marked as @alpha
+is marked as @public, but its signature references "LookupFn" which is marked as @public
 // Warning: (ae-incompatible-release-tags) The symbol "serialMapping_α"
-is marked as @public, but its signature references "ValidateFn" which is marked as @alpha
+is marked as @public, but its signature references "ValidateFn" which is marked as @public
 // Warning: (ae-incompatible-release-tags) The symbol "serialMapping_α"
-is marked as @public, but its signature references "ErrLookupFn" which is marked as @alpha
+is marked as @public, but its signature references "ErrLookupFn" which is marked as @public
 //
 
 
