@@ -1,8 +1,12 @@
+*
+.*
+/**/*
+/**/*.*
+/**/.*.*
+
 .env
 .npmignore
 .rush/
-boxed-list.build.log
-boxed-list.cpuprofile
 config/
 node_modules/
 scripts/
@@ -11,8 +15,11 @@ ts-out-info.lib
 tsconfig.json
 typedoc.json
 
-!lib/src/
-!lib/typings/
+!lib
+!lib/**/*.*
+lib/performance
+lib/test
+
 !LICENSE
 !package.json
 !README.md

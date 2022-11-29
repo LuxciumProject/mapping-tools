@@ -1,3 +1,14 @@
+/**
+ * A library for mapping tools.
+ *
+ * @remarks
+ * The `@luxcium/mapping-tools` library defines 5 core functions used to map on iterables with diferent outcomes in mind
+ * {@link awaitedMapping}, {@link generateMappingAsync}, {@link generateMapping},
+ * {@link paralellMapping} and {@link serialMapping}
+ *
+ * @packageDocumentation
+ */
+
 import { FULFILLED, REJECTED } from './constants';
 import {
   awaitedMapping_α,
@@ -41,7 +52,8 @@ export { listFulfilledResults };
 export { getRejectedResults };
 export { settledLengts };
 
-/** @public */
+/** @internal */
+
 export const helpersTools = {
   converToIsometricSettledResult,
   isometricSettledResult,
@@ -50,13 +62,15 @@ export const helpersTools = {
   getRejectedResults,
   settledLengts,
 };
-/** @public */
+/** @internal */
+
 export const constants = {
   FULFILLED,
   REJECTED,
 };
 
-/** @public */
+/** @internal */
+
 export const mappingTools = {
   helpersTools,
   constants,
@@ -67,5 +81,5 @@ export const mappingTools = {
   serialMapping_α,
 };
 
-/** @public */
+/** @internal */
 export default mappingTools;

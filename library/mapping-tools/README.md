@@ -1,6 +1,6 @@
 # @luxcium/mapping-tools
 
-## 0.0.0-PRE_ALPHA-UNRELEASED-UNTESTED-UNDOCUMENTED-UNSAFE-v0.1.1x
+0.0.0-PRE_ALPHA-UNRELEASED-UNTESTED-UNDOCUMENTED-UNSAFE-v2.0.2x
 
 ###### MIT © 2022 Luxcium (Benjamin Vincent)
 

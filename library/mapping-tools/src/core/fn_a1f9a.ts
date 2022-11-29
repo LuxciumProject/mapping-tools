@@ -1,10 +1,7 @@
 import { FULFILLED, REJECTED } from '../constants';
-import {
-  isFulfilledResult,
-  isRejectedResult,
-  isSettledResult,
-} from '../helper';
+import { assertions } from '../helpers';
 import { MapperOptions, SettledLeft, SettledRight } from '../types';
+const { isFulfilledResult, isRejectedResult, isSettledResult } = assertions;
 
 /** @internal */
 export async function fn_a1f9a<T, R>({
