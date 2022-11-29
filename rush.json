@@ -440,8 +440,8 @@
       "tags": ["library"]
     },
     {
-      "packageName": "@luxcium/mapping-tools",
-      "projectFolder": "library/mapping",
+      "packageName": "mapping-tools",
+      "projectFolder": "library/mapping-tools",
       "tags": ["library"]
     },
     {

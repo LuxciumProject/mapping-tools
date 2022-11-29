@@ -126,6 +126,8 @@ build/
 /*/*/out/
 /*/*/dist/
 downloads
+docs
+doc
 # publish/
 # bin/
 

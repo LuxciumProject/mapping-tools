@@ -58,7 +58,7 @@
     },
     {
       "name": "          📚🧭 mapping-tools",
-      "path": "library/mapping"
+      "path": "library/mapping-tools"
     },
     {
       "name": "          📚❤ bigintString",
@@ -162,11 +162,11 @@
     // for the documentation about the tasks.json format
     "version": "2.0.0",
     "presentation": {
-      "clear": true,
-      "close": false,
       "echo": true,
+      "close": true,
+      "clear": true,
       "focus": false,
-      "panel": "dedicated",
+      "panel": "shared",
       "reveal": "silent",
       "revealProblems": "onProblem",
       "showReuseMessage": false
@@ -226,6 +226,9 @@
           "kind": "build",
           "isDefault": false
         },
+        "presentation": {
+          "group": "services"
+        },
         "runOptions": {
           "reevaluateOnRerun": true,
           "instanceLimit": 1,
@@ -237,7 +240,7 @@
         },
         "command": "npm",
         "args": ["run", "build"]
-      },
+      }, // "Build/services/phash-compute"
       {
         "label": "Build/services/scan-directories",
         "detail": "Build task for scan-directories",
@@ -245,6 +248,9 @@
         "group": {
           "kind": "build",
           "isDefault": false
+        },
+        "presentation": {
+          "group": "services"
         },
         "runOptions": {
           "reevaluateOnRerun": true,
@@ -261,7 +267,7 @@
         //   "base": "$tsc",
         //   "applyTo": "allDocuments"
         // }
-      },
+      }, // "Build/services/scan-directories"
       {
         "label": "Build/services/questrade-ts",
         "detail": "Build task for questrade-ts",
@@ -269,6 +275,9 @@
         "group": {
           "kind": "build",
           "isDefault": false
+        },
+        "presentation": {
+          "group": "services"
         },
         "runOptions": {
           "reevaluateOnRerun": true,
@@ -281,7 +290,7 @@
         },
         "command": "npm",
         "args": ["run", "build"]
-      },
+      }, // "Build/services/questrade-ts"
       {
         "label": "Build/services/redis-services",
         "detail": "Build task for redis-services",
@@ -289,6 +298,9 @@
         "group": {
           "kind": "build",
           "isDefault": false
+        },
+        "presentation": {
+          "group": "services"
         },
         "runOptions": {
           "reevaluateOnRerun": true,
@@ -301,7 +313,7 @@
         },
         "command": "npm",
         "args": ["run", "build"]
-      },
+      }, // "Build/services/redis-services"
       {
         "label": "Build/services/service-one",
         "detail": "Build task for service-one",
@@ -309,6 +321,9 @@
         "group": {
           "kind": "build",
           "isDefault": false
+        },
+        "presentation": {
+          "group": "services"
         },
         "runOptions": {
           "reevaluateOnRerun": true,
@@ -321,7 +336,7 @@
         },
         "command": "npm",
         "args": ["run", "build"]
-      },
+      }, // "Build/services/service-one"
       {
         "label": "Build/services/service-two",
         "detail": "Build task for service-two",
@@ -329,6 +344,9 @@
         "group": {
           "kind": "build",
           "isDefault": false
+        },
+        "presentation": {
+          "group": "services"
         },
         "runOptions": {
           "reevaluateOnRerun": true,
@@ -341,17 +359,17 @@
         },
         "command": "npm",
         "args": ["run", "build"]
-      },
+      }, // "Build/services/service-two"
       {
         "label": "Build/all/library",
-        "isBackground": true,
+        "isBackground": false,
         "group": {
           "kind": "build",
           "isDefault": false
         },
-        "presentation": {
-          "group": "library"
-        },
+        // "presentation": {
+        //   "group": "library"
+        // },
         "runOptions": {
           "reevaluateOnRerun": true,
           "instanceLimit": 1,
@@ -368,8 +386,7 @@
           "Build/library/restraining-zalgo",
           "Build/library/tools"
         ]
-      }, // "Build/all/library"
-
+      }, // + "Build/all/library"
       {
         "label": "Build/library/mapping-tools",
         "detail": "Build task for mapping-tools",
@@ -388,11 +405,11 @@
         },
         "type": "shell",
         "options": {
-          "cwd": "${workspaceFolder}/library/mapping"
+          "cwd": "${workspaceFolder}/library/mapping-tools"
         },
         "command": "npm",
         "args": ["run", "build"]
-      },
+      }, // "Build/library/mapping-tools"
       {
         "label": "Build/library/bigintString",
         "detail": "Build task for bigintString",
@@ -415,7 +432,7 @@
         },
         "command": "npm",
         "args": ["run", "build"]
-      },
+      }, // "Build/library/bigintString"
       {
         "label": "Build/library/boxed-list",
         "detail": "Build task for boxed-list",
@@ -438,7 +455,7 @@
         },
         "command": "npm",
         "args": ["run", "build"]
-      },
+      }, // "Build/library/boxed-list"
       {
         "label": "Build/library/colors-tools",
         "detail": "Build task for colors-tools",
@@ -461,7 +478,7 @@
         },
         "command": "npm",
         "args": ["run", "build"]
-      },
+      }, // "Build/library/colors-tools"
       {
         "label": "Build/library/human-size",
         "detail": "Build task for human-size",
@@ -484,7 +501,7 @@
         },
         "command": "npm",
         "args": ["run", "build"]
-      },
+      }, // "Build/library/human-size"
       {
         "label": "Build/library/object-with-expectations",
         "detail": "Build task for object-with-expectations",
@@ -507,7 +524,7 @@
         },
         "command": "npm",
         "args": ["run", "build"]
-      },
+      }, // "Build/library/object-with-expectations"
       {
         "label": "Build/library/parallel-mapper",
         "detail": "Build task for parallel-mapper",
@@ -530,7 +547,7 @@
         },
         "command": "npm",
         "args": ["run", "build"]
-      },
+      }, // "Build/library/parallel-mapper"
       {
         "label": "Build/library/restraining-zalgo",
         "detail": "Build task for restraining-zalgo",
@@ -553,7 +570,7 @@
         },
         "command": "npm",
         "args": ["run", "build"]
-      },
+      }, // "Build/library/restraining-zalgo"
       {
         "label": "Build/library/tools",
         "detail": "Build task for tools",
@@ -576,7 +593,7 @@
         },
         "command": "npm",
         "args": ["run", "build"]
-      },
+      }, // "Build/library/tools"
       {
         "label": "Build/all/examples",
         "dependsOrder": "parallel",
@@ -591,7 +608,7 @@
           "runOn": "default"
         },
         "dependsOn": ["Build/examples/phash-scout"]
-      }, // "Build/all/examples"
+      }, // + "Build/all/examples" -----------------------------------
       {
         "label": "Build/examples/phash-scout",
         "detail": "Build task for phash-scout",
@@ -614,7 +631,7 @@
         },
         "command": "npm",
         "args": ["run", "build"]
-      },
+      }, // "Build/examples/phash-scout"
       {
         "label": "Build/all/frontend",
         "detail": "Build task for all frontend",
@@ -633,7 +650,7 @@
           "Build/frontend/products",
           "Build/frontend/federal-container"
         ]
-      }, // "Build/all/frontend"
+      }, // + "Build/all/frontend" -----------------------------------
       {
         "label": "Build/frontend/federal-container",
         "detail": "Build task for frontend (federal-container)",
@@ -653,7 +670,7 @@
         },
         "command": "npm",
         "args": ["run", "build"]
-      },
+      }, // "Build/frontend/federal-container"
       {
         "label": "Build/frontend/products",
         "detail": "Build task for frontend (products)",
@@ -673,7 +690,7 @@
         },
         "command": "npm",
         "args": ["run", "build"]
-      },
+      }, // "Build/frontend/products"
       {
         "label": "Build/frontend/cart",
         "detail": "Build task for frontend (cart)",
@@ -693,7 +710,7 @@
         },
         "command": "npm",
         "args": ["run", "build"]
-      },
+      }, // "Build/frontend/cart"
       {
         "label": "Start/all/frontend",
         "detail": "Start projects in frontend",
@@ -713,7 +730,7 @@
         },
         "dependsOrder": "parallel",
         "dependsOn": ["Start/frontend/products", "Start/frontend/cart"]
-      }, // "Start/all/frontend"
+      }, // % "Start/all/frontend" -----------------------------------
       {
         "label": "Start/frontend/home",
         "detail": "Starts frontend/home",
@@ -737,7 +754,7 @@
         },
         "command": "npm",
         "args": ["start"]
-      },
+      }, // "Start/frontend/home"
       {
         "label": "Start/frontend/products",
         "detail": "Starts frontend/products",
@@ -757,7 +774,7 @@
         },
         "command": "npm",
         "args": ["start"]
-      },
+      }, // "Start/frontend/products"
       {
         "label": "Start/frontend/cart",
         "detail": "Starts frontend/cart",
@@ -777,7 +794,7 @@
         },
         "command": "npm",
         "args": ["start"]
-      },
+      }, // "Start/frontend/cart"
       {
         "label": "Start/frontend/federal-container",
         "detail": "Starts frontend/federal-container",
@@ -797,7 +814,7 @@
         },
         "command": "npm",
         "args": ["start"]
-      },
+      }, // "Start/frontend/federal-container"
       {
         "label": "Start/redis-6383",
         "type": "shell",
@@ -815,27 +832,12 @@
           "panel": "dedicated",
           "group": "redis-6383"
         }
-      }, // "Start/redis-6383"
-      // {
-      //   "label": "Test/redis-6383",
-      //   "type": "shell",
-      //   "detail": "Start REDIS container on port 6383 this project",
-      //   "command": "bash",
-      //   "args": ["${workspaceFolder}/scripts/start_6383.sh"],
-      //   "isBackground": true,
-      //   "presentation": {
-      //     "echo": false
-      //     // "revealProblems": "onProblem",
-      //     // "panel": "dedicated",
-      //     // "group": "redis-6383"
-      //   }
-      // },
+      }, // ++ "Start/redis-6383" ------------------------------------
       {
         "label": "TASK Fail",
         "detail": "Just to test the task processes.",
         "isBackground": false,
         "command": ["false"],
-        // "args": ["Just to test the task processes."], // , "&& exit 1"
         "presentation": {
           "close": false,
           "echo": true,
@@ -845,13 +847,12 @@
           "reveal": "always",
           "showReuseMessage": false
         }
-      }, // "TASK Fail"
+      }, // !- "TASK Fail" -------------------------------------------
       {
         "label": "TASK Complete",
         "detail": "Just to test the task processes.",
         "isBackground": false,
         "command": ["true"],
-        // "args": ["Just to test the task processes."], // , "&& exit 1"
         "presentation": {
           "close": false,
           "echo": true,
@@ -861,7 +862,7 @@
           "reveal": "always",
           "showReuseMessage": false
         }
-      } // "TASK Complete"
+      } // *- "TASK Complete"-----------------------------------------
     ]
   },
   "settings": {
@@ -2600,7 +2601,7 @@
     },
     "liveServer.settings.multiRootWorkspaceName": "→✨🖥️ MONOREPO-ONE",
     "[jsonc]": {
-      "editor.defaultFormatter": "vscode.json-language-features"
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "[properties]": {
       "editor.defaultFormatter": "foxundermoon.shell-format"
