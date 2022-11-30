@@ -6,11 +6,11 @@
     "target": "ESNext",
     "module": "CommonJS",
     "moduleResolution": "node",
-    "rootDir": "./src",
+    "rootDir": "src",
     "composite": true,
-    "declarationDir": "./lib/typings",
-    "outDir": "./lib",
-    "tsBuildInfoFile": "./lib/ts-out-info.lib",
+    "declarationDir": "lib/typings",
+    "outDir": "lib",
+    "tsBuildInfoFile": "lib/ts-out-info.lib",
     "emitDecoratorMetadata": false,
     "experimentalDecorators": false,
     /* JavaScript Support */
@@ -29,10 +29,10 @@
     ]
   },
   "include": [
-    "./src",
-    "./src/**/*.json"
+    "src",
+    "src/**/*.json"
   ],
   "exclude": [
-    "./lib"
+    "lib"
   ]
 }
