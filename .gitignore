@@ -126,7 +126,7 @@ build/
 /*/*/out/
 /*/*/dist/
 downloads
-docs
+!mapping-tools/docs
 doc
 # publish/
 # bin/
