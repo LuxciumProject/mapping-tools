@@ -1013,6 +1013,167 @@
     "path-intellisense.autoSlashAfterDirectory": false,
     "path-intellisense.showHiddenFiles": true,
     // #endregion: PATH-INTELLISENSE                                            !
+
+    /*
+  |-····―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――··-|
+  */
+    // #region: editor.rulers                                                     !
+    "editor.rulers": [
+      {
+        "column": 2,
+        "color": "#9BE7"
+      },
+      {
+        "column": 70,
+        "color": "#F80B"
+      },
+      {
+        "column": 80,
+        "color": "#F36F"
+      },
+      {
+        "column": 81,
+        "color": "#6C9FE8CC"
+      },
+      {
+        "column": 82,
+        "color": "#71A4E388"
+      },
+      {
+        "column": 83,
+        "color": "#77AADD77"
+      },
+      {
+        "column": 85,
+        "color": "#90B9F166"
+      },
+      {
+        "column": 87,
+        "color": "#9CC1F366"
+      },
+      {
+        "column": 90,
+        "color": "#A8C9F466"
+      },
+      {
+        "column": 94,
+        "color": "#B5D1F666"
+      },
+      {
+        "column": 98,
+        "color": "#C1D8F766"
+      },
+      {
+        "column": 102,
+        "color": "#CEE0F955"
+      },
+      {
+        "column": 106,
+        "color": "#DAE8FA44"
+      },
+      {
+        "column": 110,
+        "color": "#E6F0FC44"
+      },
+      {
+        "column": 113,
+        "color": "#F3F7FD33"
+      },
+      {
+        "column": 116,
+        "color": "#F3F7FD22"
+      },
+      {
+        "column": 118,
+        "color": "#F3F7FD11"
+      },
+      {
+        "column": 119,
+        "color": "#FFFFFF11"
+      },
+      // {
+      //   "column": 81,
+      //   "color": "#77AAEE"
+      // },
+      // {
+      //   "column": 114,
+      //   "color": "#FFFFFF"
+      // },
+      // {
+      //   "column": 105,
+      //   "color": "#DAF3FF"
+      // },
+      // {
+      //   "column": 97,
+      //   "color": "#DAF3FF"
+      // },
+      // {
+      //   "column": 91,
+      //   "color": "#BAD3FF"
+      // },
+      // {
+      //   "column": 86,
+      //   "color": "#90BCFF"
+      // },
+      // {
+      //   "column": 84,
+      //   "color": "#90BCFF"
+      // },
+      // {
+      //   "column": 82,
+      //   "color": "#90BCFF"
+      // },
+
+      {
+        "column": 120,
+        "color": "#F368"
+      },
+      {
+        "column": 121,
+        "color": "#F36A"
+      },
+      {
+        "column": 122,
+        "color": "#F80C"
+      },
+      {
+        "column": 123,
+        "color": "#F80F"
+      },
+      {
+        "column": 124,
+        "color": "#FF0D"
+      },
+      {
+        "column": 125,
+        "color": "#FF0F"
+      },
+      {
+        "column": 126,
+        "color": "#0F0F"
+      },
+      {
+        "column": 127,
+        "color": "#0F0D"
+      },
+      {
+        "column": 128,
+        "color": "#39FF"
+      },
+      {
+        "column": 129,
+        "color": "#39FC"
+      },
+      {
+        "column": 130,
+        "color": "#93FA"
+      },
+      {
+        "column": 131,
+        "color": "#93F8"
+      }
+    ],
+    // #endregion: editor.rulers                                                  !
     /*
   |-····―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――··-|
   */
@@ -1823,7 +1984,7 @@
     /*
   |-····―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――··-|
   */
-    // #region: TODO TREE                                                         !
+    // #region: TODO TREE                                                       !
     "todo-tree.filtering.excludeGlobs": ["**/node_modules"],
     "todo-tree.highlights.defaultHighlight": {
       "background": "#FFF",
@@ -1974,7 +2135,7 @@
         "icon": "x-circle",
         "gutterIcon": true
       },
-      // UNIMPLEMENTED: ------------------------------------------------
+      // UNIMPLEMENTED: ----------------------------------------------
       "UNIMPLEMENTED:": {
         "foreground": "#FC9",
         "background": "#F35",
@@ -1983,7 +2144,7 @@
         "iconColour": "#EE3366EE",
         "opacity": 50
       },
-      // UNSAFE: -------------------------------------------------------
+      // UNSAFE: -----------------------------------------------------
       "UNSAFE:": {
         "background": "#900",
         "foreground": "#FB3",
@@ -1992,7 +2153,7 @@
         "fontWeight": "900",
         "icon": "flame"
       },
-      // FUNC DEF: (Special function xyz) ------------------------------
+      // FUNC DEF: (Special function xyz) ----------------------------
       "FUNC DEF:": {
         "foreground": "#FB7",
         "background": "#07F",
@@ -2004,7 +2165,7 @@
         "rulerColour": "#FB7",
         "hideFromStatusBar": true
       },
-      // FUNC CALL:  (Special function xyz)  ---------------------------
+      // FUNC CALL:  (Special function xyz)  -------------------------
       "FUNC CALL:": {
         "foreground": "#07F",
         "background": "#ADE",
@@ -2018,7 +2179,7 @@
         // "type": "tag",
         "hideFromStatusBar": true
       },
-      // RETURNS: ------------------------------------------------------
+      // RETURNS: ----------------------------------------------------
       "RETURNS:": {
         "foreground": "#224",
         "background": "#CF2",
@@ -2027,7 +2188,7 @@
         // "borderRadius": "7px",
         "gutterIcon": true
       },
-      // CONSOLE: ------------------------------------------------------
+      // CONSOLE: ----------------------------------------------------
       "CONSOLE:": {
         "foreground": "#224",
         "background": "#4B9",
@@ -2035,7 +2196,7 @@
         "icon": "terminal",
         "gutterIcon": true
       },
-      // HARDCODE: -----------------------------------------------------
+      // HARDCODE: ---------------------------------------------------
       "HARDCODE:": {
         "foreground": "#FC9",
         "background": "#F35",
@@ -2570,7 +2731,8 @@
     // #endregion: TODO TREE                                                      !
     /*
   |-····―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――··-|
-  */ "conventionalCommits.scopes": [
+    */
+    "conventionalCommits.scopes": [
       "backend",
       "common",
       "frontend",
@@ -2609,7 +2771,8 @@
     "[dockerfile]": {
       "editor.defaultFormatter": "ms-azuretools.vscode-docker"
     },
-    "audioCues.taskCompleted": "off"
+    "audioCues.taskCompleted": "off",
+    "typescript.tsdk": "          📚🧭 mapping-tools/node_modules/typescript/lib"
   },
   "extensions": {
     "recommendations": [
