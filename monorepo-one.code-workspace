@@ -1021,11 +1021,11 @@
     "editor.rulers": [
       {
         "column": 2,
-        "color": "#9BE7"
+        "color": "#FC38"
       },
       {
         "column": 70,
-        "color": "#F80B"
+        "color": "#F83C"
       },
       {
         "column": 80,
@@ -1033,64 +1033,60 @@
       },
       {
         "column": 81,
-        "color": "#6C9FE8CC"
-      },
-      {
-        "column": 82,
-        "color": "#71A4E388"
+        "color": "#6C9FE844"
       },
       {
         "column": 83,
-        "color": "#77AADD77"
+        "color": "#71A4E355"
       },
       {
         "column": 85,
         "color": "#90B9F166"
       },
       {
-        "column": 87,
+        "column": 88,
         "color": "#9CC1F366"
       },
       {
-        "column": 90,
+        "column": 91,
         "color": "#A8C9F466"
       },
       {
-        "column": 94,
+        "column": 95,
         "color": "#B5D1F666"
       },
       {
-        "column": 98,
+        "column": 99,
         "color": "#C1D8F766"
       },
       {
-        "column": 102,
+        "column": 103,
         "color": "#CEE0F955"
       },
       {
-        "column": 106,
+        "column": 107,
         "color": "#DAE8FA44"
       },
       {
-        "column": 110,
+        "column": 111,
         "color": "#E6F0FC44"
       },
       {
-        "column": 113,
+        "column": 114,
         "color": "#F3F7FD33"
       },
       {
-        "column": 116,
+        "column": 117,
         "color": "#F3F7FD22"
       },
       {
-        "column": 118,
+        "column": 119,
         "color": "#F3F7FD11"
       },
-      {
-        "column": 119,
-        "color": "#FFFFFF11"
-      },
+      // {
+      //   "column": 119,
+      //   "color": "#FFFFFF11"
+      // },
       // {
       //   "column": 81,
       //   "color": "#77AAEE"

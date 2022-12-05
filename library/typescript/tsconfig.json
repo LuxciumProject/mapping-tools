@@ -1,5 +1,6 @@
 {
   "$schema": "http://json.schemastore.org/tsconfig",
+   "exclude": ["lib"],
   "compilerOptions": {
     /* Module Resolution Interop Constraints */
     "target": "ESNext",
