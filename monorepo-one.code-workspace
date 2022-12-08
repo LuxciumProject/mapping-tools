@@ -57,12 +57,12 @@
       "path": "library"
     },
     {
-      "name": "          📚❤ bigintString",
-      "path": "library/bigintString"
-    },
-    {
       "name": "          📚🧭 mapping-tools",
       "path": "library/mapping-tools"
+    },
+    {
+      "name": "          📚❤ bigintString",
+      "path": "library/bigintString"
     },
     {
       "name": "          📚🧡 boxed-list",
