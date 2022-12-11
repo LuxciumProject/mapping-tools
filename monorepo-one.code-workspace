@@ -876,9 +876,9 @@
       "*.json": "jsonc"
     },
     /*
-  |-····―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――··-|
+  |-····―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――··-|
   */
-    // #region: excludes                                               !
+    // #region: excludes                                             !
     "files.exclude": {
       ".directory": true,
       "**/*.build.log": true,
@@ -912,11 +912,11 @@
       "dist": true,
       "out": true
     },
-    // #endregion: excludes                                            !
+    // #endregion: excludes                                          !
     /*
-  |-····―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――··-|
+  |-····―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――··-|
   */
-    // #region: FORMAT BEHAVIOUR                                       !
+    // #region: FORMAT BEHAVIOUR                                     !
     "editor.formatOnPaste": false,
     "editor.formatOnSave": true,
     "editor.formatOnSaveMode": "file",
@@ -928,7 +928,7 @@
     "files.insertFinalNewline": true,
     "files.trimFinalNewlines": true,
     "files.trimTrailingWhitespace": true,
-    //                                                                  ――
+    //                                                                ――
     // ―― CODEACTIONSONSAVE BEHAVIOUR:
     "editor.codeActionsOnSave": [
       "source.addMissingImports",
@@ -936,11 +936,11 @@
       "source.fixAll.eslint",
       "source.fixAll"
     ],
-    // #endregion: FORMAT BEHAVIOUR                                    !
+    // #endregion: FORMAT BEHAVIOUR                                  !
     /*
-  |-····―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――··-|
+  |-····―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――··-|
   */
-    // #region: PRETTIER                                               !
+    // #region: PRETTIER                                             !
     "prettier.enable": true,
     "prettier.requireConfig": true,
     "prettier.trailingComma": "all",
@@ -948,22 +948,22 @@
     "prettier.printWidth": 80,
     "prettier.proseWrap": "preserve",
     "prettier.useTabs": false,
-    // #endregion: PRETTIER                                            !
+    // #endregion: PRETTIER                                          !
     /*
-  |-····―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――··-|
+  |-····―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――··-|
   */
-    // #region: ESLINT                                                 !
+    // #region: ESLINT                                               !
     "eslint.quiet": true,
     "eslint.format.enable": true,
     "eslint.lintTask.enable": false,
     "eslint.alwaysShowStatus": true,
     "eslint.codeActionsOnSave.mode": "all",
     "eslint.packageManager": "yarn",
-    // #endregion: ESLINT                                              !
+    // #endregion: ESLINT                                            !
     /*
-  |-····―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――··-|
+  |-····―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――··-|
   */
-    // #region: JAVASCRIPT BEHAVIOUR                                   !
+    // #region: JAVASCRIPT BEHAVIOUR                                 !
     "javascript.format.enable": true,
     "javascript.format.insertSpaceAfterOpeningAndBeforeClosingEmptyBraces": false,
     "javascript.format.semicolons": "insert",
@@ -1021,7 +1021,7 @@
     "editor.rulers": [
       {
         "column": 2,
-        "color": "#FC38"
+        "color": "#FC30"
       },
       {
         "column": 70,
