@@ -1,7 +1,11 @@
 {
   "$schema": "http://json.schemastore.org/tsconfig",
-   "exclude": ["lib"],
+  "exclude": ["lib"],
   "compilerOptions": {
+    /* Emit Options */
+    "emitDecoratorMetadata": false,
+    "experimentalDecorators": false,
+    /* JavaScript Support */
     /* Module Resolution Interop Constraints */
     "target": "ESNext",
     "module": "CommonJS",
@@ -37,6 +41,10 @@
     "inlineSources": true,
     "inlineSourceMap": false,
     "emitDeclarationOnly": false,
+    /* Bundled library declaration files that describe the target runtime environment. */
+    "lib": ["dom", "esnext"],
+    /* Package names to be included without being referenced in a source file. */
+    "types": ["node", "heft-jest", "jest"],
     /* Projects */
     "composite": true,
     "disableSourceOfProjectReferenceRedirect": false,
