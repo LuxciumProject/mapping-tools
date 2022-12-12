@@ -129,6 +129,10 @@
       "path": "services/service-two"
     },
     {
+      "name": "          💁📊 mongo-service",
+      "path": "services/mongo-service"
+    },
+    {
       "name": "          💁💜 rpc-worker-pool",
       "path": "services/rpc-worker-pool"
     },

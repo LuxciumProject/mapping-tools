@@ -463,7 +463,7 @@
       "packageName": "@luxcium/scan-dirs",
       "projectFolder": "services/scan-directories",
       "tags": ["services"]
-    }, // /home/luxcium/projects/monorepo-one/services/rpc-worker-pool
+    },
     {
       "packageName": "@luxcium/rpc-worker-pool",
       "projectFolder": "services/rpc-worker-pool",
@@ -487,6 +487,11 @@
     {
       "packageName": "service-two",
       "projectFolder": "services/service-two",
+      "tags": ["services"]
+    },
+    {
+      "packageName": "mongo-service",
+      "projectFolder": "services/mongo-service",
       "tags": ["services"]
     },
     {
