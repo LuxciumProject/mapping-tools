@@ -109,6 +109,10 @@
       "path": "services"
     },
     {
+      "name": "          💁📊 mongo-service",
+      "path": "services/mongo-service"
+    },
+    {
       "name": "          💁❤ phash-compute",
       "path": "services/phash-compute"
     },
@@ -127,10 +131,6 @@
     {
       "name": "          💁💙 service-two",
       "path": "services/service-two"
-    },
-    {
-      "name": "          💁📊 mongo-service",
-      "path": "services/mongo-service"
     },
     {
       "name": "          💁💜 rpc-worker-pool",
