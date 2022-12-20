@@ -986,7 +986,7 @@
   |-····―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――··-|
   */
     // #region: TYPESCRIPT BEHAVIOUR                                   !
-    "typescript.check.npmIsInstalled": true,
+    "typescript.check.npmIsInstalled": false,
     "typescript.enablePromptUseWorkspaceTsdk": true,
     "typescript.format.enable": true,
     "typescript.format.insertSpaceAfterOpeningAndBeforeClosingEmptyBraces": false,
