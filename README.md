@@ -13,12 +13,48 @@
 - [/private](private/README.md): Contains files not intended to be shared or distributed, such as sensitive data or private configuration files.
 - [/scripts](scripts/README.md): Contains scripts or automated tools used to build, test, or deploy the project.
 - [/examples](examples/README.md): Contains example files or code snippets that demonstrate how to use the project.
+- [/static](static/README.md): Contains static assets, such as images, fonts, or stylesheets.
 
-[/static](static/README.md): Contains static assets, such as images, fonts, or stylesheets.
+[Backend README](./backend/README.md)
+[Backend Api README](./backend/api/README.md)
+[Backend Scratch README](./backend/scratch/README.md)
+[Common README](./common/README.md)
+[Common Config README](./common/config/README.md)
+[Common Scripts README](./common/scripts/README.md)
+[Common Temp README](./common/temp/README.md)
+[Docker README](./docker/README.md)
+[Docs README](./docs/README.md)
+[Examples README](./examples/README.md)
+[Examples License README](./examples/LICENSE/README.md)
+[Examples Node Js README](./examples/node-js/README.md)
+[Examples Phash Scout README](./examples/phash-scout/README.md)
+[Examples Playground README](./examples/playground/README.md)
+[Examples Template README](./examples/template/README.md)
+[Examples Typescript README](./examples/typescript/README.md)
+[Frontend README](./frontend/README.md)
+[Frontend Cart README](./frontend/cart/README.md)
+[Frontend Federal Container README](./frontend/federal-container/README.md)
+[Frontend Home README](./frontend/home/README.md)
+[Frontend Home Bak README](./frontend/home-bak/README.md)
+[Frontend Home Ejector README](./frontend/home-ejector/README.md)
+[Frontend My Next Js App README](./frontend/my-next-js-app/README.md)
+[Frontend Products README](./frontend/products/README.md)
+[Library README](./library/README.md)
+[Library Bigintstring README](./library/bigintString/README.md)
+[Library Boxed List README](./library/boxed-list/README.md)
+[Library Colors Tools README](./library/colors-tools/README.md)
+[Library Human Size README](./library/human-size/README.md)
+[Library Mapping Tools README](./library/mapping-tools/README.md)
+[Library Object With Expectations README](./library/object-with-expectations/README.md)
+[Library Parallel Mapper README](./library/parallel-mapper/README.md)
+[Library Restraining Zalgo README](./library/restraining-zalgo/README.md)
+[Library Tools README](./library/tools/README.md)
+[Library Typescript README](./library/typescript/README.md)
+[License README](./LICENSE/README.md)
 
 ## Luxcium License: NO PERMISSION GRANTED - PROVIDED "AS IS" - WITHOUT WARRANTY
 
-    THESE FILES ARE *NOT* FIT FOR ANY PARTICULAR PURPOSE IN IT'S CURRENT FORM
+    THESE FILES ARE NOT* FIT FOR ANY PARTICULAR PURPOSE IN IT'S CURRENT FORM
     THESE FILES HAVE NOT BEEN TESTED OR RUN YET IN ALL ENVIRONMENTS! *DO NOT*
     RUN THESE FILES UNLESS YOU HAVE REVIEWED THE FULL CONTENT AND TAKE FULL
     RESPONSIBILITY OF ANY PROBLEME IT MAY CAUSE TO YOU (or anyone) OR YOUR
@@ -78,3 +114,44 @@ tempCodeRunnerFile.ts: Is a temporary file created by an editor or development t
 tests.sh: Contains a shell script that runs tests for the project.
 
 I hope this revised version of the information meets your needs. Let me know if you have any further questions or if there is anything else that I can do to help.
+
+./backend
+./backend/api
+./backend/scratch
+./common
+./common/config
+./common/scripts
+./common/temp
+./docker
+./docker/redis.txt
+./docs
+./docs/material-colors.yml
+./docs/nginx.md
+./docs/pomodoro.txt
+./examples
+./examples/LICENSE
+./examples/node-js
+./examples/phash-scout
+./examples/playground
+./examples/template
+./examples/typescript
+./frontend
+./frontend/cart
+./frontend/federal-container
+./frontend/home
+./frontend/home-bak
+./frontend/home-ejector
+./frontend/my-next-js-app
+./frontend/products
+./library
+./library/bigintString
+./library/boxed-list
+./library/colors-tools
+./library/human-size
+./library/mapping-tools
+./library/object-with-expectations
+./library/parallel-mapper
+./library/restraining-zalgo
+./library/tools
+./library/typescript
+./LICENSE
