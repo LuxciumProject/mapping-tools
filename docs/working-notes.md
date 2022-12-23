@@ -34,3 +34,19 @@
 [Library Tools README](./library/tools/README.md)
 [Library Typescript README](./library/typescript/README.md)
 [License README](./LICENSE/README.md)
+
+awaitedMapping is based on Promise.all($), allowing you to easily map over asynchronous iterables.
+paralellMapping is based on Array.prototype.map($), allowing you to map over iterables in parallel.
+serialMapping is based on a forOf loop, allowing you to map over iterables serially.
+generateMappingAsync is based on the AsyncGenerator protocol, allowing you to map over iterables asynchronously using generator functions.
+generateMapping is based on the Generator protocol, allowing you to map over iterables using generator functions.
+With these tools at your disposal, you'll have everything you need to easily and effectively transform your data. We hope "mapping-tools" proves useful in your projects!
+
+"mapping-tools" is a JavaScript package that provides a set of tools for mapping over a list, with a focus on asynchronous code and advanced error handling capabilities.
+
+With "mapping-tools", you can choose from five different methods for mapping over an iterable or array:
+
+Welcome to [Package Name]! This package provides a set of tools for mapping over a list in JavaScript, with a focus on asynchronous code and advanced error handling capabilities.
+
+"mapping-tools" is a powerful and versatile tool that can help you solve a wide variety of problems related to asynchronous code. Whether you're working with complex data structures or need advanced error handling capabilities, "mapping-tools" has you covered.
+Provides 5 unique ways to map on an iterable, asynchronously and with advanced error handling capabilities: Using a similar interface it allows you to seemingly map `Generator` and `AsyncGenerator` protocols, the `Array.prototype.map($)` alone or in conjunction with `Promise.all($)`, finally it can use the `for...of` loop...
