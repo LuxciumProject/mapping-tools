@@ -828,8 +828,8 @@
         "isBackground": true,
         "runOptions": {
           "reevaluateOnRerun": true,
-          "instanceLimit": 1,
-          "runOn": "folderOpen"
+          "instanceLimit": 1
+          // "runOn": "folderOpen"
         },
         "presentation": {
           "revealProblems": "onProblem",
