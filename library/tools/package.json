@@ -18,7 +18,8 @@
     "puppeteer": "^19.3.0",
     "seedrandom": "~3.0.5",
     "source-map-support": "~0.5.21",
-    "tslib": "2.4.1"
+    "tslib": "2.4.1",
+    "canevas": "~4.4.3"
   },
   "devDependencies": {
     "@babel/core": "7.20.2",

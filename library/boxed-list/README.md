@@ -1,12 +1,12 @@
 # @luxcium/boxed-list v0.0.0-PRE_ALPHA-v0.0x
 
-**Development phase:** *No documentation, no tests, full TypeScript support.*
+**Development phase:** _No documentation, no tests, full TypeScript support._
 
 ## MIT Style License
 
 ### Copyright &copy; 2022 Benjamin Vincent Kasapoglu (Luxcium)
-#### † Scientia es lux principium✨ ™
 
+#### † Scientia est lux principium✨ ™
 
 ## Installation
 
@@ -21,11 +21,13 @@ Using yarn:
 ```bash
   $ yarn add --caret @luxcium/parallel-mapping
 ```
+
 Using npm:
 
 ```bash
   $ npm add --save-prod @luxcium/parallel-mapping
 ```
+
 ## APIs
 
 ### Abstract (summary)
@@ -45,35 +47,38 @@ We propose you 3 kinds of boxes to handle this usecases:
 **implements `IApply<T>`, `IChain<T>`, `IMap<T>`, `IUnbox<T>`, `IBox<T>`, `IValue<T>`**
 
 **Box is:**
- - **An Applicative** of type `Box<TVal>`
 
-    To put something inside a new box use the static method *of*: `Box.of<string>('chocolates')` where the generic type anotation is optional. it can contain any `TVal` value.
+- **An Applicative** of type `Box<TVal>`
 
- - **A From** of type `Box<TVal>`
+  To put something inside a new box use the static method _of_: `Box.of<string>('chocolates')` where the generic type anotation is optional. it can contain any `TVal` value.
 
-    An alternative to the *of* static method to put something inside a new box is to use the static method *from*: `Box.from<string>(chocolateBox)` where the difference is taht you will need to provide any subBox type that implements the `IUnbox<T>` interface and the *unbox* instance method. it can contain any `TVal` value.
+- **A From** of type `Box<TVal>`
 
- - **A Functor and a Map** of return type `Box<R>`
+  An alternative to the _of_ static method to put something inside a new box is to use the static method _from_: `Box.from<string>(chocolateBox)` where the difference is taht you will need to provide any subBox type that implements the `IUnbox<T>` interface and the _unbox_ instance method. it can contain any `TVal` value.
 
-    To interact on the internal value use the instance method *map*: `box.map<number>(chocolates => chocolates.length)` where the optional generic type anotation is the `R` return type of the mapping function.
+- **A Functor and a Map** of return type `Box<R>`
 
- - **An Unbox and a Value** of return type `<T>`
+  To interact on the internal value use the instance method _map_: `box.map<number>(chocolates => chocolates.length)` where the optional generic type anotation is the `R` return type of the mapping function.
 
-   To extract the contained value of your box you can use the instance method *box*: `box.unbox()` or tap on it's alias, the instance property *value*: `box.value` after chaining many transformation with map it looks pretty elegant and satifying to tap on the internal value using a property so easely.
+- **An Unbox and a Value** of return type `<T>`
 
-  - **An Apply** of return type `Box<R>`
-    To interact with the value inside a given box use a boxed function as the argument to the instance method *ap*: `box.ap(Box.of(chocolates=>chocolates.toUpperCase()))`
+  To extract the contained value of your box you can use the instance method _box_: `box.unbox()` or tap on it's alias, the instance property _value_: `box.value` after chaining many transformation with map it looks pretty elegant and satifying to tap on the internal value using a property so easely.
 
-  - **A Chain** of return type `Box<R>`
+- **An Apply** of return type `Box<R>`
+  To interact with the value inside a given box use a boxed function as the argument to the instance method _ap_: `box.ap(Box.of(chocolates=>chocolates.toUpperCase()))`
 
-    The chain instance method *chain*: `box.chain(chocolates=>Box.of(chocolates.toUpperCase()))` takes one argument, it must be a function which returns a value. This function must return a value of the `Box<R>` type and the chain itself will return a value of the `Box<R>` type.
+- **A Chain** of return type `Box<R>`
+
+  The chain instance method _chain_: `box.chain(chocolates=>Box.of(chocolates.toUpperCase()))` takes one argument, it must be a function which returns a value. This function must return a value of the `Box<R>` type and the chain itself will return a value of the `Box<R>` type.
 
 ## BoxedList
 
 DOCUMENTATION INCOMPLE ― WORK IN PROGRESS
+
 ## BoxedGenerator
 
 DOCUMENTATION INCOMPLE ― WORK IN PROGRESS
+
 <!--
 A Array.map() is a very useful function but, unfortunately, it only works with synchronous functions. A simple workaround for using async map functions is to use Promise.all() or its more tolerant brother Promise.allSettled()
 

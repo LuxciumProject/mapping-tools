@@ -1,6 +1,6 @@
 # LUXCIUM MONOREPO ONE
 
-**† Scientia es lux principium✨ ™**
+**† Scientia est lux principium✨ ™**
 
 - [/library](library/README.md): Contains code libraries or modules used by the project.
   - [Mapping Tools README](library/mapping-tools/README.md)
@@ -93,7 +93,7 @@ Copyright © 2022 LUXCIUM
 
 ### Copyright © 2022 · LUXCIUM · (Benjamin Vincent Kasapoglu) · luxcium﹫neb401.com
 
-###### † Scientia es lux principium✨ is a Trade Mark of Benjamin Vincent Kasapoglu
+###### † Scientia est lux principium✨ is a Trade Mark of Benjamin Vincent Kasapoglu
 
 In addition to these directories, there are also a number of files in the root of the repository, including:
 

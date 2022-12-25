@@ -1,7 +1,7 @@
 Copyright © 2022 Luxcium ✨ (Benjamin Vincent)
 
 AS per the README.md you can use MIT license when using package we
-are distributing for this project  _i.e. the source code that is
+are distributing for this project _i.e. the source code that is
 published out on npm or other such registries_ would be under the
 license in the as iot is stated in the package.json file or the
 README.md file in any case the readme liscense has precedence for
@@ -12,11 +12,11 @@ would have precedence on the former.
 The development repository will have this hierachy top most have
 precedence:
 
- - NOTICE or NOTICE.md
- - LICENSE or LICENSE.md
- - README or README.md
- - package.json
- - any other licensing infomation
+- NOTICE or NOTICE.md
+- LICENSE or LICENSE.md
+- README or README.md
+- package.json
+- any other licensing infomation
 
 **The most restrictive will be preceding any less restrictive
 in the order stated above.**
@@ -28,15 +28,15 @@ or budled code that is published for consumer usage would have the
 most permisive (in term of its usage not in term of liabilities to
 the autor(s))) license this order of precedence:
 
- - README or README.md
- - package.json
- - LICENSE or LICENSE.md
- - NOTICE or NOTICE.md
+- README or README.md
+- package.json
+- LICENSE or LICENSE.md
+- NOTICE or NOTICE.md
 
 **The less restrictive (in terms of usage) will be preceding more
 restrictive in the order stated above.**
 
-The trade mark **`† Scientia es lux principium✨ ™`** can not be used
+The trade mark **`† Scientia est lux principium✨ ™`** can not be used
 when republishing products under your brand or under your name but
 can be keept when using published package as is (without any
 modifications to the source code).

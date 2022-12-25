@@ -4,9 +4,6 @@ Main short description of what the package can do and what probleme it is solvin
 
 ## Short name (display name).
 
-
-
-
 ## MIT
 
 any (NOTICE.md)[NOTICE.md] file have precedence on this license.
@@ -35,6 +32,6 @@ SOFTWARE.
 
 ###### MIT License ― Copyright © 2022 Luxcium ✨ (Benjamin Vincent)
 
-
 <!-- Your brand statment -->
-† Scientia es lux principium✨ ™
+
+† Scientia est lux principium✨ ™

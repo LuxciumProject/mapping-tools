@@ -37,4 +37,4 @@ Based on the work of Andrew Kelley (MIT © 2014-2022)
 
 ##### MIT © 2022 Luxcium (Benjamin Vincent)
 
-###### † Scientia es lux principium✨ ™
+###### † Scientia est lux principium✨ ™

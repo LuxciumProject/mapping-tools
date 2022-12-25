@@ -62,6 +62,6 @@ If the test passes, it means that the `LoginForm` component is working correctly
 
 #### Copyright © 2022 · LUXCIUM
 
-###### † Scientia es lux principium✨
+###### † Scientia est lux principium✨
 
 <br>

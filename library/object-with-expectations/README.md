@@ -150,6 +150,6 @@ console.log('at mergingAll:', mergingAll);
 // }
 ```
 
-† Scientia es lux principium✨ ™
+† Scientia est lux principium✨ ™
 
 ###### MIT © 2022 Luxcium ✨ (Benjamin Vincent)
