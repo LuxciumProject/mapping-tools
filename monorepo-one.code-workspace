@@ -2227,6 +2227,21 @@
         "icon": "checklist",
         "gutterIcon": true
       },
+
+      // "TASK LIST:",
+
+      // TASK LIST: [TODO] (Review Documentation) ----------------------------
+      "TASK LIST:": {
+        "foreground": "#FB7",
+        "background": "#07F",
+        "iconColour": "#55BBFFBB",
+        "icon": "tasklist",
+        "gutterIcon": true,
+        "opacity": 50,
+        "fontWeight": "700",
+        "rulerColour": "#FB7",
+        "hideFromStatusBar": true
+      },
       // !: ------------------------------------------------------------
       "!:": {
         "foreground": "#F20",
@@ -2573,6 +2588,7 @@
       "FUNC DEF:",
       "HACK:",
       "HARDCODE:",
+      "TASK LIST:",
       "HINT:",
       "INFO:",
       "LOG:",
