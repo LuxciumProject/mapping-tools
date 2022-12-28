@@ -2240,6 +2240,7 @@
         "opacity": 50,
         "fontWeight": "700",
         "rulerColour": "#FB7",
+        "type": "tag-and-subTag",
         "hideFromStatusBar": true
       },
       // !: ------------------------------------------------------------
@@ -2648,10 +2649,14 @@
     "todo-tree.highlights.highlightDelay": 100,
     "todo-tree.highlights.useColourScheme": true,
     "todo-tree.regex.enableMultiLine": false, // new items
+    // "todo-tree.regex.subTagRegex": "^:\\s*",
     "todo-tree.regex.regex": "((//|#|<!--|;|/\\*|^)\\s*($TAGS)|^\\s*- \\[ \\])",
-    "todo-tree.regex.regexCaseSensitive": true,
-    "todo-tree.regex.subTagRegex": "^\\s*\\((.*)\\)",
-    "todo-tree.ripgrep.ripgrep": "",
+    // "todo-tree.regex.regexCaseSensitive": true, // "todo-tree.regex.regex": "^\\s*(TASK LIST:)\\s*\\[(.+?)\\]\\s*"
+    "todo-tree.regex.subTagRegex": "^\\s*\\((.*)\\)", //"^\\s*\\[(.*)\\]",
+    //\\[(TODO|priority):\\s*(.+?)\\]",
+    // "todo-tree.regex.subTagRegex": "\\[(.+?)\\]",
+    // "todo-tree.regex.subTagRegex": "^\\s*\\[(TODO|priority):\\s*(.+?)\\]\\s*", // "^\\s*\\((.*)\\)",
+    // "todo-tree.ripgrep.ripgrep": "",
     "todo-tree.ripgrep.ripgrepArgs": "--max-columns=1000 --no-config ",
     "todo-tree.ripgrep.ripgrepMaxBuffer": 200,
     "todo-tree.ripgrep.usePatternFile": true,
