@@ -2781,7 +2781,7 @@
     },
     "liveServer.settings.multiRootWorkspaceName": "→✨🖥️ MONOREPO-ONE",
     "[jsonc]": {
-      "editor.defaultFormatter": "esbenp.prettier-vscode"
+      "editor.defaultFormatter": "vscode.json-language-features"
     },
     "[properties]": {
       "editor.defaultFormatter": "foxundermoon.shell-format"
