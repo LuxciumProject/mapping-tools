@@ -32,6 +32,6 @@ rush add \
   -p @types/jest@latest \
   --exact --dev --make-consistent
 
-rush add --package tslib@latest --exact --make-consistent
+rush add --package tslib@latest --dev --exact --make-consistent
 rush update -p
 pwd

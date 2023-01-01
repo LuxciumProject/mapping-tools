@@ -50,7 +50,7 @@ rush add \
   -p @types/node@18 \
   --dev --make-consistent --all
 
-rush add --package tslib@latest --exact --make-consistent --all
+rush add --package tslib@latest --dev --exact --make-consistent --all
 rush purge --unsafe
 rush update --full
 rush rebuild --verbose --ignore-hooks --timeline
