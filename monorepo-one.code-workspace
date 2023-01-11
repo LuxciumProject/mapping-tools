@@ -2790,7 +2790,13 @@
       "editor.defaultFormatter": "ms-azuretools.vscode-docker"
     },
     "audioCues.taskCompleted": "off",
-    "typescript.tsdk": "          📚🧭 mapping-tools/node_modules/typescript/lib"
+    "typescript.tsdk": "          📚🧭 mapping-tools/node_modules/typescript/lib",
+    "files.watcherExclude": {
+      "**/build/**": true,
+      "**/dist/**": true,
+      "**/lib/**": true,
+      "**/out/**": true
+    }
   },
   "extensions": {
     "recommendations": [
