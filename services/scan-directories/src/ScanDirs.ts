@@ -35,8 +35,8 @@ export class ScanDirs implements AsyncIterable<string> {
   private _cwd: { path: string };
   private _parents: string[];
   private _queue: string[];
-
   private _validExts: Set<string>;
+  private _absolutePath: string[];
 
   static from(absolutePath: string) {
     return new ScanDirs(absolutePath);
@@ -45,6 +45,7 @@ export class ScanDirs implements AsyncIterable<string> {
   static scanFrom(absolutePath: string) {
     return new ScanDirs(absolutePath).scan();
   }
+
   static mapFrom<U = unknown>(
     absolutePath: string[] | string,
     transformFn: Mapper<any, U>
@@ -52,7 +53,7 @@ export class ScanDirs implements AsyncIterable<string> {
   ) {
     return new ScanDirs(absolutePath).map(transformFn);
   }
-  private _absolutePath: string[];
+
   private constructor(absolutePath: string | string[]) {
     this._absolutePath = Array.isArray(absolutePath)
       ? [...absolutePath]
@@ -62,35 +63,8 @@ export class ScanDirs implements AsyncIterable<string> {
     this._queue = [...this._absolutePath];
     this._validExts = new Set();
   }
-  public get scan() {
-    const self = this;
-    return function* () {
-      while (self._queue.length > 0) {
-        const traverse = self._traverse();
-        if (traverse) {
-          yield* self._scanGenerator()();
-        }
-      }
-      return false;
-    };
-  }
-  public get map() {
-    // = (fullPath: string) => fullPath
-    const self = this;
-    return async function* <R>(transformFn: (fullPath: string) => R) {
-      for await (const fullPath of self.scan()) {
-        const extname = path.extname(fullPath).toLowerCase();
-        extname;
-        if (self.hasValidExts) {
-          if (self.hasExt(extname)) {
-            yield transformFn(fullPath);
-          }
-        }
-      }
-      return false;
-    };
-  }
-  private _traverse() {
+
+  private _traverse(): boolean {
     const next = this._queue.pop()!;
     try {
       chdir(next);
@@ -126,6 +100,7 @@ export class ScanDirs implements AsyncIterable<string> {
       return true;
     }
   }
+
   private _scanGenerator() {
     const d = opendirSync('.', {});
     const self = this;
@@ -148,7 +123,38 @@ export class ScanDirs implements AsyncIterable<string> {
       return false;
     };
   }
-  addValidExt(ext: string | string[]) {
+
+  public get scan(): () => Generator<string, boolean, unknown> {
+    const self = this;
+    return function* () {
+      while (self._queue.length > 0) {
+        const traverse = self._traverse();
+        if (traverse) {
+          yield* self._scanGenerator()();
+        }
+      }
+      return false;
+    };
+  }
+
+  public get map() {
+    // = (fullPath: string) => fullPath
+    const self = this;
+    return async function* <R>(transformFn: (fullPath: string) => R) {
+      for await (const fullPath of self.scan()) {
+        const extname = path.extname(fullPath).toLowerCase();
+        extname;
+        if (self.hasValidExts) {
+          if (self.hasExt(extname)) {
+            yield transformFn(fullPath);
+          }
+        }
+      }
+      return false;
+    };
+  }
+
+  public addValidExt(ext: string | string[]) {
     if (!Array.isArray(ext)) {
       if (this._validExts.has(ext.toLowerCase())) {
         return this;
@@ -163,7 +169,8 @@ export class ScanDirs implements AsyncIterable<string> {
     }
     return this;
   }
-  remValidExt(ext: string | string[]) {
+
+  public remValidExt(ext: string | string[]) {
     if (!Array.isArray(ext)) {
       if (!this._validExts.has(ext.toLowerCase())) {
         return this;
@@ -178,21 +185,25 @@ export class ScanDirs implements AsyncIterable<string> {
     }
     return this;
   }
-  get validExts() {
+
+  public hasExt(ext: string) {
+    return this._validExts.has(ext.toLowerCase());
+  }
+
+  public get validExts() {
     if (this._validExts.size === 0) {
       return [];
     }
     return [...this._validExts.values()];
   }
-  get hasValidExts() {
+
+  public get hasValidExts() {
     if (this._validExts.size === 0) {
       return false;
     }
     return true;
   }
-  hasExt(ext: string) {
-    return this._validExts.has(ext.toLowerCase());
-  }
+
   private get asyncIteratorPrototype() {
     return Object.getPrototypeOf(
       Object.getPrototypeOf(async function* () {}.prototype)

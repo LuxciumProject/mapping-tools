@@ -1,4 +1,4 @@
-import { BoxedAsyncGenerator, fromAsyncIterable } from '@luxcium/boxed-list';
+import { BoxedAsyncGenerator, generateFromGen } from '@luxcium/boxed-list';
 import { getPhashCompute } from '@luxcium/phash-compute';
 import { rConnect } from '@luxcium/redis-services';
 import { scanDirsFrom } from '@luxcium/scan-dirs';
@@ -22,22 +22,34 @@ void (async function main() {
   const folders = scanDirsFrom(pathToFolder).addValidExt(['.jpg', '.png']);
 
   // -! Then set the valid files extensions to be used from the file scanner
-  BoxedAsyncGenerator;
-  boxImageFileWithStats;
   phashCompute;
   folders;
-  const none: any = null;
-  const asynIter: AsyncGenerator<unknown, any, unknown> = none;
-  asynIter;
-  const result = fromAsyncIterable(folders);
-  result
-    .mapAwait(imagePath => phashCompute(boxImageFileWithStats(imagePath)))
-    .mapAwait(pHash => {
-      console.log('loging:', pHash);
-      void pHash;
-    });
+  BoxedAsyncGenerator;
+  generateFromGen;
+  boxImageFileWithStats;
 
-  await result.asyncSpark();
+  console.log([...folders.scan()]);
+
+  folders.map(str => console.log('str :>> ', str));
+  generateFromGen(folders.scan).map(console.log); // map(str => console.log('str :>> ', str));
+
+  // console.log('BoxedAsyncGenerator:', BoxedAsyncGenerator);
+  // console.log('boxImageFileWithStats:', boxImageFileWithStats);
+  // console.log('phashCompute:', phashCompute);
+  // console.log('folders:', folders);
+  // // const none: any = null;
+
+  // const result = generateFromGen(folders.scan);
+  // console.log('result :>> ', result);
+  // result
+  //   .map(imagePath => phashCompute(boxImageFileWithStats(imagePath)))
+  //   .map(pHash => {
+  //     console.log('loging:', pHash);
+  //     void pHash;
+  //   });
+
+  // result.spark(); //.then(console.log);
+  process.exit(0);
 
   // for await (const imagePath of folders) {
   //   const item = await phashCompute(boxImageFileWithStats(imagePath));
@@ -66,42 +78,9 @@ void (async function main() {
   //   console.log('looping!');
   //   void looping;
 
-  process.exit(0);
-
   // -! Spark the scanner (starting it) login the computed or cached
   // for await (const looping of result.unboxAsyncGen()) {
   //   console.log('looping!');
   //   void looping;
   // }
 })();
-
-/*
-next()
-A function that accepts zero or one argument and returns a promise. The promise fulfills to an object conforming to the IteratorResult interface, and the properties have the same semantics as those of the sync iterator's.
-
-type IteratorResult<T, TReturn = any> =
-  | IteratorYieldResult<T>
-  | IteratorReturnResult<TReturn>;
-
-interface IteratorYieldResult<TYield> {
-  done?: false;
-  value: TYield;
-}
-interface IteratorReturnResult<TReturn> {
-  done: true;
-  val
-
-return(value) Optional
-A function that accepts zero or one argument and returns a promise. The promise fulfills to an object conforming to the IteratorResult interface, and the properties have the same semantics as those of the sync iterator's.
-
-throw(exception) Optional
-A function that accepts zero or one argument and returns a promise. The promise fulfills to an object conforming to the IteratorResult interface, and the properties have the same semantics as those of the sync iterator's.
-
-
- */
-export interface Iterator<T, TReturn = any, TNext = undefined> {
-  // Takes either 0 or 1 arguments - doesn't accept 'undefined'
-  next(...args: [] | [TNext]): IteratorResult<T, TReturn>;
-  return?(value?: TReturn): IteratorResult<T, TReturn>;
-  throw?(e?: any): IteratorResult<T, TReturn>;
-}
