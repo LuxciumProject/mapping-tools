@@ -2758,7 +2758,8 @@
       "private",
       "RushStack",
       "services",
-      "examples"
+      "examples",
+      "Storybook"
     ],
     "workbench.colorCustomizations": {
       "activityBar.activeBackground": "#6a2bd499",
