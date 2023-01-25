@@ -961,7 +961,6 @@
     "eslint.format.enable": true,
     "eslint.lintTask.enable": false,
     "eslint.alwaysShowStatus": true,
-    "eslint.codeActionsOnSave.mode": "all",
     "eslint.packageManager": "yarn",
     // #endregion: ESLINT                                            !
     /*

@@ -2,9 +2,9 @@ import { BoxedAsyncGenerator, generateFromGen } from '@luxcium/boxed-list';
 import { getPhashCompute } from '@luxcium/phash-compute';
 import { rConnect } from '@luxcium/redis-services';
 import { scanDirsFrom } from '@luxcium/scan-dirs';
+import {} from 'mapping-tools';
 import { readFileSync } from 'node:fs';
 import { boxImageFileWithStats } from './tools';
-
 const configs = JSON.parse(
   readFileSync('/home/luxcium/projects/configs/mono-repo.jsonc').toString()
 );
