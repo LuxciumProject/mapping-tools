@@ -35,11 +35,10 @@
   ],
   "categorizeByGroup": true,
   "categoryOrder": [
-    "Helper Tools",
-    "Assertion Tools",
+    // "Helper Tools",
+    // "Assertion Tools",
     "Delegates",
-    "IChain",
-    "*"
+    "IChain"
   ],
   "searchGroupBoosts": {
     "Helper Tools": 1,

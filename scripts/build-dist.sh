@@ -19,7 +19,7 @@ echo ''
 echo '********************************************************************************'
 echo '# Run the lint script'
 echo ''
-yarn lint:fix;
+yarn lint:fix
 
 # ../typescript/tsconfig.json
 echo ''
@@ -79,7 +79,7 @@ prettier -wc ./src
 
 # Clean the dist directory. This is needed to prevent errors from
 # the previous build from causing problems.
-rm -fr "${PROJECT_ROOT:?}/lib"  || { echo rm error && exit 4; }
+rm -fr "${PROJECT_ROOT:?}/lib" || { echo rm error && exit 4; }
 echo ''
 echo '********************************************************************************'
 echo '# Run tsc to build the project'
@@ -88,7 +88,7 @@ echo ''
 yarn build || exit 15
 
 # Run tests, generate code coverage reports.
-rm -fr "${DIST_DIR:?}/coverage"  || { echo rm error && exit 4; }
+rm -fr "${DIST_DIR:?}/coverage" || { echo rm error && exit 4; }
 echo ''
 echo '********************************************************************************'
 echo '# Run tests and generate code coverage'
@@ -96,12 +96,11 @@ echo ''
 
 yarn coverage || exit 13
 
-
 readonly LIB_DIR="${DIST_DIR:?}/lib"
 readonly SRC_DIR="${DIST_DIR:?}/src"
 
 # Copy the built files and images to the dist directory
-rm -fr "${LIB_DIR:?}" "${SRC_DIR:?}" "${DIST_DIR:?}/typings"  || { echo rm error && exit 4; }
+rm -fr "${LIB_DIR:?}" "${SRC_DIR:?}" "${DIST_DIR:?}/typings" || { echo rm error && exit 4; }
 cp -r lib dist || { echo cp error && exit 5; }
 cp -r src dist || { echo cp error && exit 5; }
 # cp -r images dist || { echo cp error && exit 5; }
@@ -114,37 +113,36 @@ echo '**************************************************************************
 echo '# Clean up the dist directory and remove unnecessary files'
 echo ''
 
-rm -fr "${LIB_DIR:?}/backup"  || { echo rm error && exit 4; }
-rm -fr "${LIB_DIR:?}/typings/test"  || { echo rm error && exit 4; }
-rm -fr "${SRC_DIR:?}/src/backup"  || { echo rm error && exit 4; }
-rm -fr "${LIB_DIR:?}/test"  || { echo rm error && exit 4; }
-rm -fr "${SRC_DIR:?}/src/test"  || { echo rm error && exit 4; }
-rm -fr "${LIB_DIR:?}/performance"  || { echo rm error && exit 4; }
-rm -fr "${LIB_DIR:?}/performance"  || { echo rm error && exit 4; }
-rm -fr "${LIB_DIR:?}/ts-out-info.lib"  || { echo rm error && exit 4; }
-rm -fr "${LIB_DIR:?}/typings/backup"  || { echo rm error && exit 4; }
-rm -fr "${LIB_DIR:?}/tools"  || { echo rm error && exit 4; }
-rm -fr "${LIB_DIR:?}/class"  || { echo rm error && exit 4; }
-rm -f "${DIST_DIR:?}lib/class/"  || { echo rm error && exit 4; }
-rm -f "${DIST_DIR:?}lib/main-2.js"  || { echo rm error && exit 4; }
-rm -f "${DIST_DIR:?}lib/main.js"  || { echo rm error && exit 4; }
-rm -f "${DIST_DIR:?}lib/main-2.js.map"  || { echo rm error && exit 4; }
-rm -f "${DIST_DIR:?}lib/main.js.map"  || { echo rm error && exit 4; }
+rm -fr "${LIB_DIR:?}/backup" || { echo rm error && exit 4; }
+rm -fr "${LIB_DIR:?}/typings/test" || { echo rm error && exit 4; }
+rm -fr "${SRC_DIR:?}/src/backup" || { echo rm error && exit 4; }
+rm -fr "${LIB_DIR:?}/test" || { echo rm error && exit 4; }
+rm -fr "${SRC_DIR:?}/src/test" || { echo rm error && exit 4; }
+rm -fr "${LIB_DIR:?}/performance" || { echo rm error && exit 4; }
+rm -fr "${LIB_DIR:?}/performance" || { echo rm error && exit 4; }
+rm -fr "${LIB_DIR:?}/ts-out-info.lib" || { echo rm error && exit 4; }
+rm -fr "${LIB_DIR:?}/typings/backup" || { echo rm error && exit 4; }
+rm -fr "${LIB_DIR:?}/tools" || { echo rm error && exit 4; }
+rm -fr "${LIB_DIR:?}/class" || { echo rm error && exit 4; }
+rm -f "${DIST_DIR:?}lib/class/" || { echo rm error && exit 4; }
+rm -f "${DIST_DIR:?}lib/main-2.js" || { echo rm error && exit 4; }
+rm -f "${DIST_DIR:?}lib/main.js" || { echo rm error && exit 4; }
+rm -f "${DIST_DIR:?}lib/main-2.js.map" || { echo rm error && exit 4; }
+rm -f "${DIST_DIR:?}lib/main.js.map" || { echo rm error && exit 4; }
 
 # Copy the typings directory to the dist directory.
 echo '# Copy the typings directory to the dist directory'
 echo ''
 
-mv "${LIB_DIR:?}/typings" "${DIST_DIR:?}/typings"  || { echo mv error && exit 6; }
+mv "${LIB_DIR:?}/typings" "${DIST_DIR:?}/typings" || { echo mv error && exit 6; }
 
 # Copy the tsconfig.json file to the dist directory
 echo '# Copy the tsconfig.json file to the dist directory'
 
 cp "${PROJECT_ROOT}/etc/mapping-tools.api.md" "${DIST_DIR:?}/mapping-tools.api.md" || { echo cp error && exit 5; }
 
-
 # Generate API documentation for the project.
-rm -fr "${DIST_DIR:?}/docs"  || { echo rm error && exit 4; }
+rm -fr "${DIST_DIR:?}/docs" || { echo rm error && exit 4; }
 # api-extractor run --local
 echo ''
 echo '********************************************************************************'
@@ -152,6 +150,8 @@ echo '# Run typedoc to generate the API documentation'
 echo ''
 
 typedoc --options config/typedoc.json || exit 11
+rm -fr "${PROJECT_ROOT:?}/docs" || { echo rm error && exit 4; }
+cp -r "${DIST_DIR:?}/docs" "${PROJECT_ROOT:?}/docs" || { echo cp error && exit 5; }
 
 echo ''
 echo SYSTEM_ROOT=${SYSTEM_ROOT}
@@ -162,4 +162,4 @@ echo DIST_DIR=${DIST_DIR}
 echo BIN_DIR=${BIN_DIR}
 echo tsconfig=${tsconfig}
 echo ''
-echo -- OK --
+echo ― OK ―

@@ -4,11 +4,11 @@
  *
  *
  * The `@luxcium/mapping-tools` library defines 5 core functions used to map on iterables with diferent outcomes in mind
- * - {@link functions.awaitedMapping}
+ * - {@link awaitedMapping}
  * - {@link generateMappingAsync}
  * - {@link generateMapping}
- * - {@link functions.parallelMapping}
- * - {@link functions.serialMapping}
+ * - {@link parallelMapping}
+ * - {@link serialMapping}
  *
  * @remarks
  * Each function takes a collection as its first argument which can
@@ -81,6 +81,7 @@ export type {
   BaseOrDeferred,
   Collection,
   CollectionOfDeferred,
+  constants,
   Deferred,
   DeferredCollection,
   GenerateMappingAsyncFn,
