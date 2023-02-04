@@ -1,9 +1,0 @@
-{
-  "extends": "./tsconfig.build.json",
-  "compilerOptions": {
-    "module": "commonjs",
-    "target": "ESNext",
-    "outDir": "../dist",
-    "incremental": false
-  }
-}
