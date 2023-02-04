@@ -5,6 +5,7 @@
   "scripts": {
     "analyze": "source-map-explorer 'build/static/js/*.js'",
     "start": "PORT=3001 react-scripts start",
+    "prepare": "cd ../.. && husky install common/config/husky",
     "docker:build": "docker build --force-rm --tag app-home-two:latest .",
     "docker:run": "docker run --network networkOne -l 'container:home-two-react' --name home-two-react -d --rm -p 5000:80 app-home-two:latest",
     "docker:run:local": "docker run --network networkOne -l 'local:home-two-react' --name home-two-react -d --cpus 4 --rm -p 5000:80 app-home-two:latest",
@@ -33,7 +34,6 @@
     "source-map-support": "~0.5.21",
     "tslib": "2.4.1",
     "web-vitals": "~3.0.3",
-    "@chakra-ui/react": "~2.4.9",
     "@emotion/react": "~11.10.5",
     "@emotion/styled": "~11.10.5",
     "framer-motion": "~8.5.2"
@@ -85,23 +85,11 @@
     "ts-node": "10.9.1",
     "tsconfig-paths": "4.1.1",
     "typescript": "4.9.4",
-    "webpack": "^5.75.0",
+    "webpack": "5.75.0",
     "chromatic": "~6.15.0",
-    "@storybook/cli": "~6.5.15",
-    "storybook": "~6.5.15",
     "husky": "~8.0.3",
-    "@storybook/react": "^6.5.15",
-    "@storybook/addon-links": "^6.5.15",
-    "@storybook/addon-essentials": "^6.5.15",
-    "@storybook/addon-actions": "^6.5.15",
-    "@storybook/addon-interactions": "^6.5.15",
-    "@storybook/testing-library": "^0.0.13",
-    "@storybook/node-logger": "^6.5.15",
     "babel-plugin-named-exports-order": "^0.0.2",
-    "prop-types": "^15.8.1",
-    "@storybook/preset-create-react-app": "^4.1.2",
-    "@storybook/builder-webpack5": "^6.5.15",
-    "@storybook/manager-webpack5": "^6.5.15"
+    "prop-types": "^15.8.1"
   },
   "browserslist": {
     "production": [
