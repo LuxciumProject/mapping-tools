@@ -682,10 +682,9 @@ C) DISTRIBUTE IT TO YOUR STUDENTS;
 D) DISTRIBUTE IT TO YOUR COWORKER;
 (FOR PERSONAL USE: AT HOME, AT SCHOOL OR AT WORK)
 ```
+### Copyright © 2022 - 2023 · LUXCIUM · (Benjamin Vincent Kasapoglu) · luxcium﹫neb401.com
 
 IN ALL OR ANY CASES THE COPYRIGHT AND NOTICE ABOVE MUST BE INCLUDED. -->
-
-### Copyright © 2022 - 2023 · LUXCIUM · (Benjamin Vincent Kasapoglu) · luxcium﹫neb401.com
 
 <!--
 1. [Usage](#usage)
