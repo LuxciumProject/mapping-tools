@@ -1911,15 +1911,15 @@
     "editor.defaultFormatter": "vscode.json-language-features"
   },
   "[properties]": {
-    "editor.defaultFormatter": "foxundermoon.shell-format"
+    // "editor.defaultFormatter": "foxundermoon.shell-format"
   },
   "[dockerfile]": {
     "editor.defaultFormatter": "ms-azuretools.vscode-docker"
   },
   "audioCues.taskCompleted": "off",
   "typescript.tsdk": "./node_modules/typescript/lib",
-  "jestrunner.configPath": "config/jest.config.json",
-  "jestRunIt.jestConfigPath": "config/jest.config.json",
+  "jestrunner.configPath": "jest.config.json",
+  "jestRunIt.jestConfigPath": "jest.config.json",
   "prettier.configPath": ".prettierrc",
   "[shellscript]": {
     "editor.defaultFormatter": "shakram02.bash-beautify"

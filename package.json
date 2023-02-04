@@ -3,7 +3,7 @@
   "version": "0.0.0-ALPHA-UNSAFE-v6.0.0x",
   "description": "The Mapping Tools package is designed to be user-friendly and easy to use, with clear documentation and examples. It is suitable for use in a wide range of applications, including data processing, data validation, and more.",
   "main": "./lib/index.js",
-  "types": "./typings/index.d.ts",
+  "types": "./lib/typings/index.d.ts",
   "exports": {
     ".": "./lib/index.js",
     "./functions": "./lib/functions/index.js",
@@ -37,14 +37,14 @@
     "test:": "yarn base:test",
     "lint": " eslint ./src",
     "lint:fix": " eslint ./src --fix",
-    "test": "jest --config='config/jest.config.json'",
-    "coverage": "jest --coverage --config='config/jest.config.json'",
+    "test": "jest --config='jest.config.json'",
+    "coverage": "jest --coverage --config='jest.config.json'",
     "coverage:": "jest --coverage src",
     "build:full": "yarn test && yarn rebuild && yarn build:api",
     "dist:full": "rm -r dist; yarn build:full && yarn cp:dist:dirs; yarn clean:dist; yarn cp:dist",
     "build:api": "yarn base:build:api; yarn build:docs",
     "clean:dist": "yarn base:rm:dist:lib; yarn base:rm:dist:src; yarn base:clean:dist",
-    "base:test": "jest --config='config/jest.config.json'",
+    "base:test": "jest --config='jest.config.json'",
     "base:build": "bash scripts/build.sh",
     "base:build:api": "api-extractor run --local",
     "build:docs": "typedoc --options config/typedoc.json",
@@ -75,7 +75,7 @@
     ":": "# :"
   },
   "jest": {
-    "config": "config/jest.config.json"
+    "config": "jest.config.json"
   },
   "devDependencies": {
     "cheerio": "~1.0.0-rc.12",

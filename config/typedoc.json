@@ -76,5 +76,5 @@
   ],
   "footerTypedocVersion": true,
   "footerLastModified": true,
-  "favicon": "../../static/favicon.png"
+  "favicon": "./favicon.png"
 }

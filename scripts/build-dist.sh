@@ -9,13 +9,11 @@ ROOT_DIR="$(dirname "$SCRIPT_DIR")"
 # Set constants
 readonly SYSTEM_ROOT="/projects"
 readonly TOK_DIR="${SYSTEM_ROOT}/tok"
-readonly MONOREPO_ROOT="${SYSTEM_ROOT}/monorepo-one"
-readonly PROJECT_ROOT="${MONOREPO_ROOT}/library/mapping-tools"
+readonly PROJECT_ROOT="${SYSTEM_ROOT}/mapping-tools"
 readonly SCRIPTS_DIR="${PROJECT_ROOT}/scripts"
 readonly DIST_DIR="${PROJECT_ROOT}/dist"
 readonly BIN_DIR="${PROJECT_ROOT}/node_modules/.bin"
-# /projects/monorepo-one/library/mapping-tools/node_modules/.bin
-readonly tsconfig="${MONOREPO_ROOT}/library/typescript/tsconfig.json"
+readonly tsconfig="${PROJECT_ROOT}/typescript/tsconfig.json"
 
 echo ''
 echo '********************************************************************************'
@@ -63,8 +61,8 @@ cp "${PROJECT_ROOT}/stub.npmrc" "${DIST_DIR}/.npmrc" || { echo cp error && exit 
 cp "${PROJECT_ROOT}/package.json" "${DIST_DIR}/package.json" || { echo cp error && exit 5; }
 cp "${PROJECT_ROOT}/LICENSE" "${DIST_DIR}/LICENSE" || { echo cp error && exit 5; }
 cp "${PROJECT_ROOT}/README.md" "${DIST_DIR}/README.md" || { echo cp error && exit 5; }
-cp "${MONOREPO_ROOT}/.editorconfig" "${DIST_DIR}/.editorconfig" || { echo cp error && exit 5; }
-cp "${MONOREPO_ROOT}/.prettierrc.cjs" "${DIST_DIR}/.prettierrc.cjs" || { echo cp error && exit 5; }
+cp "${PROJECT_ROOT}/.editorconfig" "${DIST_DIR}/.editorconfig" || { echo cp error && exit 5; }
+cp "${PROJECT_ROOT}/.prettierrc.cjs" "${DIST_DIR}/.prettierrc.cjs" || { echo cp error && exit 5; }
 cp "${tsconfig}" "${DIST_DIR}/tsconfig.json" || { echo cp error && exit 5; }
 
 # Include project-specific files.
@@ -108,7 +106,7 @@ cp -r lib dist || { echo cp error && exit 5; }
 cp -r src dist || { echo cp error && exit 5; }
 # cp -r images dist || { echo cp error && exit 5; }
 
-cp -r "${PROJECT_ROOT:?}/typings" "${LIB_DIR:?}/typings" || { echo cp error && exit 5; }
+cp -r "${PROJECT_ROOT:?}/lib/typings" "${LIB_DIR:?}/typings" || { echo cp error && exit 5; }
 
 # Clean up the dist directory.
 echo ''
@@ -155,7 +153,13 @@ echo ''
 
 typedoc --options config/typedoc.json || exit 11
 
-
 echo ''
+echo SYSTEM_ROOT=${SYSTEM_ROOT}
+echo TOK_DIR=${TOK_DIR}
+echo PROJECT_ROOT=${PROJECT_ROOT}
+echo SCRIPTS_DIR=${SCRIPTS_DIR}
+echo DIST_DIR=${DIST_DIR}
+echo BIN_DIR=${BIN_DIR}
+echo tsconfig=${tsconfig}
 echo ''
 echo -- OK --
