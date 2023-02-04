@@ -267,7 +267,7 @@ The Apply returned by fantasy-land/ap must be the same as a and b
    *
    * fantasy-laws jsverify sanctuary-show sanctuary-type-classes
    */
-  public ['fantasy-land/map'] = this.map;
+  public ['fantasy-land/map']: typeof this.map = this.map;
   public map<R>(
     transformFn: TransformFn<BaseOrDeferred<B>, R>,
     lookupFn?: LookupFn<BaseOrDeferred<B>, R> | null,
