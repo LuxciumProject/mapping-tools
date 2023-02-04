@@ -659,7 +659,7 @@ D) DISTRIBUTE IT TO YOUR COWORKER;
 
 IN ALL OR ANY CASES THE COPYRIGHT AND NOTICE ABOVE MUST BE INCLUDED.
 
-### Copyright © 2022 · LUXCIUM · (Benjamin Vincent Kasapoglu) · luxcium﹫neb401.com
+### Copyright © 2022 - 2023 · LUXCIUM · (Benjamin Vincent Kasapoglu) · luxcium﹫neb401.com
 
 <!--
 1. [Usage](#usage)
