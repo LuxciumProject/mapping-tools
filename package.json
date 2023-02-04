@@ -1,6 +1,8 @@
 {
   "name": "mapping-tools",
   "version": "0.0.0-ALPHA-UNSAFE-v6.0.0x",
+  "license": "MIT",
+  "author": "LUXCIUM · (Benjamin Vincent Kasapoglu)",
   "description": "The Mapping Tools package is designed to be user-friendly and easy to use, with clear documentation and examples. It is suitable for use in a wide range of applications, including data processing, data validation, and more.",
   "main": "./lib/index.js",
   "types": "./lib/typings/index.d.ts",
@@ -26,8 +28,6 @@
     "utils",
     "helpers"
   ],
-  "author": "",
-  "license": "MIT",
   "scripts": {
     "build": "yarn base:build",
     "build:dist": "scripts/build-dist.sh",

@@ -616,6 +616,32 @@ We welcome contributions to Mapping Tools! If you have an idea for a new feature
 - All code should be tested using the provided test suite.
 - Please include documentation for any new functions or types you add.
 
+## The MIT License (MIT)
+
+The MIT License (MIT)
+
+Copyright © 2022-2023 · LUXCIUM · (Benjamin Vincent Kasapoglu) · luxcium﹫neb401.com
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+<!--
+
 ## NO PERMISSION GRANTED - PROVIDED "AS IS" - WITHOUT WARRANTY
 
 † **Scientia est lux principium✨** ™
@@ -657,7 +683,7 @@ D) DISTRIBUTE IT TO YOUR COWORKER;
 (FOR PERSONAL USE: AT HOME, AT SCHOOL OR AT WORK)
 ```
 
-IN ALL OR ANY CASES THE COPYRIGHT AND NOTICE ABOVE MUST BE INCLUDED.
+IN ALL OR ANY CASES THE COPYRIGHT AND NOTICE ABOVE MUST BE INCLUDED. -->
 
 ### Copyright © 2022 - 2023 · LUXCIUM · (Benjamin Vincent Kasapoglu) · luxcium﹫neb401.com
 
