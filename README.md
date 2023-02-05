@@ -1,15 +1,12 @@
 # Mapping Tools
 
-[![Version Badge](https://img.shields.io/static/v1?label=TypeDocs&message=luxciumproject.github.io/mapping-tools&style=social)](https://luxciumproject.github.io/mapping-tools/)
-
-![npm type definitions](https://img.shields.io/npm/types/mapping-tools?label=Powered%20by)[![Latest Version](https://img.shields.io/npm/v/mapping-tools)](https://www.npmjs.com/package/mapping-tools?activeTab=readme) ![npm](https://img.shields.io/npm/dt/mapping-tools) ![GitHub](https://img.shields.io/github/license/luxciumproject/mapping-tools)
-
-![Version Badge](https://img.shields.io/static/v1?label=version&message=0.0.0-ALPHA-UNSAFE-v6.0.0x&color=blue)
-
 [![GitHub issues](https://img.shields.io/github/issues-raw/luxciumproject/mapping-tools?style=social)](https://github.com/LuxciumProject/mapping-tools/issues) ![GitHub followers](https://img.shields.io/github/followers/luxciumproject?style=social) [![GitHub forks](https://img.shields.io/github/forks/luxciumproject/mapping-tools?style=social)](https://github.com/LuxciumProject/mapping-tools/fork) ![GitHub Repo stars](https://img.shields.io/github/stars/luxciumproject/mapping-tools?style=social) ![GitHub watchers](https://img.shields.io/github/watchers/luxciumproject/mapping-tools?style=social)
 
-<!-- https://github.com/LuxciumProject/mapping-tools/issues -->
-<!--  -->
+[![Version Badge](https://img.shields.io/static/v1?label=TypeDocs&message=luxciumproject.github.io/mapping-tools&style=social)](https://luxciumproject.github.io/mapping-tools/)
+
+[![npm type definitions](https://img.shields.io/npm/types/mapping-tools?label=Powered%20by)](https://www.typescriptlang.org/docs/handbook/intro.html) [![Latest Version](https://img.shields.io/npm/v/mapping-tools)](https://www.npmjs.com/package/mapping-tools?activeTab=readme) ![npm](https://img.shields.io/npm/dt/mapping-tools) ![GitHub](https://img.shields.io/github/license/luxciumproject/mapping-tools)
+
+[![Version Badge](https://img.shields.io/static/v1?label=version&message=0.0.0-ALPHA-UNSAFE-v6.0.0&color=blue)](https://www.npmjs.com/package/mapping-tools?activeTab=readme)
 
 Mapping Tools is a powerful package for mapping over lists and iterables in JavaScript and TypeScript.
 
