@@ -265,7 +265,6 @@ The Apply returned by fantasy-land/ap must be the same as a and b
    *
    * 2. `fantasy-land/map` must return a value of the same Functor
    *
-   * fantasy-laws jsverify sanctuary-show sanctuary-type-classes
    */
   public ['fantasy-land/map']: typeof this.map = this.map;
   public map<R>(
