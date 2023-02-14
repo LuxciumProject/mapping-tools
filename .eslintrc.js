@@ -10,10 +10,12 @@ module.exports = {
     'simple-import-sort',
     'import',
     'jsdoc',
-    '@rushstack/eslint-plugin',
+    // '@rushstack/eslint-plugin',
     // '@typescript-eslint',
   ],
   rules: {
+    '@typescript-eslint/parameter-properties': 'warn',
+    '@typescript-eslint/no-parameter-properties': 'off',
     // ―――――――― eslint-config-prettier ―――――――――――――――――――――――――――――――
     // +++ eslint-config-prettier +++
     'unicorn/no-nested-ternary': 'off',

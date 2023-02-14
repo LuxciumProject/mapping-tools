@@ -75,7 +75,7 @@ PATH="${BIN_DIR}:${PATH}"
 echo '# Run prettier'
 echo ''
 
-prettier -wc ./src
+npx prettier -wc ./src
 
 # Clean the dist directory. This is needed to prevent errors from
 # the previous build from causing problems.

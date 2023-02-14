@@ -162,13 +162,20 @@
     //   ]
     // }
   },
-  // "references": [],
+  // "references": [
+  //   {
+  //     "path": "dts/rushstack-eslint.d.ts"
+  //   }
+  // ],
   "include": [
-    "src/**/*"
+    "src/**/*",
+    "dts/**/*"
   ],
   "exclude": [
     "lib",
+    "node_modules",
+    "out",
+    "build",
     "dist"
   ]
 }
-// ts, .tsx, and .d.ts by default, with .js and .jsx
