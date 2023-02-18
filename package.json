@@ -37,8 +37,11 @@
     "test:": "yarn base:test",
     "lint": " eslint ./src",
     "lint:fix": "npx eslint -v; npx eslint ./src --fix",
-    "test": "jest --config='jest.config.json'",
-    "coverage": "jest --coverage --config='jest.config.json'",
+    "test": "jest --all --coverage=false --config='jest.config.json'",
+    "test:quick": "jest --onlyChanged --coverage=false --config='jest.config.json'",
+    "test:full": "yarn test:clear; jest --coverage --all --config='jest.config.json'",
+    "test:clear": "jest --clearCache",
+    "coverage": "jest --coverage --all --config='jest.config.json'",
     "coverage:": "jest --coverage src",
     "build:full": "yarn test && yarn rebuild && yarn build:api",
     "dist:full": "rm -r dist; yarn build:full && yarn cp:dist:dirs; yarn clean:dist; yarn cp:dist",
@@ -73,9 +76,6 @@
     "::rebuild:all": "yarn rush:update; yarn test && yarn build && yarn build:api",
     "::rebuild:quick": "yarn rm:lib; yarn build",
     ":": "# :"
-  },
-  "jest": {
-    "config": "jest.config.json"
   },
   "peerDependencies": {
     "tslib": "2.4.1"
