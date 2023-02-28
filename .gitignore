@@ -332,3 +332,7 @@ dist/
 /typings
 typings/
 .rush
+**/.rush
+**/.rush/**
+**/.rush/**/*.*
+**/.rush/*.*
