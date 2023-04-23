@@ -20,7 +20,6 @@ rush add \
   -p @types/prettier@latest \
   -p @typescript-eslint/eslint-plugin@latest \
   -p @typescript-eslint/parser@latest \
-  -p babel-jest@latest \
   -p chai@latest \
   -p concurrently@latest \
   -p eslint-import-resolver-typescript@latest \

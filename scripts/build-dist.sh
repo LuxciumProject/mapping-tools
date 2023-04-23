@@ -6,10 +6,10 @@ SCRIPT_DIR="$(dirname "${BASH_SOURCE[0]}")"
 # Set the path to the root directory
 ROOT_DIR="$(dirname "$SCRIPT_DIR")"
 
-# Set constants
+# Set constants /projects/monorepo-one/library/mapping-tools
 readonly SYSTEM_ROOT="/projects"
 readonly TOK_DIR="${SYSTEM_ROOT}/tok"
-readonly PROJECT_ROOT="${SYSTEM_ROOT}/mapping-tools"
+readonly PROJECT_ROOT="${SYSTEM_ROOT}/monorepo-one/library/mapping-tools"
 readonly SCRIPTS_DIR="${PROJECT_ROOT}/scripts"
 readonly DIST_DIR="${PROJECT_ROOT}/dist"
 readonly BIN_DIR="${PROJECT_ROOT}/node_modules/.bin"
@@ -19,7 +19,7 @@ echo ''
 echo '********************************************************************************'
 echo '# Run the lint script'
 echo ''
-yarn lint:fix
+yarn lint:fix || exit 18
 
 # ../typescript/tsconfig.json
 echo ''
@@ -75,7 +75,7 @@ PATH="${BIN_DIR}:${PATH}"
 echo '# Run prettier'
 echo ''
 
-npx prettier -wc ./src
+npx prettier -wc ./src || exit 17
 
 # Clean the dist directory. This is needed to prevent errors from
 # the previous build from causing problems.
@@ -149,6 +149,7 @@ echo '**************************************************************************
 echo '# Run typedoc to generate the API documentation'
 echo ''
 
+typedoc --version
 typedoc --options config/typedoc.json || exit 11
 rm -fr "${PROJECT_ROOT:?}/docs" || { echo rm error && exit 4; }
 cp -r "${DIST_DIR:?}/docs" "${PROJECT_ROOT:?}/docs" || { echo cp error && exit 5; }
