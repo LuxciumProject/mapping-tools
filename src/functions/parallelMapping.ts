@@ -66,10 +66,10 @@ export type OfBase<BASE> = BASE extends Settled<infer B>
     ? BVal
     : never
   : BASE extends PromiseSettledResult<infer B>
-    ? B extends PromiseFulfilledResult<infer BVal>
-      ? BVal
-      : never
-    : BASE;
+  ? B extends PromiseFulfilledResult<infer BVal>
+    ? BVal
+    : never
+  : BASE;
 export type OfDeferred<TVal> = TVal extends PromiseLike<infer BASE>
   ? BASE extends Base<infer B>
     ? B

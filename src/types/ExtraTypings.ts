@@ -42,7 +42,7 @@ export type BaseType<T> =
 export type CollectionType<T> = Iterable<BaseType<T>>;
 export type AwaitIterablesTypes<T> = Iterable<PromiseLike<BaseType<T>>>;
 export type AwaitableTypes_<T> = PromiseLike<
-BaseType<T> | CollectionType<T> | AwaitIterablesTypes<T>
+  BaseType<T> | CollectionType<T> | AwaitIterablesTypes<T>
 >;
 
 // | Iterable<T>

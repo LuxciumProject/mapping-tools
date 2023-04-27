@@ -12,10 +12,10 @@ export type Collection<U> = Iterable<U | Settled<U> | PromiseSettledResult<U>>;
 Collection<T> | PromiseLike<Collection<T>> | Iterable<PromiseLike<Settled<T>>>
 
 export type MyLongVersionCatchAllType =
-| PromiseLike<T | SettledLeft | SettledRight<T>| PromiseFulfilledResult<T> | PromiseRejectedResult>
-| Iterable<T | SettledLeft | SettledRight<T>| PromiseFulfilledResult<T> | PromiseRejectedResult>
-| PromiseLike<Iterable<T | SettledLeft | SettledRight<T>| PromiseFulfilledResult<T> | PromiseRejectedResult>>;
-| Iterable<PromiseLike<T | SettledLeft | SettledRight<T>| PromiseFulfilledResult<T> | PromiseRejectedResult>>;
+| PromiseLike<T | SettledLeft | SettledRight<T>| PromiseFulfilledResult<T> | PromiseRejectedResult>
+| Iterable<T | SettledLeft | SettledRight<T>| PromiseFulfilledResult<T> | PromiseRejectedResult>
+| PromiseLike<Iterable<T | SettledLeft | SettledRight<T>| PromiseFulfilledResult<T> | PromiseRejectedResult>>;
+| Iterable<PromiseLike<T | SettledLeft | SettledRight<T>| PromiseFulfilledResult<T> | PromiseRejectedResult>>;
 
 Settled<T> PromiseSettledResult<T>
  */
@@ -43,40 +43,40 @@ export type MyLongVersionCatchAllType_Full<T> =
   | PromiseFulfilledResult<T>
   | PromiseRejectedResult
   | Iterable<
-  | T
-  | SettledLeft
-  | SettledRight<T>
-  | PromiseFulfilledResult<T>
-  | PromiseRejectedResult
+      | T
+      | SettledLeft
+      | SettledRight<T>
+      | PromiseFulfilledResult<T>
+      | PromiseRejectedResult
+      | PromiseLike<
+          | T
+          | SettledLeft
+          | SettledRight<T>
+          | PromiseFulfilledResult<T>
+          | PromiseRejectedResult
+        >
+    >
   | PromiseLike<
-  | T
-  | SettledLeft
-  | SettledRight<T>
-  | PromiseFulfilledResult<T>
-  | PromiseRejectedResult
-  >
-  >
-  | PromiseLike<
-  | T
-  | SettledLeft
-  | SettledRight<T>
-  | PromiseFulfilledResult<T>
-  | PromiseRejectedResult
-  | Iterable<
-  | T
-  | SettledLeft
-  | SettledRight<T>
-  | PromiseFulfilledResult<T>
-  | PromiseRejectedResult
-  | PromiseLike<
-  | T
-  | SettledLeft
-  | SettledRight<T>
-  | PromiseFulfilledResult<T>
-  | PromiseRejectedResult
-  >
-  >
-  >;
+      | T
+      | SettledLeft
+      | SettledRight<T>
+      | PromiseFulfilledResult<T>
+      | PromiseRejectedResult
+      | Iterable<
+          | T
+          | SettledLeft
+          | SettledRight<T>
+          | PromiseFulfilledResult<T>
+          | PromiseRejectedResult
+          | PromiseLike<
+              | T
+              | SettledLeft
+              | SettledRight<T>
+              | PromiseFulfilledResult<T>
+              | PromiseRejectedResult
+            >
+        >
+    >;
 export type Name_001<T> = T;
 export type Name_002<T> = SettledRight<T>;
 export type Name_003<T> = PromiseFulfilledResult<T>;
@@ -105,11 +105,11 @@ export type Name_030 = PromiseLike<Iterable<PromiseRejectedResult>>;
 export type Name_031<T> = PromiseLike<Iterable<PromiseLike<T>>>;
 export type Name_032<T> = PromiseLike<Iterable<PromiseLike<SettledRight<T>>>>;
 export type Name_033<T> = PromiseLike<
-Iterable<PromiseLike<PromiseFulfilledResult<T>>>
+  Iterable<PromiseLike<PromiseFulfilledResult<T>>>
 >;
 export type Name_034 = PromiseLike<Iterable<PromiseLike<SettledLeft>>>;
 export type Name_035 = PromiseLike<
-Iterable<PromiseLike<PromiseRejectedResult>>
+  Iterable<PromiseLike<PromiseRejectedResult>>
 >;
 
 /*

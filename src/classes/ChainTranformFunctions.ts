@@ -75,10 +75,10 @@ export type TransformFnTuple<InputType, OutputType> =
   | [TransformFn<InputType, OutputType>]
   | [TransformFn<InputType, unknown>, TransformFn<unknown, OutputType>]
   | [
-    TransformFn<InputType, unknown>,
-    ...TransformFn<unknown, unknown>[],
-    TransformFn<unknown, OutputType>
-  ];
+      TransformFn<InputType, unknown>,
+      ...TransformFn<unknown, unknown>[],
+      TransformFn<unknown, OutputType>
+    ];
 
 export const addFirstFunction = ChainTranformFunctions.addFirstFunction;
 export default ChainTranformFunctions;

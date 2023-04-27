@@ -11,61 +11,61 @@ import type { Settled } from './Settled';
  * @group Core Functions Types
  */
 export type ParallelMappingFn = Function &
-(<T, R>(
-  collection: Collection<T>,
-  transformFn?: TransformFn<T, R> | null,
-  lookupFn?: LookupFn<T, R> | null,
-  validateFn?: ValidateFn<T, R> | null,
-  errLookupFn?: ErrLookupFn | null
-) => Promise<Settled<R>>[]);
+  (<T, R>(
+    collection: Collection<T>,
+    transformFn?: TransformFn<T, R> | null,
+    lookupFn?: LookupFn<T, R> | null,
+    validateFn?: ValidateFn<T, R> | null,
+    errLookupFn?: ErrLookupFn | null
+  ) => Promise<Settled<R>>[]);
 
 /**
  * @group Core Functions Types
  */
 export type SerialMappingFn = Function &
-(<T, R>(
-  collection: Collection<T> | PromiseLike<Collection<T>>,
-  transformFn?: TransformFn<T, R> | null,
-  lookupFn?: LookupFn<T, R> | null,
-  validateFn?: ValidateFn<T, R> | null,
-  errLookupFn?: ErrLookupFn | null
-) => Promise<Settled<R>[]>);
+  (<T, R>(
+    collection: Collection<T> | PromiseLike<Collection<T>>,
+    transformFn?: TransformFn<T, R> | null,
+    lookupFn?: LookupFn<T, R> | null,
+    validateFn?: ValidateFn<T, R> | null,
+    errLookupFn?: ErrLookupFn | null
+  ) => Promise<Settled<R>[]>);
 
 /**
  * @group Core Functions Types
  */
 export type AwaitedMappingFn = Function &
-(<T, R>(
-  collection: Collection<T> | PromiseLike<Collection<T>>,
-  transformFn?: TransformFn<T, R> | null,
-  lookupFn?: LookupFn<T, R> | null,
-  validateFn?: ValidateFn<T, R> | null,
-  errLookupFn?: ErrLookupFn | null
-) => Promise<Settled<R>[]>);
+  (<T, R>(
+    collection: Collection<T> | PromiseLike<Collection<T>>,
+    transformFn?: TransformFn<T, R> | null,
+    lookupFn?: LookupFn<T, R> | null,
+    validateFn?: ValidateFn<T, R> | null,
+    errLookupFn?: ErrLookupFn | null
+  ) => Promise<Settled<R>[]>);
 
 /**
  * @group Core Functions Types
  */
 export type GenerateMappingFn = Function &
-(<T, R>(
-  collection: Collection<T>,
-  transformFn?: TransformFn<T, R> | null,
-  lookupFn?: LookupFn<T, R> | null,
-  validateFn?: ValidateFn<T, R> | null,
-  errLookupFn?: ErrLookupFn | null
-) => Generator<Promise<Settled<R>>, void, unknown>);
+  (<T, R>(
+    collection: Collection<T>,
+    transformFn?: TransformFn<T, R> | null,
+    lookupFn?: LookupFn<T, R> | null,
+    validateFn?: ValidateFn<T, R> | null,
+    errLookupFn?: ErrLookupFn | null
+  ) => Generator<Promise<Settled<R>>, void, unknown>);
 
 /**
  * @group Core Functions Types
  */
 export type GenerateMappingAsyncFn = Function &
-(<R, T>(
-  collection: Collection<T>,
-  transformFn?: TransformFn<T, R> | null,
-  lookupFn?: LookupFn<T, R> | null,
-  validateFn?: ValidateFn<T, R> | null,
-  errLookupFn?: ErrLookupFn | null
-) => AsyncGenerator<Settled<R>, void, unknown>);
+  (<R, T>(
+    collection: Collection<T>,
+    transformFn?: TransformFn<T, R> | null,
+    lookupFn?: LookupFn<T, R> | null,
+    validateFn?: ValidateFn<T, R> | null,
+    errLookupFn?: ErrLookupFn | null
+  ) => AsyncGenerator<Settled<R>, void, unknown>);
 
 /*
 ChatGPT

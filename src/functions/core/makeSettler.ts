@@ -86,10 +86,10 @@ export function makeSettler<T>(item: T, index?: number): SettledRight<T>;
 
 export function makeSettler<T>(
   item:
-  | T
-  | PromiseLike<T>
-  | PromiseFulfilledResult<T>
-  | PromiseLike<PromiseFulfilledResult<T>>,
+    | T
+    | PromiseLike<T>
+    | PromiseFulfilledResult<T>
+    | PromiseLike<PromiseFulfilledResult<T>>,
   index?: number
 ): SettledRight<T> | Promise<SettledRight<T>>;
 
@@ -100,10 +100,10 @@ export function makeSettler<T>(
 
 export function makeSettler<T>(
   item:
-  | T
-  | PromiseLike<T>
-  | PromiseSettledResult<T>
-  | PromiseLike<PromiseSettledResult<T>>,
+    | T
+    | PromiseLike<T>
+    | PromiseSettledResult<T>
+    | PromiseLike<PromiseSettledResult<T>>,
   index?: number
 ): Settled<T> | Promise<Settled<T>>;
 

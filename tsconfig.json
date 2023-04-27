@@ -168,6 +168,7 @@
   //   }
   // ],
   "include": [
+    "./eslintrc.cjs",
     "src/**/*",
     "dts/**/*"
   ],

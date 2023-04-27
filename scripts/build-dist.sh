@@ -17,6 +17,12 @@ readonly tsconfig="${PROJECT_ROOT}/typescript/tsconfig.json"
 
 echo ''
 echo '********************************************************************************'
+echo '# Run prettier'
+echo ''
+npx prettier -wc ./src || exit 17
+
+echo ''
+echo '********************************************************************************'
 echo '# Run the lint script'
 echo ''
 yarn lint:fix || exit 18
@@ -70,12 +76,6 @@ echo '# Run the project build'
 echo ''
 
 PATH="${BIN_DIR}:${PATH}"
-
-# Run Prettier to format the source code and build the project.
-echo '# Run prettier'
-echo ''
-
-npx prettier -wc ./src || exit 17
 
 # Clean the dist directory. This is needed to prevent errors from
 # the previous build from causing problems.

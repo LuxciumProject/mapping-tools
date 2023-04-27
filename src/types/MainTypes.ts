@@ -109,11 +109,11 @@ type ExtractCollectionType<T> = T extends Iterable<infer U>
     ? V extends Iterable<infer W>
       ? ExtractCollectionType<W>
       : V extends Base<infer X>
-        ? X
-        : never
-    : U extends Base<infer Y>
-      ? Y
+      ? X
       : never
+    : U extends Base<infer Y>
+    ? Y
+    : never
   : never;
 
 // Example usage
@@ -123,8 +123,8 @@ type Nested<T> = T extends Iterable<infer U>
   ? U extends Deferred<infer V>
     ? Nested<V>
     : U extends Base<infer W>
-      ? Nested<W>
-      : never
+    ? Nested<W>
+    : never
   : T;
 
 export type ExtractCollectionType2<T> = Nested<Collection<T>>;
