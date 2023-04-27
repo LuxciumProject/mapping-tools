@@ -14,9 +14,9 @@ The function returns a promise that resolves to the transformed value. This func
  */
 export interface TransformFn<T, U = unknown> {
   (value: T, index: number, array: readonly (T | PromiseSettledResult<T>)[]):
-    | U
-    | Promise<ReturnType<() => U>>;
-  // | Promise<T>;
+  | U
+  | Promise<U>;
+  // | Promise<ReturnType<() => U>>
 }
 
 // TASK LIST: [TODO: Types] (Review Documentation) -------------------

@@ -10,7 +10,7 @@ module.exports = {
   requirePragma: false,
   tabWidth: 2,
   useTabs: false,
-  quoteProps: 'as-needed',
+  quoteProps: 'consistent',
   jsxSingleQuote: false,
   arrowParens: 'avoid',
   bracketSameLine: false,

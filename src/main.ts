@@ -41,7 +41,7 @@ void (async function MAIN() {
   const value = await Promise.all(parallelMapping([{ item: 10 }]));
   console.log('value =', value);
   const result3 = parallelMapping([{ size: 10 }], async obj => {
-    if (obj.size === 10) {
+    if (10 === obj.size) {
       throw new Error('Test error');
     }
   });

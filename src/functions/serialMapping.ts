@@ -50,10 +50,10 @@ export async function serialMapping<T, R>(
         index: index++,
         array,
         transform:
-          transformFn == null ? async value => value as any as R : transformFn,
-        lookup: lookupFn == null ? v => void v : lookupFn,
-        validate: validateFn == null ? async v => void v : validateFn,
-        errLookup: errLookupFn == null ? v => void v : errLookupFn,
+          null == transformFn ? async value => value as any as R : transformFn,
+        lookup: null == lookupFn ? v => void v : lookupFn,
+        validate: null == validateFn ? async v => void v : validateFn,
+        errLookup: null == errLookupFn ? v => void v : errLookupFn,
       })
     );
   }

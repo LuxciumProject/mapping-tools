@@ -22,16 +22,16 @@ export function makeFulfillement<U>({
 
   const currentIndex =
     base != null &&
-    typeof base === 'object' &&
+    'object' === typeof base &&
     'index' in base &&
     base.index != null &&
-    typeof base.index === 'number' &&
+    'number' === typeof base.index &&
     base.index > -1 &&
     !Number.isNaN(base.index)
       ? base.index
-      : typeof index === 'number' && !Number.isNaN(index)
-      ? index
-      : -1;
+      : 'number' === typeof index && !Number.isNaN(index)
+        ? index
+        : -1;
 
   // INFO: To get base properties last but also overide its values ...
   const result: SettledRight<U> = {
@@ -76,7 +76,7 @@ export function makeFulfillement<U>({
     writable: false,
   });
 
-  if (transformStep === -1) {
+  if (-1 === transformStep) {
     Object.defineProperty(result, 'transformStep', {
       value: transformStep,
       enumerable: false,
@@ -90,7 +90,7 @@ export function makeFulfillement<U>({
     });
   }
 
-  if (currentIndex === -1) {
+  if (-1 === currentIndex) {
     Object.defineProperty(result, 'index', {
       value: currentIndex,
       enumerable: false,

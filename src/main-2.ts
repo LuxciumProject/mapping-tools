@@ -8,7 +8,7 @@ async function main() {
   const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
   const mappedArray = await awaitedMapping(array, async element => {
     // Async operation on each element
-    if (element % 4 === 2) {
+    if (2 === element % 4) {
       throw new Error('Error');
     }
     return element * 2;
@@ -42,7 +42,7 @@ async function main2() {
   const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
   const mappedArray = await serialMapping(array, async element => {
     // Async operation on each element
-    if (element % 4 === 2) {
+    if (2 === element % 4) {
       throw new Error('Error');
     }
     return element * 2;

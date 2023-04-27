@@ -54,7 +54,7 @@ export function extractSettledValues<R>(
   settledArray: Settled<R>[]
 ): (R | typeof NULL_SYMBOL)[] {
   const result = settledArray.map(settled => {
-    if (settled.status === 'fulfilled' && 'value' in settled) {
+    if ('fulfilled' === settled.status && 'value' in settled) {
       return settled.value;
     }
     return NULL_SYMBOL;

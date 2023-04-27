@@ -10,13 +10,13 @@ export type SettledIso<T = any> = {
   index: number;
 } & (
   | {
-      status: 'fulfilled';
-      value: T;
-    }
+    status: 'fulfilled';
+    value: T;
+  }
   | {
-      status: 'rejected';
-      reason: any;
-    }
+    status: 'rejected';
+    reason: any;
+  }
 );
 
 // TASK LIST: [TODO: Types] (Review Documentation) -------------------

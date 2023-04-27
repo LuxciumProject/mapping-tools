@@ -27,9 +27,9 @@ export function isPromiseLike<U>(
   try {
     if (
       element != null &&
-      typeof element === 'object' &&
+      'object' === typeof element &&
       'then' in element &&
-      typeof element.then === 'function'
+      'function' === typeof element.then
     ) {
       return true;
     }

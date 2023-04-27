@@ -93,3 +93,45 @@ export type Type3a<B> = PromiseLike<Iterable<Base<B>>>;
 export type Type3b<B> = PromiseLike<Iterable<PromiseLike<Base<B>>>>;
 
 // TASK LIST: (Review Documentation) [TODO: Types]  -------------------
+
+// type ExtractCollectionType<T> = T extends Iterable<infer U> ? U : never;
+
+// type UnboxPromise<T> = T extends Promise<infer U> ? U : T;
+
+// const myStrings: string[] = ['foo', 'bar', 'baz'];
+// const MyCollection: Collection<string> = myStrings;
+
+// export type MyB = UnboxPromise<Exclude<ExtractCollectionType<typeof MyCollection>, Base<string> | Deferred<string>>>;
+// // This should be `string`
+
+type ExtractCollectionType<T> = T extends Iterable<infer U>
+  ? U extends Deferred<infer V>
+    ? V extends Iterable<infer W>
+      ? ExtractCollectionType<W>
+      : V extends Base<infer X>
+        ? X
+        : never
+    : U extends Base<infer Y>
+      ? Y
+      : never
+  : never;
+
+// Example usage
+export type MyType = ExtractCollectionType<Collection<string>>;
+// MyType is string
+type Nested<T> = T extends Iterable<infer U>
+  ? U extends Deferred<infer V>
+    ? Nested<V>
+    : U extends Base<infer W>
+      ? Nested<W>
+      : never
+  : T;
+
+export type ExtractCollectionType2<T> = Nested<Collection<T>>;
+
+const myArray: Array<Promise<string>> = [
+  Promise.resolve('foo'),
+  Promise.reject('bar'),
+];
+
+export type MyCollectionType = ExtractCollectionType<typeof myArray>; // MyCollectionType is "Settled<string>"

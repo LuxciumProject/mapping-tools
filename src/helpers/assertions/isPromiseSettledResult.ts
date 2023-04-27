@@ -22,7 +22,7 @@ export function isPromiseFulfilledResult<T>(
   try {
     result =
       contender != null &&
-      typeof contender === 'object' &&
+      'object' === typeof contender &&
       'status' in contender &&
       contender.status === FULFILLED &&
       'value' in contender;
@@ -47,7 +47,7 @@ export function isPromiseFulfilledResult<T>(
   try {
     result =
       contender != null &&
-      typeof contender === 'object' &&
+      'object' === typeof contender &&
       'status' in contender &&
       contender.status === REJECTED &&
       'reason' in contender;

@@ -59,7 +59,7 @@ export function makeRejection({
     writable: false,
   });
 
-  if (transformStep === -1) {
+  if (-1 === transformStep) {
     Object.defineProperty(result, 'transformStep', {
       value: transformStep,
       enumerable: false,
@@ -67,7 +67,7 @@ export function makeRejection({
     });
   }
 
-  if (index === -1) {
+  if (-1 === index) {
     Object.defineProperty(result, 'index', {
       value: index,
       enumerable: false,

@@ -61,4 +61,19 @@ describe('parallelMapping', () => {
 
     expect(await Promise.all(result)).toStrictEqual(expected);
   });
+  // it('Should be able to do this stuff', async () => {
+  //   const URL = `https:${'//www.example.com'}/photos/page${10}.html`;
+  //   const urlList = URL.split('');
+  //   const firstPass = parallelMapping(urlList, l => l);
+  //   parallelMapping(firstPass, l => l);
+  //   const expected = [
+  //     { index: 0, status: 'fulfilled', transformStep: 1, value: 1 },
+  //     { index: 1, status: 'fulfilled', transformStep: 1, value: 2 },
+  //     { index: 2, status: 'fulfilled', transformStep: 1, value: 3 },
+  //   ];
+
+  //   expect(await Promise.all(result)).toStrictEqual(expected);
+  // });
 });
+
+// https:${string}/photos/page${number}.html

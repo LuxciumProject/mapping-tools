@@ -23,9 +23,9 @@ export function hasTransformStep(
   try {
     result =
       countender != null &&
-      typeof countender === 'object' &&
+      'object' === typeof countender &&
       'transformStep' in countender &&
-      typeof countender.transformStep === 'number';
+      'number' === typeof countender.transformStep;
   } catch {
     // Do nothing
     /*
@@ -46,26 +46,26 @@ export function isSettledRight<T>(
 ): contender is SettledRight<T> {
   let result = false;
   try {
-    if (typeof contender === 'object' && contender !== null) {
+    if ('object' === typeof contender && contender !== null) {
       result =
         'status' in contender &&
         'value' in contender &&
         'currentRejection' in contender &&
         'transformStep' in contender &&
-        typeof contender.transformStep === 'number' &&
+        'number' === typeof contender.transformStep &&
         'index' in contender &&
-        typeof contender.index === 'number' &&
+        'number' === typeof contender.index &&
         (('reason' in contender && contender.reason === undefined) ||
           !('reason' in contender)) &&
         //
         FULFILLED in contender &&
         REJECTED in contender &&
-        contender.rejected === null &&
+        null === contender.rejected &&
         //
         contender.status === FULFILLED &&
         contender.value === contender[FULFILLED] &&
         //
-        contender.currentRejection === null;
+        null === contender.currentRejection;
     }
   } catch {
     // Do nothing
@@ -86,28 +86,28 @@ export function isSettledLeft(contender: unknown): contender is SettledLeft {
   let result = false;
   try {
     result =
-      typeof contender === 'object' &&
+      'object' === typeof contender &&
       contender !== null &&
       //
       'status' in contender &&
       'reason' in contender &&
       'currentRejection' in contender &&
       'transformStep' in contender &&
-      typeof contender.transformStep === 'number' &&
+      'number' === typeof contender.transformStep &&
       'index' in contender &&
-      typeof contender.index === 'number' &&
+      'number' === typeof contender.index &&
       (('value' in contender && contender.value === undefined) ||
         !('value' in contender)) &&
       //
       REJECTED in contender &&
       FULFILLED in contender &&
-      contender.fulfilled === null &&
+      null === contender.fulfilled &&
       //
       contender.status === REJECTED &&
       contender.reason === contender[REJECTED] &&
       //
-      (contender.currentRejection === true ||
-        contender.currentRejection === false ||
+      (true === contender.currentRejection ||
+        false === contender.currentRejection ||
         contender.currentRejection === undefined);
   } catch {
     // Do nothing
