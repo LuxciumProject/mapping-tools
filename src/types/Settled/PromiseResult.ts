@@ -16,6 +16,7 @@ export type PromiseResult<T> = PromiseSettledResult<T>;
  * @public
  */
 export type Fulfilled<T> = PromiseFulfilledResult<T>;
+
 /**
  * The type Rejected is an alias to PromiseRejectedResult.
  *

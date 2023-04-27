@@ -37,6 +37,7 @@ export class ChainTranformFunctions<InputType, U = InputType> {
   ) {
     return new ChainTranformFunctions<TVal, RVal>(fn, []);
   }
+
   private constructor(
     private readonly _firstFunction: TransformFn<InputType, any>,
     functions: TransformFn<any, any>[] | TransformFnTuple<any, any>,
@@ -53,6 +54,7 @@ export class ChainTranformFunctions<InputType, U = InputType> {
       fn
     );
   }
+
   public addLastFunction<U, OutputType>(fn: TransformFn<U, OutputType>) {
     return new ChainTranformFunctions<InputType, OutputType>(
       this._firstFunction,
@@ -60,12 +62,15 @@ export class ChainTranformFunctions<InputType, U = InputType> {
       fn
     ).functions;
   }
+
   get functions() {
     return this._functions;
   }
+
   get firstFunction() {
     return this._firstFunction;
   }
+
   get lastFunction() {
     return this._lastFunction;
   }

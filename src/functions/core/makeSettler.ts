@@ -22,6 +22,7 @@ export function makeSettler<T>(
   item: PromiseLike<PromiseSettledResult<T> | Settled<T> | T>,
   index?: number
 ): Promise<Settled<T>>;
+
 /**
  * **Promise\<Right\>**: T will be resolved right (SettledRight<T>)
  * @param item T | SettledRight<T> | PromiseFulfilledResult<T>
@@ -31,6 +32,7 @@ export function makeSettler<T>(
   item: PromiseLike<PromiseFulfilledResult<T> | SettledRight<T> | T>,
   index?: number
 ): Promise<SettledRight<T>>;
+
 /**
  * **Promise\<Left\>**: SettledLeft
  * @param item SettledLeft | PromiseRejectedResult
@@ -40,6 +42,7 @@ export function makeSettler<T>(
   item: PromiseLike<PromiseRejectedResult | SettledLeft>,
   index?: number
 ): Promise<SettledLeft>;
+
 /**
  * **Promise\<TBase\>**: T will be resolved right (SettledRight<T>)
  * @param item T
@@ -59,6 +62,7 @@ export function makeSettler<T>(
   item: PromiseSettledResult<T> | Settled<T> | T,
   index?: number
 ): Settled<T>;
+
 /**
  * **Right**: T will be resolved right (SettledRight<T>)
  * @param item T | SettledRight<T> | PromiseFulfilledResult<T>
@@ -68,6 +72,7 @@ export function makeSettler<T>(
   item: PromiseFulfilledResult<T> | SettledRight<T> | T,
   index?: number
 ): SettledRight<T>;
+
 /**
  * **Left**: SettledLeft
  * @param item SettledLeft | PromiseRejectedResult
@@ -77,6 +82,7 @@ export function makeSettler<T>(
   item: PromiseRejectedResult | SettledLeft,
   index?: number
 ): SettledLeft;
+
 /**
  * **TBase**: T will be resolved right (SettledRight<T>)
  * @param item T

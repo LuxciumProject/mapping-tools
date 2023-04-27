@@ -2,6 +2,7 @@
 export type TransformStep = {
   transformStep: number;
 };
+
 /** @beta */
 export type Indexed = {
   transformStep: number;

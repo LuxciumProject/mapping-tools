@@ -99,6 +99,7 @@ export type {
   SettledValues,
   TransformStep,
 };
+
 /**
  * @category Delegates Functions
  *
@@ -106,123 +107,128 @@ export type {
  *
  */
 export type { ErrLookupFn, LookupFn, TransformFn, ValidateFn };
-export {
-  /**
-   *
-   *### awaitedMapping
-   *
-   ***`awaitedMapping(collection, TransformFn, LookupFn, ValidateFn, ErrLookupFn): Promise<Array<Settled<R>>>`**
-   *
-   *Applies the provided callback functions to each item in the collection, and returns a promise that resolves to an array of the transformed and validated items, represented as `Settled<R>` objects.
-   *- Based on `Promise.all($)`
-   *- Function signature:
-   *  ```typescript
-   *  export async function awaitedMapping<T, R>(
-   *    collection: DeferredCollection<T>,
-   *    transformFn: TransformFn<T, R> | null = async value => value as any as R,
-   *    lookupFn: LookupFn<T, R> | null = v => void v,
-   *    validateFn: ValidateFn<T, R> | null = async v => void v,
-   *    errLookupFn: ErrLookupFn | null = v => void v
-   *  ): Promise<Settled<R>[]>;
-   *  ```
-   *- Takes as its main input: `Iterable<Base<T> | PromiseLike<Base<T>>>` or `PromiseLike<Iterable<Base<T>> | Iterable<PromiseLike<Base<T>>>>`
-   *- Returns: `Promise<Array<Settled<R>>>`
-   */
-  awaitedMapping,
-  /**
-   * istanbul ignore next
-   * UNSAFE: Name of the class will change in future release
-   * @experimental
-   * @beta
-   */
-  Chain,
-  /**
-   *
-   * ### generateMapping
-   * **`generateMapping(collection, TransformFn, LookupFn, ValidateFn, ErrLookupFn): Generator<Promise<Settled<R>>, void, unknown>`**
-   *
-   * Applies the provided callback functions to each item in the collection, and returns a generator that yields promises that resolve to the transformed and validated items, represented as `Settled<R>` objects.
-   * - Based on the `Generator` _Protocol_
-   * - Function signature:
-   *
-   *   ```typescript
-   *   export function* generateMapping<T, R>(
-   *     collection: Collection<T>,
-   *     transformFn: TransformFn<T, R> | null = async value => value as any as R,
-   *     lookupFn: LookupFn<T, R> | null = v => void v,
-   *     validateFn: ValidateFn<T, R> | null = async v => void v,
-   *     errLookupFn: ErrLookupFn | null = v => void v
-   *   ): Generator<Promise<Settled<R>>, void, unknown>;
-   *   ```
-   * - Takes as its main input: `Iterable<Base<T> | PromiseLike<Base<T>>>` only
-   * - Returns: `Generator<Promise<Settled<R>>, void, unknown>`
-   */
-  generateMapping,
-  /**
-   * ### generateMappingAsync
-   * **`generateMappingAsync(collection, TransformFn, LookupFn, ValidateFn, ErrLookupFn): AsyncGenerator<Settled<R>, void, unknown>`**
-   * Applies the provided callback functions to each item in the collection, and returns an async generator that yields the transformed and validated items, represented as `Settled<R>` objects.
-   * - Based on the `AsyncGenerator` _Protocol_
-   * - Function signature:
-   *   ```typescript
-   *   export async function* generateMappingAsync<R, T>(
-   *     collection: DeferredCollection<T>,
-   *     transformFn: TransformFn<T, R> | null = async value => value as any as R,
-   *     lookupFn: LookupFn<T, R> | null = v => void v,
-   *     validateFn: ValidateFn<T, R> | null = async v => void v,
-   *     errLookupFn: ErrLookupFn | null = v => void v
-   *   ): AsyncGenerator<Settled<R>, void, unknown>;
-   *   ```
-   * - Takes as its main input: `Iterable<Base<T> | PromiseLike<Base<T>>>` or `PromiseLike<Iterable<Base<T>> | Iterable<PromiseLike<Base<T>>>>`
-   * - Returns: `AsyncGenerator<Settled<R>, void, unknown>`
-   */
-  generateMappingAsync,
-  /**
-   * ### parallelMapping
-   *
-   ***`parallelMapping(collection, TransformFn, LookupFn, ValidateFn, ErrLookupFn): Array<Promise<Settled<R>>>`**
-   *
-   * Applies the provided callback functions to each item in the
-   * collection in parallel, and returns an array of promises that
-   * resolve to the transformed and validated items, represented as
-   * `Settled<R>` objects.
-   * - Based on an `Array.prototype.map($)`
-      * - Function signature:
-   *   ```typescript
-   *   export function parallelMapping<T, R>(
-   *     collection: Collection<T>,
-   *     transformFn: TransformFn<T, R> | null = async value => value as any as R,
-   *     lookupFn: LookupFn<T, R> | null = v => void v,
-   *     validateFn: ValidateFn<T, R> | null = async v => void v,
-   *     errLookupFn: ErrLookupFn | null = v => void v
-   *   ): Promise<Settled<R>>[];
-   *   ```
-   * - Takes as its main input: `Iterable<Base<T> | PromiseLike<Base<T>>>` only
-   * - Returns: `Array<Promise<Settled<R>>>`
- 
-   *
-   */
-  parallelMapping,
-  /**
-   * ### serialMapping
-   * **`serialMapping(collection, TransformFn, LookupFn, ValidateFn, ErrLookupFn): Promise<Array<Settled<R>>>`**
-   * Applies the provided callback functions to each item in the collection in series, and returns a promise that resolves to an array of the transformed and validated items, represented as `Settled<R>` objects.
-   * - Based on `forOf` _loop_
-   * - Function signature:
-   *   ```typescript
-   *   export async function serialMapping<T, R>(
-   *     collection: DeferredCollection<T>,
-   *     transformFn: TransformFn<T, R> | null = async value => value as any as R,
-   *     lookupFn: LookupFn<T, R> | null = v => void v,
-   *     validateFn: ValidateFn<T, R> | null = async v => void v,
-   *     errLookupFn: ErrLookupFn | null = v => void v
-   *   ): Promise<Settled<R>[]> {}
-   *   ```
-   * - Takes as its main input: `Iterable<Base<T>> | Iterable<PromiseLike<Base<T>>>` or `PromiseLike<Iterable<Base<T>>>`
-   * - Returns: `Promise<Array<Settled<R>>>`
-   */
-  serialMapping,
-};
+
+/**
+ *
+ *### awaitedMapping
+ *
+ ***`awaitedMapping(collection, TransformFn, LookupFn, ValidateFn, ErrLookupFn): Promise<Array<Settled<R>>>`**
+ *
+ *Applies the provided callback functions to each item in the collection, and returns a promise that resolves to an array of the transformed and validated items, represented as `Settled<R>` objects.
+ *- Based on `Promise.all($)`
+ *- Function signature:
+ *  ```typescript
+ *  export async function awaitedMapping<T, R>(
+ *    collection: DeferredCollection<T>,
+ *    transformFn: TransformFn<T, R> | null = async value => value as any as R,
+ *    lookupFn: LookupFn<T, R> | null = v => void v,
+ *    validateFn: ValidateFn<T, R> | null = async v => void v,
+ *    errLookupFn: ErrLookupFn | null = v => void v
+ *  ): Promise<Settled<R>[]>;
+ *  ```
+ *- Takes as its main input: `Iterable<Base<T> | PromiseLike<Base<T>>>` or `PromiseLike<Iterable<Base<T>> | Iterable<PromiseLike<Base<T>>>>`
+ *- Returns: `Promise<Array<Settled<R>>>`
+ */
+export { awaitedMapping };
+
+/**
+ * istanbul ignore next
+ * UNSAFE: Name of the class will change in future release
+ * @experimental
+ * @beta
+ */
+export { Chain };
+
+/**
+ *
+ * ### generateMapping
+ * **`generateMapping(collection, TransformFn, LookupFn, ValidateFn, ErrLookupFn): Generator<Promise<Settled<R>>, void, unknown>`**
+ *
+ * Applies the provided callback functions to each item in the collection, and returns a generator that yields promises that resolve to the transformed and validated items, represented as `Settled<R>` objects.
+ * - Based on the `Generator` _Protocol_
+ * - Function signature:
+ *
+ *   ```typescript
+ *   export function* generateMapping<T, R>(
+ *     collection: Collection<T>,
+ *     transformFn: TransformFn<T, R> | null = async value => value as any as R,
+ *     lookupFn: LookupFn<T, R> | null = v => void v,
+ *     validateFn: ValidateFn<T, R> | null = async v => void v,
+ *     errLookupFn: ErrLookupFn | null = v => void v
+ *   ): Generator<Promise<Settled<R>>, void, unknown>;
+ *   ```
+ * - Takes as its main input: `Iterable<Base<T> | PromiseLike<Base<T>>>` only
+ * - Returns: `Generator<Promise<Settled<R>>, void, unknown>`
+ */
+export { generateMapping };
+
+/**
+ * ### generateMappingAsync
+ * **`generateMappingAsync(collection, TransformFn, LookupFn, ValidateFn, ErrLookupFn): AsyncGenerator<Settled<R>, void, unknown>`**
+ * Applies the provided callback functions to each item in the collection, and returns an async generator that yields the transformed and validated items, represented as `Settled<R>` objects.
+ * - Based on the `AsyncGenerator` _Protocol_
+ * - Function signature:
+ *   ```typescript
+ *   export async function* generateMappingAsync<R, T>(
+ *     collection: DeferredCollection<T>,
+ *     transformFn: TransformFn<T, R> | null = async value => value as any as R,
+ *     lookupFn: LookupFn<T, R> | null = v => void v,
+ *     validateFn: ValidateFn<T, R> | null = async v => void v,
+ *     errLookupFn: ErrLookupFn | null = v => void v
+ *   ): AsyncGenerator<Settled<R>, void, unknown>;
+ *   ```
+ * - Takes as its main input: `Iterable<Base<T> | PromiseLike<Base<T>>>` or `PromiseLike<Iterable<Base<T>> | Iterable<PromiseLike<Base<T>>>>`
+ * - Returns: `AsyncGenerator<Settled<R>, void, unknown>`
+ */
+export { generateMappingAsync };
+
+/**
+ * ### parallelMapping
+ *
+ ***`parallelMapping(collection, TransformFn, LookupFn, ValidateFn, ErrLookupFn): Array<Promise<Settled<R>>>`**
+ *
+ * Applies the provided callback functions to each item in the
+ * collection in parallel, and returns an array of promises that
+ * resolve to the transformed and validated items, represented as
+ * `Settled<R>` objects.
+ * - Based on an `Array.prototype.map($)`
+    * - Function signature:
+ *   ```typescript
+ *   export function parallelMapping<T, R>(
+ *     collection: Collection<T>,
+ *     transformFn: TransformFn<T, R> | null = async value => value as any as R,
+ *     lookupFn: LookupFn<T, R> | null = v => void v,
+ *     validateFn: ValidateFn<T, R> | null = async v => void v,
+ *     errLookupFn: ErrLookupFn | null = v => void v
+ *   ): Promise<Settled<R>>[];
+ *   ```
+ * - Takes as its main input: `Iterable<Base<T> | PromiseLike<Base<T>>>` only
+ * - Returns: `Array<Promise<Settled<R>>>`
+
+ *
+ */
+export { parallelMapping };
+
+/**
+ * ### serialMapping
+ * **`serialMapping(collection, TransformFn, LookupFn, ValidateFn, ErrLookupFn): Promise<Array<Settled<R>>>`**
+ * Applies the provided callback functions to each item in the collection in series, and returns a promise that resolves to an array of the transformed and validated items, represented as `Settled<R>` objects.
+ * - Based on `forOf` _loop_
+ * - Function signature:
+ *   ```typescript
+ *   export async function serialMapping<T, R>(
+ *     collection: DeferredCollection<T>,
+ *     transformFn: TransformFn<T, R> | null = async value => value as any as R,
+ *     lookupFn: LookupFn<T, R> | null = v => void v,
+ *     validateFn: ValidateFn<T, R> | null = async v => void v,
+ *     errLookupFn: ErrLookupFn | null = v => void v
+ *   ): Promise<Settled<R>[]> {}
+ *   ```
+ * - Takes as its main input: `Iterable<Base<T>> | Iterable<PromiseLike<Base<T>>>` or `PromiseLike<Iterable<Base<T>>>`
+ * - Returns: `Promise<Array<Settled<R>>>`
+ */
+export { serialMapping };
+export { functions };
 
 /**
  * Constant `FULFILLED` is used in place of the string `'fulfilled'` to
@@ -249,108 +255,10 @@ export const REJECTED: typeof constants.REJECTED = constants.REJECTED;
 export const NULL_SYMBOL: typeof constants.NULL_SYMBOL = constants.NULL_SYMBOL;
 // export const NULL_SYMBOL: unique symbol = Symbol.for('NULL_SYMBOL');
 
-export const functions = {
-  /**
-   *
-   *### awaitedMapping
-   *
-   ***`awaitedMapping(collection, TransformFn, LookupFn, ValidateFn, ErrLookupFn): Promise<Array<Settled<R>>>`**
-   *
-   *Applies the provided callback functions to each item in the collection, and returns a promise that resolves to an array of the transformed and validated items, represented as `Settled<R>` objects.
-   *- Based on `Promise.all($)`
-   *- Function signature:
-   *  ```typescript
-   *  export async function awaitedMapping<T, R>(
-   *    collection: DeferredCollection<T>,
-   *    transformFn: TransformFn<T, R> | null = async value => value as any as R,
-   *    lookupFn: LookupFn<T, R> | null = v => void v,
-   *    validateFn: ValidateFn<T, R> | null = async v => void v,
-   *    errLookupFn: ErrLookupFn | null = v => void v
-   *  ): Promise<Settled<R>[]>;
-   *  ```
-   *- Takes as its main input: `Iterable<Base<T> | PromiseLike<Base<T>>>` or `PromiseLike<Iterable<Base<T>> | Iterable<PromiseLike<Base<T>>>>`
-   *- Returns: `Promise<Array<Settled<R>>>`
-   */
+const functions = {
   awaitedMapping,
-  /**
-   *
-   * ### generateMapping
-   * **`generateMapping(collection, TransformFn, LookupFn, ValidateFn, ErrLookupFn): Generator<Promise<Settled<R>>, void, unknown>`**
-   *
-   * Applies the provided callback functions to each item in the collection, and returns a generator that yields promises that resolve to the transformed and validated items, represented as `Settled<R>` objects.
-   * - Based on the `Generator` _Protocol_
-   * - Function signature:
-   *   ```typescript
-   *   export function* generateMapping<T, R>(
-   *     collection: Collection<T>,
-   *     transformFn: TransformFn<T, R> | null = async value => value as any as R,
-   *     lookupFn: LookupFn<T, R> | null = v => void v,
-   *     validateFn: ValidateFn<T, R> | null = async v => void v,
-   *     errLookupFn: ErrLookupFn | null = v => void v
-   *   ): Generator<Promise<Settled<R>>, void, unknown>;
-   *   ```
-   * - Takes as its main input: `Iterable<Base<T> | PromiseLike<Base<T>>>` only
-   * - Returns: `Generator<Promise<Settled<R>>, void, unknown>`
-   */
   generateMapping,
-  /**
-   * ### generateMappingAsync
-   * **`generateMappingAsync(collection, TransformFn, LookupFn, ValidateFn, ErrLookupFn): AsyncGenerator<Settled<R>, void, unknown>`**
-   * Applies the provided callback functions to each item in the collection, and returns an async generator that yields the transformed and validated items, represented as `Settled<R>` objects.
-   * - Based on the `AsyncGenerator` _Protocol_
-   * - Function signature:
-   *   ```typescript
-   *   export async function* generateMappingAsync<R, T>(
-   *     collection: DeferredCollection<T>,
-   *     transformFn: TransformFn<T, R> | null = async value => value as any as R,
-   *     lookupFn: LookupFn<T, R> | null = v => void v,
-   *     validateFn: ValidateFn<T, R> | null = async v => void v,
-   *     errLookupFn: ErrLookupFn | null = v => void v
-   *   ): AsyncGenerator<Settled<R>, void, unknown>;
-   *   ```
-   * - Takes as its main input: `Iterable<Base<T> | PromiseLike<Base<T>>>` or `PromiseLike<Iterable<Base<T>> | Iterable<PromiseLike<Base<T>>>>`
-   * - Returns: `AsyncGenerator<Settled<R>, void, unknown>`
-   */
   generateMappingAsync,
-  /**
-   * ### parallelMapping
-   ***`parallelMapping(collection, TransformFn, LookupFn, ValidateFn, ErrLookupFn): Array<Promise<Settled<R>>>`**
-   * Applies the provided callback functions to each item in the
-   * collection in parallel, and returns an array of promises that
-   * resolve to the transformed and validated items, represented as
-   * `Settled<R>` objects.
-   * - Based on an `Array.prototype.map($)`
-   * - Function signature:
-   *   ```typescript
-   *   export function parallelMapping<T, R>(
-   *     collection: Collection<T>,
-   *     transformFn: TransformFn<T, R> | null = async value => value as any as R,
-   *     lookupFn: LookupFn<T, R> | null = v => void v,
-   *     validateFn: ValidateFn<T, R> | null = async v => void v,
-   *     errLookupFn: ErrLookupFn | null = v => void v
-   *   ): Promise<Settled<R>>[];
-   *   ```
-   * - Takes as its main input: `Iterable<Base<T> | PromiseLike<Base<T>>>` only
-   * - Returns: `Array<Promise<Settled<R>>>`
-   */
   parallelMapping,
-  /**
-   * ### serialMapping
-   * **`serialMapping(collection, TransformFn, LookupFn, ValidateFn, ErrLookupFn): Promise<Array<Settled<R>>>`**
-   * Applies the provided callback functions to each item in the collection in series, and returns a promise that resolves to an array of the transformed and validated items, represented as `Settled<R>` objects.
-   * - Based on `forOf` _loop_
-   * - Function signature:
-   *   ```typescript
-   *   export async function serialMapping<T, R>(
-   *     collection: DeferredCollection<T>,
-   *     transformFn: TransformFn<T, R> | null = async value => value as any as R,
-   *     lookupFn: LookupFn<T, R> | null = v => void v,
-   *     validateFn: ValidateFn<T, R> | null = async v => void v,
-   *     errLookupFn: ErrLookupFn | null = v => void v
-   *   ): Promise<Settled<R>[]> {}
-   *   ```
-   * - Takes as its main input: `Iterable<Base<T>> | Iterable<PromiseLike<Base<T>>>` or `PromiseLike<Iterable<Base<T>>>`
-   * - Returns: `Promise<Array<Settled<R>>>`
-   */
   serialMapping,
 };

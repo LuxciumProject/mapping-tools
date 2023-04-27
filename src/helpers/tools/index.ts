@@ -8,5 +8,6 @@ export {
   filterRight,
   toFulfilment,
 } from './extractValues';
+
 /** @public*/
 export { getTransformStep } from './getTransformStep';

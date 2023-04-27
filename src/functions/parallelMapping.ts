@@ -8,6 +8,7 @@ import type {
   ValidateFn,
 } from '../types';
 import { fn_a1f9a } from './core';
+
 /**
  * ### parallelMapping
  ***`parallelMapping(collection, TransformFn, LookupFn, ValidateFn, ErrLookupFn): Array<Promise<Settled<R>>>`**

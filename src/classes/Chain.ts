@@ -26,6 +26,7 @@ import type {
   TransformFn,
   ValidateFn,
 } from '../types';
+
 /* istambul ignore next */
 /**
  * istanbul ignore next
@@ -36,6 +37,7 @@ import type {
 /* istambul ignore next */
 export class Chain<B> implements IChain<B> {
   collection: Collection<B> | PromiseLike<Collection<B>>;
+
   private readonly _list: Promise<BaseOrDeferred<B>[]>;
 
   static of<BType>(
@@ -43,6 +45,7 @@ export class Chain<B> implements IChain<B> {
   ): Chain<BType> {
     return new Chain<BType>(collection);
   }
+
   private constructor(collection: Collection<B> | PromiseLike<Collection<B>>) {
     this.collection = collection;
     const _list = (async function () {
@@ -72,6 +75,7 @@ export class Chain<B> implements IChain<B> {
     });
     return this;
   }
+
   public serialMapping<R>(
     transformFn?: TransformFn<B, R> | null,
     lookupFn?: LookupFn<B, R> | null,
@@ -87,6 +91,7 @@ export class Chain<B> implements IChain<B> {
     );
     return new Chain(result);
   }
+
   public awaitedMapping<R>(
     transformFn?: TransformFn<B, R> | null,
     lookupFn?: LookupFn<B, R> | null,
@@ -102,6 +107,7 @@ export class Chain<B> implements IChain<B> {
     );
     return new Chain(result);
   }
+
   public parallelMapping<R>(
     transformFn?: TransformFn<B, R> | null,
     lookupFn?: LookupFn<B, R> | null,
@@ -119,6 +125,7 @@ export class Chain<B> implements IChain<B> {
 
     return new Chain<Promise<Settled<R>>>(result);
   }
+
   public generateMapping<R>(
     transformFn?: TransformFn<B, R> | null,
     lookupFn?: LookupFn<B, R> | null,
@@ -136,6 +143,7 @@ export class Chain<B> implements IChain<B> {
 
     return new Chain(result);
   }
+
   public async generator<R>(
     transformFn?: TransformFn<B, R> | null,
     lookupFn?: LookupFn<B, R> | null,
@@ -150,6 +158,7 @@ export class Chain<B> implements IChain<B> {
       errLookupFn
     );
   }
+
   public generateMappingAsync<R>(
     transformFn?: TransformFn<B, R> | null,
     lookupFn?: LookupFn<B, R> | null,
@@ -173,6 +182,7 @@ export class Chain<B> implements IChain<B> {
 
     return new Chain(result);
   }
+
   public asyncGeneretor<R>(
     transformFn?: TransformFn<B, R> | null,
     lookupFn?: LookupFn<B, R> | null,
@@ -187,24 +197,29 @@ export class Chain<B> implements IChain<B> {
       errLookupFn
     );
   }
+
   public async filterRight(): Promise<SettledRight<B>[]> {
     const list = [...(await this.collection)];
     return list.every((item): item is Settled<B> => isSettled(item))
       ? filterRight<B>(list)
       : filterRight<B>(await awaitedMapping(list));
   }
+
   public async filterLeft(): Promise<SettledLeft[]> {
     const list = [...(await this.collection)];
     return list.every((item): item is Settled<B> => isSettled(item))
       ? filterLeft(list)
       : filterLeft(await awaitedMapping(list));
   }
+
   public async extractFulfilledValues(): Promise<B[]> {
     return extractFulfilledValues<B>(await awaitedMapping(this._list));
   }
+
   public async extractSettledValues(): Promise<(B | typeof NULL_SYMBOL)[]> {
     return extractSettledValues<B>(await awaitedMapping(this._list));
   }
+
   get list(): Promise<BaseOrDeferred<B>[]> {
     return this._list;
   }
@@ -267,6 +282,7 @@ The Apply returned by fantasy-land/ap must be the same as a and b
    *
    */
   public ['fantasy-land/map']: typeof this.map = this.map;
+
   public map<R>(
     transformFn: TransformFn<BaseOrDeferred<B>, R>,
     lookupFn?: LookupFn<BaseOrDeferred<B>, R> | null,
