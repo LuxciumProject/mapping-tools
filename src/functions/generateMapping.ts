@@ -1,4 +1,4 @@
-import {
+import type {
   Collection,
   ErrLookupFn,
   LookupFn,
@@ -34,7 +34,7 @@ export function* generateMapping<T, R>(
   lookupFn: LookupFn<T, R> | null = v => void v,
   validateFn: ValidateFn<T, R> | null = async v => void v,
   errLookupFn: ErrLookupFn | null = v => void v
-): Generator<Promise<Settled<R>>, void, unknown> {
+): Generator<Promise<Settled<R>>, void> {
   let index = 0;
   for (const item of collection) {
     yield fn_a1f9a({

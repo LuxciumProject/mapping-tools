@@ -1,5 +1,5 @@
 import { FULFILLED } from '../../constants';
-import { SettledRight } from '../../types';
+import type { SettledRight } from '../../types';
 
 // FUNC DEF:(makeFulfillement<U>) ------------------------------------
 /** @internal */

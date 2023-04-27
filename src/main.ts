@@ -45,7 +45,9 @@ void (async function MAIN() {
       throw new Error('Test error');
     }
   });
-  result3.map(async item => console.log('result3 =', await item));
+  result3.map(async item => {
+    console.log('result3 =', await item);
+  });
   return void step3;
 })();
 

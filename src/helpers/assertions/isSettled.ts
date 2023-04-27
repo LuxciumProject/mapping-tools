@@ -1,6 +1,6 @@
 import { FULFILLED, REJECTED } from '../../constants';
-import { Settled, SettledLeft, SettledRight } from '../../types';
-import { TransformStep } from '../../types/TransformStep';
+import type { Settled, SettledLeft, SettledRight } from '../../types';
+import type { TransformStep } from '../../types/TransformStep';
 
 /**
  * @category Assertion Tools

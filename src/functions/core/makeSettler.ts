@@ -5,8 +5,8 @@ import {
   isSettledRight,
 } from '../../helpers/assertions';
 import { getTransformStep } from '../../helpers/tools';
-import { Base, Settled, SettledLeft, SettledRight } from '../../types';
-import { Deferred } from '../../types/MainTypes';
+import type { Base, Settled, SettledLeft, SettledRight } from '../../types';
+import type { Deferred } from '../../types/MainTypes';
 import { makeFulfillement } from './makeFulfillement';
 import { makeRejection } from './makeRejection';
 
@@ -19,7 +19,7 @@ import { makeRejection } from './makeRejection';
  * @param index number
  */
 export function makeSettler<T>(
-  item: PromiseLike<T | Settled<T> | PromiseSettledResult<T>>,
+  item: PromiseLike<PromiseSettledResult<T> | Settled<T> | T>,
   index?: number
 ): Promise<Settled<T>>;
 /**
@@ -28,7 +28,7 @@ export function makeSettler<T>(
  * @param index number
  */
 export function makeSettler<T>(
-  item: PromiseLike<T | SettledRight<T> | PromiseFulfilledResult<T>>,
+  item: PromiseLike<PromiseFulfilledResult<T> | SettledRight<T> | T>,
   index?: number
 ): Promise<SettledRight<T>>;
 /**
@@ -37,7 +37,7 @@ export function makeSettler<T>(
  * @param index number
  */
 export function makeSettler<T>(
-  item: PromiseLike<SettledLeft | PromiseRejectedResult>,
+  item: PromiseLike<PromiseRejectedResult | SettledLeft>,
   index?: number
 ): Promise<SettledLeft>;
 /**
@@ -56,7 +56,7 @@ export function makeSettler<T>(
  * @param index number
  */
 export function makeSettler<T>(
-  item: T | Settled<T> | PromiseSettledResult<T>,
+  item: PromiseSettledResult<T> | Settled<T> | T,
   index?: number
 ): Settled<T>;
 /**
@@ -65,7 +65,7 @@ export function makeSettler<T>(
  * @param index number
  */
 export function makeSettler<T>(
-  item: T | SettledRight<T> | PromiseFulfilledResult<T>,
+  item: PromiseFulfilledResult<T> | SettledRight<T> | T,
   index?: number
 ): SettledRight<T>;
 /**
@@ -74,7 +74,7 @@ export function makeSettler<T>(
  * @param index number
  */
 export function makeSettler<T>(
-  item: SettledLeft | PromiseRejectedResult,
+  item: PromiseRejectedResult | SettledLeft,
   index?: number
 ): SettledLeft;
 /**
@@ -86,26 +86,26 @@ export function makeSettler<T>(item: T, index?: number): SettledRight<T>;
 
 export function makeSettler<T>(
   item:
-    | T
-    | PromiseLike<T>
     | PromiseFulfilledResult<T>
-    | PromiseLike<PromiseFulfilledResult<T>>,
+    | PromiseLike<PromiseFulfilledResult<T>>
+    | PromiseLike<T>
+    | T,
   index?: number
-): SettledRight<T> | Promise<SettledRight<T>>;
+): Promise<SettledRight<T>> | SettledRight<T>;
 
 export function makeSettler<T>(
-  item: PromiseRejectedResult | PromiseLike<PromiseRejectedResult>,
+  item: PromiseLike<PromiseRejectedResult> | PromiseRejectedResult,
   index?: number
-): SettledLeft | Promise<SettledLeft>;
+): Promise<SettledLeft> | SettledLeft;
 
 export function makeSettler<T>(
   item:
-    | T
+    | PromiseLike<PromiseSettledResult<T>>
     | PromiseLike<T>
     | PromiseSettledResult<T>
-    | PromiseLike<PromiseSettledResult<T>>,
+    | T,
   index?: number
-): Settled<T> | Promise<Settled<T>>;
+): Promise<Settled<T>> | Settled<T>;
 
 // export function makeSettler<T>(
 //   item:
@@ -132,9 +132,10 @@ export function makeSettler<T>(
 //   | SettledLeft
 //   | Promise<SettledLeft>;
 // FUNC DEF:(makeSettler<T>) --------------------------------------------
+// eslint-disable-next-line
 export function makeSettler<T>(
   item: Base<T> | Deferred<T>,
-  index: number = -1
+  index = -1
 ): Promise<Settled<T>> | Settled<T> {
   return isPromiseLike(item)
     ? (async () => makeSettler_(await item, index))()

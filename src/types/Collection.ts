@@ -1,4 +1,4 @@
-import { Settled, SettledLeft, SettledRight } from '.';
+import type { Settled, SettledLeft, SettledRight } from '.';
 
 // Iterable<PromiseLike<Settled<T>>>
 // PromiseLike<Iterable<Settled<T>>>
@@ -6,7 +6,7 @@ import { Settled, SettledLeft, SettledRight } from '.';
 // collection: Collection<T> | PromiseLike<Collection<T>>,
 
 /** @public */
-export type Collection<U> = Iterable<U | Settled<U> | PromiseSettledResult<U>>;
+export type Collection<U> = Iterable<PromiseSettledResult<U> | Settled<U> | U>;
 
 /*
 Collection<T> | PromiseLike<Collection<T>> | Iterable<PromiseLike<Settled<T>>>
@@ -21,9 +21,9 @@ Settled<T> PromiseSettledResult<T>
  */
 
 type NamingIsNotAlwaysTheEasiestThingToDoInTheWorld<T> =
-  | T
+  | PromiseSettledResult<T>
   | Settled<T>
-  | PromiseSettledResult<T>;
+  | T;
 type Alias<T> = NamingIsNotAlwaysTheEasiestThingToDoInTheWorld<T>;
 
 type AliasOrPromiseAlias<T> = Alias<T> | PromiseLike<Alias<T>>;
@@ -34,49 +34,49 @@ export type MyLongVersionCatchAllType<T> =
 
 type TheOtherWayAround<A> = A | Iterable<A> | PromiseLike<A>;
 type Level2<B> = TheOtherWayAround<TheOtherWayAround<B>>;
-export type Level3<C> = Level2<C | Settled<C> | PromiseSettledResult<C>>;
+export type Level3<C> = Level2<C | PromiseSettledResult<C> | Settled<C>>;
 
 export type MyLongVersionCatchAllType_Full<T> =
-  | T
-  | SettledLeft
-  | SettledRight<T>
-  | PromiseFulfilledResult<T>
-  | PromiseRejectedResult
   | Iterable<
-      | T
-      | SettledLeft
-      | SettledRight<T>
       | PromiseFulfilledResult<T>
-      | PromiseRejectedResult
       | PromiseLike<
-          | T
-          | SettledLeft
-          | SettledRight<T>
           | PromiseFulfilledResult<T>
           | PromiseRejectedResult
+          | SettledLeft
+          | SettledRight<T>
+          | T
         >
-    >
-  | PromiseLike<
-      | T
+      | PromiseRejectedResult
       | SettledLeft
       | SettledRight<T>
-      | PromiseFulfilledResult<T>
-      | PromiseRejectedResult
+      | T
+    >
+  | PromiseFulfilledResult<T>
+  | PromiseLike<
       | Iterable<
-          | T
-          | SettledLeft
-          | SettledRight<T>
           | PromiseFulfilledResult<T>
-          | PromiseRejectedResult
           | PromiseLike<
-              | T
-              | SettledLeft
-              | SettledRight<T>
               | PromiseFulfilledResult<T>
               | PromiseRejectedResult
+              | SettledLeft
+              | SettledRight<T>
+              | T
             >
+          | PromiseRejectedResult
+          | SettledLeft
+          | SettledRight<T>
+          | T
         >
-    >;
+      | PromiseFulfilledResult<T>
+      | PromiseRejectedResult
+      | SettledLeft
+      | SettledRight<T>
+      | T
+    >
+  | PromiseRejectedResult
+  | SettledLeft
+  | SettledRight<T>
+  | T;
 export type Name_001<T> = T;
 export type Name_002<T> = SettledRight<T>;
 export type Name_003<T> = PromiseFulfilledResult<T>;

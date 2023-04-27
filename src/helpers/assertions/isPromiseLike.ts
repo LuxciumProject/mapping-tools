@@ -22,7 +22,7 @@
  */
 
 export function isPromiseLike<U>(
-  element?: U | PromiseLike<U>
+  element?: PromiseLike<U> | U
 ): element is PromiseLike<U> {
   try {
     if (

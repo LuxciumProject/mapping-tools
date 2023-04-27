@@ -1,5 +1,5 @@
 import { REJECTED } from '../../constants';
-import { SettledLeft } from '../../types';
+import type { SettledLeft } from '../../types';
 
 // FUNC DEF:(makeRejection) ------------------------------------------
 /** @internal */
@@ -11,7 +11,7 @@ export function makeRejection({
   base = {},
 }: {
   reason: any;
-  currentRejection?: true | false | undefined;
+  currentRejection?: false | true | undefined;
   transformStep?: number;
   index?: number;
   base?: { reason: any; status: 'rejected' } | {};

@@ -28,7 +28,7 @@ import { generateMapping } from './functions/generateMapping';
 import { generateMappingAsync } from './functions/generateMappingAsync';
 import { parallelMapping } from './functions/parallelMapping';
 import { serialMapping } from './functions/serialMapping';
-import {
+import type {
   AwaitedMappingFn,
   Base,
   BaseOrDeferred,

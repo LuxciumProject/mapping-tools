@@ -1,7 +1,7 @@
 import { assertions } from '../../helpers';
 import { isPromiseLike } from '../../helpers/assertions';
 import { getTransformStep } from '../../helpers/tools';
-import { MapperOptions, Settled } from '../../types';
+import type { MapperOptions, Settled } from '../../types';
 import { fulfillementBlock } from './fulfillementBlock';
 import { makeRejection } from './makeRejection';
 import { makeSettler } from './makeSettler';
@@ -43,7 +43,7 @@ export async function fn_a1f9a<T, R>({
     if (isPromiseRejectedResult(myItem)) {
       const currentRejection = false;
       const { reason } = myItem;
-      void errLookup(reason, index, currentRejection);
+      errLookup(reason, index, currentRejection);
       return makeRejection({
         reason,
         index,
@@ -58,7 +58,7 @@ export async function fn_a1f9a<T, R>({
     );
   } catch (error) {
     const currentRejection = true;
-    void errLookup(error, index, currentRejection);
+    errLookup(error, index, currentRejection);
     return makeRejection({
       reason: error,
       index,

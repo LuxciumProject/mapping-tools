@@ -1,4 +1,4 @@
-import { TransformFn } from '../types';
+import type { TransformFn } from '../types';
 
 /**
  * This class can be used to chain together multiple functions
@@ -30,7 +30,7 @@ It has a method `getFun`
  *
  */
 export class ChainTranformFunctions<InputType, U = InputType> {
-  private _functions: TransformFnTuple<InputType, U>;
+  private readonly _functions: TransformFnTuple<InputType, U>;
 
   public static addFirstFunction<TVal, RVal = TVal>(
     fn: TransformFn<TVal, RVal>
@@ -39,7 +39,7 @@ export class ChainTranformFunctions<InputType, U = InputType> {
   }
   private constructor(
     private readonly _firstFunction: TransformFn<InputType, any>,
-    functions: TransformFnTuple<any, any> | TransformFn<any, any>[],
+    functions: TransformFn<any, any>[] | TransformFnTuple<any, any>,
     private readonly _lastFunction: TransformFn<any, U> = _firstFunction
   ) {
     functions.push(_lastFunction);
@@ -72,13 +72,13 @@ export class ChainTranformFunctions<InputType, U = InputType> {
 }
 
 export type TransformFnTuple<InputType, OutputType> =
-  | [TransformFn<InputType, OutputType>]
-  | [TransformFn<InputType, unknown>, TransformFn<unknown, OutputType>]
   | [
-      TransformFn<InputType, unknown>,
-      ...TransformFn<unknown, unknown>[],
+      TransformFn<InputType>,
+      ...TransformFn<unknown>[],
       TransformFn<unknown, OutputType>
-    ];
+    ]
+  | [TransformFn<InputType, OutputType>]
+  | [TransformFn<InputType>, TransformFn<unknown, OutputType>];
 
 export const addFirstFunction = ChainTranformFunctions.addFirstFunction;
 export default ChainTranformFunctions;

@@ -1,4 +1,4 @@
-import { Settled } from '.';
+import type { Settled } from '.';
 
 export type WrappedResult<U> = <W>(wraper: W) => Settled<U>;
 

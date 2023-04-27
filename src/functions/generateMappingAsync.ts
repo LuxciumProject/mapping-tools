@@ -1,5 +1,5 @@
 import { isPromiseLike } from '../helpers/assertions';
-import {
+import type {
   DeferredCollection,
   ErrLookupFn,
   LookupFn,
@@ -34,7 +34,7 @@ export async function* generateMappingAsync<R, T>(
   lookupFn: LookupFn<T, R> | null = v => void v,
   validateFn: ValidateFn<T, R> | null = async v => void v,
   errLookupFn: ErrLookupFn | null = v => void v
-): AsyncGenerator<SettledLeft | SettledRight<R>, void, unknown> {
+): AsyncGenerator<SettledLeft | SettledRight<R>, void> {
   const values = [
     ...(isPromiseLike(collection) ? await collection : collection),
   ];

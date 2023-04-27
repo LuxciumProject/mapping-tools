@@ -1,4 +1,4 @@
-import {
+import type {
   ErrLookupFn,
   LookupFn,
   Settled,
@@ -37,7 +37,7 @@ export function parallelMapping<T, R>(
   validateFn: ValidateFn<T, R> | null = async v => void v,
   errLookupFn: ErrLookupFn | null = v => void v
 ): Promise<Settled<R>>[] {
-  return [...collection].map((item, index, array) =>
+  return [...collection].map(async (item, index, array) =>
     fn_a1f9a({
       item,
       index,
@@ -54,13 +54,13 @@ export function parallelMapping<T, R>(
 // TASK LIST: [TODO] (Review Documentation) --------------------------
 
 export type Base<TVal> =
-  | TVal
-  | Settled<TVal>
-  | PromiseSettledResult<TVal>
-  | SettledRight<TVal>
   | PromiseFulfilledResult<TVal>
+  | PromiseRejectedResult
+  | PromiseSettledResult<TVal>
+  | Settled<TVal>
   | SettledLeft
-  | PromiseRejectedResult;
+  | SettledRight<TVal>
+  | TVal;
 export type OfBase<BASE> = BASE extends Settled<infer B>
   ? B extends SettledRight<infer BVal>
     ? BVal
@@ -84,7 +84,7 @@ export type OfDeferred<TVal> = TVal extends PromiseLike<infer BASE>
 //     : never;
 export type Deferred<B> = PromiseLike<Base<B>>;
 export type Collection<B> = Iterable<Base<B>> | Iterable<Deferred<B>>;
-export type MyType<B> = Deferred<B> | Base<B>;
+export type MyType<B> = Base<B> | Deferred<B>;
 
 // PromiseLike<Base<B>>
 parallelMapping([]);

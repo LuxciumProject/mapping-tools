@@ -1,4 +1,4 @@
-import { OnlySideEffect } from '..';
+import type { OnlySideEffect } from '..';
 
 /**
  * This function is a lifecycle hook inside the mapping tool which
@@ -21,8 +21,10 @@ import { OnlySideEffect } from '..';
  * @returns OnlySideEffect: Do not return any value is trigered syncrounously.
  * @group Delegates
  * @public  */
-export interface ErrLookupFn {
-  (reason: any, index: number, currentRejection: boolean): OnlySideEffect;
-}
+export type ErrLookupFn = (
+  reason: any,
+  index: number,
+  currentRejection: boolean
+) => OnlySideEffect;
 
 // TASK LIST: [TODO: Types] (Review Documentation) -------------------

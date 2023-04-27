@@ -1,6 +1,6 @@
 import { NULL_SYMBOL } from '../../constants';
 import { makeFulfillement } from '../../functions/core/makeFulfillement';
-import { Settled, SettledLeft, SettledRight } from '../../types';
+import type { Settled, SettledLeft, SettledRight } from '../../types';
 import { isSettledRight } from '../assertions';
 import { isSettledLeft } from '../assertions/isSettled';
 

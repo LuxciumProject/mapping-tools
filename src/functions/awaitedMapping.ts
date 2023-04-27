@@ -1,5 +1,5 @@
 import { isPromiseLike } from '../helpers/assertions';
-import {
+import type {
   DeferredCollection,
   ErrLookupFn,
   LookupFn,
@@ -40,7 +40,7 @@ export async function awaitedMapping<T, R>(
   const values = [
     ...(isPromiseLike(collection) ? await collection : collection),
   ];
-  const result = values.map((item, index, array) =>
+  const result = values.map(async (item, index, array) =>
     fn_a1f9a({
       item,
       index,

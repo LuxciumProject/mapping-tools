@@ -1,5 +1,5 @@
-import { Chain, NULL_SYMBOL } from '..';
-import {
+import type { Chain, NULL_SYMBOL } from '..';
+import type {
   BaseOrDeferred,
   Collection,
   ErrLookupFn,
@@ -19,51 +19,51 @@ export interface IChain<B> {
   // of<BType>(
   //   collection: Collection<BType> | PromiseLike<Collection<BType>>
   // ): Chain<BType>;
-  serialMapping<R>(
+  serialMapping: <R>(
     transformFn?: TransformFn<B, R> | null,
     lookupFn?: LookupFn<B, R> | null,
     validateFn?: ValidateFn<B, R> | null,
     errLookupFn?: ErrLookupFn | null
-  ): Chain<R>;
-  awaitedMapping<R>(
+  ) => Chain<R>;
+  awaitedMapping: <R>(
     transformFn?: TransformFn<B, R> | null,
     lookupFn?: LookupFn<B, R> | null,
     validateFn?: ValidateFn<B, R> | null,
     errLookupFn?: ErrLookupFn | null
-  ): Chain<R>;
-  parallelMapping<R>(
+  ) => Chain<R>;
+  parallelMapping: <R>(
     transformFn?: TransformFn<B, R> | null,
     lookupFn?: LookupFn<B, R> | null,
     validateFn?: ValidateFn<B, R> | null,
     errLookupFn?: ErrLookupFn | null
-  ): Chain<Promise<Settled<R>>>;
-  generateMapping<R>(
+  ) => Chain<Promise<Settled<R>>>;
+  generateMapping: <R>(
     transformFn?: TransformFn<B, R> | null,
     lookupFn?: LookupFn<B, R> | null,
     validateFn?: ValidateFn<B, R> | null,
     errLookupFn?: ErrLookupFn | null
-  ): Chain<Promise<Settled<R>>>;
-  generator<R>(
+  ) => Chain<Promise<Settled<R>>>;
+  generator: <R>(
     transformFn?: TransformFn<B, R> | null,
     lookupFn?: LookupFn<B, R> | null,
     validateFn?: ValidateFn<B, R> | null,
     errLookupFn?: ErrLookupFn | null
-  ): Promise<Generator<Promise<Settled<R>>, void, unknown>>;
-  generateMappingAsync<R>(
+  ) => Promise<Generator<Promise<Settled<R>>, void>>;
+  generateMappingAsync: <R>(
     transformFn?: TransformFn<B, R> | null,
     lookupFn?: LookupFn<B, R> | null,
     validateFn?: ValidateFn<B, R> | null,
     errLookupFn?: ErrLookupFn | null
-  ): Chain<R>;
-  asyncGeneretor<R>(
+  ) => Chain<R>;
+  asyncGeneretor: <R>(
     transformFn?: TransformFn<B, R> | null,
     lookupFn?: LookupFn<B, R> | null,
     validateFn?: ValidateFn<B, R> | null,
     errLookupFn?: ErrLookupFn | null
-  ): AsyncGenerator<Settled<R>, void, unknown>;
-  filterRight(): Promise<SettledRight<B>[]>;
-  filterLeft(): Promise<SettledLeft[]>;
-  extractFulfilledValues(): Promise<B[]>;
-  extractSettledValues(): Promise<(B | typeof NULL_SYMBOL)[]>;
+  ) => AsyncGenerator<Settled<R>, void>;
+  filterRight: () => Promise<SettledRight<B>[]>;
+  filterLeft: () => Promise<SettledLeft[]>;
+  extractFulfilledValues: () => Promise<B[]>;
+  extractSettledValues: () => Promise<(B | typeof NULL_SYMBOL)[]>;
   get list(): Promise<BaseOrDeferred<B>[]>;
 }

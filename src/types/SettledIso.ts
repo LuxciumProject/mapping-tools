@@ -3,9 +3,9 @@
  * @beta
  */
 export type SettledIso<T = any> = {
-  fulfilled: null | T;
+  fulfilled: T | null;
   rejected: any;
-  value?: undefined | T;
+  value?: T | undefined;
   reason?: any;
   index: number;
 } & (

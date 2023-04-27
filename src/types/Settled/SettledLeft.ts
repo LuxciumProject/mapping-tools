@@ -13,7 +13,7 @@ export type SettledLeft = PromiseRejectedResult & {
   rejected: any;
   fulfilled: null;
   transformStep: number;
-  currentRejection: true | false | undefined;
+  currentRejection: false | true | undefined;
   index: number;
 };
 

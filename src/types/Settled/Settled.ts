@@ -1,5 +1,5 @@
-import { SettledLeft } from './SettledLeft';
-import { SettledRight } from './SettledRight';
+import type { SettledLeft } from './SettledLeft';
+import type { SettledRight } from './SettledRight';
 
 /**
  * The {@link Settled} has either a {@link SettledLeft} or a {@link SettledRight} and is based on the JavaScript {@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/allSettled | Promise.allSettled()} API only objective is to keep the possible failures of a task separated from the expected completion and extend  PromiseSettledResult

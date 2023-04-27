@@ -1,4 +1,4 @@
-import {
+import type {
   Base,
   ErrLookupFn,
   LookupFn,
@@ -6,7 +6,7 @@ import {
   TransformFn,
   ValidateFn,
 } from '.';
-import { WrappedResult } from './WrappedResult';
+import type { WrappedResult } from './WrappedResult';
 
 export type MappingFn_ = <T, R>(
   collection: Iterable<Base<T>>,

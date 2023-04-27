@@ -1,5 +1,10 @@
 import { isPromiseLike } from '../../helpers/assertions';
-import { LookupFn, SettledRight, TransformFn, ValidateFn } from '../../types';
+import type {
+  LookupFn,
+  SettledRight,
+  TransformFn,
+  ValidateFn,
+} from '../../types';
 import { makeFulfillement } from './makeFulfillement';
 // FUNC DEF:(fulfillementBlock<T, R>) ----------------------------------------
 /** @internal */
@@ -17,7 +22,7 @@ export async function fulfillementBlock<T, R>(
   const value = isPromiseLike(transformation)
     ? await transformation
     : transformation;
-  void lookupFn(value, index, array);
+  lookupFn(value, index, array);
   await validateFn(value, index, array);
   let { transformStep } = item;
   transformStep++;

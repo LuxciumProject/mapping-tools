@@ -7,7 +7,7 @@ import { hasTransformStep } from '../assertions';
  * */
 export function getTransformStep(
   item: unknown,
-  initialTransformStep: number = -1
+  initialTransformStep = -1
 ): number {
   let transformStep = initialTransformStep;
   if (hasTransformStep(item)) {

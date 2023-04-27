@@ -1,5 +1,5 @@
-import { NULL_SYMBOL } from '../constants';
-import { Settled, SettledLeft, SettledRight } from './Settled';
+import type { NULL_SYMBOL } from '../constants';
+import type { Settled, SettledLeft, SettledRight } from './Settled';
 
 /**
  * @group Base Types
@@ -7,13 +7,13 @@ import { Settled, SettledLeft, SettledRight } from './Settled';
  * */
 
 export type Base<TVal> =
-  | TVal
-  | Settled<TVal>
-  | PromiseSettledResult<TVal>
-  | SettledRight<TVal>
   | PromiseFulfilledResult<TVal>
+  | PromiseRejectedResult
+  | PromiseSettledResult<TVal>
+  | Settled<TVal>
   | SettledLeft
-  | PromiseRejectedResult;
+  | SettledRight<TVal>
+  | TVal;
 
 /**
  * Alias for `Iterable<Base<B>>` or `Iterable<PromiseLike<Base<B>>>`
@@ -70,13 +70,13 @@ export type SettledArray<R> = Settled<R>[];
 export type NullSymbol = typeof NULL_SYMBOL;
 
 /** @public */
-export type SettledValue<R> = R | NullSymbol;
+export type SettledValue<R> = NullSymbol | R;
 
 /** @public */
 export type SettledValues<R> = SettledValue<R>[];
 
 /** @public */
-export type OnlySideEffect = void | undefined;
+export type OnlySideEffect = undefined | void;
 
 export type Type1<B> = Base<B> | PromiseLike<Base<B>>;
 export type Type1a<B> = Base<B>;
@@ -129,7 +129,7 @@ type Nested<T> = T extends Iterable<infer U>
 
 export type ExtractCollectionType2<T> = Nested<Collection<T>>;
 
-const myArray: Array<Promise<string>> = [
+const myArray: Promise<string>[] = [
   Promise.resolve('foo'),
   Promise.reject('bar'),
 ];

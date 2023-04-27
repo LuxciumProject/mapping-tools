@@ -53,7 +53,7 @@ export type GenerateMappingFn = Function &
     lookupFn?: LookupFn<T, R> | null,
     validateFn?: ValidateFn<T, R> | null,
     errLookupFn?: ErrLookupFn | null
-  ) => Generator<Promise<Settled<R>>, void, unknown>);
+  ) => Generator<Promise<Settled<R>>, void>);
 
 /**
  * @group Core Functions Types
@@ -65,7 +65,7 @@ export type GenerateMappingAsyncFn = Function &
     lookupFn?: LookupFn<T, R> | null,
     validateFn?: ValidateFn<T, R> | null,
     errLookupFn?: ErrLookupFn | null
-  ) => AsyncGenerator<Settled<R>, void, unknown>);
+  ) => AsyncGenerator<Settled<R>, void>);
 
 /*
 ChatGPT

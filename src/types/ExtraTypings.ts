@@ -1,48 +1,48 @@
-import { Settled, SettledLeft, SettledRight } from '.';
+import type { Settled, SettledLeft, SettledRight } from '.';
 
 export type AwaitableTypes<T> =
-  | PromiseLike<T>
-  | PromiseLike<SettledRight<T>>
-  | PromiseLike<PromiseFulfilledResult<T>>
-  | PromiseLike<SettledLeft>
-  | PromiseLike<PromiseRejectedResult>
-  | PromiseLike<Iterable<SettledRight<T>>>
   | PromiseLike<Iterable<PromiseFulfilledResult<T>>>
-  | PromiseLike<Iterable<SettledLeft>>
-  | PromiseLike<Iterable<PromiseRejectedResult>>
-  | PromiseLike<Iterable<T>>
-  | PromiseLike<Iterable<PromiseLike<T>>>
-  | PromiseLike<Iterable<PromiseLike<SettledRight<T>>>>
   | PromiseLike<Iterable<PromiseLike<PromiseFulfilledResult<T>>>>
+  | PromiseLike<Iterable<PromiseLike<PromiseRejectedResult>>>
   | PromiseLike<Iterable<PromiseLike<SettledLeft>>>
-  | PromiseLike<Iterable<PromiseLike<PromiseRejectedResult>>>;
+  | PromiseLike<Iterable<PromiseLike<SettledRight<T>>>>
+  | PromiseLike<Iterable<PromiseLike<T>>>
+  | PromiseLike<Iterable<PromiseRejectedResult>>
+  | PromiseLike<Iterable<SettledLeft>>
+  | PromiseLike<Iterable<SettledRight<T>>>
+  | PromiseLike<Iterable<T>>
+  | PromiseLike<PromiseFulfilledResult<T>>
+  | PromiseLike<PromiseRejectedResult>
+  | PromiseLike<SettledLeft>
+  | PromiseLike<SettledRight<T>>
+  | PromiseLike<T>;
 
 export type BaseType2<T> =
-  | T
-  | Settled<T>
-  | PromiseSettledResult<T>
-  | SettledRight<T>
   | PromiseFulfilledResult<T>
-  | SettledLeft
-  | PromiseRejectedResult
-  | PromiseLike<T>
-  | PromiseLike<SettledRight<T>>
   | PromiseLike<PromiseFulfilledResult<T>>
+  | PromiseLike<PromiseRejectedResult>
   | PromiseLike<SettledLeft>
-  | PromiseLike<PromiseRejectedResult>;
-export type BaseType<T> =
-  | T
-  | Settled<T>
+  | PromiseLike<SettledRight<T>>
+  | PromiseLike<T>
+  | PromiseRejectedResult
   | PromiseSettledResult<T>
-  | SettledRight<T>
-  | PromiseFulfilledResult<T>
+  | Settled<T>
   | SettledLeft
-  | PromiseRejectedResult;
+  | SettledRight<T>
+  | T;
+export type BaseType<T> =
+  | PromiseFulfilledResult<T>
+  | PromiseRejectedResult
+  | PromiseSettledResult<T>
+  | Settled<T>
+  | SettledLeft
+  | SettledRight<T>
+  | T;
 
 export type CollectionType<T> = Iterable<BaseType<T>>;
 export type AwaitIterablesTypes<T> = Iterable<PromiseLike<BaseType<T>>>;
 export type AwaitableTypes_<T> = PromiseLike<
-  BaseType<T> | CollectionType<T> | AwaitIterablesTypes<T>
+  AwaitIterablesTypes<T> | BaseType<T> | CollectionType<T>
 >;
 
 // | Iterable<T>

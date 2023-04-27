@@ -1,5 +1,5 @@
 import { isPromiseLike } from '../helpers/assertions';
-import {
+import type {
   Base,
   DeferredCollection,
   ErrLookupFn,

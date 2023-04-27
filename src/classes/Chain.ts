@@ -1,5 +1,5 @@
 /* istanbul ignore file */
-import { NULL_SYMBOL } from '..';
+import type { NULL_SYMBOL } from '..';
 import {
   awaitedMapping,
   generateMapping,
@@ -14,7 +14,7 @@ import {
   filterLeft,
   filterRight,
 } from '../helpers/tools';
-import {
+import type {
   BaseOrDeferred,
   Collection,
   ErrLookupFn,
@@ -36,7 +36,7 @@ import {
 /* istambul ignore next */
 export class Chain<B> implements IChain<B> {
   collection: Collection<B> | PromiseLike<Collection<B>>;
-  private _list: Promise<BaseOrDeferred<B>[]>;
+  private readonly _list: Promise<BaseOrDeferred<B>[]>;
 
   static of<BType>(
     collection: Collection<BType> | PromiseLike<Collection<BType>>
@@ -141,7 +141,7 @@ export class Chain<B> implements IChain<B> {
     lookupFn?: LookupFn<B, R> | null,
     validateFn?: ValidateFn<B, R> | null,
     errLookupFn?: ErrLookupFn | null
-  ): Promise<Generator<Promise<Settled<R>>, void, unknown>> {
+  ): Promise<Generator<Promise<Settled<R>>, void>> {
     return generateMapping(
       await this.collection,
       transformFn,
@@ -178,7 +178,7 @@ export class Chain<B> implements IChain<B> {
     lookupFn?: LookupFn<B, R> | null,
     validateFn?: ValidateFn<B, R> | null,
     errLookupFn?: ErrLookupFn | null
-  ): AsyncGenerator<Settled<R>, void, unknown> {
+  ): AsyncGenerator<Settled<R>, void> {
     return generateMappingAsync(
       this.collection,
       transformFn,
