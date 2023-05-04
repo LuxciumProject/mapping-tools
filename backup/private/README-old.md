@@ -696,9 +696,9 @@ We welcome contributions to Mapping Tools! If you have an idea for a new feature
 - All code should be tested using the provided test suite.
 - Please include documentation for any new functions or types you add.
 
-**† Scientia est lux principium✨ ™**
+† **Scientia est lux principium✨** ™
 
-## Luxcium License: NO PERMISSION GRANTED - PROVIDED "AS IS" - WITHOUT WARRANTY
+## # Luxcium License: NO PERMISSION GRANTED - PROVIDED "AS IS" - WITHOUT WARRANTY
 
 THESE FILES ARE _NOT_ FIT FOR ANY PARTICULAR PURPOSE IN IT'S CURRENT FORM
 THESE FILES HAVE NOT BEEN TESTED OR RUN YET IN ALL ENVIRONMENTS! _DO NOT_
@@ -706,7 +706,7 @@ RUN THESE FILES UNLESS YOU HAVE REVIEWED THE FULL CONTENT AND TAKE FULL
 RESPONSIBILITY OF ANY PROBLEME IT MAY CAUSE TO YOU (or anyone) OR YOUR
 MACHINE (or any machine).
 
-### NO PERMISSION ARE GRANTED FOR THIS SOFTWARE:
+### ## NO PERMISSION ARE GRANTED FOR THIS SOFTWARE
 
 1. NOT TO PUBLISH;
 2. NOT TO DISTRIBUTE;
