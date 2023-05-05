@@ -1,18 +1,12 @@
 {
   "$schema": "https://typedoc.org/schema.json",
-  "entryPoints": [
-    "../src/index.ts"
-  ],
+  "entryPoints": ["../src/index.ts"],
   "out": "../dist/docs",
   "customDescription": "The library full of usefull mapping tools ― by Luxcium✨",
   "customTitle": "Mapping Tools ― by  Luxcium✨",
-  "sort": [
-    "kind",
-    "source-order",
-    "alphabetical"
-  ],
+  "sort": ["kind", "source-order", "alphabetical"],
   "visibilityFilters": {
-    "@alpha": false,
+    "@alpha": false
   },
   "modifierTags": [
     "@public",
@@ -71,7 +65,7 @@
     "ConstructorSignature",
     "IndexSignature",
     "GetSignature",
-    "SetSignature",
+    "SetSignature"
   ],
   "footerTypedocVersion": true,
   "footerLastModified": true,
