@@ -17,6 +17,7 @@
     "./constants": "./lib/constants.js",
     "./types": "./lib/types/index.js",
     "./chain": "./lib/classes/chain.js",
+    "./lib/typings/functions/core": "./lib/typings/functions/core.js",
     "./package.json": "./package.json"
   },
   "keywords": [

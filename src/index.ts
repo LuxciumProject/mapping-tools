@@ -24,6 +24,7 @@
 import { Chain } from './classes/Chain';
 import * as constants from './constants';
 import { awaitedMapping } from './functions/awaitedMapping';
+import { fn_a1f9a } from './functions/core';
 import { generateMapping } from './functions/generateMapping';
 import { generateMappingAsync } from './functions/generateMappingAsync';
 import { parallelMapping } from './functions/parallelMapping';
@@ -99,7 +100,6 @@ export type {
   SettledValues,
   TransformStep,
 };
-
 /**
  * @category Delegates Functions
  *
@@ -107,7 +107,6 @@ export type {
  *
  */
 export type { ErrLookupFn, LookupFn, TransformFn, ValidateFn };
-
 /**
  *
  *### awaitedMapping
@@ -130,7 +129,6 @@ export type { ErrLookupFn, LookupFn, TransformFn, ValidateFn };
  *- Returns: `Promise<Array<Settled<R>>>`
  */
 export { awaitedMapping };
-
 /**
  * istanbul ignore next
  * UNSAFE: Name of the class will change in future release
@@ -138,7 +136,6 @@ export { awaitedMapping };
  * @beta
  */
 export { Chain };
-
 /**
  *
  * ### generateMapping
@@ -161,7 +158,6 @@ export { Chain };
  * - Returns: `Generator<Promise<Settled<R>>, void, unknown>`
  */
 export { generateMapping };
-
 /**
  * ### generateMappingAsync
  * **`generateMappingAsync(collection, TransformFn, LookupFn, ValidateFn, ErrLookupFn): AsyncGenerator<Settled<R>, void, unknown>`**
@@ -181,7 +177,6 @@ export { generateMapping };
  * - Returns: `AsyncGenerator<Settled<R>, void, unknown>`
  */
 export { generateMappingAsync };
-
 /**
  * ### parallelMapping
  *
@@ -208,7 +203,6 @@ export { generateMappingAsync };
  *
  */
 export { parallelMapping };
-
 /**
  * ### serialMapping
  * **`serialMapping(collection, TransformFn, LookupFn, ValidateFn, ErrLookupFn): Promise<Array<Settled<R>>>`**
@@ -262,3 +256,5 @@ const functions = {
   parallelMapping,
   serialMapping,
 };
+
+export const internals = { fn_a1f9a };
