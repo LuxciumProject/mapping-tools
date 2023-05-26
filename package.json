@@ -17,7 +17,7 @@
     "./constants": "./lib/constants.js",
     "./types": "./lib/types/index.js",
     "./chain": "./lib/classes/chain.js",
-    "./lib/functions/core": "./lib/functions/index.js",
+    "./core": "./lib/functions/core/index.js",
     "./package.json": "./package.json"
   },
   "keywords": [

@@ -2,11 +2,6 @@
   "$schema": "http://json.schemastore.org/tsconfig",
   "extends": "./typescript/tsconfig.json",
   "compilerOptions": {
-    "plugins": [
-      {
-        "name": "typedoc-plugin-group"
-      }
-    ],
     /* Emit Options */
     "target": "es5",
     "module": "CommonJS",
@@ -20,16 +15,6 @@
     "tsBuildInfoFile": "./lib/ts-out-info.lib",
     "emitDecoratorMetadata": false,
     "experimentalDecorators": false,
-    // "typeRoots": [
-    //   "./src/functions",
-    //   "./src/helpers",
-    //   "./src/helpers/tools",
-    //   "./src/helpers/assertions",
-    //   "./src/constants",
-    //   "./src/types",
-    //   "./src/classes/chain",
-    //   "./src"
-    // ],
     /* JavaScript Support */
     "allowJs": true,
     "checkJs": false,
@@ -51,23 +36,47 @@
       "node",
       "jest"
     ],
-    /* Emit Options */
-    // "emitDecoratorMetadata": false,
-    // "experimentalDecorators": false,
-    /* JavaScript Support */
-    /* Module Resolution Interop Constraints */
-    // "target": "ESNext",
-    // "module": "CommonJS",
-    // "moduleResolution": "node",
+    "paths": {
+      ".": [
+        "./lib/typings/index.d.ts"
+      ],
+      "./functions": [
+        "./lib/typings/functions/index.d.ts"
+      ],
+      "./helpers": [
+        "./lib/typings/helpers/index.d.ts"
+      ],
+      "./tools": [
+        "./lib/typings/helpers/tools/index.d.ts"
+      ],
+      "./assertions": [
+        "./lib/typings/helpers/assertions/index.d.ts"
+      ],
+      "./helpers/tools": [
+        "./lib/typings/helpers/tools/index.d.ts"
+      ],
+      "./helpers/assertions": [
+        "./lib/typings/helpers/assertions/index.d.ts"
+      ],
+      "./constants": [
+        "./lib/typings/constants.d.ts"
+      ],
+      "./types": [
+        "./lib/typings/types/index.d.ts"
+      ],
+      "./chain": [
+        "./lib/typings/classes/chain.d.ts"
+      ],
+      "./core": [
+        "./lib/typings/functions/core/index.d.ts"
+      ]
+    },
     "isolatedModules": false,
     "esModuleInterop": true,
     "preserveSymlinks": false,
-    // "resolveJsonModule": true,
     "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
     /* JavaScript Support */
-    // "allowJs": true,
-    // "checkJs": false,
     "maxNodeModuleJsDepth": 1,
     "disableSizeLimit": false,
     /* Emit Options */
@@ -90,83 +99,18 @@
     "inlineSources": true,
     "inlineSourceMap": false,
     "emitDeclarationOnly": false,
-    /* Bundled library declaration files that describe the target runtime environment. */
-    // "lib": ["dom", "esnext"],
-    /* Package names to be included without being referenced in a source file. */
-    // "types": ["node", "heft-jest", ],
-    /* Projects */
-    // "composite": true,
     "disableSourceOfProjectReferenceRedirect": false,
     "disableSolutionSearching": false,
     "disableReferencedProjectLoad": false,
     /* Compilation Options */
     "noErrorTruncation": true,
-    // "useDefineForClassFields": true,
-    "assumeChangesOnlyAffectDirectDependencies": false
-    /*
-      "exports": {
-    ".": "./lib/index.js",
-    "./functions": "./lib/functions/index.js",
-    "./helpers": "./lib/helpers/index.js",
-    "./tools": "./lib/helpers/tools/index.js",
-    "./assertions": "./lib/helpers/assertions/index.js",
-    "./helpers/tools": "./lib/helpers/tools/index.js",
-    "./helpers/assertions": "./lib/helpers/assertions/index.js",
-    "./constants": "./lib/constants.js",
-    "./types": "./lib/types/index.js",
-    "./chain": "./lib/classes/chain.js",
-    "./package.json": "./package.json"
-      "jquery": ["node_modules/jquery/dist/jquery"] // this mapping is relative to "baseUrl"
-
-              "app/*": ["app/*"],
-        "config/*": ["app/_config/*"],
-        "environment/*": ["environments/*"],
-        "shared/*": ["app/_shared/*"],
-        "helpers/*": ["helpers/*"],
-        "tests/*": ["tests/*"]
+    "assumeChangesOnlyAffectDirectDependencies": false,
+    "plugins": [
+      {
+        "name": "typedoc-plugin-group"
+      }
+    ]
   },
-    */
-    // "paths": {
-    //   "./functions": [
-    //     "./src/functions/index"
-    //   ],
-    //   "./helpers": [
-    //     "./src/helpers/index"
-    //   ],
-    //   "./tools": [
-    //     "./src/helpers/tools/index"
-    //   ],
-    //   "./assertions": [
-    //     "./src/helpers/assertions/index"
-    //   ],
-    //   "./helpers/tools": [
-    //     "./src/helpers/tools/index"
-    //   ],
-    //   "./helpers/assertions": [
-    //     "./src/helpers/assertions/index"
-    //   ],
-    //   "./constants": [
-    //     "./src/constants"
-    //   ],
-    //   "./types": [
-    //     "./src/types/index"
-    //   ],
-    //   "./chain": [
-    //     "./src/classes/chain"
-    //   ],
-    //   "./package.json": [
-    //     "./package.json"
-    //   ],
-    //   "*": [
-    //     "./src/index"
-    //   ]
-    // }
-  },
-  // "references": [
-  //   {
-  //     "path": "dts/rushstack-eslint.d.ts"
-  //   }
-  // ],
   "include": [
     "./eslintrc.cjs",
     "src/**/*",
