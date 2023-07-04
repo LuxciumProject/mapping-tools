@@ -24,7 +24,7 @@ import { isPromiseLike } from './isPromiseLike';
  */
 export function isPromise<U>(element?: Promise<U> | U): element is Promise<U> {
   try {
-    if (isPromiseLike<U>(element) && element instanceof Promise<U>) {
+    if (isPromiseLike<U>(element) && element instanceof Promise) {
       return true;
     }
   } catch {
