@@ -5,11 +5,20 @@ import {
   isSettledRight,
 } from '../../helpers/assertions';
 import { getTransformStep } from '../../helpers/tools';
-import type { Base, Settled, SettledLeft, SettledRight } from '../../types';
+import {
+  Base,
+  BaseOrDeferred,
+  Settled,
+  SettledLeft,
+  SettledRight,
+} from '../../types';
 import type { Deferred } from '../../types/MainTypes';
 import { makeFulfillement } from './makeFulfillement';
 import { makeRejection } from './makeRejection';
 
+/** @internal */
+export const getSettler = async <T>(item: BaseOrDeferred<T>, index: number) =>
+  makeSettler<T>(isPromiseLike(item) ? await item : item, index);
 /** @internal */
 
 // INFO: Below are the PromiseLike types -----------------------------

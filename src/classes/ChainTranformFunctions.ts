@@ -80,7 +80,7 @@ export type TransformFnTuple<InputType, OutputType> =
   | [
       TransformFn<InputType>,
       ...TransformFn<unknown>[],
-      TransformFn<unknown, OutputType>
+      TransformFn<unknown, OutputType>,
     ]
   | [TransformFn<InputType, OutputType>]
   | [TransformFn<InputType>, TransformFn<unknown, OutputType>];

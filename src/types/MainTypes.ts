@@ -40,6 +40,9 @@ export type CollectionOfDeferred<B> = Iterable<Deferred<B>>;
  */
 export type BaseOrDeferred<B> = Base<B> | Deferred<B>;
 
+export type Resolvable<T> = T extends Deferred<infer B> ? Base<B> : T;
+export type InnerBase<T> = T extends Deferred<infer B> ? B : T;
+
 /**
  * Alias for `Iterable<Base<B>> | Iterable<PromiseLike<Base<B>>>`
  * or `PromiseLike<Iterable<Base<B>> | Iterable<PromiseLike<Base<B>>>>`

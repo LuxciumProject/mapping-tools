@@ -1,4 +1,3 @@
-import type { Chain, NULL_SYMBOL } from '..';
 import type {
   BaseOrDeferred,
   Collection,
@@ -10,6 +9,7 @@ import type {
   TransformFn,
   ValidateFn,
 } from '.';
+import type { NULL_SYMBOL } from '..';
 
 /**
  *  @beta
@@ -25,25 +25,25 @@ export interface IChain<B> {
     lookupFn?: LookupFn<B, R> | null,
     validateFn?: ValidateFn<B, R> | null,
     errLookupFn?: ErrLookupFn | null
-  ) => Chain<R>;
+  ) => IChain<R>;
   awaitedMapping: <R>(
     transformFn?: TransformFn<B, R> | null,
     lookupFn?: LookupFn<B, R> | null,
     validateFn?: ValidateFn<B, R> | null,
     errLookupFn?: ErrLookupFn | null
-  ) => Chain<R>;
+  ) => IChain<R>;
   parallelMapping: <R>(
     transformFn?: TransformFn<B, R> | null,
     lookupFn?: LookupFn<B, R> | null,
     validateFn?: ValidateFn<B, R> | null,
     errLookupFn?: ErrLookupFn | null
-  ) => Chain<Promise<Settled<R>>>;
+  ) => IChain<Promise<Settled<R>>>;
   generateMapping: <R>(
     transformFn?: TransformFn<B, R> | null,
     lookupFn?: LookupFn<B, R> | null,
     validateFn?: ValidateFn<B, R> | null,
     errLookupFn?: ErrLookupFn | null
-  ) => Chain<Promise<Settled<R>>>;
+  ) => IChain<Promise<Settled<R>>>;
   generator: <R>(
     transformFn?: TransformFn<B, R> | null,
     lookupFn?: LookupFn<B, R> | null,
@@ -55,7 +55,7 @@ export interface IChain<B> {
     lookupFn?: LookupFn<B, R> | null,
     validateFn?: ValidateFn<B, R> | null,
     errLookupFn?: ErrLookupFn | null
-  ) => Chain<R>;
+  ) => IChain<R>;
   asyncGeneretor: <R>(
     transformFn?: TransformFn<B, R> | null,
     lookupFn?: LookupFn<B, R> | null,
