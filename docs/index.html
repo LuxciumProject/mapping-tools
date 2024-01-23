@@ -1,0 +1,697 @@
+<!DOCTYPE html><html class="default" lang="en"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="IE=edge"/><title>mapping-tools</title><meta name="description" content="The library full of usefull mapping tools ― by Luxcium✨"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="assets/style.css"/><link rel="stylesheet" href="assets/highlight.css"/><script async src="assets/search.js" id="search-script"></script><link rel="icon" href="favicon.png" />
+</head><body><script>document.documentElement.dataset.theme = localStorage.getItem("tsd-theme") || "os"</script><header class="tsd-page-toolbar">
+<div class="tsd-toolbar-contents container">
+<div class="table-cell" id="tsd-search" data-base=".">
+<div class="field"><label for="tsd-search-field" class="tsd-widget tsd-toolbar-icon search no-caption"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M15.7824 13.833L12.6666 10.7177C12.5259 10.5771 12.3353 10.499 12.1353 10.499H11.6259C12.4884 9.39596 13.001 8.00859 13.001 6.49937C13.001 2.90909 10.0914 0 6.50048 0C2.90959 0 0 2.90909 0 6.49937C0 10.0896 2.90959 12.9987 6.50048 12.9987C8.00996 12.9987 9.39756 12.4863 10.5008 11.6239V12.1332C10.5008 12.3332 10.5789 12.5238 10.7195 12.6644L13.8354 15.7797C14.1292 16.0734 14.6042 16.0734 14.8948 15.7797L15.7793 14.8954C16.0731 14.6017 16.0731 14.1267 15.7824 13.833ZM6.50048 10.499C4.29094 10.499 2.50018 8.71165 2.50018 6.49937C2.50018 4.29021 4.28781 2.49976 6.50048 2.49976C8.71001 2.49976 10.5008 4.28708 10.5008 6.49937C10.5008 8.70852 8.71314 10.499 6.50048 10.499Z" fill="var(--color-text)"></path></svg></label><input type="text" id="tsd-search-field" aria-label="Search"/></div>
+<div class="field">
+<div id="tsd-toolbar-links"></div></div>
+<ul class="results">
+<li class="state loading">Preparing search index...</li>
+<li class="state failure">The search index is not available</li></ul><a href="index.html" class="title">Mapping Tools ― by  Luxcium✨</a></div>
+<div class="table-cell" id="tsd-widgets"><a href="#" class="tsd-widget tsd-toolbar-icon menu no-caption" data-toggle="menu" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="1" y="3" width="14" height="2" fill="var(--color-text)"></rect><rect x="1" y="7" width="14" height="2" fill="var(--color-text)"></rect><rect x="1" y="11" width="14" height="2" fill="var(--color-text)"></rect></svg></a></div></div></header>
+<div class="container container-main">
+<div class="col-8 col-content">
+<div class="tsd-page-title">
+<h2>mapping-tools</h2></div>
+<div class="tsd-panel tsd-typography">
+<a href="#mapping-tools" id="mapping-tools" style="color: inherit; text-decoration: none;">
+  <h1>Mapping Tools</h1>
+</a>
+<p><a href="https://github.com/LuxciumProject/mapping-tools/issues"><img src="https://img.shields.io/github/issues-raw/luxciumproject/mapping-tools?style=social" alt="GitHub issues"></a> <img src="https://img.shields.io/github/followers/luxciumproject?style=social" alt="GitHub followers"> <a href="https://github.com/LuxciumProject/mapping-tools/fork"><img src="https://img.shields.io/github/forks/luxciumproject/mapping-tools?style=social" alt="GitHub forks"></a> <img src="https://img.shields.io/github/stars/luxciumproject/mapping-tools?style=social" alt="GitHub Repo stars"> <img src="https://img.shields.io/github/watchers/luxciumproject/mapping-tools?style=social" alt="GitHub watchers"></p>
+<p><a href="https://www.typescriptlang.org/docs/handbook/intro.html"><img src="https://img.shields.io/npm/types/mapping-tools?label=Powered%20by" alt="npm type definitions"></a> <a href="https://www.npmjs.com/package/mapping-tools?activeTab=readme"><img src="https://img.shields.io/npm/v/mapping-tools" alt="Latest Version"></a> <img src="https://img.shields.io/npm/dt/mapping-tools" alt="npm"> <img src="https://img.shields.io/github/license/luxciumproject/mapping-tools" alt="GitHub"></p>
+<p><a href="https://luxciumproject.github.io/mapping-tools/"><img src="https://img.shields.io/static/v1?label=TypeDocs&message=luxciumproject.github.io/mapping-tools&style=social" alt="Version Badge"></a></p>
+<p><a href="https://www.npmjs.com/package/mapping-tools?activeTab=readme"><img src="https://img.shields.io/static/v1?label=version&message=0.0.0-ALPHA-UNSAFE-v6.0.0&color=blue" alt="Version Badge"></a></p>
+<p>Mapping Tools is a powerful package for mapping over lists and iterables in JavaScript and TypeScript.</p>
+<p>It is designed to be user-friendly and easy to use, with clear documentation and examples, and is suitable for use in a wide range of applications, including data processing and validation.</p>
+<p>The package provides a set of utility functions for working with collections of data, allowing you to apply transformations or validations to each item in a collection, either in serial or in parallel. These functions can generate new collections or iterators, as well as async iterators, based on the results. Mapping Tools also offers advanced error handling and support for asynchronous code.</p>
+
+<a href="#table-of-contents" id="table-of-contents" style="color: inherit; text-decoration: none;">
+  <h2>Table of Contents</h2>
+</a>
+<ol>
+<li><a href="#table-of-contents">Table of Contents</a></li>
+<li><a href="#installation">Installation</a></li>
+<li><a href="#usage-overview">Usage Overview</a></li>
+<li><a href="#quick-start">Quick Start</a></li>
+<li><a href="#main-functions">Main Functions</a><ul>
+<li><a href="#parallelmapping">parallelMapping Signature</a></li>
+<li><a href="#serialmapping">serialMapping Signature</a></li>
+<li><a href="#awaitedmapping">awaitedMapping Signature</a></li>
+<li><a href="#generatemapping">generateMapping Signature</a></li>
+<li><a href="#generatemappingasync">generateMappingAsync Signature</a></li>
+<li><a href="#return-types">Return Types</a></li>
+<li><a href="#arguments">Arguments</a></li>
+</ul>
+</li>
+<li><a href="#delegates-functions">Delegates Functions</a><ul>
+<li><a href="#transformfn">transformFn</a></li>
+<li><a href="#lookupfn">lookupFn</a></li>
+<li><a href="#validatefn">validateFn</a></li>
+<li><a href="#errlookupfn">errLookupFn</a></li>
+</ul>
+</li>
+<li><a href="#base-types">Base Types</a><ul>
+<li><a href="#basetval"><code>Base&lt;TVal&gt;</code></a></li>
+<li><a href="#settledtval"><code>Settled&lt;TVal&gt;</code></a></li>
+<li><a href="#settledrighttval"><code>SettledRight&lt;TVal&gt;</code></a></li>
+<li><a href="#settledleft"><code>SettledLeft</code></a></li>
+<li><a href="#promisefulfilledresulttval"><code>PromiseFulfilledResult&lt;TVal&gt;</code></a></li>
+<li><a href="#promisesettledresulttval"><code>PromiseSettledResult&lt;TVal&gt;</code></a></li>
+<li><a href="#promiserejectedresult"><code>PromiseRejectedResult</code></a></li>
+</ul>
+</li>
+<li><a href="#aliases-types">Aliases Types</a><ul>
+<li><a href="#deferredbase"><code>Deferred&lt;Base&gt;</code></a></li>
+<li><a href="#baseordeferredbase"><code>BaseOrDeferred&lt;Base&gt;</code></a></li>
+<li><a href="#collectionbase"><code>Collection&lt;Base&gt;</code></a></li>
+<li><a href="#deferredcollectionbase"><code>DeferredCollection&lt;Base&gt;</code></a></li>
+<li><a href="#settledarrayresult"><code>SettledArray&lt;Result&gt;</code></a></li>
+<li><a href="#nullsymbol"><code>NullSymbol</code></a></li>
+<li><a href="#settledvalueresult"><code>SettledValue&lt;Result&gt;</code></a></li>
+<li><a href="#settledvaluesresult"><code>SettledValues&lt;Result&gt;</code></a></li>
+<li><a href="#onlysideeffect"><code>OnlySideEffect</code></a></li>
+</ul>
+</li>
+</ol>
+
+<a href="#installation" id="installation" style="color: inherit; text-decoration: none;">
+  <h2>Installation</h2>
+</a>
+<p>To install Mapping Tools, you can use npm, yarn, or pnpm:</p>
+<pre><code class="language-bash"><span class="hl-0"># npm</span><br/><span class="hl-1">npm </span><span class="hl-2">install</span><span class="hl-1"> </span><span class="hl-2">mapping-tools</span><br/><span class="hl-0"># yarn</span><br/><span class="hl-1">yarn </span><span class="hl-2">add</span><span class="hl-1"> </span><span class="hl-2">mapping-tools</span><br/><span class="hl-0"># pnpm</span><br/><span class="hl-1">pnpm </span><span class="hl-2">add</span><span class="hl-1"> </span><span class="hl-2">mapping-tools</span>
+</code></pre>
+
+<a href="#usage-overview" id="usage-overview" style="color: inherit; text-decoration: none;">
+  <h2>Usage Overview</h2>
+</a>
+<p>The package includes 5 main functions:</p>
+<p>The mapping-tools package is incredibly flexible, able to handle both promises and non-promises as input. This means you can use it in any context, no matter what type of data you&#39;re working with.</p>
+<p>Error handling is a top priority in the mapping-tools package. No matter what goes wrong, you can trust that the code will always provide meaningful output. This makes it a resilient choice for performing transformations on your data.</p>
+<p>The output of the mapping-tools package is based on the <code>Settled&lt;TVal&gt;</code> type, wwhich allows users to differentiate between successful and unsuccessful results. This makes it easy to understand and work with the results of your transformations.</p>
+<p>Overall, the mapping-tools package is a reliable choice for performing transformations on collections of data.</p>
+<ol>
+<li><strong><a href="#awaitedmapping">awaitedMapping</a></strong>, is based on Promise.all($)</li>
+<li><strong><a href="#parallelmapping">parallelMapping</a></strong>, is based on Array.prototype.map($)</li>
+<li><strong><a href="#serialmapping">serialMapping</a></strong>, is based on a forOf loop</li>
+<li><strong><a href="#generatemapping">generateMapping</a></strong>, is based on the Generator protocol</li>
+<li><strong><a href="#generatemappingasync">generateMappingAsync</a></strong>, is based on the AsyncGenerator protocol</li>
+</ol>
+<p>These functions all take a collection of items as their main input, along with 4 delegate functions: <a href="#transformfn">transformFn</a>, <a href="#lookupfn">lookupFn</a>, <a href="#validatefn">validateFn</a> and <a href="#errlookupfn">errLookupFn</a>.</p>
+<p>The <a href="#transformfn">transformFn</a> is a delegate function that is applied to each item in the collection. It is used to transform the item into a new value.</p>
+<p>The <a href="#lookupfn">lookupFn</a> and <a href="#validatefn">validateFn</a> are also delegate functions that are applied to each item in the collection. They can be used to perform additional lookup or validation operations on the transformed items.</p>
+<p>The <a href="#errlookupfn">errLookupFn</a> is a delegate function that is used to handle any errors that may occur during the processing of the collection or during previous steps of processing.</p>
+<p>It is important to note that all four of these delegate functions are optional. If they are not provided, there will be no transformation or validation of the values.</p>
+
+<a href="#quick-start" id="quick-start" style="color: inherit; text-decoration: none;">
+  <h2>Quick Start</h2>
+</a>
+<p>To get started with Mapping Tools, you&#39;ll first need to import the
+library in your code:</p>
+<pre><code class="language-typescript"><span class="hl-3">const</span><span class="hl-1"> </span><span class="hl-4">mappingTools</span><span class="hl-1"> = </span><span class="hl-5">require</span><span class="hl-1">(</span><span class="hl-2">&#39;mapping-tools&#39;</span><span class="hl-1">);</span><br/><span class="hl-0">// or</span><br/><span class="hl-6">import</span><span class="hl-1"> </span><span class="hl-3">*</span><span class="hl-1"> </span><span class="hl-6">as</span><span class="hl-1"> </span><span class="hl-7">mappingTools</span><span class="hl-1"> </span><span class="hl-6">from</span><span class="hl-1"> </span><span class="hl-2">&#39;mapping-tools&#39;</span><span class="hl-1">;</span>
+</code></pre>
+<p>Then, you can use the various functions provided by the library to
+generate, transform, and iterate over maps, as well as to perform
+asynchronous map generation.</p>
+<pre><code class="language-typescript"><span class="hl-6">import</span><span class="hl-1"> { </span><span class="hl-7">awaitedMapping</span><span class="hl-1">, </span><span class="hl-7">helpers</span><span class="hl-1"> } </span><span class="hl-6">from</span><span class="hl-1"> </span><span class="hl-2">&#39;mapping-tools&#39;</span><span class="hl-1">;</span><br/><br/><span class="hl-3">const</span><span class="hl-1"> { </span><span class="hl-4">extractFulfilledValues</span><span class="hl-1">, </span><span class="hl-4">extractSettledValues</span><span class="hl-1"> } = </span><span class="hl-7">helpers</span><span class="hl-1">;</span><br/><br/><span class="hl-3">async</span><span class="hl-1"> </span><span class="hl-3">function</span><span class="hl-1"> </span><span class="hl-5">main</span><span class="hl-1">() {</span><br/><span class="hl-1">  </span><span class="hl-3">const</span><span class="hl-1"> </span><span class="hl-4">array</span><span class="hl-1"> = [</span><span class="hl-8">1</span><span class="hl-1">, </span><span class="hl-8">2</span><span class="hl-1">, </span><span class="hl-8">3</span><span class="hl-1">, </span><span class="hl-8">4</span><span class="hl-1">, </span><span class="hl-8">5</span><span class="hl-1">, </span><span class="hl-8">6</span><span class="hl-1">, </span><span class="hl-8">7</span><span class="hl-1">, </span><span class="hl-8">8</span><span class="hl-1">, </span><span class="hl-8">9</span><span class="hl-1">, </span><span class="hl-8">10</span><span class="hl-1">, </span><span class="hl-8">11</span><span class="hl-1">, </span><span class="hl-8">12</span><span class="hl-1">];</span><br/><span class="hl-1">  </span><span class="hl-3">const</span><span class="hl-1"> </span><span class="hl-4">mappedArray</span><span class="hl-1"> = </span><span class="hl-6">await</span><span class="hl-1"> </span><span class="hl-5">awaitedMapping</span><span class="hl-1">(</span><span class="hl-7">array</span><span class="hl-1">, </span><span class="hl-3">async</span><span class="hl-1"> </span><span class="hl-7">element</span><span class="hl-1"> </span><span class="hl-3">=&gt;</span><span class="hl-1"> {</span><br/><span class="hl-1">    </span><span class="hl-0">// Async operation on each element</span><br/><span class="hl-1">    </span><span class="hl-6">if</span><span class="hl-1"> (</span><span class="hl-7">element</span><span class="hl-1"> % </span><span class="hl-8">4</span><span class="hl-1"> === </span><span class="hl-8">2</span><span class="hl-1">) {</span><br/><span class="hl-1">      </span><span class="hl-6">throw</span><span class="hl-1"> </span><span class="hl-3">new</span><span class="hl-1"> </span><span class="hl-5">Error</span><span class="hl-1">(</span><span class="hl-2">&#39;Error&#39;</span><span class="hl-1">);</span><br/><span class="hl-1">    }</span><br/><span class="hl-1">    </span><span class="hl-6">return</span><span class="hl-1"> </span><span class="hl-7">element</span><span class="hl-1"> * </span><span class="hl-8">2</span><span class="hl-1">;</span><br/><span class="hl-1">  });</span>
+</code></pre>
+<p>Using extractFulfilledValues will return only fulfilledValues
+changing the length of the array and the position of the
+elements if necessary</p>
+<pre><code class="language-typescript"><span class="hl-3">const</span><span class="hl-1"> </span><span class="hl-4">fulfilledValues</span><span class="hl-1"> = </span><span class="hl-5">extractFulfilledValues</span><span class="hl-1">(</span><span class="hl-7">mappedArray</span><span class="hl-1">);</span><br/><span class="hl-7">console</span><span class="hl-1">.</span><span class="hl-5">log</span><span class="hl-1">(</span><span class="hl-2">&#39;fulfilledValues :&gt;&gt; &#39;</span><span class="hl-1">, </span><span class="hl-7">fulfilledValues</span><span class="hl-1">);</span><br/><span class="hl-7">console</span><span class="hl-1">.</span><span class="hl-5">log</span><span class="hl-1">(</span><span class="hl-2">&#39;fulfilledValues.length :&gt;&gt; &#39;</span><span class="hl-1">, </span><span class="hl-7">fulfilledValues</span><span class="hl-1">.</span><span class="hl-7">length</span><span class="hl-1">);</span>
+</code></pre>
+<ul>
+<li>output:</li>
+</ul>
+<pre><code class="language-typescript"><span class="hl-0">/*</span><br/><span class="hl-0">  fulfilledValues :&gt;&gt;  [</span><br/><span class="hl-0">    2,  6,  8, 10, 14,</span><br/><span class="hl-0">    16, 18, 22, 24</span><br/><span class="hl-0">  ]</span><br/><span class="hl-0">  fulfilledValues.length :&gt;&gt;  9</span><br/><span class="hl-0">*/</span>
+</code></pre>
+<p>Using extractFulfilledValues will return only settledValues
+(for which the SettledLeft has no value and will be returning
+<code>NULL_SYMBOL</code> instead) keeping the length of the array and the
+position of its elements.</p>
+<pre><code class="language-typescript"><span class="hl-1">  </span><span class="hl-3">const</span><span class="hl-1"> </span><span class="hl-4">settledValues</span><span class="hl-1"> = </span><span class="hl-5">extractSettledValues</span><span class="hl-1">(</span><span class="hl-7">mappedArray</span><span class="hl-1">);</span><br/><span class="hl-1">  </span><span class="hl-7">console</span><span class="hl-1">.</span><span class="hl-5">log</span><span class="hl-1">(</span><span class="hl-2">&#39;settledValues :&gt;&gt; &#39;</span><span class="hl-1">, </span><span class="hl-7">settledValues</span><span class="hl-1">);</span><br/><span class="hl-1">  </span><span class="hl-7">console</span><span class="hl-1">.</span><span class="hl-5">log</span><span class="hl-1">(</span><span class="hl-2">&#39;settledValues.length :&gt;&gt; &#39;</span><span class="hl-1">, </span><span class="hl-7">settledValues</span><span class="hl-1">.</span><span class="hl-7">length</span><span class="hl-1">);</span><br/><span class="hl-1">  }</span><br/><span class="hl-5">main</span><span class="hl-1">();</span>
+</code></pre>
+<ul>
+<li>output:</li>
+</ul>
+<pre><code class="language-typescript"><span class="hl-0">/*</span><br/><span class="hl-0">  settledValues :&gt;&gt;  [</span><br/><span class="hl-0">    2,  Symbol(null),</span><br/><span class="hl-0">    6,  8,</span><br/><span class="hl-0">    10, Symbol(null),</span><br/><span class="hl-0">    14, 16,</span><br/><span class="hl-0">    18, Symbol(null),</span><br/><span class="hl-0">    22, 24</span><br/><span class="hl-0">  ]</span><br/><span class="hl-0">  settledValues.length :&gt;&gt;  12</span><br/><span class="hl-0">*/</span>
+</code></pre>
+
+<a href="#main-functions" id="main-functions" style="color: inherit; text-decoration: none;">
+  <h2>Main Functions</h2>
+</a>
+<p>The project currently have 5 main flavours for its core functions they have complex signatures taht are <a href="#arguments">easy to understand</a>, and they can be grouped in diferrent manner:</p>
+<ol>
+<li><p>Functions that can accept either <code>Iterable&lt;Base&lt;T&gt;&gt; | Iterable&lt;PromiseLike&lt;Base&lt;T&gt;&gt;&gt;</code> <strong>or</strong> <code>PromiseLike&lt;Iterable&lt;Base&lt;T&gt;&gt;&gt;</code> and which return promises that resolve to arrays: <a href="#serialmapping">serialMapping</a>, <a href="#awaitedmapping">awaitedMapping</a>, and <a href="#generatemappingasync">generateMappingAsync returns</a></p>
+</li>
+<li><p>Functions that can accept only <code>Iterable&lt;Base&lt;T&gt;&gt; | Iterable&lt;PromiseLike&lt;Base&lt;T&gt;&gt;&gt;</code> and return arrays of promises or generators: <a href="#parallelmapping">parallelMapping returns</a>, <a href="#generatemapping">generateMapping returns</a></p>
+</li>
+</ol>
+
+<a href="#parallelmapping" id="parallelmapping" style="color: inherit; text-decoration: none;">
+  <h3>parallelMapping</h3>
+</a>
+<p><code>parallelMapping(collection, TransformFn, LookupFn, ValidateFn, ErrLookupFn): Array&lt;Promise&lt;Settled&lt;R&gt;&gt;&gt;</code></p>
+<p>Applies the provided callback functions to each item in the collection in parallel, and returns an array of promises that resolve to the transformed and validated items, represented as <code>Settled&lt;R&gt;</code> objects.</p>
+<ul>
+<li><p>Based on an <code>Array.prototype.map($)</code></p>
+</li>
+<li><p>Takes as its main input: <code>Iterable&lt;Base&lt;T&gt; | PromiseLike&lt;Base&lt;T&gt;&gt;&gt;</code> only</p>
+</li>
+<li><p>Returns: <code>Array&lt;Promise&lt;Settled&lt;R&gt;&gt;&gt;</code></p>
+</li>
+<li><p>Function signature:</p>
+<pre><code class="language-typescript"><span class="hl-6">export</span><span class="hl-1"> </span><span class="hl-3">function</span><span class="hl-1"> </span><span class="hl-5">parallelMapping</span><span class="hl-1">&lt;</span><span class="hl-9">T</span><span class="hl-1">, </span><span class="hl-9">R</span><span class="hl-1">&gt;(</span><br/><span class="hl-1">  </span><span class="hl-7">collection</span><span class="hl-1">: </span><span class="hl-9">Collection</span><span class="hl-1">&lt;</span><span class="hl-9">T</span><span class="hl-1">&gt;,</span><br/><span class="hl-1">  </span><span class="hl-5">transformFn</span><span class="hl-1">: </span><span class="hl-9">TransformFn</span><span class="hl-1">&lt;</span><span class="hl-9">T</span><span class="hl-1">, </span><span class="hl-9">R</span><span class="hl-1">&gt; | </span><span class="hl-9">null</span><span class="hl-1"> = </span><span class="hl-3">async</span><span class="hl-1"> </span><span class="hl-7">value</span><span class="hl-1"> </span><span class="hl-3">=&gt;</span><span class="hl-1"> </span><span class="hl-7">value</span><span class="hl-1"> </span><span class="hl-6">as</span><span class="hl-1"> </span><span class="hl-9">any</span><span class="hl-1"> </span><span class="hl-6">as</span><span class="hl-1"> </span><span class="hl-9">R</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-5">lookupFn</span><span class="hl-1">: </span><span class="hl-9">LookupFn</span><span class="hl-1">&lt;</span><span class="hl-9">T</span><span class="hl-1">, </span><span class="hl-9">R</span><span class="hl-1">&gt; | </span><span class="hl-9">null</span><span class="hl-1"> = </span><span class="hl-7">v</span><span class="hl-1"> </span><span class="hl-3">=&gt;</span><span class="hl-1"> </span><span class="hl-3">void</span><span class="hl-1"> </span><span class="hl-7">v</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-5">validateFn</span><span class="hl-1">: </span><span class="hl-9">ValidateFn</span><span class="hl-1">&lt;</span><span class="hl-9">T</span><span class="hl-1">, </span><span class="hl-9">R</span><span class="hl-1">&gt; | </span><span class="hl-9">null</span><span class="hl-1"> = </span><span class="hl-3">async</span><span class="hl-1"> </span><span class="hl-7">v</span><span class="hl-1"> </span><span class="hl-3">=&gt;</span><span class="hl-1"> </span><span class="hl-3">void</span><span class="hl-1"> </span><span class="hl-7">v</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-5">errLookupFn</span><span class="hl-1">: </span><span class="hl-9">ErrLookupFn</span><span class="hl-1"> | </span><span class="hl-9">null</span><span class="hl-1"> = </span><span class="hl-7">v</span><span class="hl-1"> </span><span class="hl-3">=&gt;</span><span class="hl-1"> </span><span class="hl-3">void</span><span class="hl-1"> </span><span class="hl-7">v</span><br/><span class="hl-1">): </span><span class="hl-9">Promise</span><span class="hl-1">&lt;</span><span class="hl-9">Settled</span><span class="hl-1">&lt;</span><span class="hl-9">R</span><span class="hl-1">&gt;&gt;[];</span>
+</code></pre>
+</li>
+</ul>
+
+<a href="#serialmapping" id="serialmapping" style="color: inherit; text-decoration: none;">
+  <h3>serialMapping</h3>
+</a>
+<p><code>serialMapping(collection, TransformFn, LookupFn, ValidateFn, ErrLookupFn): Promise&lt;Array&lt;Settled&lt;R&gt;&gt;&gt;</code></p>
+<p>Applies the provided callback functions to each item in the collection in series, and returns a promise that resolves to an array of the transformed and validated items, represented as <code>Settled&lt;R&gt;</code> objects.</p>
+<ul>
+<li><p>Based on <code>forOf</code> <em>loop</em></p>
+</li>
+<li><p>Takes as its main input: <code>Iterable&lt;Base&lt;T&gt;&gt; | Iterable&lt;PromiseLike&lt;Base&lt;T&gt;&gt;&gt;</code> or <code>PromiseLike&lt;Iterable&lt;Base&lt;T&gt;&gt;&gt;</code></p>
+</li>
+<li><p>Returns: <code>Promise&lt;Array&lt;Settled&lt;R&gt;&gt;&gt;</code></p>
+</li>
+<li><p>Function signature:</p>
+<pre><code class="language-typescript"><span class="hl-6">export</span><span class="hl-1"> </span><span class="hl-3">async</span><span class="hl-1"> </span><span class="hl-3">function</span><span class="hl-1"> </span><span class="hl-5">serialMapping</span><span class="hl-1">&lt;</span><span class="hl-9">T</span><span class="hl-1">, </span><span class="hl-9">R</span><span class="hl-1">&gt;(</span><br/><span class="hl-1">  </span><span class="hl-7">collection</span><span class="hl-1">: </span><span class="hl-9">DeferredCollection</span><span class="hl-1">&lt;</span><span class="hl-9">T</span><span class="hl-1">&gt;,</span><br/><span class="hl-1">  </span><span class="hl-5">transformFn</span><span class="hl-1">: </span><span class="hl-9">TransformFn</span><span class="hl-1">&lt;</span><span class="hl-9">T</span><span class="hl-1">, </span><span class="hl-9">R</span><span class="hl-1">&gt; | </span><span class="hl-9">null</span><span class="hl-1"> = </span><span class="hl-3">async</span><span class="hl-1"> </span><span class="hl-7">value</span><span class="hl-1"> </span><span class="hl-3">=&gt;</span><span class="hl-1"> </span><span class="hl-7">value</span><span class="hl-1"> </span><span class="hl-6">as</span><span class="hl-1"> </span><span class="hl-9">any</span><span class="hl-1"> </span><span class="hl-6">as</span><span class="hl-1"> </span><span class="hl-9">R</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-5">lookupFn</span><span class="hl-1">: </span><span class="hl-9">LookupFn</span><span class="hl-1">&lt;</span><span class="hl-9">T</span><span class="hl-1">, </span><span class="hl-9">R</span><span class="hl-1">&gt; | </span><span class="hl-9">null</span><span class="hl-1"> = </span><span class="hl-7">v</span><span class="hl-1"> </span><span class="hl-3">=&gt;</span><span class="hl-1"> </span><span class="hl-3">void</span><span class="hl-1"> </span><span class="hl-7">v</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-5">validateFn</span><span class="hl-1">: </span><span class="hl-9">ValidateFn</span><span class="hl-1">&lt;</span><span class="hl-9">T</span><span class="hl-1">, </span><span class="hl-9">R</span><span class="hl-1">&gt; | </span><span class="hl-9">null</span><span class="hl-1"> = </span><span class="hl-3">async</span><span class="hl-1"> </span><span class="hl-7">v</span><span class="hl-1"> </span><span class="hl-3">=&gt;</span><span class="hl-1"> </span><span class="hl-3">void</span><span class="hl-1"> </span><span class="hl-7">v</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-5">errLookupFn</span><span class="hl-1">: </span><span class="hl-9">ErrLookupFn</span><span class="hl-1"> | </span><span class="hl-9">null</span><span class="hl-1"> = </span><span class="hl-7">v</span><span class="hl-1"> </span><span class="hl-3">=&gt;</span><span class="hl-1"> </span><span class="hl-3">void</span><span class="hl-1"> </span><span class="hl-7">v</span><br/><span class="hl-1">): </span><span class="hl-9">Promise</span><span class="hl-1">&lt;</span><span class="hl-9">Settled</span><span class="hl-1">&lt;</span><span class="hl-9">R</span><span class="hl-1">&gt;[]&gt; {}</span>
+</code></pre>
+</li>
+</ul>
+
+<a href="#awaitedmapping" id="awaitedmapping" style="color: inherit; text-decoration: none;">
+  <h3>awaitedMapping</h3>
+</a>
+<p><code>awaitedMapping(collection, TransformFn, LookupFn, ValidateFn, ErrLookupFn): Promise&lt;Array&lt;Settled&lt;R&gt;&gt;&gt;</code></p>
+<p>Applies the provided callback functions to each item in the collection, and returns a promise that resolves to an array of the transformed and validated items, represented as <code>Settled&lt;R&gt;</code> objects.</p>
+<ul>
+<li><p>Based on <code>Promise.all($)</code></p>
+</li>
+<li><p>Takes as its main input: <code>Iterable&lt;Base&lt;T&gt; | PromiseLike&lt;Base&lt;T&gt;&gt;&gt;</code> or <code>PromiseLike&lt;Iterable&lt;Base&lt;T&gt;&gt; | Iterable&lt;PromiseLike&lt;Base&lt;T&gt;&gt;&gt;&gt;</code></p>
+</li>
+<li><p>Returns: <code>Promise&lt;Array&lt;Settled&lt;R&gt;&gt;&gt;</code></p>
+</li>
+<li><p>Function signature:</p>
+<pre><code class="language-typescript"><span class="hl-6">export</span><span class="hl-1"> </span><span class="hl-3">async</span><span class="hl-1"> </span><span class="hl-3">function</span><span class="hl-1"> </span><span class="hl-5">awaitedMapping</span><span class="hl-1">&lt;</span><span class="hl-9">T</span><span class="hl-1">, </span><span class="hl-9">R</span><span class="hl-1">&gt;(</span><br/><span class="hl-1">  </span><span class="hl-7">collection</span><span class="hl-1">: </span><span class="hl-9">DeferredCollection</span><span class="hl-1">&lt;</span><span class="hl-9">T</span><span class="hl-1">&gt;,</span><br/><span class="hl-1">  </span><span class="hl-5">transformFn</span><span class="hl-1">: </span><span class="hl-9">TransformFn</span><span class="hl-1">&lt;</span><span class="hl-9">T</span><span class="hl-1">, </span><span class="hl-9">R</span><span class="hl-1">&gt; | </span><span class="hl-9">null</span><span class="hl-1"> = </span><span class="hl-3">async</span><span class="hl-1"> </span><span class="hl-7">value</span><span class="hl-1"> </span><span class="hl-3">=&gt;</span><span class="hl-1"> </span><span class="hl-7">value</span><span class="hl-1"> </span><span class="hl-6">as</span><span class="hl-1"> </span><span class="hl-9">any</span><span class="hl-1"> </span><span class="hl-6">as</span><span class="hl-1"> </span><span class="hl-9">R</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-5">lookupFn</span><span class="hl-1">: </span><span class="hl-9">LookupFn</span><span class="hl-1">&lt;</span><span class="hl-9">T</span><span class="hl-1">, </span><span class="hl-9">R</span><span class="hl-1">&gt; | </span><span class="hl-9">null</span><span class="hl-1"> = </span><span class="hl-7">v</span><span class="hl-1"> </span><span class="hl-3">=&gt;</span><span class="hl-1"> </span><span class="hl-3">void</span><span class="hl-1"> </span><span class="hl-7">v</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-5">validateFn</span><span class="hl-1">: </span><span class="hl-9">ValidateFn</span><span class="hl-1">&lt;</span><span class="hl-9">T</span><span class="hl-1">, </span><span class="hl-9">R</span><span class="hl-1">&gt; | </span><span class="hl-9">null</span><span class="hl-1"> = </span><span class="hl-3">async</span><span class="hl-1"> </span><span class="hl-7">v</span><span class="hl-1"> </span><span class="hl-3">=&gt;</span><span class="hl-1"> </span><span class="hl-3">void</span><span class="hl-1"> </span><span class="hl-7">v</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-5">errLookupFn</span><span class="hl-1">: </span><span class="hl-9">ErrLookupFn</span><span class="hl-1"> | </span><span class="hl-9">null</span><span class="hl-1"> = </span><span class="hl-7">v</span><span class="hl-1"> </span><span class="hl-3">=&gt;</span><span class="hl-1"> </span><span class="hl-3">void</span><span class="hl-1"> </span><span class="hl-7">v</span><br/><span class="hl-1">): </span><span class="hl-9">Promise</span><span class="hl-1">&lt;</span><span class="hl-9">Settled</span><span class="hl-1">&lt;</span><span class="hl-9">R</span><span class="hl-1">&gt;[]&gt;;</span>
+</code></pre>
+</li>
+</ul>
+
+<a href="#generatemapping" id="generatemapping" style="color: inherit; text-decoration: none;">
+  <h3>generateMapping</h3>
+</a>
+<p><code>generateMapping(collection, TransformFn, LookupFn, ValidateFn, ErrLookupFn): Generator&lt;Promise&lt;Settled&lt;R&gt;&gt;, void, unknown&gt;</code></p>
+<p>Applies the provided callback functions to each item in the collection, and returns a generator that yields promises that resolve to the transformed and validated items, represented as <code>Settled&lt;R&gt;</code> objects.</p>
+<ul>
+<li><p>Based on the <code>Generator</code> <em>Protocol</em></p>
+</li>
+<li><p>Takes as its main input: <code>Iterable&lt;Base&lt;T&gt; | PromiseLike&lt;Base&lt;T&gt;&gt;&gt;</code> only</p>
+</li>
+<li><p>Returns: <code>Generator&lt;Promise&lt;Settled&lt;R&gt;&gt;, void, unknown&gt;</code></p>
+</li>
+<li><p>Function signature:</p>
+<pre><code class="language-typescript"><span class="hl-6">export</span><span class="hl-1"> </span><span class="hl-3">function*</span><span class="hl-1"> </span><span class="hl-5">generateMapping</span><span class="hl-1">&lt;</span><span class="hl-9">T</span><span class="hl-1">, </span><span class="hl-9">R</span><span class="hl-1">&gt;(</span><br/><span class="hl-1">  </span><span class="hl-7">collection</span><span class="hl-1">: </span><span class="hl-9">Collection</span><span class="hl-1">&lt;</span><span class="hl-9">T</span><span class="hl-1">&gt;,</span><br/><span class="hl-1">  </span><span class="hl-5">transformFn</span><span class="hl-1">: </span><span class="hl-9">TransformFn</span><span class="hl-1">&lt;</span><span class="hl-9">T</span><span class="hl-1">, </span><span class="hl-9">R</span><span class="hl-1">&gt; | </span><span class="hl-9">null</span><span class="hl-1"> = </span><span class="hl-3">async</span><span class="hl-1"> </span><span class="hl-7">value</span><span class="hl-1"> </span><span class="hl-3">=&gt;</span><span class="hl-1"> </span><span class="hl-7">value</span><span class="hl-1"> </span><span class="hl-6">as</span><span class="hl-1"> </span><span class="hl-9">any</span><span class="hl-1"> </span><span class="hl-6">as</span><span class="hl-1"> </span><span class="hl-9">R</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-5">lookupFn</span><span class="hl-1">: </span><span class="hl-9">LookupFn</span><span class="hl-1">&lt;</span><span class="hl-9">T</span><span class="hl-1">, </span><span class="hl-9">R</span><span class="hl-1">&gt; | </span><span class="hl-9">null</span><span class="hl-1"> = </span><span class="hl-7">v</span><span class="hl-1"> </span><span class="hl-3">=&gt;</span><span class="hl-1"> </span><span class="hl-3">void</span><span class="hl-1"> </span><span class="hl-7">v</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-5">validateFn</span><span class="hl-1">: </span><span class="hl-9">ValidateFn</span><span class="hl-1">&lt;</span><span class="hl-9">T</span><span class="hl-1">, </span><span class="hl-9">R</span><span class="hl-1">&gt; | </span><span class="hl-9">null</span><span class="hl-1"> = </span><span class="hl-3">async</span><span class="hl-1"> </span><span class="hl-7">v</span><span class="hl-1"> </span><span class="hl-3">=&gt;</span><span class="hl-1"> </span><span class="hl-3">void</span><span class="hl-1"> </span><span class="hl-7">v</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-5">errLookupFn</span><span class="hl-1">: </span><span class="hl-9">ErrLookupFn</span><span class="hl-1"> | </span><span class="hl-9">null</span><span class="hl-1"> = </span><span class="hl-7">v</span><span class="hl-1"> </span><span class="hl-3">=&gt;</span><span class="hl-1"> </span><span class="hl-3">void</span><span class="hl-1"> </span><span class="hl-7">v</span><br/><span class="hl-1">): </span><span class="hl-9">Generator</span><span class="hl-1">&lt;</span><span class="hl-9">Promise</span><span class="hl-1">&lt;</span><span class="hl-9">Settled</span><span class="hl-1">&lt;</span><span class="hl-9">R</span><span class="hl-1">&gt;&gt;, </span><span class="hl-9">void</span><span class="hl-1">, </span><span class="hl-9">unknown</span><span class="hl-1">&gt;;</span>
+</code></pre>
+</li>
+</ul>
+
+<a href="#generatemappingasync" id="generatemappingasync" style="color: inherit; text-decoration: none;">
+  <h3>generateMappingAsync</h3>
+</a>
+<p><code>generateMappingAsync(collection, TransformFn, LookupFn, ValidateFn, ErrLookupFn): AsyncGenerator&lt;Settled&lt;R&gt;, void, unknown&gt;</code></p>
+<p>Applies the provided callback functions to each item in the collection, and returns an async generator that yields the transformed and validated items, represented as <code>Settled&lt;R&gt;</code> objects.</p>
+<ul>
+<li><p>Based on the <code>AsyncGenerator</code> <em>Protocol</em></p>
+</li>
+<li><p>Takes as its main input: <code>Iterable&lt;Base&lt;T&gt; | PromiseLike&lt;Base&lt;T&gt;&gt;&gt;</code> or <code>PromiseLike&lt;Iterable&lt;Base&lt;T&gt;&gt; | Iterable&lt;PromiseLike&lt;Base&lt;T&gt;&gt;&gt;&gt;</code></p>
+</li>
+<li><p>Returns: <code>AsyncGenerator&lt;Settled&lt;R&gt;, void, unknown&gt;</code></p>
+</li>
+<li><p>Function signature:</p>
+<pre><code class="language-typescript"><span class="hl-6">export</span><span class="hl-1"> </span><span class="hl-3">async</span><span class="hl-1"> </span><span class="hl-3">function*</span><span class="hl-1"> </span><span class="hl-5">generateMappingAsync</span><span class="hl-1">&lt;</span><span class="hl-9">R</span><span class="hl-1">, </span><span class="hl-9">T</span><span class="hl-1">&gt;(</span><br/><span class="hl-1">  </span><span class="hl-7">collection</span><span class="hl-1">: </span><span class="hl-9">DeferredCollection</span><span class="hl-1">&lt;</span><span class="hl-9">T</span><span class="hl-1">&gt;,</span><br/><span class="hl-1">  </span><span class="hl-5">transformFn</span><span class="hl-1">: </span><span class="hl-9">TransformFn</span><span class="hl-1">&lt;</span><span class="hl-9">T</span><span class="hl-1">, </span><span class="hl-9">R</span><span class="hl-1">&gt; | </span><span class="hl-9">null</span><span class="hl-1"> = </span><span class="hl-3">async</span><span class="hl-1"> </span><span class="hl-7">value</span><span class="hl-1"> </span><span class="hl-3">=&gt;</span><span class="hl-1"> </span><span class="hl-7">value</span><span class="hl-1"> </span><span class="hl-6">as</span><span class="hl-1"> </span><span class="hl-9">any</span><span class="hl-1"> </span><span class="hl-6">as</span><span class="hl-1"> </span><span class="hl-9">R</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-5">lookupFn</span><span class="hl-1">: </span><span class="hl-9">LookupFn</span><span class="hl-1">&lt;</span><span class="hl-9">T</span><span class="hl-1">, </span><span class="hl-9">R</span><span class="hl-1">&gt; | </span><span class="hl-9">null</span><span class="hl-1"> = </span><span class="hl-7">v</span><span class="hl-1"> </span><span class="hl-3">=&gt;</span><span class="hl-1"> </span><span class="hl-3">void</span><span class="hl-1"> </span><span class="hl-7">v</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-5">validateFn</span><span class="hl-1">: </span><span class="hl-9">ValidateFn</span><span class="hl-1">&lt;</span><span class="hl-9">T</span><span class="hl-1">, </span><span class="hl-9">R</span><span class="hl-1">&gt; | </span><span class="hl-9">null</span><span class="hl-1"> = </span><span class="hl-3">async</span><span class="hl-1"> </span><span class="hl-7">v</span><span class="hl-1"> </span><span class="hl-3">=&gt;</span><span class="hl-1"> </span><span class="hl-3">void</span><span class="hl-1"> </span><span class="hl-7">v</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-5">errLookupFn</span><span class="hl-1">: </span><span class="hl-9">ErrLookupFn</span><span class="hl-1"> | </span><span class="hl-9">null</span><span class="hl-1"> = </span><span class="hl-7">v</span><span class="hl-1"> </span><span class="hl-3">=&gt;</span><span class="hl-1"> </span><span class="hl-3">void</span><span class="hl-1"> </span><span class="hl-7">v</span><br/><span class="hl-1">): </span><span class="hl-9">AsyncGenerator</span><span class="hl-1">&lt;</span><span class="hl-9">Settled</span><span class="hl-1">&lt;</span><span class="hl-9">R</span><span class="hl-1">&gt;, </span><span class="hl-9">void</span><span class="hl-1">, </span><span class="hl-9">unknown</span><span class="hl-1">&gt;;</span>
+</code></pre>
+</li>
+</ul>
+
+<a href="#return-types" id="return-types" style="color: inherit; text-decoration: none;">
+  <h3>Return Types</h3>
+</a>
+<p>The list of the 5 core function return types is as follows:</p>
+<ul>
+<li><strong>Functions that return arrays</strong><ul>
+<li><a href="#parallelmapping">parallelMapping returns</a>: <code>Array&lt;Promise&lt;Settled&lt;R&gt;&gt;&gt;</code></li>
+</ul>
+</li>
+<li><strong>Functions that return promises that resolve to arrays</strong><ul>
+<li><a href="#serialmapping">serialMapping returns</a>: <code>Promise&lt;Array&lt;Settled&lt;R&gt;&gt;&gt;</code></li>
+<li><a href="#awaitedmapping">awaitedMapping returns</a>: <code>Promise&lt;Array&lt;Settled&lt;R&gt;&gt;&gt;</code></li>
+</ul>
+</li>
+<li><strong>Functions that return generators</strong><ul>
+<li><a href="#generatemapping">generateMapping returns</a>: <code>Generator&lt;Promise&lt;Settled&lt;R&gt;&gt;, void, unknown&gt;</code></li>
+<li><a href="#generatemappingasync">generateMappingAsync returns</a>: <code>AsyncGenerator&lt;Settled&lt;R&gt;, void, unknown&gt;</code></li>
+</ul>
+</li>
+</ul>
+
+<a href="#arguments" id="arguments" style="color: inherit; text-decoration: none;">
+  <h3>Arguments</h3>
+</a>
+<p>Our functions have complex signature which are easier to understand when we break them down in ther main coponents:</p>
+<ul>
+<li><p><code>collection: Iterable&lt;Base&lt;T&gt;&gt; | Iterable&lt;PromiseLike&lt;Base&lt;T&gt;&gt;&gt; | PromiseLike&lt;Iterable&lt;Base&lt;T&gt;&gt;&gt;</code>: The collection of items to be iterated or mapped over. The collection can be either an iterable or a combination of an iterable and a promise of an iterable.
+The <code>Base&lt;T&gt;</code> type represents a resolved or rejected promise, or a value. It can be one of the following:</p>
+<ul>
+<li><code>TBase</code>: The resolved value of a promise.</li>
+<li><code>Settled&lt;TBase&gt;</code>: An object representing a resolved or rejected promise, with a <code>status</code> field indicating the status of the promise and a <code>value</code> or <code>reason</code> field containing the resolved value or rejection reason, respectively.</li>
+<li><code>PromiseSettledResult&lt;TBase&gt;</code>: An object representing a resolved or rejected promise, with a <code>status</code> field indicating the status of the promise and a <code>value</code> or <code>reason</code> field containing the resolved value or rejection reason, respectively.</li>
+<li><code>SettledRight&lt;TBase&gt;</code>: An object representing a resolved promise, with a <code>status</code> field equal to <code>&#39;fulfilled&#39;</code> and a <code>value</code> field containing the resolved value.</li>
+<li><code>PromiseFulfilledResult&lt;TBase&gt;</code>: An object representing a resolved promise, with a <code>status</code> field equal to <code>&#39;fulfilled&#39;</code> and a <code>value</code> field containing the resolved value.</li>
+<li><code>SettledLeft</code>: An object representing a rejected promise, with a <code>status</code> field equal to <code>&#39;rejected&#39;</code> and a <code>reason</code> field containing the rejection reason.</li>
+<li><code>PromiseRejectedResult</code>: An object representing a rejected promise, with a <code>status</code> field equal to <code>&#39;rejected&#39;</code> and a <code>reason</code> field containing the rejection reason.</li>
+</ul>
+</li>
+<li><p><code>TransformFn&lt;T, R&gt; = async value =&gt; value as any as R</code>: A callback function that is applied to each item in the collection. It takes an item of type <code>T</code> as input and returns a value of type <code>R</code>.</p>
+</li>
+<li><p><code>LookupFn&lt;T, R&gt; = v =&gt; void v</code>: A callback function that is applied to each item in the collection. It takes an item of type <code>T</code> as input and returns a value of type <code>R</code>.</p>
+</li>
+<li><p><code>ValidateFn&lt;T, R&gt; = async v =&gt; void v</code>: A callback function that is applied to each item in the collection. It takes an item of type <code>T</code> as input and returns a value of type <code>R</code>.</p>
+</li>
+<li><p><code>ErrLookupFn = v =&gt; void v</code>: A callback function that is applied to each item in the collection. It takes an item of type <code>T</code> as input and returns a value of type <code>R</code>.</p>
+</li>
+</ul>
+<pre><code class="language-typescript"><span class="hl-0">/** Type alias either Promise or not */</span><br/><span class="hl-0">// Base&lt;B&gt; type is described below...</span><br/><span class="hl-3">type</span><span class="hl-1"> </span><span class="hl-9">AwaitAndBase</span><span class="hl-1">&lt;</span><span class="hl-9">B</span><span class="hl-1">&gt; = </span><span class="hl-9">Base</span><span class="hl-1">&lt;</span><span class="hl-9">B</span><span class="hl-1">&gt; | </span><span class="hl-9">PromiseLike</span><span class="hl-1">&lt;</span><span class="hl-9">Base</span><span class="hl-1">&lt;</span><span class="hl-9">B</span><span class="hl-1">&gt;&gt;;</span><br/><br/><span class="hl-3">type</span><span class="hl-1"> </span><span class="hl-9">Collection</span><span class="hl-1">&lt;</span><span class="hl-9">B</span><span class="hl-1">&gt; = </span><span class="hl-9">Iterable</span><span class="hl-1">&lt;</span><span class="hl-9">Base</span><span class="hl-1">&lt;</span><span class="hl-9">B</span><span class="hl-1">&gt;&gt;;</span>
+</code></pre>
+
+<a href="#delegates-functions" id="delegates-functions" style="color: inherit; text-decoration: none;">
+  <h2>Delegates functions</h2>
+</a>
+<p><strong>You can provide 4 main types of <em>delegates functions</em> as arguments to
+the main functions of the package.</strong></p>
+<p>In this context delegating just means the act of giving another
+<em>function</em> the responsibility of carrying out the performance agreed
+upon in by the folowing <em>interface</em> contracts.</p>
+<p>Each delegates can take null or undefined that are repleced by a default value:</p>
+<pre><code class="language-typescript"><span class="hl-3">const</span><span class="hl-1"> </span><span class="hl-4">transform</span><span class="hl-1">: </span><span class="hl-9">TransformFn</span><span class="hl-1">&lt;</span><span class="hl-9">T</span><span class="hl-1">, </span><span class="hl-9">R</span><span class="hl-1">&gt; =</span><br/><span class="hl-1">  </span><span class="hl-7">transformFn</span><span class="hl-1"> == </span><span class="hl-3">null</span><span class="hl-1"> ? </span><span class="hl-3">async</span><span class="hl-1"> </span><span class="hl-7">value</span><span class="hl-1"> </span><span class="hl-3">=&gt;</span><span class="hl-1"> </span><span class="hl-7">value</span><span class="hl-1"> </span><span class="hl-6">as</span><span class="hl-1"> </span><span class="hl-9">any</span><span class="hl-1"> </span><span class="hl-6">as</span><span class="hl-1"> </span><span class="hl-9">R</span><span class="hl-1"> : </span><span class="hl-7">transformFn</span><span class="hl-1">;</span><br/><br/><span class="hl-3">const</span><span class="hl-1"> </span><span class="hl-4">lookup</span><span class="hl-1">: </span><span class="hl-9">LookupFn</span><span class="hl-1">&lt;</span><span class="hl-9">T</span><span class="hl-1">, </span><span class="hl-9">R</span><span class="hl-1">&gt; = </span><span class="hl-7">lookupFn</span><span class="hl-1"> == </span><span class="hl-3">null</span><span class="hl-1"> ? </span><span class="hl-7">v</span><span class="hl-1"> </span><span class="hl-3">=&gt;</span><span class="hl-1"> </span><span class="hl-3">void</span><span class="hl-1"> </span><span class="hl-7">v</span><span class="hl-1"> : </span><span class="hl-7">lookupFn</span><span class="hl-1">;</span><br/><br/><span class="hl-3">const</span><span class="hl-1"> </span><span class="hl-4">validate</span><span class="hl-1">: </span><span class="hl-9">ValidateFn</span><span class="hl-1">&lt;</span><span class="hl-9">T</span><span class="hl-1">, </span><span class="hl-9">R</span><span class="hl-1">&gt; =</span><br/><span class="hl-1">  </span><span class="hl-7">validateFn</span><span class="hl-1"> == </span><span class="hl-3">null</span><span class="hl-1"> ? </span><span class="hl-3">async</span><span class="hl-1"> </span><span class="hl-7">v</span><span class="hl-1"> </span><span class="hl-3">=&gt;</span><span class="hl-1"> </span><span class="hl-3">void</span><span class="hl-1"> </span><span class="hl-7">v</span><span class="hl-1"> : </span><span class="hl-7">validateFn</span><span class="hl-1">;</span><br/><br/><span class="hl-3">const</span><span class="hl-1"> </span><span class="hl-4">errLookup</span><span class="hl-1">: </span><span class="hl-9">ErrLookupFn</span><span class="hl-1"> = </span><span class="hl-7">errLookupFn</span><span class="hl-1"> == </span><span class="hl-3">null</span><span class="hl-1"> ? </span><span class="hl-7">v</span><span class="hl-1"> </span><span class="hl-3">=&gt;</span><span class="hl-1"> </span><span class="hl-3">void</span><span class="hl-1"> </span><span class="hl-7">v</span><span class="hl-1"> : </span><span class="hl-7">errLookupFn</span><span class="hl-1">;</span>
+</code></pre>
+
+<a href="#transformfn" id="transformfn" style="color: inherit; text-decoration: none;">
+  <h3>transformFn</h3>
+</a>
+<p><strong><code>TransformFn&lt;T,U&gt;</code></strong></p>
+<p>The <code>TransformFn&lt;T,U&gt;</code> delegate function is responsible for carrying
+out the actual mapping process.</p>
+<p>It works similarly to the callback function provided to an
+<code>Array.prototype.map($)</code>, and expects that you will transform from
+input type <code>T</code> to returned type <code>U</code>.</p>
+<p>Proper type annotations are required if you return an unchanged
+value, as <code>U</code> and <code>T</code> must be different in order to be inferred.</p>
+<pre><code class="language-typescript"><span class="hl-6">export</span><span class="hl-1"> </span><span class="hl-3">interface</span><span class="hl-1"> </span><span class="hl-9">TransformFn</span><span class="hl-1">&lt;</span><span class="hl-9">T</span><span class="hl-1">, </span><span class="hl-9">U</span><span class="hl-1"> = </span><span class="hl-9">unknown</span><span class="hl-1">&gt; {</span><br/><span class="hl-1">  (</span><br/><span class="hl-1">    </span><span class="hl-7">value</span><span class="hl-1">: </span><span class="hl-9">T</span><span class="hl-1">,</span><br/><span class="hl-1">    </span><span class="hl-7">index</span><span class="hl-1">: </span><span class="hl-9">number</span><span class="hl-1">,</span><br/><span class="hl-1">    </span><span class="hl-7">array</span><span class="hl-1">: </span><span class="hl-3">readonly</span><span class="hl-1"> (</span><span class="hl-9">T</span><span class="hl-1"> | </span><span class="hl-9">PromiseSettledResult</span><span class="hl-1">&lt;</span><span class="hl-9">T</span><span class="hl-1">&gt;)[]</span><br/><span class="hl-1">  ): </span><span class="hl-9">Promise</span><span class="hl-1">&lt;</span><span class="hl-9">U</span><span class="hl-1">&gt;;</span><br/><span class="hl-1">}</span>
+</code></pre>
+
+<a href="#lookupfn" id="lookupfn" style="color: inherit; text-decoration: none;">
+  <h3>lookupFn</h3>
+</a>
+<p><strong><code>LookupFn&lt;S,U&gt;</code></strong></p>
+<p>The <code>LookupFn&lt;S,U&gt;</code> delegate function is used to acknowledge the transformed value <code>U</code> in an asynchronous manner. The return value of this delegate must be <code>void</code> and must not have any internal side effects within the function where it is executed. However, external side effects, such as a <code>console.log($)</code>, are allowed. In this context, <code>OnlySideEffect</code> is an alias for <code>void</code>.</p>
+<pre><code class="language-typescript"><span class="hl-6">export</span><span class="hl-1"> </span><span class="hl-3">interface</span><span class="hl-1"> </span><span class="hl-9">LookupFn</span><span class="hl-1">&lt;</span><span class="hl-9">S</span><span class="hl-1">, </span><span class="hl-9">U</span><span class="hl-1"> = </span><span class="hl-9">unknown</span><span class="hl-1">&gt; {</span><br/><span class="hl-1">  (</span><br/><span class="hl-1">    </span><span class="hl-7">value</span><span class="hl-1">: </span><span class="hl-9">U</span><span class="hl-1">,</span><br/><span class="hl-1">    </span><span class="hl-7">index</span><span class="hl-1">: </span><span class="hl-9">number</span><span class="hl-1">,</span><br/><span class="hl-1">    </span><span class="hl-7">array</span><span class="hl-1">: </span><span class="hl-3">readonly</span><span class="hl-1"> (</span><span class="hl-9">S</span><span class="hl-1"> | </span><span class="hl-9">Settled</span><span class="hl-1">&lt;</span><span class="hl-9">S</span><span class="hl-1">&gt; | </span><span class="hl-9">PromiseSettledResult</span><span class="hl-1">&lt;</span><span class="hl-9">S</span><span class="hl-1">&gt;)[]</span><br/><span class="hl-1">  ): </span><span class="hl-9">OnlySideEffect</span><span class="hl-1">;</span><br/><span class="hl-1">}</span>
+</code></pre>
+
+<a href="#validatefn" id="validatefn" style="color: inherit; text-decoration: none;">
+  <h3>validateFn</h3>
+</a>
+<p><strong><code>ValidateFn&lt;S,U&gt;</code></strong></p>
+<p>The <code>ValidateFn&lt;S,U&gt;</code> delegate function is similar to the <code>LookupFn&lt;S,U&gt;</code> delegate, both of which are optional and should be used only if necessary. The main difference is that the execution of the <code>ValidateFn&lt;S,U&gt;</code> delegate is awaited within the function where it is executed. The return value must be a <code>Promise&lt;void&gt;</code>. The only way to communicate with the main function is to throw a value or exception, which will be caught in the function and returned as a SettledLeft. In this context, <code>Promise&lt;OnlySideEffect&gt;</code> is an alias for <code>Promise&lt;void&gt;</code>. If your fuinction is not returning a promise you can use the async keword as a shortcut to convert to a promise.</p>
+<pre><code class="language-typescript"><span class="hl-6">export</span><span class="hl-1"> </span><span class="hl-3">interface</span><span class="hl-1"> </span><span class="hl-9">ValidateFn</span><span class="hl-1">&lt;</span><span class="hl-9">S</span><span class="hl-1">, </span><span class="hl-9">U</span><span class="hl-1"> = </span><span class="hl-9">unknown</span><span class="hl-1">&gt; {</span><br/><span class="hl-1">  (</span><br/><span class="hl-1">    </span><span class="hl-7">value</span><span class="hl-1">: </span><span class="hl-9">U</span><span class="hl-1">,</span><br/><span class="hl-1">    </span><span class="hl-7">index</span><span class="hl-1">: </span><span class="hl-9">number</span><span class="hl-1">,</span><br/><span class="hl-1">    </span><span class="hl-7">array</span><span class="hl-1">: </span><span class="hl-3">readonly</span><span class="hl-1"> (</span><span class="hl-9">S</span><span class="hl-1"> | </span><span class="hl-9">PromiseSettledResult</span><span class="hl-1">&lt;</span><span class="hl-9">S</span><span class="hl-1">&gt;)[]</span><br/><span class="hl-1">  ): </span><span class="hl-9">Promise</span><span class="hl-1">&lt;</span><span class="hl-9">OnlySideEffect</span><span class="hl-1">&gt;;</span><br/><span class="hl-1">}</span>
+</code></pre>
+
+<a href="#errlookupfn" id="errlookupfn" style="color: inherit; text-decoration: none;">
+  <h3>errLookupFn</h3>
+</a>
+<p><strong><code>ErrLookupFn</code></strong></p>
+<p>The <code>ErrLookupFn</code> delegate function is used to handle errors, and is similar to the <code>LookupFn&lt;S,U&gt;</code> delegate, but for rejections. It takes a <code>currentRejection</code> flag as its third argument, which indicates whether the error occurred during the current iteration or a previous iteration. You should only act on <code>currentRejection</code>s that are <code>true</code>, as they are not the result of a previous <code>transformStep</code> or <code>ValidationStep</code>. If you need to access previous rejections, they are also available when the current step is dealing with a previous rejection it will skip the <code>transformFn</code>, <code>lookupFn</code> and <code>validationFn</code> but would be available to the <code>ErrLookupFn</code> even if from a previous transformation step with a <code>currentRejection</code> value of false.</p>
+<pre><code class="language-typescript"><span class="hl-6">export</span><span class="hl-1"> </span><span class="hl-3">interface</span><span class="hl-1"> </span><span class="hl-9">ErrLookupFn</span><span class="hl-1"> {</span><br/><span class="hl-1">  (</span><span class="hl-7">reason</span><span class="hl-1">: </span><span class="hl-9">any</span><span class="hl-1">, </span><span class="hl-7">index</span><span class="hl-1">: </span><span class="hl-9">number</span><span class="hl-1">, </span><span class="hl-7">currentRejection</span><span class="hl-1">: </span><span class="hl-9">boolean</span><span class="hl-1">): </span><span class="hl-9">OnlySideEffect</span><span class="hl-1">;</span><br/><span class="hl-1">}</span>
+</code></pre>
+<p>Internally the delegate is linked via parameter that you
+can acess from the outside by providing a function (the delegate) of
+a certain type (specified via an interface) as an argument.</p>
+<p>The tranformations, validation and lookup of the resulting operation
+is mandated to 4 diferet function that let you alter the workflow in
+5 diferent areas inside the specific mapping operation over each
+elements.</p>
+<p>Since everything is based only on functions this definition may be
+different than the usual concept in JavaScript which is related often
+related to <a href="https://en.wikipedia.org/wiki/JavaScript#Delegative">Object composition and inheritance</a>.</p>
+
+<a href="#base-types" id="base-types" style="color: inherit; text-decoration: none;">
+  <h2>Base Types</h2>
+</a>
+
+<a href="#baselttvalgt" id="baselttvalgt" style="color: inherit; text-decoration: none;">
+  <h3><code>Base&lt;TVal&gt;</code></h3>
+</a>
+<p>Basic input type, represents the agregation of a naked value of type <code>TBase</code> (i.e <code>T</code> or <code>TVal</code> ), a resolved value wraped in either <code>SettledRight&lt;TBase&gt; | PromiseFulfilledResult&lt;TBase&gt;</code> or a rejection reason wraped in eiter <code>SettledLeft | PromiseRejectedResult</code> or the equivalent unions types <code>Settled&lt;TBase&gt; | PromiseSettledResult&lt;TBase&gt;</code>.</p>
+<pre><code class="language-typescript"><span class="hl-3">type</span><span class="hl-1"> </span><span class="hl-9">Base</span><span class="hl-1">&lt;</span><span class="hl-9">TBase</span><span class="hl-1">&gt; =</span><br/><span class="hl-1">  | </span><span class="hl-9">TBase</span><br/><span class="hl-1">  | </span><span class="hl-9">Settled</span><span class="hl-1">&lt;</span><span class="hl-9">TBase</span><span class="hl-1">&gt;</span><br/><span class="hl-1">  | </span><span class="hl-9">PromiseSettledResult</span><span class="hl-1">&lt;</span><span class="hl-9">TBase</span><span class="hl-1">&gt;</span><br/><span class="hl-1">  | </span><span class="hl-9">SettledRight</span><span class="hl-1">&lt;</span><span class="hl-9">TBase</span><span class="hl-1">&gt;</span><br/><span class="hl-1">  | </span><span class="hl-9">PromiseFulfilledResult</span><span class="hl-1">&lt;</span><span class="hl-9">TBase</span><span class="hl-1">&gt;</span><br/><span class="hl-1">  | </span><span class="hl-9">SettledLeft</span><br/><span class="hl-1">  | </span><span class="hl-9">PromiseRejectedResult</span><span class="hl-1">;</span>
+</code></pre>
+
+<a href="#settledlttvalgt" id="settledlttvalgt" style="color: inherit; text-decoration: none;">
+  <h3><code>Settled&lt;TVal&gt;</code></h3>
+</a>
+<p>The <code>Settled&lt;TVal&gt;</code> type is an extension of the <code>PromiseSettledResult&lt;TVal&gt;</code> type, and includes additional properties such as the <code>transformStep</code> and <code>currentRejection</code> status. This allows users to more easily track the progress of the transformation process, and quickly identify any errors that may have occurred. Overall, the mapping-tools package is a reliable and robust choice for performing transformations on collections of data.</p>
+<pre><code class="language-typescript"><span class="hl-3">type</span><span class="hl-1"> </span><span class="hl-9">Settled</span><span class="hl-1">&lt;</span><span class="hl-9">T</span><span class="hl-1">&gt; = </span><span class="hl-9">SettledLeft</span><span class="hl-1"> | </span><span class="hl-9">SettledRight</span><span class="hl-1">&lt;</span><span class="hl-9">T</span><span class="hl-1">&gt;;</span>
+</code></pre>
+
+<a href="#settledrightlttvalgt" id="settledrightlttvalgt" style="color: inherit; text-decoration: none;">
+  <h3><code>SettledRight&lt;TVal&gt;</code></h3>
+</a>
+<p>The <code>SettledRight&lt;TVal&gt;</code> type represents successful transformation results, and includes the fulfilled value as well as additional metadata such as the index of the item in the original collection and the transformation step at which it was resolved. This allows users to easily track and analyze the transformation process, even in cases where errors may have been encountered.</p>
+<pre><code class="language-typescript"><span class="hl-3">type</span><span class="hl-1"> </span><span class="hl-9">SettledRight</span><span class="hl-1">&lt;</span><span class="hl-9">T</span><span class="hl-1">&gt; = </span><span class="hl-9">PromiseFulfilledResult</span><span class="hl-1">&lt;</span><span class="hl-9">T</span><span class="hl-1">&gt; &amp; {</span><br/><span class="hl-1">  </span><span class="hl-7">status</span><span class="hl-1">: </span><span class="hl-2">&#39;fulfilled&#39;</span><span class="hl-1">;</span><br/><span class="hl-1">  </span><span class="hl-7">value</span><span class="hl-1">: </span><span class="hl-9">T</span><span class="hl-1">;</span><br/><br/><span class="hl-1">  </span><span class="hl-0">/* The null value of the transformStep and the index is -1 */</span><br/><span class="hl-1">  </span><span class="hl-0">/* When value is -1 the folowing properties a not enumerated */</span><br/><span class="hl-1">  </span><span class="hl-7">transformStep</span><span class="hl-1">: </span><span class="hl-9">number</span><span class="hl-1">;</span><br/><span class="hl-1">  </span><span class="hl-7">index</span><span class="hl-1">: </span><span class="hl-9">number</span><span class="hl-1">;</span><br/><br/><span class="hl-1">  </span><span class="hl-0">/* Folowing properties a not enumerated (enumerable: false) */</span><br/><span class="hl-1">  </span><span class="hl-7">currentRejection</span><span class="hl-1">: </span><span class="hl-9">null</span><span class="hl-1">;</span><br/><span class="hl-1">  </span><span class="hl-7">fulfilled</span><span class="hl-1">: </span><span class="hl-9">T</span><span class="hl-1">;</span><br/><span class="hl-1">  </span><span class="hl-7">rejected</span><span class="hl-1">: </span><span class="hl-9">null</span><span class="hl-1">;</span><br/><span class="hl-1">  </span><span class="hl-7">reason</span><span class="hl-1">?: </span><span class="hl-9">undefined</span><span class="hl-1">;</span><br/><span class="hl-1">};</span>
+</code></pre>
+
+<a href="#settledleft" id="settledleft" style="color: inherit; text-decoration: none;">
+  <h3><code>SettledLeft</code></h3>
+</a>
+<p>On the other hand, the <code>SettledLeft</code> type represents unsuccessful transformation results, and includes the rejected value as well as metadata such as the <code>index</code> and last <code>transformStep</code>. This allows users to easily identify and troubleshoot any issues that may have occurred during the transformation process.</p>
+<pre><code class="language-typescript"><span class="hl-3">type</span><span class="hl-1"> </span><span class="hl-9">SettledLeft</span><span class="hl-1"> = </span><span class="hl-9">PromiseRejectedResult</span><span class="hl-1"> &amp; {</span><br/><span class="hl-1">  </span><span class="hl-7">status</span><span class="hl-1">: </span><span class="hl-2">&#39;rejected&#39;</span><span class="hl-1">;</span><br/><span class="hl-1">  </span><span class="hl-7">reason</span><span class="hl-1">: </span><span class="hl-9">any</span><span class="hl-1">;</span><br/><br/><span class="hl-1">  </span><span class="hl-0">/*</span><br/><span class="hl-0">    the currentRejection can be undefined but the property itself</span><br/><span class="hl-0">    can not be undefined</span><br/><span class="hl-0">   */</span><br/><span class="hl-1">  </span><span class="hl-7">currentRejection</span><span class="hl-1">: </span><span class="hl-9">true</span><span class="hl-1"> | </span><span class="hl-9">false</span><span class="hl-1"> | </span><span class="hl-9">undefined</span><span class="hl-1">;</span><br/><br/><span class="hl-1">  </span><span class="hl-0">/* The null value of the transformStep and the index is -1 */</span><br/><span class="hl-1">  </span><span class="hl-0">/* When value is -1 the folowing properties a not enumerated */</span><br/><span class="hl-1">  </span><span class="hl-7">transformStep</span><span class="hl-1">: </span><span class="hl-9">number</span><span class="hl-1">;</span><br/><span class="hl-1">  </span><span class="hl-7">index</span><span class="hl-1">: </span><span class="hl-9">number</span><span class="hl-1">;</span><br/><br/><span class="hl-1">  </span><span class="hl-0">/* Folowing properties a not enumerated (enumerable: false) */</span><br/><span class="hl-1">  </span><span class="hl-7">rejected</span><span class="hl-1">: </span><span class="hl-9">any</span><span class="hl-1">;</span><br/><span class="hl-1">  </span><span class="hl-7">fulfilled</span><span class="hl-1">: </span><span class="hl-9">null</span><span class="hl-1">;</span><br/><span class="hl-1">  </span><span class="hl-7">value</span><span class="hl-1">?: </span><span class="hl-9">undefined</span><span class="hl-1">;</span><br/><span class="hl-1">};</span>
+</code></pre>
+
+<a href="#promisefulfilledresultlttvalgt" id="promisefulfilledresultlttvalgt" style="color: inherit; text-decoration: none;">
+  <h3><code>PromiseFulfilledResult&lt;TVal&gt;</code></h3>
+</a>
+<pre><code class="language-typescript"><span class="hl-0">/** From typescript lib */</span><br/><span class="hl-3">interface</span><span class="hl-1"> </span><span class="hl-9">PromiseFulfilledResult</span><span class="hl-1">&lt;</span><span class="hl-9">T</span><span class="hl-1">&gt; {</span><br/><span class="hl-1">  </span><span class="hl-7">status</span><span class="hl-1">: </span><span class="hl-2">&#39;fulfilled&#39;</span><span class="hl-1">;</span><br/><span class="hl-1">  </span><span class="hl-7">value</span><span class="hl-1">: </span><span class="hl-9">T</span><span class="hl-1">;</span><br/><span class="hl-1">}</span>
+</code></pre>
+
+<a href="#promisesettledresultlttvalgt" id="promisesettledresultlttvalgt" style="color: inherit; text-decoration: none;">
+  <h3><code>PromiseSettledResult&lt;TVal&gt;</code></h3>
+</a>
+<pre><code class="language-typescript"><span class="hl-0">/** From typescript lib */</span><br/><span class="hl-3">type</span><span class="hl-1"> </span><span class="hl-9">PromiseSettledResult</span><span class="hl-1">&lt;</span><span class="hl-9">T</span><span class="hl-1">&gt; =</span><br/><span class="hl-1">  | </span><span class="hl-9">PromiseFulfilledResult</span><span class="hl-1">&lt;</span><span class="hl-9">T</span><span class="hl-1">&gt;</span><br/><span class="hl-1">  | </span><span class="hl-9">PromiseRejectedResult</span><span class="hl-1">;</span>
+</code></pre>
+
+<a href="#promiserejectedresult" id="promiserejectedresult" style="color: inherit; text-decoration: none;">
+  <h3><code>PromiseRejectedResult</code></h3>
+</a>
+<pre><code class="language-typescript"><span class="hl-0">/** From typescript lib */</span><br/><span class="hl-3">interface</span><span class="hl-1"> </span><span class="hl-9">PromiseRejectedResult</span><span class="hl-1"> {</span><br/><span class="hl-1">  </span><span class="hl-7">status</span><span class="hl-1">: </span><span class="hl-2">&#39;rejected&#39;</span><span class="hl-1">;</span><br/><span class="hl-1">  </span><span class="hl-7">reason</span><span class="hl-1">: </span><span class="hl-9">any</span><span class="hl-1">;</span><br/><span class="hl-1">}</span>
+</code></pre>
+
+<a href="#aliases-types" id="aliases-types" style="color: inherit; text-decoration: none;">
+  <h2>Aliases Types</h2>
+</a>
+
+<a href="#deferredltbasegt" id="deferredltbasegt" style="color: inherit; text-decoration: none;">
+  <h3><code>Deferred&lt;Base&gt;</code></h3>
+</a>
+<p>The <code>Deferred&lt;B&gt;</code> type is an alias for <code>PromiseLike&lt;Base&lt;B&gt;&gt;</code>, which represents a promise-like object that wraps a value of type <code>Base&lt;B&gt;</code>. It is used to simplify the documentation and does not need to be used directly by the end user of the package.</p>
+<pre><code class="language-typescript"><span class="hl-3">type</span><span class="hl-1"> </span><span class="hl-9">Deferred</span><span class="hl-1">&lt;</span><span class="hl-9">B</span><span class="hl-1">&gt; = </span><span class="hl-9">PromiseLike</span><span class="hl-1">&lt;</span><span class="hl-9">Base</span><span class="hl-1">&lt;</span><span class="hl-9">B</span><span class="hl-1">&gt;&gt;;</span>
+</code></pre>
+
+<a href="#baseordeferredltbasegt" id="baseordeferredltbasegt" style="color: inherit; text-decoration: none;">
+  <h3><code>BaseOrDeferred&lt;Base&gt;</code></h3>
+</a>
+<p><code>BaseOrDeferred&lt;B&gt;</code> is an alias type that represents either a
+promise-like <code>Deferred&lt;B&gt;</code> type or a <code>Base&lt;B&gt;</code> type.</p>
+<p>In some cases the base type can be combined to be either <code>Base&lt;B&gt;</code>
+or <code>Deferred&lt;B&gt;</code> and would be the type of a parameter to a function
+that can take such compounded object type.</p>
+<pre><code class="language-typescript"><span class="hl-3">type</span><span class="hl-1"> </span><span class="hl-9">BaseOrDeferred</span><span class="hl-1">&lt;</span><span class="hl-9">B</span><span class="hl-1">&gt; = </span><span class="hl-9">Base</span><span class="hl-1">&lt;</span><span class="hl-9">B</span><span class="hl-1">&gt; | </span><span class="hl-9">Deferred</span><span class="hl-1">&lt;</span><span class="hl-9">B</span><span class="hl-1">&gt;;</span>
+</code></pre>
+
+<a href="#collectionltbasegt" id="collectionltbasegt" style="color: inherit; text-decoration: none;">
+  <h3><code>Collection&lt;Base&gt;</code></h3>
+</a>
+<p>Basic Iterable input type, and Iterable version of <code>BaseOrDeferred&lt;Base&gt;</code> the union type of eiter an <code>Iterable&lt;Base&lt;B&gt;&gt;</code> with all its values being of type <code>Base&lt;B&gt;</code> or an <code>Iterable&lt;Deferred&lt;B&gt;&gt;</code> with all its values being of type <code>Deferred&lt;B&gt;</code> pleae not that it is not the same as <code>Iterable&lt;Base&lt;B&gt; | Deferred&lt;B&gt;&gt;</code> as the Iterable canot contain mixed types similar to <code>BaseOrDeferred&lt;Base&gt;</code>;</p>
+<pre><code class="language-typescript"><span class="hl-3">type</span><span class="hl-1"> </span><span class="hl-9">Collection</span><span class="hl-1">&lt;</span><span class="hl-9">B</span><span class="hl-1">&gt; = </span><span class="hl-9">Iterable</span><span class="hl-1">&lt;</span><span class="hl-9">Base</span><span class="hl-1">&lt;</span><span class="hl-9">B</span><span class="hl-1">&gt;&gt; | </span><span class="hl-9">Iterable</span><span class="hl-1">&lt;</span><span class="hl-9">Deferred</span><span class="hl-1">&lt;</span><span class="hl-9">B</span><span class="hl-1">&gt;&gt;;</span>
+</code></pre>
+
+<a href="#deferredcollectionltbasegt" id="deferredcollectionltbasegt" style="color: inherit; text-decoration: none;">
+  <h3><code>DeferredCollection&lt;Base&gt;</code></h3>
+</a>
+<p>Extended version of basic Iterable input type, may be eiter <code>Collection&lt;B&gt;</code> or a PromiseLike of the same kind <code>PromiseLike&lt;Collection&lt;B&gt;&gt;</code></p>
+<pre><code class="language-typescript"><span class="hl-3">type</span><span class="hl-1"> </span><span class="hl-9">DeferredCollection</span><span class="hl-1">&lt;</span><span class="hl-9">B</span><span class="hl-1">&gt; = </span><span class="hl-9">Collection</span><span class="hl-1">&lt;</span><span class="hl-9">B</span><span class="hl-1">&gt; | </span><span class="hl-9">PromiseLike</span><span class="hl-1">&lt;</span><span class="hl-9">Collection</span><span class="hl-1">&lt;</span><span class="hl-9">B</span><span class="hl-1">&gt;&gt;;</span>
+</code></pre>
+
+<a href="#settledarrayltresultgt" id="settledarrayltresultgt" style="color: inherit; text-decoration: none;">
+  <h3><code>SettledArray&lt;Result&gt;</code></h3>
+</a>
+<pre><code class="language-typescript"><span class="hl-3">type</span><span class="hl-1"> </span><span class="hl-9">SettledArray</span><span class="hl-1">&lt;</span><span class="hl-9">R</span><span class="hl-1">&gt; = </span><span class="hl-9">Settled</span><span class="hl-1">&lt;</span><span class="hl-9">R</span><span class="hl-1">&gt;[];</span>
+</code></pre>
+
+<a href="#nullsymbol" id="nullsymbol" style="color: inherit; text-decoration: none;">
+  <h3><code>NullSymbol</code></h3>
+</a>
+<pre><code class="language-typescript"><span class="hl-3">type</span><span class="hl-1"> </span><span class="hl-9">NullSymbol</span><span class="hl-1"> = </span><span class="hl-3">typeof</span><span class="hl-1"> </span><span class="hl-4">NULL_SYMBOL</span><span class="hl-1">;</span>
+</code></pre>
+
+<a href="#settledvalueltresultgt" id="settledvalueltresultgt" style="color: inherit; text-decoration: none;">
+  <h3><code>SettledValue&lt;Result&gt;</code></h3>
+</a>
+<pre><code class="language-typescript"><span class="hl-3">type</span><span class="hl-1"> </span><span class="hl-9">SettledValue</span><span class="hl-1">&lt;</span><span class="hl-9">R</span><span class="hl-1">&gt; = </span><span class="hl-9">R</span><span class="hl-1"> | </span><span class="hl-9">NullSymbol</span><span class="hl-1">;</span>
+</code></pre>
+
+<a href="#settledvaluesltresultgt" id="settledvaluesltresultgt" style="color: inherit; text-decoration: none;">
+  <h3><code>SettledValues&lt;Result&gt;</code></h3>
+</a>
+<pre><code class="language-typescript"><span class="hl-3">type</span><span class="hl-1"> </span><span class="hl-9">SettledValues</span><span class="hl-1">&lt;</span><span class="hl-9">R</span><span class="hl-1">&gt; = </span><span class="hl-9">SettledValue</span><span class="hl-1">&lt;</span><span class="hl-9">R</span><span class="hl-1">&gt;[];</span>
+</code></pre>
+
+<a href="#onlysideeffect" id="onlysideeffect" style="color: inherit; text-decoration: none;">
+  <h3><code>OnlySideEffect</code></h3>
+</a>
+<pre><code class="language-typescript"><span class="hl-3">type</span><span class="hl-1"> </span><span class="hl-9">OnlySideEffect</span><span class="hl-1"> = </span><span class="hl-9">void</span><span class="hl-1"> | </span><span class="hl-9">undefined</span><span class="hl-1">;</span>
+</code></pre>
+<p>The package has been developed to provide a simple and easy-to-use interface for performing transformations on collections of data. It offers a variety of different functions, including awaitedMapping, parallelMapping, and serialMapping, each with their own specific use cases and features.</p>
+<p>One of the key features of the mapping-tools package is its adaptive ability to handle both promises and non-promises as input. This omnivorous feature allows it to be easily integrated into a wide range of contexts and projects, whether dealing with pending values or already resolved values. It simply requires a thenable in a PromiseLike object.</p>
+<p>In addition to its flexibility, the package has also been designed with resilience in mind. It includes robust error handling, ensuring that any errors encountered during the transformation process will not prevent the code from providing meaningful output. The output of the package is based on the <code>Settled&lt;TVal&gt;</code> type, which allows users to easily distinguish between successful and unsuccessful results.</p>
+<p>The mapping-tools package is a reliable and flexible choice to perform transformations on collections of data.</p>
+
+<a href="#contributing" id="contributing" style="color: inherit; text-decoration: none;">
+  <h2>Contributing</h2>
+</a>
+<p>We welcome contributions to Mapping Tools! If you have an idea for a new feature or have found a bug, please open an issue on GitHub. If you&#39;d like to contribute code, please follow these guidelines:</p>
+<ul>
+<li>All code should be tested using the provided test suite.</li>
+<li>Please include documentation for any new functions or types you add.</li>
+</ul>
+
+<a href="#the-mit-license-mit" id="the-mit-license-mit" style="color: inherit; text-decoration: none;">
+  <h2>The MIT License (MIT)</h2>
+</a>
+<p>The MIT License (MIT)</p>
+<p>Copyright © 2022-2023 · LUXCIUM · (Benjamin Vincent Kasapoglu) · luxcium﹫neb401.com</p>
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the &quot;Software&quot;), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:</p>
+<p>The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.</p>
+<p>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.</p>
+<!--
+
+## NO PERMISSION GRANTED - PROVIDED "AS IS" - WITHOUT WARRANTY
+
+† **Scientia est lux principium✨** ™
+
+THESE FILES ARE _NOT_ FIT FOR ANY PARTICULAR PURPOSE IN IT'S CURRENT FORM
+THESE FILES HAVE NOT BEEN TESTED OR RUN YET IN ALL ENVIRONMENTS! _DO NOT_
+RUN THESE FILES UNLESS YOU HAVE REVIEWED THE FULL CONTENT AND TAKE FULL
+RESPONSIBILITY OF ANY PROBLEME IT MAY CAUSE TO YOU (or anyone) OR YOUR
+MACHINE (or any machine).
+
+### NO PERMISSION ARE GRANTED FOR THIS SOFTWARE
+
+1. NOT TO PUBLISH;
+2. NOT TO DISTRIBUTE;
+3. NOT TO SUBLICENSE;
+4. NOT TO SELL COPIES OF;
+
+#### NOTICE
+
+> THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ALL OR ANY KIND,
+> EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+> MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+> IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS WILL BE LIABLE FOR ALL
+> OR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+> TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE
+> OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+Copyright © 2022 LUXCIUM
+
+### EXCEPTIONS
+
+#### YOU HAVE THE RIGHT TO
+
+```text
+A) USE IT FOR YOURSELF;
+B) DISTRIBUTE IT TO YOUR FRIENDS;
+C) DISTRIBUTE IT TO YOUR STUDENTS;
+D) DISTRIBUTE IT TO YOUR COWORKER;
+(FOR PERSONAL USE: AT HOME, AT SCHOOL OR AT WORK)
+```
+### Copyright © 2022 - 2023 · LUXCIUM · (Benjamin Vincent Kasapoglu) · luxcium﹫neb401.com
+
+IN ALL OR ANY CASES THE COPYRIGHT AND NOTICE ABOVE MUST BE INCLUDED. -->
+
+<!--
+1. [Usage](#usage)
+1. [Features](#features)
+1. [Documentation](#documentation)
+
+##
+##
+##
+##
+##
+### Arguments
+## Return Types
+### parallelMapping signature
+### serialMapping signature
+### awaitedMapping signature
+### generateMapping signature
+### generateMappingAsync signature
+## Delegates functions
+###
+###
+###
+###
+
+## Main types
+## Base types
+## Contributing
+## Luxcium License: NO PERMISSION GRANTED - PROVIDED "AS IS" - WITHOUT WARRANTY
+### NO PERMISSION ARE GRANTED FOR THIS SOFTWARE
+#### NOTICE
+### EXCEPTIONS
+#### YOU HAVE THE RIGHT TO
+### Copyright © 2022 · LUXCIUM · (Benjamin Vincent Kasapoglu) · luxcium﹫neb401.com
+###### † Scientia est lux principium✨ is a Trade Mark of Benjamin Vincent Kasapoglu
+
+ -->
+
+
+<a href="#-scientia-est-lux-principium✨-is-a-trade-mark-of-benjamin-vincent-kasapoglu" id="-scientia-est-lux-principium✨-is-a-trade-mark-of-benjamin-vincent-kasapoglu" style="color: inherit; text-decoration: none;">
+  <h6>† Scientia est lux principium✨ is a Trade Mark of Benjamin Vincent Kasapoglu<!-- markdownlint-disable-line --></h6>
+</a>
+<p><sup>Text generated by an <a href="https://openai.com/">AI language model</a> has been used in this work.</sup><!-- markdownlint-disable-line --></p>
+</div></div>
+<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+<div class="tsd-navigation settings">
+<details class="tsd-index-accordion"><summary class="tsd-accordion-summary">
+<h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4.93896 8.531L12 15.591L19.061 8.531L16.939 6.409L12 11.349L7.06098 6.409L4.93896 8.531Z" fill="var(--color-text)"></path></svg> Settings</h3></summary>
+<div class="tsd-accordion-details">
+<div class="tsd-filter-visibility">
+<h4 class="uppercase">Member Visibility</h4><form>
+<ul id="tsd-filter-options">
+<li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-alpha" name="alpha"/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Alpha</span></label></li></ul></form></div>
+<div class="tsd-theme-toggle">
+<h4 class="uppercase">Theme</h4><select id="theme"><option value="os">OS</option><option value="light">Light</option><option value="dark">Dark</option></select></div></div></details></div>
+<nav class="tsd-navigation primary">
+<details class="tsd-index-accordion" open><summary class="tsd-accordion-summary">
+<h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4.93896 8.531L12 15.591L19.061 8.531L16.939 6.409L12 11.349L7.06098 6.409L4.93896 8.531Z" fill="var(--color-text)"></path></svg> Modules</h3></summary>
+<div class="tsd-accordion-details">
+<ul>
+<li class="current selected"><a href="modules.html">mapping-<wbr/>tools</a>
+<ul>
+<li class="tsd-kind-namespace"><a href="modules/constants.html">constants</a></li></ul></li></ul></div></details></nav>
+<nav class="tsd-navigation secondary menu-sticky">
+<ul>
+<li class="tsd-kind-class"><a href="classes/Chain.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><rect fill="var(--color-icon-background)" stroke="var(--color-ts-class)" stroke-width="1.5" x="1" y="1" width="22" height="22" rx="6" id="icon-128-path"></rect><path d="M11.898 16.1201C11.098 16.1201 10.466 15.8961 10.002 15.4481C9.53803 15.0001 9.30603 14.3841 9.30603 13.6001V9.64012C9.30603 8.85612 9.53803 8.24012 10.002 7.79212C10.466 7.34412 11.098 7.12012 11.898 7.12012C12.682 7.12012 13.306 7.34812 13.77 7.80412C14.234 8.25212 14.466 8.86412 14.466 9.64012H13.386C13.386 9.14412 13.254 8.76412 12.99 8.50012C12.734 8.22812 12.37 8.09212 11.898 8.09212C11.426 8.09212 11.054 8.22412 10.782 8.48812C10.518 8.75212 10.386 9.13212 10.386 9.62812V13.6001C10.386 14.0961 10.518 14.4801 10.782 14.7521C11.054 15.0161 11.426 15.1481 11.898 15.1481C12.37 15.1481 12.734 15.0161 12.99 14.7521C13.254 14.4801 13.386 14.0961 13.386 13.6001H14.466C14.466 14.3761 14.234 14.9921 13.77 15.4481C13.306 15.8961 12.682 16.1201 11.898 16.1201Z" fill="var(--color-text)" id="icon-128-text"></path></svg>Chain</a></li>
+<li class="tsd-kind-function"><a href="functions/awaitedMapping.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><rect fill="var(--color-icon-background)" stroke="var(--color-ts-function)" stroke-width="1.5" x="1" y="1" width="22" height="22" rx="6" id="icon-64-path"></rect><path d="M9.39 16V7.24H14.55V8.224H10.446V11.128H14.238V12.112H10.47V16H9.39Z" fill="var(--color-text)" id="icon-64-text"></path></svg>awaited<wbr/>Mapping</a></li>
+<li class="tsd-kind-function"><a href="functions/generateMapping.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-64-path"></use><use href="#icon-64-text"></use></svg>generate<wbr/>Mapping</a></li>
+<li class="tsd-kind-function"><a href="functions/generateMappingAsync.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-64-path"></use><use href="#icon-64-text"></use></svg>generate<wbr/>Mapping<wbr/>Async</a></li>
+<li class="tsd-kind-function"><a href="functions/parallelMapping.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-64-path"></use><use href="#icon-64-text"></use></svg>parallel<wbr/>Mapping</a></li>
+<li class="tsd-kind-function"><a href="functions/serialMapping.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-64-path"></use><use href="#icon-64-text"></use></svg>serial<wbr/>Mapping</a></li>
+<li class="tsd-kind-function"><a href="functions/isPromise.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-64-path"></use><use href="#icon-64-text"></use></svg>is<wbr/>Promise</a></li>
+<li class="tsd-kind-function"><a href="functions/isPromiseLike.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-64-path"></use><use href="#icon-64-text"></use></svg>is<wbr/>Promise<wbr/>Like</a></li>
+<li class="tsd-kind-function"><a href="functions/isPromiseSettledResult.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-64-path"></use><use href="#icon-64-text"></use></svg>is<wbr/>Promise<wbr/>Settled<wbr/>Result</a></li>
+<li class="tsd-kind-function"><a href="functions/isPromiseFulfilledResult.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-64-path"></use><use href="#icon-64-text"></use></svg>is<wbr/>Promise<wbr/>Fulfilled<wbr/>Result</a></li>
+<li class="tsd-kind-function"><a href="functions/isPromiseRejectedResult.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-64-path"></use><use href="#icon-64-text"></use></svg>is<wbr/>Promise<wbr/>Rejected<wbr/>Result</a></li>
+<li class="tsd-kind-function"><a href="functions/isSettled.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-64-path"></use><use href="#icon-64-text"></use></svg>is<wbr/>Settled</a></li>
+<li class="tsd-kind-function"><a href="functions/hasTransformStep.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-64-path"></use><use href="#icon-64-text"></use></svg>has<wbr/>Transform<wbr/>Step</a></li>
+<li class="tsd-kind-function"><a href="functions/isSettledRight.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-64-path"></use><use href="#icon-64-text"></use></svg>is<wbr/>Settled<wbr/>Right</a></li>
+<li class="tsd-kind-function"><a href="functions/isSettledLeft.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-64-path"></use><use href="#icon-64-text"></use></svg>is<wbr/>Settled<wbr/>Left</a></li>
+<li class="tsd-kind-function"><a href="functions/filterRight.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-64-path"></use><use href="#icon-64-text"></use></svg>filter<wbr/>Right</a></li>
+<li class="tsd-kind-function"><a href="functions/filterLeft.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-64-path"></use><use href="#icon-64-text"></use></svg>filter<wbr/>Left</a></li>
+<li class="tsd-kind-function"><a href="functions/extractFulfilledValues.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-64-path"></use><use href="#icon-64-text"></use></svg>extract<wbr/>Fulfilled<wbr/>Values</a></li>
+<li class="tsd-kind-function"><a href="functions/extractSettledValues.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-64-path"></use><use href="#icon-64-text"></use></svg>extract<wbr/>Settled<wbr/>Values</a></li>
+<li class="tsd-kind-function"><a href="functions/toFulfilment.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-64-path"></use><use href="#icon-64-text"></use></svg>to<wbr/>Fulfilment</a></li>
+<li class="tsd-kind-function"><a href="functions/getTransformStep.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-64-path"></use><use href="#icon-64-text"></use></svg>get<wbr/>Transform<wbr/>Step</a></li>
+<li class="tsd-kind-interface"><a href="interfaces/IChain.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><rect fill="var(--color-icon-background)" stroke="var(--color-ts-interface)" stroke-width="1.5" x="1" y="1" width="22" height="22" rx="6" id="icon-256-path"></rect><path d="M9.51 16V15.016H11.298V8.224H9.51V7.24H14.19V8.224H12.402V15.016H14.19V16H9.51Z" fill="var(--color-text)" id="icon-256-text"></path></svg>IChain</a></li>
+<li class="tsd-kind-interface"><a href="interfaces/ErrLookupFn.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-256-path"></use><use href="#icon-256-text"></use></svg>Err<wbr/>Lookup<wbr/>Fn</a></li>
+<li class="tsd-kind-interface"><a href="interfaces/LookupFn.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-256-path"></use><use href="#icon-256-text"></use></svg>Lookup<wbr/>Fn</a></li>
+<li class="tsd-kind-interface"><a href="interfaces/TransformFn.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-256-path"></use><use href="#icon-256-text"></use></svg>Transform<wbr/>Fn</a></li>
+<li class="tsd-kind-interface"><a href="interfaces/ValidateFn.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-256-path"></use><use href="#icon-256-text"></use></svg>Validate<wbr/>Fn</a></li>
+<li class="tsd-kind-type-alias"><a href="types/ParallelMappingFn.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><rect fill="var(--color-icon-background)" stroke="var(--color-ts)" stroke-width="1.5" x="1" y="1" width="22" height="22" rx="6" id="icon-4194304-path"></rect><path d="M11.31 16V8.224H8.91V7.24H14.79V8.224H12.39V16H11.31Z" fill="var(--color-text)" id="icon-4194304-text"></path></svg>Parallel<wbr/>Mapping<wbr/>Fn</a></li>
+<li class="tsd-kind-type-alias"><a href="types/SerialMappingFn.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-4194304-path"></use><use href="#icon-4194304-text"></use></svg>Serial<wbr/>Mapping<wbr/>Fn</a></li>
+<li class="tsd-kind-type-alias"><a href="types/AwaitedMappingFn.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-4194304-path"></use><use href="#icon-4194304-text"></use></svg>Awaited<wbr/>Mapping<wbr/>Fn</a></li>
+<li class="tsd-kind-type-alias"><a href="types/GenerateMappingFn.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-4194304-path"></use><use href="#icon-4194304-text"></use></svg>Generate<wbr/>Mapping<wbr/>Fn</a></li>
+<li class="tsd-kind-type-alias"><a href="types/GenerateMappingAsyncFn.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-4194304-path"></use><use href="#icon-4194304-text"></use></svg>Generate<wbr/>Mapping<wbr/>Async<wbr/>Fn</a></li>
+<li class="tsd-kind-type-alias"><a href="types/Base.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-4194304-path"></use><use href="#icon-4194304-text"></use></svg>Base</a></li>
+<li class="tsd-kind-type-alias"><a href="types/Collection.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-4194304-path"></use><use href="#icon-4194304-text"></use></svg>Collection</a></li>
+<li class="tsd-kind-type-alias"><a href="types/Deferred.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-4194304-path"></use><use href="#icon-4194304-text"></use></svg>Deferred</a></li>
+<li class="tsd-kind-type-alias"><a href="types/CollectionOfDeferred.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-4194304-path"></use><use href="#icon-4194304-text"></use></svg>Collection<wbr/>Of<wbr/>Deferred</a></li>
+<li class="tsd-kind-type-alias"><a href="types/BaseOrDeferred.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-4194304-path"></use><use href="#icon-4194304-text"></use></svg>Base<wbr/>Or<wbr/>Deferred</a></li>
+<li class="tsd-kind-type-alias"><a href="types/DeferredCollection.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-4194304-path"></use><use href="#icon-4194304-text"></use></svg>Deferred<wbr/>Collection</a></li>
+<li class="tsd-kind-type-alias"><a href="types/SettledArray.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-4194304-path"></use><use href="#icon-4194304-text"></use></svg>Settled<wbr/>Array</a></li>
+<li class="tsd-kind-type-alias"><a href="types/NullSymbol.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-4194304-path"></use><use href="#icon-4194304-text"></use></svg>Null<wbr/>Symbol</a></li>
+<li class="tsd-kind-type-alias"><a href="types/SettledValue.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-4194304-path"></use><use href="#icon-4194304-text"></use></svg>Settled<wbr/>Value</a></li>
+<li class="tsd-kind-type-alias"><a href="types/SettledValues.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-4194304-path"></use><use href="#icon-4194304-text"></use></svg>Settled<wbr/>Values</a></li>
+<li class="tsd-kind-type-alias"><a href="types/OnlySideEffect.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-4194304-path"></use><use href="#icon-4194304-text"></use></svg>Only<wbr/>Side<wbr/>Effect</a></li>
+<li class="tsd-kind-type-alias"><a href="types/Settled.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-4194304-path"></use><use href="#icon-4194304-text"></use></svg>Settled</a></li>
+<li class="tsd-kind-type-alias"><a href="types/SettledLeft.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-4194304-path"></use><use href="#icon-4194304-text"></use></svg>Settled<wbr/>Left</a></li>
+<li class="tsd-kind-type-alias"><a href="types/SettledRight.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-4194304-path"></use><use href="#icon-4194304-text"></use></svg>Settled<wbr/>Right</a></li>
+<li class="tsd-kind-type-alias"><a href="types/TransformStep.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-4194304-path"></use><use href="#icon-4194304-text"></use></svg>Transform<wbr/>Step</a></li>
+<li class="tsd-kind-variable"><a href="variables/FULFILLED.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><rect fill="var(--color-icon-background)" stroke="var(--color-ts-variable)" stroke-width="1.5" x="1" y="1" width="22" height="22" rx="6" id="icon-32-path"></rect><path d="M11.106 16L8.85 7.24H9.966L11.454 13.192C11.558 13.608 11.646 13.996 11.718 14.356C11.79 14.708 11.842 14.976 11.874 15.16C11.906 14.976 11.954 14.708 12.018 14.356C12.09 13.996 12.178 13.608 12.282 13.192L13.758 7.24H14.85L12.582 16H11.106Z" fill="var(--color-text)" id="icon-32-text"></path></svg>FULFILLED</a></li>
+<li class="tsd-kind-variable"><a href="variables/REJECTED.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-32-path"></use><use href="#icon-32-text"></use></svg>REJECTED</a></li>
+<li class="tsd-kind-variable"><a href="variables/NULL_SYMBOL.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-32-path"></use><use href="#icon-32-text"></use></svg>NULL_<wbr/>SYMBOL</a></li></ul></nav></div></div>
+<div class="container tsd-generator">
+<p style="line-height: 28px;">Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a> v0.23.24<br>
+            <span id="generation-date"></span>
+            <script>
+                window.GENERATION_DATE = 1678971922420;
+
+                (() => {
+                    
+        const formatter = new Intl.RelativeTimeFormat('en', {
+            numeric: 'auto',
+            style: 'short',
+        });
+
+        const divisions = [
+            { amount: 60, name: 'seconds' },
+            { amount: 60, name: 'minutes' },
+            { amount: 24, name: 'hours' },
+            { amount: 7, name: 'days' },
+            { amount: 4.34524, name: 'weeks' },
+            { amount: 12, name: 'months' },
+            { amount: Number.POSITIVE_INFINITY, name: 'years' }
+        ];
+
+        function formatTimeAgo(date) {
+            let duration = (date - new Date()) / 1000;
+            
+            for (const division of divisions) {
+                if (Math.abs(duration) < division.amount) {
+                    return formatter.format(Math.round(duration), division.name);
+                }
+                duration /= division.amount;
+            }
+        }
+
+        document.getElementById('generation-date').title = new Date(window.GENERATION_DATE).toLocaleString();
+        document.getElementById('generation-date').innerText = `Last modified ${formatTimeAgo(window.GENERATION_DATE)}`;
+    
+                })();
+            </script>
+        </p></div>
+<div class="overlay"></div><script src="assets/main.js"></script></body></html>
