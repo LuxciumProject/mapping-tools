@@ -54,6 +54,22 @@ export function parallelMapping<T, R>(
 
 // TASK LIST: [TODO] (Review Documentation) --------------------------
 
+export class Chaining<R> {
+  constructor(values: Promise<Settled<R>>[]) {
+    this.values = values;
+  }
+
+  private readonly values: Promise<Settled<R>>[];
+
+  getValues(): Promise<Settled<R>>[] {
+    return this.values;
+  }
+
+  getValuesAwaited(): Promise<Settled<R>>[] {
+    return this.values.map(async noOp => noOp);
+  }
+}
+
 export type Base<TVal> =
   | PromiseFulfilledResult<TVal>
   | PromiseRejectedResult
@@ -62,20 +78,22 @@ export type Base<TVal> =
   | SettledLeft
   | SettledRight<TVal>
   | TVal;
-export type OfBase<BASE> = BASE extends Settled<infer B>
-  ? B extends SettledRight<infer BVal>
-    ? BVal
-    : never
-  : BASE extends PromiseSettledResult<infer B>
-  ? B extends PromiseFulfilledResult<infer BVal>
-    ? BVal
-    : never
-  : BASE;
-export type OfDeferred<TVal> = TVal extends PromiseLike<infer BASE>
-  ? BASE extends Base<infer B>
-    ? B
-    : never
-  : never;
+export type OfBase<BASE> =
+  BASE extends Settled<infer B>
+    ? B extends SettledRight<infer BVal>
+      ? BVal
+      : never
+    : BASE extends PromiseSettledResult<infer B>
+      ? B extends PromiseFulfilledResult<infer BVal>
+        ? BVal
+        : never
+      : BASE;
+export type OfDeferred<TVal> =
+  TVal extends PromiseLike<infer BASE>
+    ? BASE extends Base<infer B>
+      ? B
+      : never
+    : never;
 
 // export type OfIterable<TVal> =
 // TVal extends Iterable<infer DBase>
