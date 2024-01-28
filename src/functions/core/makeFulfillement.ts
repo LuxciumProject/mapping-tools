@@ -30,8 +30,8 @@ export function makeFulfillement<U>({
     !Number.isNaN(base.index)
       ? base.index
       : 'number' === typeof index && !Number.isNaN(index)
-      ? index
-      : -1;
+        ? index
+        : -1;
 
   // INFO: To get base properties last but also overide its values ...
   const result: SettledRight<U> = {
