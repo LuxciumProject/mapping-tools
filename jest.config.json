@@ -1,5 +1,5 @@
 {
-  "coverageDirectory": "./dist/coverage",
+  "coverageDirectory": "../dist/coverage",
   "verbose": true,
   "transform": {
     "^.+\\.(ts|tsx)?$": [
