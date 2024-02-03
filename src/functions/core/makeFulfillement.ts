@@ -11,7 +11,7 @@ export function makeFulfillement<U>({
 }: {
   value: U;
   index?: number;
-  transformStep?: number;
+  transformStep?: number | undefined;
   base?: { value: U; status: 'fulfilled'; index?: number } | {};
 }): SettledRight<U> {
   const currentValue = Object.freeze(value);
@@ -43,7 +43,7 @@ export function makeFulfillement<U>({
     rejected: null,
     reason: undefined,
     index: currentIndex,
-    transformStep: transformStep,
+    transformStep: transformStep ?? -1,
   };
 
   Object.defineProperty(result, 'reason', {

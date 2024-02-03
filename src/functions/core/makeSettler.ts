@@ -5,7 +5,7 @@ import {
   isSettledRight,
 } from '../../helpers/assertions';
 import { getTransformStep } from '../../helpers/tools';
-import {
+import type {
   Base,
   BaseOrDeferred,
   Settled,
@@ -19,6 +19,7 @@ import { makeRejection } from './makeRejection';
 /** @internal */
 export const getSettler = async <T>(item: BaseOrDeferred<T>, index: number) =>
   makeSettler<T>(isPromiseLike(item) ? await item : item, index);
+
 /** @internal */
 
 // INFO: Below are the PromiseLike types -----------------------------

@@ -53,6 +53,7 @@ export async function awaitedMapping<T, R>(
       errLookup: null == errLookupFn ? v => void v : errLookupFn,
     })
   );
+
   return Promise.all(result);
 }
 
