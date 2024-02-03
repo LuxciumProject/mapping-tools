@@ -40,6 +40,8 @@
     "lint:fix": "npx eslint -v; npx eslint ./src --fix",
     "test": "jest --all --coverage=false --config='jest.config.json'",
     "test:quick": "jest --onlyChanged --coverage=false --config='jest.config.json'",
+    "test:failled": "jest --onlyFailures --coverage=false --config='jest.config.json' || true",
+    "test:watch": "jest --all --watch --config='jest.config.json'",
     "test:full": "yarn test:clear; jest --coverage --all --config='jest.config.json'",
     "test:clear": "jest --clearCache",
     "coverage": "jest --coverage --all --config='jest.config.json'",
