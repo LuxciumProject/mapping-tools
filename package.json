@@ -45,7 +45,7 @@
     "test:full": "yarn test:clear; jest --coverage --all --config='jest.config.json'",
     "test:clear": "jest --clearCache",
     "coverage": "jest --coverage --all --config='jest.config.json'",
-    "coverage:": "jest --coverage src",
+    "test:watch:coverage": "jest --coverage --all --watch --config='jest.config.json'",
     "build:full": "yarn test && yarn rebuild && yarn build:api",
     "dist:full": "rm -r dist; yarn build:full && yarn cp:dist:dirs; yarn clean:dist; yarn cp:dist",
     "build:api": "yarn base:build:api; yarn build:docs",
