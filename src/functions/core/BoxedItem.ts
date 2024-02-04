@@ -1,6 +1,6 @@
-import type { Settled, SettledLeft, SettledRight } from '../../types';
+import type { SettledRight } from '../../types';
 import type { IUnbox } from './BoxedList';
-import { makeSettler } from './makeSettler';
+import { makeSettler } from './proto-makeSettler';
 
 export class BoxedItem<T> implements IUnbox<T> {
   //     item: PromiseLike<PromiseSettledResult<T> | Settled<T> | T>,
@@ -57,33 +57,40 @@ export class BoxedItem<T> implements IUnbox<T> {
     | UnwrapSettledRight<TVal>
     | UnwrapPromise<TVal>
  */
+
+  // | PromiseFulfilledResult<TVal>
+  // | PromiseLike<PromiseFulfilledResult<TVal>>
+  // | PromiseLike<PromiseRejectedResult>
+  // | PromiseLike<PromiseSettledResult<TVal>>
+  // | PromiseLike<Settled<TVal>>
+  // | PromiseLike<SettledLeft>
+  // | PromiseLike<SettledRight<TVal>>
+  // | PromiseRejectedResult
+  // | PromiseSettledResult<TVal>
+  // | Settled<TVal>
+  // | SettledLeft
+  // | SettledRight<TVal>
+  //  BoxedItem<SettledRight<TVal> | Promise<SettledRight<TVal>>>(value: SettledRight<TVal> | Promise<SettledRight<TVal>>): BoxedItem<...>
   public static of<TVal>(
-    item:
-      | PromiseFulfilledResult<TVal>
-      | PromiseLike<PromiseFulfilledResult<TVal>>
-      | PromiseLike<PromiseRejectedResult>
-      | PromiseLike<PromiseSettledResult<TVal>>
-      | PromiseLike<Settled<TVal>>
-      | PromiseLike<SettledLeft>
-      | PromiseLike<SettledRight<TVal>>
-      | PromiseLike<TVal>
-      | PromiseRejectedResult
-      | PromiseSettledResult<TVal>
-      | Settled<TVal>
-      | SettledLeft
-      | SettledRight<TVal>
-      | TVal
-  ) {
+    item: PromiseLike<TVal> | TVal
+  ): BoxedItem<Promise<SettledRight<TVal>>> | BoxedItem<SettledRight<TVal>>;
+  public static of<TVal>(
+    item: PromiseLike<TVal>
+  ): BoxedItem<Promise<SettledRight<TVal>>>;
+  public static of<TVal>(item: TVal): BoxedItem<SettledRight<TVal>>;
+  // FUNC DEF: public static of returns a IUnbox<T> Implementation ==//
+  // |-static ==========================================-| of() |-===//
+  public static of<TVal>(item: TVal) {
     const value = makeSettler(item);
     return new BoxedItem(value);
   }
 
-  // static ==========================================-| from() |-====
+  // |-static ========================================-| from() |-===//
   public static from<TVal>(box: IUnbox<TVal>) {
     return BoxedItem.of(box.unbox()); // Settled<TVal>
   }
 
-  // protected ================================-| constructor() |-====
+  // |-protected ==============================-| constructor() |-====
   protected constructor(protected value: T) {}
 
   unbox(): any {
