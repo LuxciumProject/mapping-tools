@@ -2,6 +2,95 @@ import type { Settled, SettledLeft, SettledRight } from '../../types';
 import type { IUnbox } from './BoxedList';
 import { makeSettler } from './makeSettler';
 
+export class BoxedItem<T> implements IUnbox<T> {
+  //     item: PromiseLike<PromiseSettledResult<T> | Settled<T> | T>,
+  //   index?: number
+  //   item: PromiseLike<PromiseFulfilledResult<T> | SettledRight<T> | T>,
+  // ): Promise<Settled<T>>;
+  // Promise<SettledRight<T>>
+  /*
+   | PromiseLike<PromiseFulfilledResult<TVal> | SettledRight<TVal>>
+   | PromiseLike<PromiseRejectedResult | SettledLeft>
+   | PromiseLike<PromiseSettledResult<TVal> | Settled<TVal>>
+   | PromiseLike<TVal>
+   | PromiseFulfilledResult<TVal> | SettledRight<TVal>
+   | PromiseRejectedResult | SettledLeft
+   | PromiseSettledResult<TVal> | Settled<TVal>
+   | TVal
+ */
+  // public static of<TVal>(
+  //   item: PromiseLike<PromiseFulfilledResult<TVal> | SettledRight<TVal>>
+  // ): BoxedItem<Promise<SettledRight<TVal>>>;
+  // public static of(
+  //   item: PromiseLike<PromiseRejectedResult | SettledLeft>
+  // ): BoxedItem<Promise<SettledLeft>>;
+  // public static of<TVal>(
+  //   item: PromiseLike<PromiseSettledResult<TVal> | Settled<TVal>>
+  // ): BoxedItem<Promise<Settled<TVal>>>;
+  // public static of<TVal>(
+  //   item: PromiseLike<TVal>
+  // ): BoxedItem<Promise<SettledRight<TVal>>>;
+  // public static of<TVal>(
+  //   item: PromiseFulfilledResult<TVal> | SettledRight<TVal>
+  // ): BoxedItem<SettledRight<TVal>>;
+  // public static of(
+  //   item: PromiseRejectedResult | SettledLeft
+  // ): BoxedItem<SettledLeft>;
+  // public static of<TVal>(
+  //   item: PromiseSettledResult<TVal> | Settled<TVal>
+  // ): BoxedItem<Settled<TVal>>;
+  // public static of<TVal>(item: TVal): BoxedItem<SettledRight<TVal>>;
+  /*
+  item:
+    | UnwrapPromiseFulfilledResult<TVal>
+    | PromiseLike<UnwrapPromiseFulfilledResult<TVal>>
+    | PromiseLike<UnwrapPromiseRejectedResult>
+    | PromiseLike<UnwrapPromiseSettledResult<TVal>>
+    | PromiseLike<UnwrapSettled<TVal>>
+    | PromiseLike<UnwrapSettledLeft>
+    | PromiseLike<UnwrapSettledRight<TVal>>
+    | PromiseLike<UnwrapPromise<TVal>>
+    | UnwrapPromiseRejectedResult
+    | UnwrapPromiseSettledResult<TVal>
+    | UnwrapSettled<TVal>
+    | UnwrapSettledLeft
+    | UnwrapSettledRight<TVal>
+    | UnwrapPromise<TVal>
+ */
+  public static of<TVal>(
+    item:
+      | PromiseFulfilledResult<TVal>
+      | PromiseLike<PromiseFulfilledResult<TVal>>
+      | PromiseLike<PromiseRejectedResult>
+      | PromiseLike<PromiseSettledResult<TVal>>
+      | PromiseLike<Settled<TVal>>
+      | PromiseLike<SettledLeft>
+      | PromiseLike<SettledRight<TVal>>
+      | PromiseLike<TVal>
+      | PromiseRejectedResult
+      | PromiseSettledResult<TVal>
+      | Settled<TVal>
+      | SettledLeft
+      | SettledRight<TVal>
+      | TVal
+  ) {
+    const value = makeSettler(item);
+    return new BoxedItem(value);
+  }
+
+  // static ==========================================-| from() |-====
+  public static from<TVal>(box: IUnbox<TVal>) {
+    return BoxedItem.of(box.unbox()); // Settled<TVal>
+  }
+
+  // protected ================================-| constructor() |-====
+  protected constructor(protected value: T) {}
+
+  unbox(): any {
+    return this.value;
+  }
+}
+
 /*
 PromiseFulfilledResult<TVal>
 PromiseRejectedResult
@@ -27,79 +116,59 @@ Promise<Settled<R>>
 //    public static of<TVal>(item: PromiseLike<SettledLeft>)
 //    public static of(item: PromiseRejectedResult)
 //    public static of<TVal>(item: PromiseLike<PromiseRejectedResult>)
- */
 
-export class BoxedItem<T> implements IUnbox<T> {
   // static ============================================-| of() |-====
-  public static of<TVal>(item: Settled<TVal>): BoxedItem<Settled<TVal>>;
-  public static of<TVal>(
-    item: PromiseLike<Settled<TVal>>
-  ): BoxedItem<Promise<Settled<TVal>>>;
-  public static of<TVal>(item: SettledRight<TVal>): BoxedItem<Settled<TVal>>;
-  public static of<TVal>(
-    item: PromiseLike<SettledRight<TVal>>
-  ): BoxedItem<Promise<Settled<TVal>>>;
-  public static of<TVal>(
-    item: PromiseFulfilledResult<TVal>
-  ): BoxedItem<Settled<TVal>>;
-  public static of<TVal>(
-    item: PromiseLike<PromiseFulfilledResult<TVal>>
-  ): BoxedItem<Promise<Settled<TVal>>>;
-  public static of(item: SettledLeft): BoxedItem<Settled<any>>;
-  public static of<TVal>(
-    item: PromiseLike<SettledLeft>
-  ): BoxedItem<Promise<Settled<any>>>;
-  public static of(item: PromiseRejectedResult): BoxedItem<Settled<any>>;
-  public static of<TVal>(
-    item: PromiseLike<PromiseRejectedResult>
-  ): BoxedItem<Promise<Settled<any>>>;
-  public static of<TVal>(
-    item: PromiseSettledResult<TVal>
-  ): BoxedItem<Settled<TVal>>;
-  public static of<TVal>(
-    item: PromiseLike<PromiseSettledResult<TVal>>
-  ): BoxedItem<Promise<Settled<TVal>>>;
-  public static of<TVal>(item: TVal): BoxedItem<Settled<TVal>>;
-  public static of<TVal>(
-    item: PromiseLike<TVal>
-  ): BoxedItem<Promise<Settled<TVal>>>;
+  // public static of<TVal>(item: Settled<TVal>): BoxedItem<Settled<TVal>>;
+  // public static of<TVal>(
+  //   item: PromiseLike<Settled<TVal>>
+  // ): BoxedItem<Promise<Settled<TVal>>>;
+  // public static of<TVal>(item: SettledRight<TVal>): BoxedItem<Settled<TVal>>;
+  // public static of<TVal>(
+  //   item: PromiseLike<SettledRight<TVal>>
+  // ): BoxedItem<Promise<Settled<TVal>>>;
+  // public static of<TVal>(
+  //   item: PromiseFulfilledResult<TVal>
+  // ): BoxedItem<Settled<TVal>>;
+  // public static of<TVal>(
+  //   item: PromiseLike<PromiseFulfilledResult<TVal>>
+  // ): BoxedItem<Promise<Settled<TVal>>>;
+  // public static of(item: SettledLeft): BoxedItem<Settled<any>>;
+  // public static of<TVal>(
+  //   item: PromiseLike<SettledLeft>
+  // ): BoxedItem<Promise<Settled<any>>>;
+  // public static of(item: PromiseRejectedResult): BoxedItem<Settled<any>>;
+  // public static of<TVal>(
+  //   item: PromiseLike<PromiseRejectedResult>
+  // ): BoxedItem<Promise<Settled<any>>>;
+  // public static of<TVal>(
+  //   item: PromiseSettledResult<TVal>
+  // ): BoxedItem<Settled<TVal>>;
+  // public static of<TVal>(
+  //   item: PromiseLike<PromiseSettledResult<TVal>>
+  // ): BoxedItem<Promise<Settled<TVal>>>;
+  // public static of<TVal>(item: TVal): BoxedItem<Settled<TVal>>;
+  // public static of<TVal>(
+  //   item: PromiseLike<TVal>
+  // ): BoxedItem<Promise<Settled<TVal>>>;
 
-  public static of<TVal>(
-    item:
-      | PromiseFulfilledResult<TVal>
-      | PromiseLike<PromiseFulfilledResult<TVal>>
-      | PromiseLike<PromiseRejectedResult>
-      | PromiseLike<PromiseSettledResult<TVal>>
-      | PromiseLike<Settled<TVal>>
-      | PromiseLike<SettledLeft>
-      | PromiseLike<SettledRight<TVal>>
-      | PromiseLike<TVal>
-      | PromiseRejectedResult
-      | PromiseSettledResult<TVal>
-      | Settled<TVal>
-      | SettledLeft
-      | SettledRight<TVal>
-      | TVal
-  ): BoxedItem<Promise<Settled<TVal>>> | BoxedItem<Settled<TVal>> {
+// | PromiseFulfilledResult<TVal>
+      // | PromiseLike<PromiseFulfilledResult<TVal>>
+      // | PromiseLike<PromiseRejectedResult>
+      // | PromiseLike<PromiseSettledResult<TVal>>
+      // | PromiseLike<Settled<TVal>>
+      // | PromiseLike<SettledLeft>
+      // | PromiseLike<SettledRight<TVal>>
+      // | PromiseLike<TVal>
+      // | PromiseRejectedResult
+      // | PromiseSettledResult<TVal>
+      // | Settled<TVal>
+      // | SettledLeft
+      // | SettledRight<TVal>
+      // | TVal
+  ) // : BoxedItem<Promise<Settled<TVal>>> | BoxedItem<Settled<TVal>>
     // public static of<TVal>(item: Base<TVal>) {
-    const value = makeSettler(item);
-    return new BoxedItem<typeof value>(value);
-  }
 
-  // static ==========================================-| from() |-====
-  public static from<TVal>(box: IUnbox<TVal>) {
-    return BoxedItem.of(box.unbox()); // Settled<TVal>
-  }
 
-  // protected ================================-| constructor() |-====
-  protected constructor(protected value: Settled<T>) {}
-
-  unbox(): Settled<T> {
-    return this.value;
-  }
-}
-
-/*
 
 
   export type Base<TVal> =
