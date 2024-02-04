@@ -18,42 +18,63 @@ import { makeRejection } from './makeRejection';
 
 /** @internal */
 export const getSettler = async <T>(item: BaseOrDeferred<T>, index: number) =>
-  isPromiseLike(item)
-    ? makeSettler<T>(await item, index)
-    : makeSettler<T>(item, index);
+  makeSettler<T>(isPromiseLike(item) ? await item : item, index);
 
+// INFO: Below are the PromiseLike types -----------------------------
+export function makeSettler<T>(
+  item: PromiseLike<SettledRight<T>>,
+  index?: number
+): Promise<SettledRight<T>>;
+export function makeSettler(
+  item: PromiseLike<SettledLeft>,
+  index?: number
+): Promise<SettledLeft>;
 export function makeSettler<T>(
   item: PromiseLike<Settled<T>>,
   index?: number
 ): Promise<Settled<T>>;
 export function makeSettler<T>(
-  item: PromiseLike<PromiseFulfilledResult<T> | SettledRight<T>>,
+  item: PromiseLike<PromiseFulfilledResult<T>>,
   index?: number
 ): Promise<SettledRight<T>>;
 export function makeSettler<T>(
-  item: PromiseLike<PromiseRejectedResult | SettledLeft>,
+  item: PromiseLike<PromiseRejectedResult>,
   index?: number
 ): Promise<SettledLeft>;
+export function makeSettler<T>(
+  item: PromiseLike<PromiseSettledResult<T>>,
+  index?: number
+): Promise<Settled<T>>;
 export function makeSettler<T>(
   item: PromiseLike<T>,
   index?: number
 ): Promise<SettledRight<T>>;
+// Deferred<T>
 export function makeSettler<T>(
   item: Deferred<T>,
   index?: number
 ): Promise<Settled<T>>;
-export function makeSettler<T>(item: Settled<T>, index?: number): Settled<T>;
+// INFO: Below are the non Promise like types ------------------------
 export function makeSettler<T>(
-  item: PromiseFulfilledResult<T> | SettledRight<T>,
+  item: SettledRight<T>,
   index?: number
 ): SettledRight<T>;
+export function makeSettler(item: SettledLeft, index?: number): SettledLeft;
+export function makeSettler<T>(item: Settled<T>, index?: number): Settled<T>;
 export function makeSettler<T>(
-  item: PromiseRejectedResult | SettledLeft,
+  item: PromiseFulfilledResult<T>,
+  index?: number
+): SettledRight<T>;
+export function makeSettler(
+  item: PromiseRejectedResult,
   index?: number
 ): SettledLeft;
+export function makeSettler<T>(
+  item: PromiseSettledResult<T>,
+  index?: number
+): Settled<T>;
 export function makeSettler<T>(item: T, index?: number): SettledRight<T>;
 export function makeSettler<T>(item: Base<T>, index?: number): Settled<T>;
-
 // FUNC DEF:(makeSettler<T>) ========================================//
 // eslint-disable-next-line
 export function makeSettler(

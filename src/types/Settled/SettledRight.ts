@@ -29,9 +29,9 @@ export type SettledRight<T> = PromiseFulfilledResult<T> & {
   value: T;
 
   /**
-   * The reason for rejection. Always `undefined` for a fulfilled value.
+   * The reason for rejection. Always `never` for a fulfilled value.
    */
-  reason?: undefined;
+  reason: never;
 
   /**
    * The fulfilled value. Same as `value`.
@@ -39,9 +39,9 @@ export type SettledRight<T> = PromiseFulfilledResult<T> & {
   fulfilled: T;
 
   /**
-   * The rejected value. Always `null` for a fulfilled value.
+   * The rejected value. Always `never` for a fulfilled value.
    */
-  rejected: null;
+  rejected: never;
 
   /**
    * The step number of the transformation process.

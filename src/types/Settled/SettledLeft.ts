@@ -28,9 +28,9 @@ export type SettledLeft = PromiseRejectedResult & {
   reason: any;
 
   /**
-   * The value of the promise, which is always `undefined` for a rejected promise.
+   * The value of the promise, which is always `never` for a rejected promise.
    */
-  value?: undefined;
+  value: never;
 
   /**
    * The rejected value.
@@ -40,7 +40,7 @@ export type SettledLeft = PromiseRejectedResult & {
   /**
    * The fulfilled value, which is always `null` for a rejected promise.
    */
-  fulfilled: null;
+  fulfilled: never;
 
   /**
    * The step in the transformation process.

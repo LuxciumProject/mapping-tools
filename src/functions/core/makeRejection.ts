@@ -29,8 +29,8 @@ export function makeRejection({
     ...base,
     ...currentSettlement,
     rejected: currentReason,
-    fulfilled: null,
-    value: undefined,
+    fulfilled: null as never,
+    value: undefined as never,
     transformStep,
     index,
   };

@@ -40,8 +40,8 @@ export function makeFulfillement<U>({
     ...currentSettlement,
     fulfilled: currentValue,
     currentRejection: null,
-    rejected: null,
-    reason: undefined,
+    rejected: null as never,
+    reason: undefined as never,
     index: currentIndex,
     transformStep: transformStep ?? -1,
   };
