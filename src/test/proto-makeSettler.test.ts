@@ -1,6 +1,6 @@
 import { makeFulfillement } from '../functions/core/makeFulfillement';
 import { makeRejection } from '../functions/core/makeRejection';
-import { makeSettler } from '../functions/core/proto-makeSettler';
+import { makeSettler } from '../functions/core/makeSettler';
 import { isSettled, isSettledRight } from '../helpers/assertions';
 import { Settled, SettledRight } from '../types';
 

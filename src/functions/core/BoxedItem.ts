@@ -80,7 +80,7 @@ export class BoxedItem<T> implements IUnbox<T> {
   public static of<TVal>(item: TVal): BoxedItem<SettledRight<TVal>>;
   // FUNC DEF: public static of returns a IUnbox<T> Implementation ==//
   // |-static ==========================================-| of() |-===//
-  public static of<TVal>(item: TVal) {
+  public static of(item: unknown): unknown {
     const value = makeSettler(item);
     return new BoxedItem(value);
   }
