@@ -91,7 +91,7 @@
     "@microsoft/tsdoc": "~0.14.2",
     "@rushstack/eslint-config": "~3.3.2",
     "@rushstack/eslint-plugin-security": "~0.6.0",
-    "@rushstack/eslint-plugin": "~0.12.0",
+    "@rushstack/eslint-plugin": "~0.14.0",
     "@rushstack/heft-jest-plugin": "~0.10.6",
     "@rushstack/heft": "~0.63.4",
     "@types/cheerio": "~0.22.31",
