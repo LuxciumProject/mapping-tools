@@ -1,22 +1,25 @@
-export abstract class Box {
-  // properties and methods go here
+export abstract class Box<T> {
+  private readonly _value: T;
+  protected constructor(value: T) {
+    this._value = value;
+  }
+  get value(): T {
+    return this._value;
+  }
 }
-
-// export interface Unboxable<T> {
-//   unbox(): T;
-// }
 
 export type UnboxableFn<T, R> = Unboxable<(input: T) => R>;
 
-// Assuming Unboxable interface is defined as:
 interface Unboxable<T> {
   unbox(): T;
 }
 
-export class SpecialBox<T, R> implements Unboxable<(input: T) => R> {
+export class SpecialBox<T, R>
+  extends Box<(input: T) => R>
+  implements Unboxable<(input: T) => R>
+{
   private readonly _fn: (input: T) => R;
 
-  // Static factory method to create a new SpecialBox with a function
   static of<T, R>(fn: (input: T) => R): SpecialBox<T, R> {
     return new SpecialBox(fn);
   }
@@ -28,6 +31,7 @@ export class SpecialBox<T, R> implements Unboxable<(input: T) => R> {
   }
 
   protected constructor(fn: (input: T) => R) {
+    super(fn);
     this._fn = fn;
   }
 
@@ -49,7 +53,7 @@ export class SpecialBox<T, R> implements Unboxable<(input: T) => R> {
     return this._fn;
   }
 
-  get value(): (input: T) => R {
+  override get value(): (input: T) => R {
     return this._fn;
   }
 }
