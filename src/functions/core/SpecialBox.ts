@@ -3,6 +3,9 @@ export abstract class Box<T> {
   protected constructor(value: T) {
     this._value = value;
   }
+  public unbox(): T {
+    return this._value;
+  }
   get value(): T {
     return this._value;
   }
@@ -45,15 +48,15 @@ export class SpecialBox<T, R>
     return SpecialBox.of(composedFn);
   }
 
-  public unbox(): (input: T) => R {
+  public override unbox(): (input: T) => R {
     return this._fn;
   }
 
-  get fn(): (input: T) => R {
+  public get fn(): (input: T) => R {
     return this._fn;
   }
 
-  override get value(): (input: T) => R {
+  public override get value(): (input: T) => R {
     return this._fn;
   }
 }
