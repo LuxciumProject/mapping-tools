@@ -1,4 +1,4 @@
-export abstract class Box<T> {
+export abstract class Box<T> implements Unboxable<T> {
   private readonly _value: T;
   protected constructor(value: T) {
     this._value = value;
@@ -16,7 +16,6 @@ export type UnboxableFn<T, R> = Unboxable<(input: T) => R>;
 interface Unboxable<T> {
   unbox(): T;
 }
-
 export class SpecialBox<T, R>
   extends Box<(input: T) => R>
   implements Unboxable<(input: T) => R>
@@ -51,7 +50,7 @@ export class SpecialBox<T, R>
   public override unbox(): (input: T) => R {
     return this._fn;
   }
-
+  /** @deprecated */
   public get fn(): (input: T) => R {
     return this._fn;
   }
