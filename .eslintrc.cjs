@@ -500,7 +500,7 @@ module.exports = {
     'unicorn/catch-error-name': 'warn',
     'unicorn/custom-error-definition': 'warn',
     'unicorn/escape-case': 'warn',
-    'unicorn/explicit-length-check': 'warn',
+    'unicorn/explicit-length-check': 'off',
     'unicorn/new-for-builtins': 'warn',
     'unicorn/no-console-spaces': 'warn',
     'unicorn/no-for-loop': 'warn',

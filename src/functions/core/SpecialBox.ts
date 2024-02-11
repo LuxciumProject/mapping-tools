@@ -14,12 +14,11 @@ export abstract class Box<T> implements Unboxable<T> {
 export type UnboxableFn<T, R> = Unboxable<(input: T) => R>;
 
 interface Unboxable<T> {
-  unbox(): T;
+  unbox: () => T;
 }
 export class SpecialBox<T, R>
   extends Box<(input: T) => R>
-  implements Unboxable<(input: T) => R>
-{
+  implements Unboxable<(input: T) => R> {
   private readonly _fn: (input: T) => R;
 
   static of<T, R>(fn: (input: T) => R): SpecialBox<T, R> {

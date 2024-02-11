@@ -1,3 +1,4 @@
+import type { NULL_SYMBOL } from '..';
 import type {
   BaseOrDeferred,
   Collection,
@@ -9,7 +10,6 @@ import type {
   TransformFn,
   ValidateFn,
 } from '.';
-import type { NULL_SYMBOL } from '..';
 
 /**
  *  @beta

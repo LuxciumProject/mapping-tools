@@ -10,7 +10,7 @@ export type UnboxableFn<T, R> = Unboxable<(input: T) => R>;
 
 // Assuming Unboxable interface is defined as:
 interface Unboxable<T> {
-  unbox(): T;
+  unbox: () => T;
 }
 
 export class SpecialBox<T, R> implements Unboxable<(input: T) => R> {
