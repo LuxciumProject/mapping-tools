@@ -3,6 +3,7 @@
   |-···----------------------------------------------------------···-|
   */
   // #region: FORMAT BEHAVIOUR                                       !
+  "eslint.quiet": false,
   "editor.formatOnPaste": false,
   "editor.formatOnSave": true,
   "editor.formatOnSaveMode": "file",
@@ -17,9 +18,9 @@
   //                                                                 ――
   // ―― CODEACTIONSONSAVE BEHAVIOUR:
   "editor.codeActionsOnSave": [
-    "source.addMissingImports",
-    "source.organizeImports",
-    "source.autoFix",
+    // "source.addMissingImports",
+    // "source.organizeImports",
+    // "source.autoFix",
     "source.fixAll.eslint"
     // "source.fixAll.prettier"
   ],
