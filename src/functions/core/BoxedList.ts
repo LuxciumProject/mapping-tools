@@ -25,10 +25,10 @@
     DeferredCollection<T> = Iterable<Base<T> | PromiseLike<Base<T>>>
 
  */
-
 import type { Base, Settled, SettledLeft, SettledRight } from '../../types';
+import { Box } from './Box';
 
-class BoxedList<T> implements IUnbox<T[]>, IUnboxList<T> {
+class BoxedList<T> extends Box implements IUnbox<T[]>, IUnboxList<T> {
   // static ============================================-| of() |-====
   public static of<TVal>(values: Base<TVal>[]): BoxedList<Base<TVal>>;
   public static of<TVal>(
@@ -68,7 +68,9 @@ class BoxedList<T> implements IUnbox<T[]>, IUnboxList<T> {
   }
 
   // protected ================================-| constructor() |-====
-  protected constructor(protected values: T[]) {}
+  protected constructor(protected values: T[]) {
+    super();
+  }
 
   // public =========================================-| unbox() |-====
   public unbox(): T[] {

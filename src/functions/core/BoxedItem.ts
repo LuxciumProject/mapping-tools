@@ -1,8 +1,9 @@
 import type { SettledRight } from '../../types';
 import type { IUnbox } from './BoxedList';
 import { makeSettler } from './proto-makeSettler';
+import { Box } from './Box';
 
-export class BoxedItem<T> implements IUnbox<T> {
+export class BoxedItem<T> extends Box implements IUnbox<T> {
   //     item: PromiseLike<PromiseSettledResult<T> | Settled<T> | T>,
   //   index?: number
   //   item: PromiseLike<PromiseFulfilledResult<T> | SettledRight<T> | T>,
@@ -91,7 +92,9 @@ export class BoxedItem<T> implements IUnbox<T> {
   }
 
   // |-protected ==============================-| constructor() |-====
-  protected constructor(protected value: T) {}
+  protected constructor(protected value: T) {
+    super();
+  }
 
   unbox(): any {
     return this.value;
