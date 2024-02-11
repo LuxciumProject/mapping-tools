@@ -27,49 +27,21 @@
     "noLib": false,
     "moduleDetection": "force",
     /* Bundled library declaration files that describe the target runtime environment. */
-    "lib": [
-      "dom",
-      "esnext"
-    ],
+    "lib": ["dom", "esnext"],
     /* Package names to be included without being referenced in a source file. */
-    "types": [
-      "node",
-      "jest"
-    ],
+    "types": ["node", "jest"],
     "paths": {
-      ".": [
-        "./lib/typings/index.d.ts"
-      ],
-      "./functions": [
-        "./lib/typings/functions/index.d.ts"
-      ],
-      "./helpers": [
-        "./lib/typings/helpers/index.d.ts"
-      ],
-      "./tools": [
-        "./lib/typings/helpers/tools/index.d.ts"
-      ],
-      "./assertions": [
-        "./lib/typings/helpers/assertions/index.d.ts"
-      ],
-      "./helpers/tools": [
-        "./lib/typings/helpers/tools/index.d.ts"
-      ],
-      "./helpers/assertions": [
-        "./lib/typings/helpers/assertions/index.d.ts"
-      ],
-      "./constants": [
-        "./lib/typings/constants.d.ts"
-      ],
-      "./types": [
-        "./lib/typings/types/index.d.ts"
-      ],
-      "./chain": [
-        "./lib/typings/classes/chain.d.ts"
-      ],
-      "./core": [
-        "./lib/typings/functions/core/index.d.ts"
-      ]
+      ".": ["./lib/typings/index.d.ts"],
+      "./functions": ["./lib/typings/functions/index.d.ts"],
+      "./helpers": ["./lib/typings/helpers/index.d.ts"],
+      "./tools": ["./lib/typings/helpers/tools/index.d.ts"],
+      "./assertions": ["./lib/typings/helpers/assertions/index.d.ts"],
+      "./helpers/tools": ["./lib/typings/helpers/tools/index.d.ts"],
+      "./helpers/assertions": ["./lib/typings/helpers/assertions/index.d.ts"],
+      "./constants": ["./lib/typings/constants.d.ts"],
+      "./types": ["./lib/typings/types/index.d.ts"],
+      "./chain": ["./lib/typings/classes/chain.d.ts"],
+      "./core": ["./lib/typings/functions/core/index.d.ts"]
     },
     "isolatedModules": false,
     "esModuleInterop": true,
@@ -111,16 +83,13 @@
       }
     ]
   },
-  "include": [
-    "./eslintrc.cjs",
-    "src/**/*",
-    "dts/**/*"
-  ],
+  "include": ["./eslintrc.cjs", "src/**/*", "dts/**/*"],
   "exclude": [
     "lib",
     "node_modules",
     "out",
     "build",
-    "dist"
+    "dist",
+    "./eslint-stylistic.mjs"
   ]
 }

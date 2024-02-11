@@ -5,6 +5,7 @@ module.exports = {
   extends: [
     'plugin:@typescript-eslint/recommended-requiring-type-checking',
     // '@rushstack/eslint-config/profile/node',
+    'plugin:@stylistic/disable-legacy',
   ],
   parserOptions: {
     project: true,
@@ -12,6 +13,7 @@ module.exports = {
   },
   root: true,
   plugins: [
+    '@stylistic',
     'unicorn',
     'prettier',
     'simple-import-sort',
@@ -29,23 +31,25 @@ module.exports = {
     // 'semi': ['off', 'always'],
     'unicorn/no-nested-ternary': 'off',
     'unicorn/number-literal-case': 'off',
-    // // +++ eslint-config-prettier +++
-    '@typescript-eslint/indent': ['off', 2],
-    '@typescript-eslint/quotes': 'off',
-    '@typescript-eslint/semi': 'off',
+    // +++ eslint-config-prettier +++
+    // 🚫  deprecated
+    // '@typescript-eslint/indent': ['off', 2],
+    // '@typescript-eslint/quotes': 'off',
+    // '@typescript-eslint/semi': 'off',
     // '@typescript-eslint/object-curly-spacing': 'off',
-    '@typescript-eslint/brace-style': 'off',
-    '@typescript-eslint/comma-dangle': 'off',
-    '@typescript-eslint/comma-spacing': 'off',
-    '@typescript-eslint/func-call-spacing': 'off',
+    // '@typescript-eslint/brace-style': 'off',
+    // '@typescript-eslint/comma-dangle': 'off',
+    // '@typescript-eslint/comma-spacing': 'off',
+    // '@typescript-eslint/func-call-spacing': 'off',
+    // '@typescript-eslint/keyword-spacing': 'off',
+    // '@typescript-eslint/member-delimiter-style': 'off',
+    // '@typescript-eslint/no-extra-parens': 'off',
+    // '@typescript-eslint/no-extra-semi': 'off',
+    // '@typescript-eslint/space-before-function-paren': 'off',
+    // '@typescript-eslint/space-infix-ops': 'off',
+    // '@typescript-eslint/type-annotation-spacing': 'off',
+    // +++
     '@typescript-eslint/require-await': 'off',
-    '@typescript-eslint/keyword-spacing': 'off',
-    '@typescript-eslint/member-delimiter-style': 'off',
-    '@typescript-eslint/no-extra-parens': 'off',
-    '@typescript-eslint/no-extra-semi': 'off',
-    '@typescript-eslint/space-before-function-paren': 'off',
-    '@typescript-eslint/space-infix-ops': 'off',
-    '@typescript-eslint/type-annotation-spacing': 'off',
     '@typescript-eslint/consistent-type-definitions': 'off',
     '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/explicit-member-accessibility': 'off',
@@ -143,13 +147,16 @@ module.exports = {
     /*
     In some cases, ESLint provides a rule itself, but it doesn't support TypeScript syntax; either it crashes, or it ignores the syntax, or it falsely reports against it. In these cases, we create what we call an extension rule; a rule within our plugin that has the same functionality, but also supports TypeScript.
     */
-    '@typescript-eslint/block-spacing': 'warn',
+    //  🚫  deprecated
+    // '@stylistic/ts/block-spacing': 'warn',
+    // '@typescript-eslint/key-spacing': 'warn',
+    // '@typescript-eslint/lines-around-comment': 'warn',
+    // '@typescript-eslint/lines-between-class-members': 'warn',
+    // '@typescript-eslint/padding-line-between-statements': 'warn',
+    // '@typescript-eslint/space-before-blocks': 'warn',
     '@typescript-eslint/default-param-last': 'off',
     '@typescript-eslint/dot-notation': 'warn',
     '@typescript-eslint/init-declarations': 'off',
-    '@typescript-eslint/key-spacing': 'warn',
-    '@typescript-eslint/lines-around-comment': 'warn',
-    '@typescript-eslint/lines-between-class-members': 'warn',
     '@typescript-eslint/no-array-constructor': 'warn',
     '@typescript-eslint/no-dupe-class-members': 'off',
     '@typescript-eslint/no-empty-function': 'off',
@@ -165,9 +172,7 @@ module.exports = {
     '@typescript-eslint/no-unused-expressions': 'off',
     '@typescript-eslint/no-use-before-define': 'off',
     '@typescript-eslint/no-useless-constructor': 'off',
-    '@typescript-eslint/padding-line-between-statements': 'warn',
     '@typescript-eslint/return-await': 'warn',
-    '@typescript-eslint/space-before-blocks': 'warn',
     'accessor-pairs': 'off',
     'array-callback-return': 'off',
     'arrow-body-style': 'off',
@@ -531,28 +536,274 @@ module.exports = {
     'unicorn/filename-case': 'off',
     'unicorn/no-abusive-eslint-disable': 'off',
     'unicorn/no-object-as-default-parameter': 'off',
-    // 'unicorn/no-unsafe-regex': 'error',
-    // // 'unicorn/no-array-instanceof': 'warn',
-    // // 'unicorn/no-fn-reference-in-iterator': 'off',
-    // // 'unicorn/no-reduce': 'off',
-    // // 'unicorn/prefer-dataset': 'warn',
-    // // 'unicorn/prefer-event-key': 'warn',
-    // // 'unicorn/prefer-flat-map': 'warn',
-    // // 'unicorn/prefer-node-append': 'warn',
-    // // 'unicorn/prefer-node-remove': 'warn',
-    // // 'unicorn/prefer-replace-all': 'warn',
-    // // 'unicorn/prefer-starts-ends-with': 'warn',
-    // // 'unicorn/prefer-text-content': 'warn',
-    // // 'unicorn/prefer-trim-start-end': 'warn',
-    // // 'unicorn/regex-shorthand': 'warn',
-    // //   // "comma-style": [
-    // //   //   "warn",
-    // //   //   "last"
-    // //   // ],
-    // //   // "comma-dangle": [
-    // //   //   "warn",
-    // //   //   "always-multiline"
-    // //   // ],
-    // //   /*
+    //% Description: Enforce linebreaks after opening and before closing array brackets
+    //? Fixable: whitespace
+    '@stylistic/array-bracket-newline': 'off',
+    //% Description: Enforce consistent spacing inside array brackets
+    //? Fixable: whitespace
+    '@stylistic/array-bracket-spacing': 'off',
+    //% Description: Enforce line breaks after each array element
+    //? Fixable: whitespace
+    '@stylistic/array-element-newline': 'off',
+    //% Description: Require parentheses around arrow function arguments
+    //? Fixable: code
+    '@stylistic/arrow-parens': 'off',
+    //% Description: Enforce consistent spacing before and after the arrow in arrow functions
+    //? Fixable: whitespace
+    '@stylistic/arrow-spacing': 'off',
+    //% Description: Disallow or enforce spaces inside of blocks after opening block and before closing block
+    //? Fixable: whitespace
+    '@stylistic/block-spacing': 'off',
+    //% Description: Enforce consistent brace style for blocks
+    //? Fixable: whitespace
+    '@stylistic/brace-style': 'warn',
+    //% Description: Require or disallow trailing commas
+    //? Fixable: code
+    '@stylistic/comma-dangle': 'off',
+    //% Description: Enforce consistent spacing before and after commas
+    //? Fixable: whitespace
+    '@stylistic/comma-spacing': 'off',
+    //% Description: Enforce consistent comma style
+    //? Fixable: code
+    '@stylistic/comma-style': 'off',
+    //% Description: Enforce consistent spacing inside computed property brackets
+    //? Fixable: whitespace
+    '@stylistic/computed-property-spacing': 'off',
+    //% Description: Enforce consistent newlines before and after dots
+    //? Fixable: code
+    '@stylistic/dot-location': 'off',
+    //% Description: Require or disallow newline at the end of files
+    //? Fixable: whitespace
+    '@stylistic/eol-last': 'off',
+    //% Description: Require or disallow spacing between function identifiers and their invocations. Alias of `function-call-spacing`.
+    //? Fixable: whitespace
+    '@stylistic/func-call-spacing': 'off',
+    //% Description: Enforce line breaks between arguments of a function call
+    //? Fixable: whitespace
+    '@stylistic/function-call-argument-newline': 'off',
+    //% Description: Require or disallow spacing between function identifiers and their invocations
+    //? Fixable: whitespace
+    '@stylistic/function-call-spacing': 'off',
+    //% Description: Enforce consistent line breaks inside function parentheses
+    //? Fixable: whitespace
+    '@stylistic/function-paren-newline': 'off',
+    //% Description: Enforce consistent spacing around `*` operators in generator functions
+    //? Fixable: whitespace
+    '@stylistic/generator-star-spacing': 'off',
+    //% Description: Enforce the location of arrow function bodies
+    //? Fixable: whitespace
+    '@stylistic/implicit-arrow-linebreak': 'off',
+    //% Description: Enforce consistent indentation
+    //? Fixable: whitespace
+    '@stylistic/indent': 'off',
+    //% Description: Indentation for binary operators
+    //? Fixable: whitespace
+    '@stylistic/indent-binary-ops': 'off',
+    //% Description: Enforce closing bracket location in JSX
+    //? Fixable: code
+    '@stylistic/jsx-closing-bracket-location': 'off',
+    //% Description: Enforce closing tag location for multiline JSX
+    //? Fixable: whitespace
+    '@stylistic/jsx-closing-tag-location': 'off',
+    //% Description: Disallow unnecessary JSX expressions when literals alone are sufficient or enforce JSX expressions on literals in JSX children or attributes
+    //? Fixable: code
+    '@stylistic/jsx-curly-brace-presence': 'off',
+    //% Description: Enforce consistent linebreaks in curly braces in JSX attributes and expressions
+    //? Fixable: whitespace
+    '@stylistic/jsx-curly-newline': 'off',
+    //% Description: Enforce or disallow spaces inside of curly braces in JSX attributes and expressions
+    //? Fixable: code
+    '@stylistic/jsx-curly-spacing': 'off',
+    //% Description: Enforce or disallow spaces around equal signs in JSX attributes
+    //? Fixable: code
+    '@stylistic/jsx-equals-spacing': 'off',
+    //% Description: Enforce proper position of the first property in JSX
+    //? Fixable: code
+    '@stylistic/jsx-first-prop-new-line': 'off',
+    //% Description: Enforce JSX indentation
+    //? Fixable: whitespace
+    '@stylistic/jsx-indent': 'off',
+    //% Description: Enforce props indentation in JSX
+    //? Fixable: code
+    '@stylistic/jsx-indent-props': 'off',
+    //% Description: Enforce maximum of props on a single line in JSX
+    //? Fixable: code
+    '@stylistic/jsx-max-props-per-line': 'off',
+    //% Description: Require or prevent a new line after jsx elements and expressions.
+    //? Fixable: code
+    '@stylistic/jsx-newline': 'off',
+    //% Description: Require one JSX element per line
+    //? Fixable: whitespace
+    '@stylistic/jsx-one-expression-per-line': 'off',
+    //% Description: Disallow multiple spaces between inline JSX props
+    //? Fixable: code
+    '@stylistic/jsx-props-no-multi-spaces': 'off',
+    //% Description: Enforce the consistent use of either double or single quotes in JSX attributes
+    //? Fixable: whitespace
+    '@stylistic/jsx-quotes': 'off',
+    //% Description: Disallow extra closing tags for components without children
+    //? Fixable: code
+    '@stylistic/jsx-self-closing-comp': 'off',
+    //% Description: Enforce props alphabetical sorting
+    //? Fixable: code
+    '@stylistic/jsx-sort-props': 'off',
+    //% Description: Enforce whitespace in and around the JSX opening and closing brackets
+    //? Fixable: whitespace
+    '@stylistic/jsx-tag-spacing': 'off',
+    //% Description: Disallow missing parentheses around multiline JSX
+    //? Fixable: code
+    '@stylistic/jsx-wrap-multilines': 'off',
+    //% Description: Enforce consistent spacing between keys and values in object literal properties
+    //? Fixable: whitespace
+    '@stylistic/key-spacing': 'off',
+    //% Description: Enforce consistent spacing before and after keywords
+    //? Fixable: whitespace
+    '@stylistic/keyword-spacing': 'off',
+    //% Description: Enforce consistent linebreak style
+    //? Fixable: whitespace
+    '@stylistic/linebreak-style': 'off',
+    //% Description: Require empty lines around comments
+    //? Fixable: whitespace
+    '@stylistic/lines-around-comment': 'off',
+    //% Description: Require or disallow an empty line between class members
+    //? Fixable: whitespace
+    '@stylistic/lines-between-class-members': 'off',
+    //% Description: Require a specific member delimiter style for interfaces and type literals
+    //? Fixable: whitespace
+    '@stylistic/member-delimiter-style': 'off',
+    //% Description: Enforce newlines between operands of ternary expressions
+    //? Fixable: whitespace
+    '@stylistic/multiline-ternary': 'off',
+    //% Description: Enforce or disallow parentheses when invoking a constructor with no arguments
+    //? Fixable: code
+    '@stylistic/new-parens': 'off',
+    //% Description: Require a newline after each call in a method chain
+    //? Fixable: whitespace
+    '@stylistic/newline-per-chained-call': 'off',
+    //% Description: Disallow arrow functions where they could be confused with comparisons
+    //? Fixable: code
+    '@stylistic/no-confusing-arrow': 'off',
+    //% Description: Disallow unnecessary parentheses
+    //? Fixable: code
+    '@stylistic/no-extra-parens': 'off',
+    //% Description: Disallow unnecessary semicolons
+    //? Fixable: code
+    '@stylistic/no-extra-semi': 'off',
+    //% Description: Disallow leading or trailing decimal points in numeric literals
+    //? Fixable: code
+    '@stylistic/no-floating-decimal': 'off',
+    //% Description: Disallow multiple spaces
+    //? Fixable: whitespace
+    '@stylistic/no-multi-spaces': 'off',
+    //% Description: Disallow multiple empty lines
+    //? Fixable: whitespace
+    '@stylistic/no-multiple-empty-lines': 'off',
+    //% Description: Disallow trailing whitespace at the end of lines
+    //? Fixable: whitespace
+    '@stylistic/no-trailing-spaces': 'off',
+    //% Description: Disallow whitespace before properties
+    //? Fixable: whitespace
+    '@stylistic/no-whitespace-before-property': 'off',
+    //% Description: Enforce the location of single-line statements
+    //? Fixable: whitespace
+    '@stylistic/nonblock-statement-body-position': 'off',
+    //% Description: Enforce consistent line breaks after opening and before closing braces
+    //? Fixable: whitespace
+    '@stylistic/object-curly-newline': 'off',
+    //% Description: Enforce consistent spacing inside braces
+    //? Fixable: whitespace
+    '@stylistic/object-curly-spacing': 'off',
+    //% Description: Enforce placing object properties on separate lines
+    //? Fixable: whitespace
+    '@stylistic/object-property-newline': 'off',
+    //% Description: Require or disallow newlines around variable declarations
+    //? Fixable: whitespace
+    '@stylistic/one-var-declaration-per-line': 'off',
+    //% Description: Enforce consistent linebreak style for operators
+    //? Fixable: code
+    '@stylistic/operator-linebreak': 'off',
+    //% Description: Require or disallow padding within blocks
+    //? Fixable: whitespace
+    '@stylistic/padded-blocks': 'off',
+    //% Description: Require or disallow padding lines between statements
+    //? Fixable: whitespace
+    '@stylistic/padding-line-between-statements': 'off',
+    //% Description: Require quotes around object literal property names
+    //? Fixable: code
+    '@stylistic/quote-props': 'off',
+    //% Description: Enforce the consistent use of either backticks, double, or single quotes
+    //? Fixable: code
+    '@stylistic/quotes': 'off',
+    //% Description: Enforce spacing between rest and spread operators and their expressions
+    //? Fixable: whitespace
+    '@stylistic/rest-spread-spacing': 'off',
+    //% Description: Require or disallow semicolons instead of ASI
+    //? Fixable: code
+    '@stylistic/semi': 'off',
+    //% Description: Enforce consistent spacing before and after semicolons
+    //? Fixable: whitespace
+    '@stylistic/semi-spacing': 'off',
+    //% Description: Enforce location of semicolons
+    //? Fixable: whitespace
+    '@stylistic/semi-style': 'off',
+    //% Description: Enforce consistent spacing before blocks
+    //? Fixable: whitespace
+    '@stylistic/space-before-blocks': 'off',
+    //% Description: Enforce consistent spacing before `function` definition opening parenthesis
+    //? Fixable: whitespace
+    '@stylistic/space-before-function-paren': 'off',
+    //% Description: Enforce consistent spacing inside parentheses
+    //? Fixable: whitespace
+    '@stylistic/space-in-parens': 'off',
+    //% Description: Require spacing around infix operators
+    //? Fixable: whitespace
+    '@stylistic/space-infix-ops': 'off',
+    //% Description: Enforce consistent spacing before or after unary operators
+    //? Fixable: whitespace
+    '@stylistic/space-unary-ops': 'off',
+    //% Description: Enforce consistent spacing after the `//` or `/*` in a comment
+    //? Fixable: whitespace
+    '@stylistic/spaced-comment': 'off',
+    //% Description: Enforce spacing around colons of switch statements
+    //? Fixable: whitespace
+    '@stylistic/switch-colon-spacing': 'off',
+    //% Description: Require or disallow spacing around embedded expressions of template strings
+    //? Fixable: whitespace
+    '@stylistic/template-curly-spacing': 'off',
+    //% Description: Require or disallow spacing between template tags and their literals
+    //? Fixable: whitespace
+    '@stylistic/template-tag-spacing': 'off',
+    //% Description: Require consistent spacing around type annotations
+    //? Fixable: whitespace
+    '@stylistic/type-annotation-spacing': 'off',
+    //% Description: Enforces consistent spacing inside TypeScript type generics
+    //? Fixable: whitespace
+    '@stylistic/type-generic-spacing': 'off',
+    //% Description: Expect space before the type declaration in the named tuple
+    //? Fixable: whitespace
+    '@stylistic/type-named-tuple-spacing': 'off',
+    //% Description: Require parentheses around immediate `function` invocations
+    //? Fixable: code
+    '@stylistic/wrap-iife': 'off',
+    //% Description: Require parenthesis around regex literals
+    //? Fixable: code
+    '@stylistic/wrap-regex': 'off',
+    //% Description: Require or disallow spacing around the `*` in `yield*` expressions
+    //? Fixable: whitespace
+    '@stylistic/yield-star-spacing': 'off',
+    //& Description: Enforce or disallow spaces inside of curly braces in JSX attributes and expressions
+    '@stylistic/jsx-child-element-spacing': 'off',
+    //& Description: Enforce PascalCase for user-defined JSX components
+    '@stylistic/jsx-pascal-case': 'off',
+    //& Description: Enforce a maximum line length
+    '@stylistic/max-len': 'off',
+    //& Description: Enforce a maximum number of statements allowed per line
+    '@stylistic/max-statements-per-line': 'off',
+    //& Description: Disallow mixed binary operators
+    '@stylistic/no-mixed-operators': 'off',
+    //& Description: Disallow mixed spaces and tabs for indentation
+    '@stylistic/no-mixed-spaces-and-tabs': 'off',
+    //& Description: Disallow all tabs
+    '@stylistic/no-tabs': 'off',
   },
 };
