@@ -140,7 +140,7 @@
     "typedoc-plugin-replace-text": "~3.2.0",
     "typedoc-plugin-zod": "~1.1.0",
     "typedoc": "~0.25.4",
-    "typescript": "~5.3.3",
+    "typescript": "~5.4.5",
     "webpack": "~5.88.1",
     "tslib": "~2.6.2",
     "@types/jest": "~29.5.12",
