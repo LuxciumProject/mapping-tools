@@ -4,7 +4,7 @@
  * string rather than the more generic `string` type.
  * @public
  */
-export const FULFILLED: 'fulfilled' = 'fulfilled' as const;
+export const FULFILLED    = 'fulfilled';
 
 /**
  * Constant `REJECTED` is used in place of the string `'rejected'` to
@@ -12,7 +12,7 @@ export const FULFILLED: 'fulfilled' = 'fulfilled' as const;
  * string rather than the more generic `string` type.
  * @public
  */
-export const REJECTED: 'rejected' = 'rejected' as const;
+export const REJECTED  = 'rejected';
 
 /**
  * Constant `NULL_SYMBOL` is a unique symbol that represents `null` or a union type that includes `null`.

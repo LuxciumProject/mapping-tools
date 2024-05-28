@@ -1,6 +1,7 @@
 import { assertions } from '../../helpers';
 import { getTransformStep } from '../../helpers/tools';
 import type { MapperOptions, Settled } from '../../types';
+import { defaultMapperOptions } from './defaultMapperOptions';
 import { fulfillementBlock } from './fulfillementBlock';
 import { makeRejection } from './makeRejection';
 import { getSettler } from './makeSettler';
@@ -10,17 +11,6 @@ const {
   isPromiseRejectedResult,
   isPromiseSettledResult,
 } = assertions;
-
-const defaultMapperOptions = <T, R>(
-  mapperOptions: MapperOptions<T, R>
-): Required<MapperOptions<T, R>> => ({
-  transform: async value => value as any as R,
-  lookup: (value, index, array) => void [value, index, array],
-  validate: async (value, index, array) => void [value, index, array],
-  errLookup: (value, index, currentRejection) =>
-    void [value, index, currentRejection],
-  ...mapperOptions,
-});
 
 // FUNC DEF:(fn_a1f9a<T, R>) -----------------------------------------
 /** @internal */
