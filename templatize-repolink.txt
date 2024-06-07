@@ -1,0 +1,118 @@
+## Outlined Templates
+
+**1. Raw GitHub URL Template:**
+```
+https://raw.githubusercontent.com/{organization}/{project}/{branch}/{file_path}
+```
+
+**Example:**
+```
+https://raw.githubusercontent.com/LuxciumProject/mapping-tools/feat/chaining/src/functions/core/fn_a1f9a.ts
+```
+
+---
+
+**2. GitHub URL with Blob Template:**
+```
+https://github.com/{organization}/{project}/blob/{branch}/{file_path}
+```
+
+**Example:**
+```
+https://github.com/LuxciumProject/mapping-tools/blob/feat/chaining/src/functions/core/fn_a1f9a.ts
+```
+
+---
+
+**3. Local Path Template:**
+```
+/projects/{monorepo}/{library}/{project}/{file_path}
+```
+
+**Example:**
+```
+/projects/monorepo-one/library/mapping-tools/src/functions/core/fn_a1f9a.ts
+```
+---
+
+To create a descriptive generalization template for the URL you provided, we can break it down into its components and replace specific parts with placeholders:
+
+### Template:
+```
+https://raw.githubusercontent.com/{username}/{repository}/{branch}/{path_to_file}
+```
+
+### Example with Descriptive Generalization:
+```
+https://raw.githubusercontent.com/LuxciumProject/mapping-tools/feat/chaining/src/functions/core/fn_a1f9a.ts
+```
+
+### Generalized Template:
+```
+https://raw.githubusercontent.com/{organization}/{project}/{branch}/{file_path}
+```
+
+**Explanation:**
+
+- `{organization}`: The GitHub organization or user (e.g., `LuxciumProject`)
+- `{project}`: The repository name (e.g., `mapping-tools`)
+- `{branch}`: The branch name (e.g., `feat/chaining`)
+- `{file_path}`: The path to the file within the repository (e.g., `src/functions/core/fn_a1f9a.ts`)
+
+This template allows for easy substitution of specific components to describe URLs of similar structure.
+
+---
+
+To templatize the given local path for general and descriptive usage, we can break it down into its components and replace specific parts with placeholders:
+
+### Template:
+```
+/projects/{monorepo}/{library}/{repository}/{path_to_file}
+```
+
+### Example with Descriptive Generalization:
+```
+/projects/monorepo-one/library/mapping-tools/src/functions/core/fn_a1f9a.ts
+```
+
+### Generalized Template:
+```
+/projects/{monorepo}/{library}/{project}/{file_path}
+```
+
+**Explanation:**
+
+- `{monorepo}`: The name of the monorepo (e.g., `monorepo-one`)
+- `{library}`: The library or category within the monorepo (e.g., `library`)
+- `{project}`: The repository name (e.g., `mapping-tools`)
+- `{file_path}`: The path to the file within the repository (e.g., `src/functions/core/fn_a1f9a.ts`)
+
+This template allows for easy substitution of specific components to describe paths of similar structure.
+
+---
+
+To templatize the given local path for general and descriptive usage, we can break it down into its components and replace specific parts with placeholders:
+
+### Template:
+```
+/projects/{monorepo}/{library}/{repository}/{path_to_file}
+```
+
+### Example with Descriptive Generalization:
+```
+/projects/monorepo-one/library/mapping-tools/src/functions/core/fn_a1f9a.ts
+```
+
+### Generalized Template:
+```
+/projects/{monorepo}/{library}/{project}/{file_path}
+```
+
+**Explanation:**
+
+- `{monorepo}`: The name of the monorepo (e.g., `monorepo-one`)
+- `{library}`: The library or category within the monorepo (e.g., `library`)
+- `{project}`: The repository name (e.g., `mapping-tools`)
+- `{file_path}`: The path to the file within the repository (e.g., `src/functions/core/fn_a1f9a.ts`)
+
+This template allows for easy substitution of specific components to describe paths of similar structure.

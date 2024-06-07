@@ -5,3 +5,4 @@ dist
 docs
 .eslintrc.cjs
 eslint-stylistic.mts
+.prettierrc.cjs
