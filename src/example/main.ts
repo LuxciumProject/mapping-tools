@@ -15,7 +15,7 @@ const getFolders = (directory: string): string[] => {
 };
 
 // Example usage to ensure the function is consumed
-const exampleDirectory = './example-directory';
+const exampleDirectory = path.resolve(__dirname, './example-directory');
 const folders = getFolders(exampleDirectory);
 console.log(folders);
 
@@ -31,10 +31,9 @@ const getFiles = (folder: string): string[] => {
 };
 
 // Example usage to ensure the function is consumed
-const exampleFolder = './example-directory/folder-1';
+const exampleFolder = path.resolve(__dirname, './example-directory/folder-1');
 const files = getFiles(exampleFolder);
 console.log(files);
-
 
 /**
  * A higher-order function that processes an initial operation to produce a list,
@@ -43,17 +42,18 @@ console.log(files);
  * @param secondaryOperation - The function to process each item in the initial list.
  * @returns A function that processes a path and returns a wrapped list of wrapped results.
  */
-function createMetaWrapper<T, U>(
+function createMetaWrapper<T extends string, U>(
   initialOperation: (path: string) => T[],
-  secondaryOperation: (item: T) => U[]
+  secondaryOperation: (item: string) => U[]
 ): (path: string) => Settled<U>[] {
-  return function(path: string): Settled<U>[] {
-    const initialList = initialOperation(path);
+  return function(directory: string): Settled<U>[] {
+    const initialList = initialOperation(directory);
     const results: Settled<U>[] = [];
 
-    initialList.forEach((item, index) => {
+    initialList.forEach((folder, index) => {
+      const folderPath = path.join(directory, folder);
       try {
-        const secondaryList = secondaryOperation(item);
+        const secondaryList = secondaryOperation(folderPath);
         secondaryList.forEach((result, secondaryIndex) => {
           results.push({
             status: 'fulfilled',
