@@ -10,15 +10,15 @@ import { getFolders } from './getFolders';
 
 // Example usage to ensure the function is consumed
 const exampleDirectory = path.resolve(__dirname, './example-directory');
-const folders = getFolders(exampleDirectory);
-console.log(folders);
+// const folders = getFolders(exampleDirectory);
+// console.log(folders);
 
 
 
 // Example usage to ensure the function is consumed
-const exampleFolder = path.resolve(__dirname, './example-directory/folder-1');
-const files = getFiles(exampleFolder);
-console.log(files);
+// const exampleFolder = path.resolve(__dirname, './example-directory/folder-1');
+// const files = getFiles(exampleFolder);
+// console.log(files);
 
 /**
  * A higher-order function that processes an initial operation to produce a list,
