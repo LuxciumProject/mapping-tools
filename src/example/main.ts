@@ -31,7 +31,7 @@ const getFiles = (folder: string): string[] => {
 };
 
 // Example usage to ensure the function is consumed
-const exampleFolder = './example-directory/some-folder';
+const exampleFolder = './example-directory/folder-1';
 const files = getFiles(exampleFolder);
 console.log(files);
 
