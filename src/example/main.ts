@@ -1,18 +1,12 @@
 import * as fs from 'fs';
+// import { parallelMapping } from 'mapping-tools'; // Adjust the path based on the actual location
 import * as path from 'path';
 
 import type { Settled, SettledLeft, SettledRight } from '../types/Settled';
+import { getFolders } from './getFolders';
 
-/**
- * Gets a list of folders from the specified directory path.
- * @param directory - The path to the directory.
- * @returns An array of folder names.
- */
-const getFolders = (directory: string): string[] => {
-  const items = fs.readdirSync(directory);
-  const folders = items.filter(item => fs.lstatSync(path.join(directory, item)).isDirectory());
-  return folders;
-};
+
+
 
 // Example usage to ensure the function is consumed
 const exampleDirectory = path.resolve(__dirname, './example-directory');
