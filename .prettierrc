@@ -1,19 +1,31 @@
 {
-  "printWidth": 80,
-  "proseWrap": "preserve",
-  "endOfLine": "lf",
-  "singleQuote": true,
-  "trailingComma": "es5",
-  "insertPragma": false,
-  "requirePragma": false,
-  "tabWidth": 2,
-  "useTabs": false,
-  "quoteProps": "consistent",
-  "jsxSingleQuote": false,
   "arrowParens": "avoid",
-  "bracketSameLine": false,
   "bracketSpacing": true,
-  "embeddedLanguageFormatting": "auto",
+  "endOfLine": "lf",
   "htmlWhitespaceSensitivity": "css",
-  "semi": true
+  "insertPragma": false,
+  "jsxSingleQuote": false,
+  "overrides": [
+    {
+      "files": [
+        "./*.test.ts"
+      ],
+      "options": {
+        "printWidth": 120,
+        "proseWrap": "never"
+      }
+    }
+  ],
+  "printWidth": 80,
+  "proseWrap": "never",
+  "semi": true,
+  "singleQuote": true,
+  "tabWidth": 2,
+  "trailingComma": "es5",
+  "useTabs": false,
+    "plugins": [
+    "prettier-plugin-organize-attributes",
+    "prettier-plugin-packagejson",
+    "prettier-plugin-sh"
+  ]
 }
