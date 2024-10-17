@@ -16,41 +16,46 @@ The package provides a set of utility functions for working with collections of 
 
 ## Table of Contents
 
-1. [Table of Contents](#table-of-contents)
-1. [Installation](#installation)
-1. [Usage Overview](#usage-overview)
-1. [Quick Start](#quick-start)
-1. [Main Functions](#main-functions)
-   - [parallelMapping Signature](#parallelmapping)
-   - [serialMapping Signature](#serialmapping)
-   - [awaitedMapping Signature](#awaitedmapping)
-   - [generateMapping Signature](#generatemapping)
-   - [generateMappingAsync Signature](#generatemappingasync)
-   - [Return Types](#return-types)
-   - [Arguments](#arguments)
-1. [Delegates Functions](#delegates-functions)
-   - [transformFn](#transformfn)
-   - [lookupFn](#lookupfn)
-   - [validateFn](#validatefn)
-   - [errLookupFn](#errlookupfn)
-1. [Base Types](#base-types)
-   - [`Base<TVal>`](#basetval)
-   - [`Settled<TVal>`](#settledtval)
-   - [`SettledRight<TVal>`](#settledrighttval)
-   - [`SettledLeft`](#settledleft)
-   - [`PromiseSettledResult<TVal>`](#promisesettledresulttval)
-   - [`PromiseFulfilledResult<TVal>`](#promisefulfilledresulttval)
-   - [`PromiseRejectedResult`](#promiserejectedresult)
-1. [Aliases Types](#aliases-types)
-   - [`Deferred<Base>`](#deferredbase)
-   - [`BaseOrDeferred<Base>`](#baseordeferredbase)
-   - [`Collection<Base>`](#collectionbase)
-   - [`DeferredCollection<Base>`](#deferredcollectionbase)
-   - [`SettledArray<Result>`](#settledarrayresult)
-   - [`NullSymbol`](#nullsymbol)
-   - [`SettledValue<Result>`](#settledvalueresult)
-   - [`SettledValues<Result>`](#settledvaluesresult)
-   - [`OnlySideEffect`](#onlysideeffect)
+- [Mapping Tools](#mapping-tools)
+  - [Table of Contents](#table-of-contents)
+  - [Installation](#installation)
+  - [Usage Overview](#usage-overview)
+  - [Quick Start](#quick-start)
+  - [Main Functions](#main-functions)
+    - [parallelMapping](#parallelmapping)
+    - [serialMapping](#serialmapping)
+    - [awaitedMapping](#awaitedmapping)
+    - [generateMapping](#generatemapping)
+    - [generateMappingAsync](#generatemappingasync)
+    - [Return Types](#return-types)
+    - [Arguments](#arguments)
+  - [Delegates functions](#delegates-functions)
+    - [transformFn](#transformfn)
+    - [lookupFn](#lookupfn)
+    - [validateFn](#validatefn)
+    - [errLookupFn](#errlookupfn)
+  - [Base Types](#base-types)
+    - [`Base<TVal>`](#basetval)
+    - [`Settled<TVal>`](#settledtval)
+    - [`SettledRight<TVal>`](#settledrighttval)
+    - [`SettledLeft`](#settledleft)
+    - [`PromiseSettledResult<TVal>`](#promisesettledresulttval)
+    - [`PromiseFulfilledResult<TVal>`](#promisefulfilledresulttval)
+    - [`PromiseRejectedResult`](#promiserejectedresult)
+  - [Aliases Types](#aliases-types)
+    - [`Deferred<Base>`](#deferredbase)
+    - [`BaseOrDeferred<Base>`](#baseordeferredbase)
+    - [`Collection<Base>`](#collectionbase)
+    - [`DeferredCollection<Base>`](#deferredcollectionbase)
+    - [`SettledArray<Result>`](#settledarrayresult)
+    - [`NullSymbol`](#nullsymbol)
+    - [`SettledValue<Result>`](#settledvalueresult)
+    - [`SettledValues<Result>`](#settledvaluesresult)
+    - [`OnlySideEffect`](#onlysideeffect)
+  - [Contributing](#contributing)
+  - [The MIT License (MIT)](#the-mit-license-mit)
+    - [Copyright © 2022-2024 · LUXCIUM · (Benjamin Vincent) · luxcium﹫neb401.com](#copyright--2022-2024--luxcium--benjamin-vincent--luxciumneb401com)
+      - [† Scientia est lux principium✨ is a Trade Mark of Benjamin Vincent Kasapoglu](#-scientia-est-lux-principium-is-a-trade-mark-of-benjamin-vincent-kasapoglu)
 
 ## Installation
 
@@ -642,7 +647,7 @@ We welcome contributions to Mapping Tools! If you have an idea for a new feature
 
 The MIT License (MIT)
 
-Copyright © 2022-2023 · LUXCIUM · (Benjamin Vincent Kasapoglu) · luxcium﹫neb401.com
+Copyright © 2022-2024 · LUXCIUM · (Benjamin Vincent Kasapoglu) · luxcium﹫neb401.com
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -662,84 +667,8 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-<!--
+### Copyright © 2022-2024 · LUXCIUM · (Benjamin Vincent) · luxcium﹫neb401.com
 
-## NO PERMISSION GRANTED - PROVIDED "AS IS" - WITHOUT WARRANTY
+#### † Scientia est lux principium✨ is a Trade Mark of Benjamin Vincent Kasapoglu
 
-† **Scientia est lux principium✨** ™
-
-THESE FILES ARE _NOT_ FIT FOR ANY PARTICULAR PURPOSE IN IT'S CURRENT FORM
-THESE FILES HAVE NOT BEEN TESTED OR RUN YET IN ALL ENVIRONMENTS! _DO NOT_
-RUN THESE FILES UNLESS YOU HAVE REVIEWED THE FULL CONTENT AND TAKE FULL
-RESPONSIBILITY OF ANY PROBLEME IT MAY CAUSE TO YOU (or anyone) OR YOUR
-MACHINE (or any machine).
-
-### NO PERMISSION ARE GRANTED FOR THIS SOFTWARE
-
-1. NOT TO PUBLISH;
-2. NOT TO DISTRIBUTE;
-3. NOT TO SUBLICENSE;
-4. NOT TO SELL COPIES OF;
-
-#### NOTICE
-
-> THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ALL OR ANY KIND,
-> EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-> MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
-> IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS WILL BE LIABLE FOR ALL
-> OR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
-> TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE
-> OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-Copyright © 2022 LUXCIUM
-
-### EXCEPTIONS
-
-#### YOU HAVE THE RIGHT TO
-
-```text
-A) USE IT FOR YOURSELF;
-B) DISTRIBUTE IT TO YOUR FRIENDS;
-C) DISTRIBUTE IT TO YOUR STUDENTS;
-D) DISTRIBUTE IT TO YOUR COWORKER;
-(FOR PERSONAL USE: AT HOME, AT SCHOOL OR AT WORK)
-```
-### Copyright © 2022 - 2023 · LUXCIUM · (Benjamin Vincent Kasapoglu) · luxcium﹫neb401.com
-
-<!--
-1. [Usage](#usage)
-1. [Features](#features)
-1. [Documentation](#documentation)
-
-##
-##
-##
-##
-##
-### Arguments
-## Return Types
-### parallelMapping signature
-### serialMapping signature
-### awaitedMapping signature
-### generateMapping signature
-### generateMappingAsync signature
-## Delegates functions
-###
-###
-###
-###
-
-## Main types
-## Base types
-## Contributing
-## # Luxcium License: NO PERMISSION GRANTED - PROVIDED "AS IS" - WITHOUT WARRANTY
-### NO PERMISSION ARE GRANTED FOR THIS SOFTWARE
-#### NOTICE
-### EXCEPTIONS
-#### YOU HAVE THE RIGHT TO
-### Copyright © 2022 · LUXCIUM · (Benjamin Vincent Kasapoglu) · luxcium﹫neb401.com
-###### † Scientia est lux principium✨ is a Trade Mark of Benjamin Vincent Kasapoglu
-
-###### † Scientia est lux principium✨ is a Trade Mark of Benjamin Vincent Kasapoglu
-
-Text generated by an [AI language model](https://openai.com/) has been used in this work.
+Text generated by an [AI language model](https://openai.com/) has been used to help create parts of the documentation.
