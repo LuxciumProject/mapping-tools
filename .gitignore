@@ -336,3 +336,5 @@ typings/
 **/.rush/**
 **/.rush/**/*.*
 **/.rush/*.*
+src.zip
+README.md.txt
