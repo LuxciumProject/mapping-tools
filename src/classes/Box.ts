@@ -1,4 +1,4 @@
-import type { MapperOptions, Settled, SettledLeft, SettledRight } from '../../types';
+import type { MapperOptions, Settled, SettledLeft, SettledRight } from '../types';
 
 export type Base<TVal> =
   | PromiseFulfilledResult<TVal>
