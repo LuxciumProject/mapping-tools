@@ -16,8 +16,7 @@ export default class Unbox<B> {
     return this._value;
   }
 
-  public get value() {
+  public get boxedValue() {
     return this.unbox();
   }
 }
-// /imagine prompt:instructional schematics how to use a can opener
