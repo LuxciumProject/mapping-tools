@@ -1,6 +1,3 @@
-Thank you for clarifying. I'll follow your instructions precisely by using `~~~` for the main code block and standard triple backticks (` ``` `) for nested code blocks. Here’s the corrected documentation:
-
-~~~markdown
 # `Box<T>`: The Iconic Box Class in Luxcium’s Paradigm
 
 The `Box<T>` class is the foundational element in Luxcium's paradigm for encapsulating values with strict control over instantiation, access, and inheritance. This document provides a comprehensive overview of the `Box<T>` class, detailing its structure, member ordering, and the conventions that govern its implementation.
@@ -245,6 +242,3 @@ export class AdvancedBox<T> extends Box<T> {
 The `Box<T>` class embodies the core principles of Luxcium's paradigm, providing a strict and controlled way to encapsulate values. By adhering to the detailed member ordering, access modifiers, and design rules outlined in this document, developers can ensure consistency and maintainability across all implementations.
 
 This document has been crafted following the strictest Markdown standards to ensure compatibility with aggressive linters and to serve as a comprehensive reference for the `Box<T>` class.
-
----
-~~~
