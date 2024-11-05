@@ -1,3 +1,6 @@
+Thank you for clarifying. I'll follow your instructions precisely by using `~~~` for the main code block and standard triple backticks (` ``` `) for nested code blocks. Here’s the corrected documentation:
+
+~~~markdown
 # `Box<T>`: The Iconic Box Class in Luxcium’s Paradigm
 
 The `Box<T>` class is the foundational element in Luxcium's paradigm for encapsulating values with strict control over instantiation, access, and inheritance. This document provides a comprehensive overview of the `Box<T>` class, detailing its structure, member ordering, and the conventions that govern its implementation.
@@ -43,6 +46,7 @@ This document adheres to the strictest rules in Markdown creation, ensuring comp
 
 ## Class Definition
 
+```typescript
 export abstract class Box<T> {
   // Fields - private members at the top
   private readonly _value: T;
@@ -78,6 +82,7 @@ class ConcreteBox<T> extends Box<T> {
     super(value);
   }
 }
+```
 
 ---
 
@@ -166,19 +171,27 @@ The `Box<T>` class strictly follows Luxcium's conventions for member ordering an
 
 ## Usage Examples
 
+```typescript
 // Creating a Box
 const numberBox = Box.of(42);
+```
 
+```typescript
 // Accessing the Boxed Value
 console.log(numberBox.boxedValue); // Outputs: 42
+```
 
+```typescript
 // Unboxing the Value
 const unboxedValue = numberBox.unbox();
 console.log(unboxedValue); // Outputs: 42
+```
 
+```typescript
 // Creating a Box from Another Box
 const anotherBox = Box.from(numberBox);
 console.log(anotherBox.boxedValue); // Outputs: 42
+```
 
 ---
 
@@ -210,6 +223,7 @@ console.log(anotherBox.boxedValue); // Outputs: 42
 
 Since `Box<T>` is an abstract class, it is intended to be extended by more complex boxes. Here's an example of extending `Box<T>`:
 
+```typescript
 export class AdvancedBox<T> extends Box<T> {
   // Additional fields or methods can be added here
 
@@ -222,6 +236,7 @@ export class AdvancedBox<T> extends Box<T> {
     return new AdvancedBox(value);
   }
 }
+```
 
 ---
 
@@ -231,3 +246,5 @@ The `Box<T>` class embodies the core principles of Luxcium's paradigm, providing
 
 This document has been crafted following the strictest Markdown standards to ensure compatibility with aggressive linters and to serve as a comprehensive reference for the `Box<T>` class.
 
+---
+~~~
