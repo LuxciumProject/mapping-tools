@@ -1,6 +1,4 @@
-import type { Settled, SettledLeft, SettledRight } from '../../types';
-
-
+import type { Settled, SettledLeft, SettledRight } from "../../types";
 
 export default class Box<B> {
   // A private readonly field to hold the boxed value of type B.
@@ -16,7 +14,7 @@ export default class Box<B> {
   // Static method to create a new Box instance from an existing Box instance.
   // This method provides a way to clone the value of an existing Box, creating a new Box with the same value.
   static from<BVal>(value: Box<BVal>): Box<BVal> {
-    return new Box(value.boxedValue);
+    return new Box(value.unbox());
   }
 
   // Protected constructor to restrict direct instantiation of the class.
@@ -37,8 +35,6 @@ export default class Box<B> {
     return this._value;
   }
 }
-
-
 
 export type Base<TVal> =
   | PromiseFulfilledResult<TVal>
