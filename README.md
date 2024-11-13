@@ -519,11 +519,11 @@ type SettledLeft = PromiseRejectedResult & {
   currentRejection: true | false | undefined;
 
   /* The null value of the transformStep and the index is -1 */
-  /* When value is -1 the folowing properties a not enumerated */
+  /* When value is -1 the following properties a not enumerated */
   transformStep: number;
   index: number;
 
-  /* Folowing properties a not enumerated (enumerable: false) */
+  /* Following properties a not enumerated (enumerable: false) */
   rejected: any;
   fulfilled: null;
   value?: undefined;
