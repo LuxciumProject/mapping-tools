@@ -15,6 +15,29 @@
   "files.insertFinalNewline": true,
   "files.trimFinalNewlines": true,
   "files.trimTrailingWhitespace": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "prettier.requireConfig": true,
+  "prettier.configPath": ".prettierrc",
+  "typescript.format.enable": false,
+  "javascript.format.enable": false,
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
   //                                                                 ――
   // ―― CODEACTIONSONSAVE BEHAVIOUR:
   "editor.codeActionsOnSave": [
@@ -1120,7 +1143,9 @@
   |-····-----------------------------------------------------------··-|
     */
   // #region: TODO TREE                                                                !
-  "todo-tree.filtering.excludeGlobs": ["**/node_modules"],
+  "todo-tree.filtering.excludeGlobs": [
+    "**/node_modules"
+  ],
   "todo-tree.highlights.defaultHighlight": {
     "background": "#FFF",
     "borderRadius": "0px",

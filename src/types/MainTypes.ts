@@ -1,19 +1,6 @@
 import type { NULL_SYMBOL } from '../constants';
-import type { Settled, SettledLeft, SettledRight } from './Settled';
-
-/**
- * @group Base Types
- * @public
- * */
-
-export type Base<TVal> =
-  | PromiseFulfilledResult<TVal>
-  | PromiseRejectedResult
-  | PromiseSettledResult<TVal>
-  | Settled<TVal>
-  | SettledLeft
-  | SettledRight<TVal>
-  | TVal;
+import { Base } from './Base';
+import type { Settled } from './Settled';
 
 /**
  * Alias for `Iterable<Base<B>>` or `Iterable<PromiseLike<Base<B>>>`
