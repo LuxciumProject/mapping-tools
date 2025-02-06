@@ -59,4 +59,29 @@ export type SettledRight<T> = PromiseFulfilledResult<T> & {
   index: number;
 };
 
-// TASK LIST: [TODO: Types] (Review Documentation) -------------------
+export interface Fulfilled<T>{
+   /**
+   * The status of the settled value.
+   */
+   status: 'fulfilled';
+
+   /**
+    * The fulfilled value.
+    */
+   value: T;
+
+   /**
+    * The step number of the transformation process.
+    */
+   transformStep: number;
+
+   /**
+    * The current rejection value. Always `null` for a fulfilled value.
+    */
+   currentRejection: null;
+
+   /**
+    * The index of the settled value in the Promise.allSettled result.
+    */
+   index: number;
+}

@@ -1,5 +1,5 @@
-import type { SettledLeft } from './SettledLeft';
-import type { SettledRight } from './SettledRight';
+import type { Rejected, SettledLeft } from './SettledLeft';
+import type { Fulfilled, SettledRight } from './SettledRight';
 
 /**
  * Represents a value that has been settled, either successfully or with an error.
@@ -32,3 +32,5 @@ import type { SettledRight } from './SettledRight';
  * @group Base Types
  */
 export type Settled<T> = SettledLeft | SettledRight<T>;
+
+export type Settler<T> = Rejected | Fulfilled<T>;

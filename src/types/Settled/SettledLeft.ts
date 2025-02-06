@@ -58,4 +58,32 @@ export type SettledLeft = PromiseRejectedResult & {
   index: number;
 };
 
-// TASK LIST: [TODO: Types] (Review Documentation) -------------------
+
+export interface Rejected {
+
+  /**
+   * The status of the promise, which is always set to `'rejected'`.
+   */
+  status: 'rejected';
+
+  /**
+   * The reason for the rejection.
+   */
+  reason: any;
+
+  /**
+   * The step in the transformation process.
+   */
+  transformStep: number;
+
+  /**
+   * The index of the promise in the set of settled promises.
+   */
+  index: number;
+
+  /**
+       * The current rejection status.
+       */
+  currentRejection: false | true | undefined;
+
+}
