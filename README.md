@@ -21,6 +21,11 @@ The package provides a set of utility functions for working with collections of 
   - [Installation](#installation)
   - [Usage Overview](#usage-overview)
   - [Quick Start](#quick-start)
+  - [Chainable API](#chainable-api)
+    - [Creating a Chain](#creating-a-chain)
+    - [Transformation Methods](#transformation-methods)
+    - [Value Extraction](#value-extraction)
+    - [Error Handling](#error-handling)
   - [Main Functions](#main-functions)
     - [parallelMapping](#parallelmapping)
     - [serialMapping](#serialmapping)
@@ -109,9 +114,32 @@ const mappingTools = require('mapping-tools');
 import * as mappingTools from 'mapping-tools';
 ```
 
-Then, you can use the various functions provided by the library to
-generate, transform, and iterate over maps, as well as to perform
-asynchronous map generation.
+### Chainable API (Recommended)
+
+The easiest way to use mapping-tools is with the fluent, chainable API:
+
+```typescript
+import { chain } from 'mapping-tools';
+
+// Simple transformation chain
+const result = await chain([1, 2, 3, 4, 5])
+  .awaitedMapping(async x => x * 2)
+  .awaitedMapping(async x => x + 1)
+  .getValues();
+// result: [3, 5, 7, 9, 11]
+
+// With error handling
+const results = await chain([1, 2, 3, 4])
+  .awaitedMapping(async x => {
+    if (x === 2) throw new Error('Skip 2');
+    return x * 2;
+  })
+  .getValues();  // Only successful values: [2, 6, 8]
+```
+
+### Functional API
+
+You can also use the standalone functions for more control:
 
 ```typescript
 import { awaitedMapping, helpers } from 'mapping-tools';
@@ -178,6 +206,177 @@ main();
   ]
   settledValues.length :>>  12
 */
+```
+
+## Chainable API
+
+The chainable API provides a fluent, ergonomic interface for composing transformations. This is the recommended approach for most use cases as it reduces cognitive load and makes complex transformations easier to read and maintain.
+
+### Creating a Chain
+
+You can create a chain in two ways:
+
+```typescript
+import { chain, Chain } from 'mapping-tools';
+
+// Using the chain() helper function (recommended)
+const result1 = await chain([1, 2, 3, 4, 5])
+  .awaitedMapping(async x => x * 2)
+  .getValues();
+
+// Using Chain.of() static method
+const result2 = await Chain.of([1, 2, 3, 4, 5])
+  .awaitedMapping(async x => x * 2)
+  .getValues();
+
+// Works with promises too
+const promisedArray = Promise.resolve([1, 2, 3]);
+const result3 = await chain(promisedArray)
+  .awaitedMapping(async x => x * 2)
+  .getValues();
+```
+
+### Transformation Methods
+
+All the core mapping functions are available as chainable methods:
+
+```typescript
+// awaitedMapping - parallel transformations using Promise.all
+await chain([1, 2, 3])
+  .awaitedMapping(async x => x * 2)
+  .awaitedMapping(async x => x + 1)
+  .getValues();
+// Result: [3, 5, 7]
+
+// serialMapping - sequential transformations
+await chain([1, 2, 3])
+  .serialMapping(async x => {
+    await someAsyncOperation();
+    return x * 2;
+  })
+  .getValues();
+
+// parallelMapping - returns array of promises
+await chain([1, 2, 3])
+  .parallelMapping(async x => x * 2)
+  .toArray();
+
+// You can mix different mapping types
+await chain([1, 2, 3])
+  .awaitedMapping(async x => x * 2)
+  .serialMapping(async x => x + 10)
+  .awaitedMapping(async x => x / 2)
+  .getValues();
+// Result: [6, 7, 8]
+```
+
+### Value Extraction
+
+The chain provides multiple methods to extract the final results:
+
+```typescript
+const data = [1, 2, 3, 4, 5];
+
+// getValues() - Get only successful values (recommended)
+// Filters out any rejected/failed transformations
+const values = await chain(data)
+  .awaitedMapping(async x => {
+    if (x === 3) throw new Error('Skip 3');
+    return x * 2;
+  })
+  .getValues();
+// Result: [2, 4, 8, 10] - element at index 2 was filtered out
+
+// toArray() - Get complete settled results
+// Returns Settled<T>[] with both fulfilled and rejected entries
+const settled = await chain(data)
+  .awaitedMapping(async x => x * 2)
+  .toArray();
+// Result: Array of Settled objects with status, value/reason, index, etc.
+
+// getAllValues() - Get all values with NULL_SYMBOL for failures
+// Maintains original array length and positions
+const allValues = await chain(data)
+  .awaitedMapping(async x => {
+    if (x === 3) throw new Error('Skip 3');
+    return x * 2;
+  })
+  .getAllValues();
+// Result: [2, 4, Symbol(null), 8, 10] - preserves position
+```
+
+### Error Handling
+
+The chainable API provides robust error handling:
+
+```typescript
+// Errors are captured and don't stop the chain
+const result = await chain([1, 2, 3, 4, 5])
+  .awaitedMapping(async x => {
+    if (x % 2 === 0) throw new Error('Even number');
+    return x * 2;
+  })
+  .getValues();
+// Result: [2, 6, 10] - only odd numbers (even ones were rejected)
+
+// You can filter fulfilled and rejected values separately
+const withErrors = chain([1, 2, 3, 4]);
+
+const fulfilled = await withErrors
+  .awaitedMapping(async x => {
+    if (x === 2) throw new Error('Error');
+    return x;
+  })
+  .filterRight();
+// fulfilled contains only SettledRight entries
+
+const rejected = await withErrors
+  .awaitedMapping(async x => {
+    if (x === 2) throw new Error('Error');
+    return x;
+  })
+  .filterLeft();
+// rejected contains only SettledLeft entries
+
+// Errors propagate through multiple transformations
+const result2 = await chain([1, 2, 3])
+  .awaitedMapping(async x => {
+    if (x === 2) throw new Error('Error at step 1');
+    return x * 2;
+  })
+  .awaitedMapping(async x => x + 10) // This won't transform the failed entry
+  .toArray();
+// result2[1] will still be rejected from the first transformation
+```
+
+### Advanced Usage
+
+```typescript
+// Using validation and lookup functions
+await chain([1, 2, 3, 4, 5])
+  .awaitedMapping(
+    async x => x * 2,                    // transform
+    value => console.log('Got:', value), // lookup (side effect)
+    async value => {                     // validate
+      if (value > 6) throw new Error('Too large');
+    },
+    (reason, index) => {                 // error lookup
+      console.log(`Error at ${index}:`, reason);
+    }
+  )
+  .getValues();
+
+// Working with complex async operations
+const result = await chain([1, 2, 3, 4, 5])
+  .awaitedMapping(async x => {
+    const data = await fetchData(x);
+    return data.value;
+  })
+  .awaitedMapping(async value => {
+    const processed = await processData(value);
+    return processed;
+  })
+  .getValues();
 ```
 
 ## Main Functions

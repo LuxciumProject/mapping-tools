@@ -66,5 +66,20 @@ export interface IChain<B> {
   filterLeft: () => Promise<SettledLeft[]>;
   extractFulfilledValues: () => Promise<B[]>;
   extractSettledValues: () => Promise<(B | typeof NULL_SYMBOL)[]>;
+  /**
+   * Retrieves the settled array values with fulfilled and rejected entries.
+   * This is the primary method to extract final results from the chain.
+   */
+  toArray: () => Promise<Settled<B>[]>;
+  /**
+   * Retrieves only the successfully fulfilled values from the chain.
+   * This is a convenience method that filters out rejected values.
+   */
+  getValues: () => Promise<B[]>;
+  /**
+   * Retrieves all values including NULL_SYMBOL for rejected entries.
+   * Maintains the original array length and positions.
+   */
+  getAllValues: () => Promise<(B | typeof NULL_SYMBOL)[]>;
   get list(): Promise<BaseOrDeferred<B>[]>;
 }
