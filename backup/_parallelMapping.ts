@@ -107,7 +107,6 @@ export type MyType<B> = Base<B> | Deferred<B>;
 
 // PromiseLike<Base<B>>
 parallelMapping([]);
-['', ''];
 export const aVal_001 = 14;
 export const aVal_002 = 14;
 export const aVal_003 = 14;

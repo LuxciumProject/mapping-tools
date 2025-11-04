@@ -59,7 +59,7 @@ export type SettledRight<T> = PromiseFulfilledResult<T> & {
   index: number;
 };
 
-export interface Fulfilled<T>{
+export interface Fulfilled<T> {
    /**
    * The status of the settled value.
    */

@@ -10,10 +10,6 @@ export default class MappingList<T> {
     let valuesArray: Base<TVal>[];
     if (0 === values.length) {
       return new MappingList<Base<TVal>>([]);
-    } else if (1 === values.length) {
-      values;
-    } else if (1 < values.length) {
-      valuesArray = values as any; // [Base<TVal>[]]
     }
 
     if (1 === values.length && Array.isArray(values[0])) {

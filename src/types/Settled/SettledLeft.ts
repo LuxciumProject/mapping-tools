@@ -82,8 +82,8 @@ export interface Rejected {
   index: number;
 
   /**
-       * The current rejection status.
-       */
+   * The current rejection status.
+   */
   currentRejection: false | true | undefined;
 
 }

@@ -161,7 +161,6 @@ describe('should handle T Like (non promise) input', () => {
     it('should handle makeRejection to be a Settled<T> input', () => {
       let settled: Settled<string>;
       settled = makeRejection({ reason: 'test' });
-      settled;
       const result: Settled<string> = makeSettler(settled, 1);
       expect(isSettled(result)).toBe(true);
       if (isSettled(result)) {
