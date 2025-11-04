@@ -27,7 +27,7 @@ import type {
   ValidateFn,
 } from '../types';
 
-/* istambul ignore next */
+/* istanbul ignore next */
 /**
  * A fluent, chainable API wrapper for mapping-tools functions.
  * Provides a convenient way to chain transformations on collections.
