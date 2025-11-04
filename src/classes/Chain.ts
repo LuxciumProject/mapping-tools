@@ -55,7 +55,7 @@ import type {
  * @public
  * @beta
  */
-/* istambul ignore next */
+/* istanbul ignore next */
 export class Chain<B> implements IChain<B> {
   collection: Collection<B> | PromiseLike<Collection<B>>;
 
