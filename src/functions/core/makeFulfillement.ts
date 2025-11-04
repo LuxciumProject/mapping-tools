@@ -11,7 +11,7 @@ export function makeFulfillement<U>({
 }: {
   value: U;
   index?: number;
-  transformStep?: number;
+  transformStep?: number | undefined;
   base?: { value: U; status: 'fulfilled'; index?: number } | {};
 }): SettledRight<U> {
   const currentValue = Object.freeze(value);
@@ -30,8 +30,8 @@ export function makeFulfillement<U>({
     !Number.isNaN(base.index)
       ? base.index
       : 'number' === typeof index && !Number.isNaN(index)
-      ? index
-      : -1;
+        ? index
+        : -1;
 
   // INFO: To get base properties last but also overide its values ...
   const result: SettledRight<U> = {
@@ -40,10 +40,10 @@ export function makeFulfillement<U>({
     ...currentSettlement,
     fulfilled: currentValue,
     currentRejection: null,
-    rejected: null,
-    reason: undefined,
+    rejected: null as never,
+    reason: undefined as never,
     index: currentIndex,
-    transformStep: transformStep,
+    transformStep: transformStep ?? -1,
   };
 
   Object.defineProperty(result, 'reason', {

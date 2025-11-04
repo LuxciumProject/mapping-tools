@@ -5,6 +5,7 @@ module.exports = {
   extends: [
     'plugin:@typescript-eslint/recommended-requiring-type-checking',
     // '@rushstack/eslint-config/profile/node',
+    'plugin:@stylistic/disable-legacy',
   ],
   parserOptions: {
     project: true,
@@ -12,6 +13,7 @@ module.exports = {
   },
   root: true,
   plugins: [
+    '@stylistic',
     'unicorn',
     'prettier',
     'simple-import-sort',
@@ -24,28 +26,30 @@ module.exports = {
     // ―――――――― eslint-config-prettier ―――――――――――――――――――――――――――――――
     // // +++ eslint-config-prettier +++
     'prettier/prettier': ['warn'],
-    'quotes': ['off', 'single'],
-    'indent': ['off', 2],
-    'semi': ['off', 'always'],
+    // 'quotes': ['off', 'single'],
+    // 'indent': ['off', 2],
+    // 'semi': ['off', 'always'],
     'unicorn/no-nested-ternary': 'off',
     'unicorn/number-literal-case': 'off',
-    // // +++ eslint-config-prettier +++
-    '@typescript-eslint/indent': ['off', 2],
-    '@typescript-eslint/quotes': 'off',
-    '@typescript-eslint/semi': 'off',
-    '@typescript-eslint/object-curly-spacing': 'off',
-    '@typescript-eslint/brace-style': 'off',
-    '@typescript-eslint/comma-dangle': 'off',
-    '@typescript-eslint/comma-spacing': 'off',
-    '@typescript-eslint/func-call-spacing': 'off',
+    // +++ eslint-config-prettier +++
+    // 🚫  deprecated
+    // '@typescript-eslint/indent': ['off', 2],
+    // '@typescript-eslint/quotes': 'off',
+    // '@typescript-eslint/semi': 'off',
+    // '@typescript-eslint/object-curly-spacing': 'off',
+    // '@typescript-eslint/brace-style': 'off',
+    // '@typescript-eslint/comma-dangle': 'off',
+    // '@typescript-eslint/comma-spacing': 'off',
+    // '@typescript-eslint/func-call-spacing': 'off',
+    // '@typescript-eslint/keyword-spacing': 'off',
+    // '@typescript-eslint/member-delimiter-style': 'off',
+    // '@typescript-eslint/no-extra-parens': 'off',
+    // '@typescript-eslint/no-extra-semi': 'off',
+    // '@typescript-eslint/space-before-function-paren': 'off',
+    // '@typescript-eslint/space-infix-ops': 'off',
+    // '@typescript-eslint/type-annotation-spacing': 'off',
+    // +++
     '@typescript-eslint/require-await': 'off',
-    '@typescript-eslint/keyword-spacing': 'off',
-    '@typescript-eslint/member-delimiter-style': 'off',
-    '@typescript-eslint/no-extra-parens': 'off',
-    '@typescript-eslint/no-extra-semi': 'off',
-    '@typescript-eslint/space-before-function-paren': 'off',
-    '@typescript-eslint/space-infix-ops': 'off',
-    '@typescript-eslint/type-annotation-spacing': 'off',
     '@typescript-eslint/consistent-type-definitions': 'off',
     '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/explicit-member-accessibility': 'off',
@@ -115,7 +119,7 @@ module.exports = {
     '@typescript-eslint/no-redundant-type-constituents': 'off',
     '@typescript-eslint/no-require-imports': 'off',
     '@typescript-eslint/no-this-alias': 'off',
-    '@typescript-eslint/no-type-alias': 'off',
+    // '@typescript-eslint/no-type-alias': 'off',
     '@typescript-eslint/no-unnecessary-type-constraint': 'off',
     '@typescript-eslint/no-unsafe-argument': 'off',
     '@typescript-eslint/no-unsafe-assignment': 'off',
@@ -143,17 +147,17 @@ module.exports = {
     /*
     In some cases, ESLint provides a rule itself, but it doesn't support TypeScript syntax; either it crashes, or it ignores the syntax, or it falsely reports against it. In these cases, we create what we call an extension rule; a rule within our plugin that has the same functionality, but also supports TypeScript.
     */
-    '@typescript-eslint/block-spacing': 'warn',
-    '@typescript-eslint/dot-notation': 'warn',
-    '@typescript-eslint/key-spacing': 'warn',
-    '@typescript-eslint/lines-around-comment': 'warn',
-    '@typescript-eslint/lines-between-class-members': 'warn',
-    '@typescript-eslint/no-array-constructor': 'warn',
-    '@typescript-eslint/padding-line-between-statements': 'warn',
-    '@typescript-eslint/return-await': 'warn',
-    '@typescript-eslint/space-before-blocks': 'warn',
+    //  🚫  deprecated
+    // '@stylistic/ts/block-spacing': 'warn',
+    // '@typescript-eslint/key-spacing': 'warn',
+    // '@typescript-eslint/lines-around-comment': 'warn',
+    // '@typescript-eslint/lines-between-class-members': 'warn',
+    // '@typescript-eslint/padding-line-between-statements': 'warn',
+    // '@typescript-eslint/space-before-blocks': 'warn',
     '@typescript-eslint/default-param-last': 'off',
+    '@typescript-eslint/dot-notation': 'warn',
     '@typescript-eslint/init-declarations': 'off',
+    '@typescript-eslint/no-array-constructor': 'warn',
     '@typescript-eslint/no-dupe-class-members': 'off',
     '@typescript-eslint/no-empty-function': 'off',
     '@typescript-eslint/no-implied-eval': 'off',
@@ -168,274 +172,275 @@ module.exports = {
     '@typescript-eslint/no-unused-expressions': 'off',
     '@typescript-eslint/no-use-before-define': 'off',
     '@typescript-eslint/no-useless-constructor': 'off',
-    'constructor-super': 'error',
-    'for-direction': 'error',
-    'getter-return': 'error',
-    'no-async-promise-executor': 'error',
-    'no-class-assign': 'error',
-    'no-compare-neg-zero': 'error',
-    'no-cond-assign': 'error',
-    'no-const-assign': 'error',
-    'no-constant-condition': 'error',
-    'no-control-regex': 'error',
-    'no-debugger': 'error',
-    'no-dupe-args': 'error',
-    'no-dupe-class-members': 'error',
-    'no-dupe-else-if': 'error',
-    'no-dupe-keys': 'error',
-    'no-duplicate-case': 'error',
-    'no-empty-character-class': 'error',
-    'no-empty-pattern': 'error',
-    'no-ex-assign': 'error',
-    'no-fallthrough': 'error',
-    'no-func-assign': 'error',
-    'no-import-assign': 'error',
-    'no-inner-declarations': 'error',
-    'no-invalid-regexp': 'error',
-    'no-irregular-whitespace': 'error',
-    'no-loss-of-precision': 'error',
-    'no-misleading-character-class': 'error',
-    'no-new-symbol': 'error',
-    'no-obj-calls': 'error',
-    'no-prototype-builtins': 'error',
-    'no-self-assign': 'error',
-    'no-setter-return': 'error',
-    'no-sparse-arrays': 'error',
-    'no-this-before-super': 'error',
-    'no-undef': 'off',
-    'no-unexpected-multiline': 'error',
-    'no-unreachable': 'error',
-    'no-unsafe-finally': 'error',
-    'no-unsafe-negation': 'error',
-    'no-unsafe-optional-chaining': 'error',
-    'no-unused-vars': [
-      'off',
-      {
-        ignoreRestSiblings: true,
-      },
-    ],
-    'no-useless-backreference': 'error',
-    'use-isnan': 'error',
-    'valid-typeof': 'error',
-    'no-case-declarations': 'error',
-    'no-delete-var': 'error',
-    'no-empty': 'error',
-    'no-global-assign': 'error',
-    'no-nonoctal-decimal-escape': 'error',
-    'no-octal': 'error',
-    'no-redeclare': 'off',
-    'no-shadow-restricted-names': 'error',
-    'no-useless-catch': 'error',
-    'no-useless-escape': 'error',
-    'no-with': 'error',
-    'require-yield': 'error',
-    'no-mixed-spaces-and-tabs': 'error',
-    'no-extra-boolean-cast': 'warn',
-    'no-extra-semi': 'warn',
-    'no-regex-spaces': 'warn',
-    'no-unused-labels': 'warn',
-    'arrow-body-style': 'off',
-    'capitalized-comments': 'off',
-    'curly': 'warn',
-    'eqeqeq': 'off',
-    'dot-notation': 'off',
-    'logical-assignment-operators': 'off',
-    'multiline-comment-style': 'off',
-    'no-confusing-arrow': 'off',
-    'no-div-regex': 'off',
-    'no-else-return': 'off',
-    'no-extra-bind': 'off',
-    'no-extra-label': 'off',
-    'no-floating-decimal': 'warn',
-    'no-implicit-coercion': 'off',
-    'no-lonely-if': 'off',
-    'no-undef-init': 'off',
-    'no-unneeded-ternary': 'off',
-    'no-useless-computed-key': 'off',
-    'no-useless-rename': 'off',
-    'no-useless-return': 'off',
-    'no-var': 'warn',
-    'object-shorthand': 'off',
-    'one-var': 'off',
-    'one-var-declaration-per-line': 'warn',
-    'operator-assignment': 'off',
-    'prefer-arrow-callback': 'warn',
-    'prefer-const': 'warn',
-    'prefer-destructuring': 'off',
-    'prefer-exponentiation-operator': 'warn',
-    'prefer-numeric-literals': 'off',
-    'prefer-object-has-own': 'off',
-    'prefer-object-spread': 'off',
-    'prefer-template': 'warn',
-    'quote-props': ['error', 'consistent-as-needed'],
-    'sort-vars': 'off',
-    'spaced-comment': 'off',
-    'strict': 'off',
-    'yoda': ['warn', 'always', { onlyEquality: true }],
-    'array-bracket-newline': 'off',
-    'array-bracket-spacing': 'off',
-    'array-element-newline': 'off',
-    'arrow-parens': 'off',
-    'arrow-spacing': 'off',
-    'block-spacing': 'off',
-    'brace-style': 'off',
-    'comma-dangle': 'off',
-    'comma-spacing': 'off',
-    'comma-style': 'off',
-    'computed-property-spacing': 'off',
-    'dot-location': 'off',
-    'eol-last': 'off',
-    'func-call-spacing': 'off',
-    'function-call-argument-newline': 'off',
-    'function-paren-newline': 'off',
-    'generator-star-spacing': 'off',
-    'implicit-arrow-linebreak': 'off',
-    'jsx-quotes': 'off',
-    'key-spacing': 'off',
-    'keyword-spacing': 'off',
-    'linebreak-style': 'off',
-    'lines-around-comment': 'off',
-    'lines-between-class-members': 'off',
-    'multiline-ternary': 'off',
-    'new-parens': 'off',
-    'newline-per-chained-call': 'off',
-    'no-extra-parens': 'off',
-    'no-multi-spaces': 'off',
-    'no-multiple-empty-lines': 'off',
-    'no-trailing-spaces': 'off',
-    'no-whitespace-before-property': 'off',
-    'nonblock-statement-body-position': 'off',
-    'object-curly-newline': 'off',
-    'object-curly-spacing': 'off',
-    'object-property-newline': 'off',
-    'operator-linebreak': 'off',
-    'padded-blocks': 'off',
-    'padding-line-between-statements': 'off',
-    'rest-spread-spacing': 'off',
-    'semi-spacing': 'off',
-    'semi-style': ['warn', 'last'],
-    'space-before-blocks': 'off',
-    'space-before-function-paren': 'off',
-    'space-in-parens': 'off',
-    'space-infix-ops': 'off',
-    'space-unary-ops': 'off',
-    'switch-colon-spacing': 'off',
-    'template-curly-spacing': 'off',
-    'template-tag-spacing': 'off',
-    'unicode-bom': 'off',
-    'wrap-iife': 'off',
-    'wrap-regex': 'off',
-    'yield-star-spacing': 'off',
-    'array-callback-return': 'off',
-    'no-await-in-loop': 'off',
-    'no-constant-binary-expression': 'off',
-    'no-constructor-return': 'off',
-    'no-duplicate-imports': 'off',
-    'no-new-native-nonconstructor': 'off',
-    'no-promise-executor-return': 'off',
-    'no-self-compare': 'off',
-    'no-template-curly-in-string': 'off',
-    'no-unmodified-loop-condition': 'off',
-    'no-unreachable-loop': 'off',
-    'no-unused-private-class-members': 'off',
-    'no-use-before-define': 'off',
-    'require-atomic-updates': 'off',
+    '@typescript-eslint/return-await': 'warn',
     'accessor-pairs': 'off',
+    'array-callback-return': 'off',
+    'arrow-body-style': 'off',
     'block-scoped-var': 'off',
     'camelcase': 'off',
+    'capitalized-comments': 'off',
     'class-methods-use-this': 'off',
     'complexity': 'off',
     'consistent-return': 'off',
     'consistent-this': 'off',
-    'default-case': 'off',
+    'constructor-super': 'error',
+    'curly': 'warn',
     'default-case-last': 'off',
+    'default-case': 'off',
     'default-param-last': 'off',
+    'dot-notation': 'off',
+    'eqeqeq': 'off',
+    'for-direction': 'error',
     'func-name-matching': 'off',
     'func-names': 'off',
     'func-style': 'off',
+    'getter-return': 'error',
     'grouped-accessor-pairs': 'off',
     'guard-for-in': 'off',
     'id-denylist': 'off',
     'id-length': 'off',
     'id-match': 'off',
     'init-declarations': 'off',
+    'line-comment-position': 'off',
+    'logical-assignment-operators': 'off',
     'max-classes-per-file': 'off',
     'max-depth': 'off',
-    'max-lines': 'off',
     'max-lines-per-function': 'off',
+    'max-lines': 'off',
     'max-nested-callbacks': 'off',
     'max-params': 'off',
     'max-statements': 'off',
+    'multiline-comment-style': 'off',
     'new-cap': 'off',
     'no-alert': 'off',
     'no-array-constructor': 'off',
+    'no-async-promise-executor': 'error',
+    'no-await-in-loop': 'off',
     'no-bitwise': 'off',
     'no-caller': 'off',
+    'no-case-declarations': 'error',
+    'no-class-assign': 'error',
+    'no-compare-neg-zero': 'error',
+    'no-cond-assign': 'error',
     'no-console': 'off',
+    'no-const-assign': 'error',
+    'no-constant-binary-expression': 'off',
+    'no-constant-condition': 'error',
+    'no-constructor-return': 'off',
     'no-continue': 'off',
+    'no-control-regex': 'error',
+    'no-debugger': 'error',
+    'no-delete-var': 'error',
+    'no-div-regex': 'off',
+    'no-dupe-args': 'error',
+    'no-dupe-class-members': 'off',
+    'no-dupe-else-if': 'error',
+    'no-dupe-keys': 'error',
+    'no-duplicate-case': 'error',
+    'no-duplicate-imports': 'off',
+    'no-else-return': 'off',
+    'no-empty-character-class': 'error',
     'no-empty-function': 'off',
+    'no-empty-pattern': 'error',
     'no-empty-static-block': 'off',
+    'no-empty': 'error',
     'no-eq-null': 'off',
     'no-eval': 'off',
+    'no-ex-assign': 'error',
     'no-extend-native': 'off',
+    'no-extra-bind': 'off',
+    'no-extra-boolean-cast': 'warn',
+    'no-extra-label': 'off',
+    'no-fallthrough': 'error',
+    'no-func-assign': 'error',
+    'no-global-assign': 'error',
+    'no-implicit-coercion': 'off',
     'no-implicit-globals': 'off',
     'no-implied-eval': 'off',
+    'no-import-assign': 'error',
     'no-inline-comments': 'off',
+    'no-inner-declarations': 'error',
+    'no-invalid-regexp': 'error',
     'no-invalid-this': 'off',
+    'no-irregular-whitespace': 'error',
     'no-iterator': 'off',
     'no-label-var': 'off',
     'no-labels': 'off',
     'no-lone-blocks': 'off',
+    'no-lonely-if': 'off',
     'no-loop-func': 'off',
+    'no-loss-of-precision': 'error',
     'no-magic-numbers': 'off',
-    'no-mixed-operators': 'off',
+    'no-misleading-character-class': 'error',
     'no-multi-assign': 'off',
     'no-multi-str': 'off',
     'no-negated-condition': 'off',
     'no-nested-ternary': 'off',
-    'no-new': 'off',
     'no-new-func': 'off',
-    'no-new-object': 'off',
+    'no-new-native-nonconstructor': 'off',
+    'no-new-symbol': 'error',
     'no-new-wrappers': 'off',
+    'no-new': 'off',
+    'no-nonoctal-decimal-escape': 'error',
+    'no-obj-calls': 'error',
     'no-octal-escape': 'off',
+    'no-octal': 'error',
     'no-param-reassign': 'off',
     'no-plusplus': 'off',
+    'no-promise-executor-return': 'off',
     'no-proto': 'off',
+    'no-prototype-builtins': 'error',
+    'no-redeclare': 'off',
+    'no-regex-spaces': 'warn',
     'no-restricted-exports': 'off',
     'no-restricted-globals': 'off',
     'no-restricted-imports': 'off',
     'no-restricted-properties': 'off',
     'no-restricted-syntax': 'off',
     'no-return-assign': 'off',
-    'no-return-await': 'off',
     'no-script-url': 'off',
+    'no-self-assign': 'error',
+    'no-self-compare': 'off',
     'no-sequences': 'off',
+    'no-setter-return': 'error',
+    'no-shadow-restricted-names': 'error',
     'no-shadow': 'off',
+    'no-sparse-arrays': 'error',
+    'no-template-curly-in-string': 'off',
     'no-ternary': 'off',
+    'no-this-before-super': 'error',
     'no-throw-literal': 'off',
+    'no-undef-init': 'off',
+    'no-undef': 'off',
     'no-undefined': 'off',
     'no-underscore-dangle': 'off',
+    'no-unexpected-multiline': 'error',
+    'no-unmodified-loop-condition': 'off',
+    'no-unneeded-ternary': 'off',
+    'no-unreachable-loop': 'off',
+    'no-unreachable': 'error',
+    'no-unsafe-finally': 'error',
+    'no-unsafe-negation': 'error',
+    'no-unsafe-optional-chaining': 'error',
     'no-unused-expressions': 'off',
+    'no-unused-labels': 'warn',
+    'no-unused-private-class-members': 'off',
+    'no-unused-vars': [
+      'off',
+      {
+        ignoreRestSiblings: true,
+      },
+    ],
+    'no-use-before-define': 'off',
+    'no-useless-backreference': 'error',
     'no-useless-call': 'off',
+    'no-useless-catch': 'error',
+    'no-useless-computed-key': 'off',
     'no-useless-concat': 'off',
     'no-useless-constructor': 'off',
+    'no-useless-escape': 'error',
+    'no-useless-rename': 'off',
+    'no-useless-return': 'off',
+    'no-var': 'warn',
     'no-void': 'off',
     'no-warning-comments': 'off',
+    'no-with': 'error',
+    'object-shorthand': 'off',
+    'one-var': 'off',
+    'operator-assignment': 'off',
+    'prefer-arrow-callback': 'warn',
+    'prefer-const': 'warn',
+    'prefer-destructuring': 'off',
+    'prefer-exponentiation-operator': 'warn',
     'prefer-named-capture-group': 'off',
+    'prefer-numeric-literals': 'off',
+    'prefer-object-has-own': 'off',
+    'prefer-object-spread': 'off',
     'prefer-promise-reject-errors': 'off',
     'prefer-regex-literals': 'off',
     'prefer-rest-params': 'off',
     'prefer-spread': 'off',
+    'prefer-template': 'warn',
     'radix': 'off',
+    'require-atomic-updates': 'off',
     'require-await': 'off',
     'require-unicode-regexp': 'off',
+    'require-yield': 'error',
     'sort-keys': 'off',
+    'sort-vars': 'off',
+    'strict': 'off',
     'symbol-description': 'off',
+    'use-isnan': 'error',
+    'valid-typeof': 'error',
     'vars-on-top': 'off',
-    'line-comment-position': 'off',
-    'max-len': 'off',
-    'max-statements-per-line': 'off',
-    'no-tabs': 'off',
+    'yoda': ['warn', 'always', { onlyEquality: true }],
+    // 'array-bracket-newline': 'off',
+    // 'array-bracket-spacing': 'off',
+    // 'array-element-newline': 'off',
+    // 'arrow-parens': 'off',
+    // 'arrow-spacing': 'off',
+    // 'block-spacing': 'off',
+    // 'brace-style': 'off',
+    // 'comma-dangle': 'off',
+    // 'comma-spacing': 'off',
+    // 'comma-style': 'off',
+    // 'computed-property-spacing': 'off',
+    // 'dot-location': 'off',
+    // 'eol-last': 'off',
+    // 'func-call-spacing': 'off',
+    // 'function-call-argument-newline': 'off',
+    // 'function-paren-newline': 'off',
+    // 'generator-star-spacing': 'off',
+    // 'implicit-arrow-linebreak': 'off',
+    // 'jsx-quotes': 'off',
+    // 'key-spacing': 'off',
+    // 'keyword-spacing': 'off',
+    // 'linebreak-style': 'off',
+    // 'lines-around-comment': 'off',
+    // 'lines-between-class-members': 'off',
+    // 'max-len': 'off',
+    // 'max-statements-per-line': 'off',
+    // 'multiline-ternary': 'off',
+    // 'new-parens': 'off',
+    // 'newline-per-chained-call': 'off',
+    // 'no-confusing-arrow': 'off',
+    // 'no-extra-parens': 'off',
+    // 'no-extra-semi': 'warn',
+    // 'no-floating-decimal': 'warn',
+    // 'no-mixed-operators': 'off',
+    // 'no-mixed-spaces-and-tabs': 'error',
+    // 'no-multi-spaces': 'off',
+    // 'no-multiple-empty-lines': 'off',
+    // 'no-new-object': 'off',
+    // 'no-return-await': 'off',
+    // 'no-tabs': 'off',
+    // 'no-trailing-spaces': 'off',
+    // 'no-whitespace-before-property': 'off',
+    // 'nonblock-statement-body-position': 'off',
+    // 'object-curly-newline': 'off',
+    // 'object-curly-spacing': 'off',
+    // 'object-property-newline': 'off',
+    // 'one-var-declaration-per-line': 'warn',
+    // 'operator-linebreak': 'off',
+    // 'padded-blocks': 'off',
+    // 'padding-line-between-statements': 'off',
+    // 'quote-props': ['error', 'consistent-as-needed'],
+    // 'rest-spread-spacing': 'off',
+    // 'semi-spacing': 'off',
+    // 'semi-style': ['warn', 'last'],
+    // 'space-before-blocks': 'off',
+    // 'space-before-function-paren': 'off',
+    // 'space-in-parens': 'off',
+    // 'space-infix-ops': 'off',
+    // 'space-unary-ops': 'off',
+    // 'spaced-comment': 'off',
+    // 'switch-colon-spacing': 'off',
+    // 'template-curly-spacing': 'off',
+    // 'template-tag-spacing': 'off',
+    // 'unicode-bom': 'off',
+    // 'wrap-iife': 'off',
+    // 'wrap-regex': 'off',
+    // 'yield-star-spacing': 'off',
 
     // ―――――――― simple-import-sort ―――――――――――――――――――――――――――――――――――
     'sort-imports': 'off',
@@ -495,7 +500,7 @@ module.exports = {
     'unicorn/catch-error-name': 'warn',
     'unicorn/custom-error-definition': 'warn',
     'unicorn/escape-case': 'warn',
-    'unicorn/explicit-length-check': 'warn',
+    'unicorn/explicit-length-check': 'off',
     'unicorn/new-for-builtins': 'warn',
     'unicorn/no-console-spaces': 'warn',
     'unicorn/no-for-loop': 'warn',
@@ -525,34 +530,280 @@ module.exports = {
     'unicorn/error-message': 'error',
     'unicorn/expiring-todo-comments': 'error',
     'unicorn/no-keyword-prefix': 'error',
-    'unicorn/no-unsafe-regex': 'error',
     'unicorn/no-unused-properties': 'error',
     'unicorn/no-null': 'off',
     'unicorn/no-process-exit': 'off',
     'unicorn/filename-case': 'off',
     'unicorn/no-abusive-eslint-disable': 'off',
     'unicorn/no-object-as-default-parameter': 'off',
-    // // 'unicorn/no-array-instanceof': 'warn',
-    // // 'unicorn/no-fn-reference-in-iterator': 'off',
-    // // 'unicorn/no-reduce': 'off',
-    // // 'unicorn/prefer-dataset': 'warn',
-    // // 'unicorn/prefer-event-key': 'warn',
-    // // 'unicorn/prefer-flat-map': 'warn',
-    // // 'unicorn/prefer-node-append': 'warn',
-    // // 'unicorn/prefer-node-remove': 'warn',
-    // // 'unicorn/prefer-replace-all': 'warn',
-    // // 'unicorn/prefer-starts-ends-with': 'warn',
-    // // 'unicorn/prefer-text-content': 'warn',
-    // // 'unicorn/prefer-trim-start-end': 'warn',
-    // // 'unicorn/regex-shorthand': 'warn',
-    // //   // "comma-style": [
-    // //   //   "warn",
-    // //   //   "last"
-    // //   // ],
-    // //   // "comma-dangle": [
-    // //   //   "warn",
-    // //   //   "always-multiline"
-    // //   // ],
-    // //   /*
+    // //% Description: Enforce linebreaks after opening and before closing array brackets
+    // //? Fixable: whitespace
+    // '@stylistic/array-bracket-newline': 'warn',
+    // //% Description: Enforce consistent spacing inside array brackets
+    // //? Fixable: whitespace
+    // '@stylistic/array-bracket-spacing': 'warn',
+    // //% Description: Enforce line breaks after each array element
+    // //? Fixable: whitespace
+    // '@stylistic/array-element-newline': 'warn',
+    // //% Description: Require parentheses around arrow function arguments
+    // //? Fixable: code
+    // '@stylistic/arrow-parens': 'warn',
+    // //% Description: Enforce consistent spacing before and after the arrow in arrow functions
+    // //? Fixable: whitespace
+    // '@stylistic/arrow-spacing': 'warn',
+    // //% Description: Disallow or enforce spaces inside of blocks after opening block and before closing block
+    // //? Fixable: whitespace
+    // '@stylistic/block-spacing': 'warn',
+    // //% Description: Enforce consistent brace style for blocks
+    // //? Fixable: whitespace
+    // '@stylistic/brace-style': 'warn',
+    // //% Description: Require or disallow trailing commas
+    // //? Fixable: code
+    // '@stylistic/comma-dangle': 'warn',
+    // //% Description: Enforce consistent spacing before and after commas
+    // //? Fixable: whitespace
+    // '@stylistic/comma-spacing': 'warn',
+    // //% Description: Enforce consistent comma style
+    // //? Fixable: code
+    // '@stylistic/comma-style': 'warn',
+    // //% Description: Enforce consistent spacing inside computed property brackets
+    // //? Fixable: whitespace
+    // '@stylistic/computed-property-spacing': 'warn',
+    // //% Description: Enforce consistent newlines before and after dots
+    // //? Fixable: code
+    // '@stylistic/dot-location': 'warn',
+    // //% Description: Require or disallow newline at the end of files
+    // //? Fixable: whitespace
+    // '@stylistic/eol-last': 'warn',
+    // //% Description: Require or disallow spacing between function identifiers and their invocations. Alias of `function-call-spacing`.
+    // //? Fixable: whitespace
+    // '@stylistic/func-call-spacing': 'warn',
+    // //% Description: Enforce line breaks between arguments of a function call
+    // //? Fixable: whitespace
+    // '@stylistic/function-call-argument-newline': 'warn',
+    // //% Description: Require or disallow spacing between function identifiers and their invocations
+    // //? Fixable: whitespace
+    // '@stylistic/function-call-spacing': 'warn',
+    // //% Description: Enforce consistent line breaks inside function parentheses
+    // //? Fixable: whitespace
+    // '@stylistic/function-paren-newline': 'warn',
+    // //% Description: Enforce consistent spacing around `*` operators in generator functions
+    // //? Fixable: whitespace
+    // '@stylistic/generator-star-spacing': 'warn',
+    // //% Description: Enforce the location of arrow function bodies
+    // //? Fixable: whitespace
+    // '@stylistic/implicit-arrow-linebreak': 'warn',
+    // //% Description: Enforce consistent indentation
+    // //? Fixable: whitespace
+    // '@stylistic/indent': 'warn',
+    // //% Description: Indentation for binary operators
+    // //? Fixable: whitespace
+    // '@stylistic/indent-binary-ops': 'warn',
+    // //% Description: Enforce closing bracket location in JSX
+    // //? Fixable: code
+    // '@stylistic/jsx-closing-bracket-location': 'warn',
+    // //% Description: Enforce closing tag location for multiline JSX
+    // //? Fixable: whitespace
+    // '@stylistic/jsx-closing-tag-location': 'warn',
+    // //% Description: Disallow unnecessary JSX expressions when literals alone are sufficient or enforce JSX expressions on literals in JSX children or attributes
+    // //? Fixable: code
+    // '@stylistic/jsx-curly-brace-presence': 'warn',
+    // //% Description: Enforce consistent linebreaks in curly braces in JSX attributes and expressions
+    // //? Fixable: whitespace
+    // '@stylistic/jsx-curly-newline': 'warn',
+    // //% Description: Enforce or disallow spaces inside of curly braces in JSX attributes and expressions
+    // //? Fixable: code
+    // '@stylistic/jsx-curly-spacing': 'warn',
+    // //% Description: Enforce or disallow spaces around equal signs in JSX attributes
+    // //? Fixable: code
+    // '@stylistic/jsx-equals-spacing': 'warn',
+    // //% Description: Enforce proper position of the first property in JSX
+    // //? Fixable: code
+    // '@stylistic/jsx-first-prop-new-line': 'warn',
+    // //% Description: Enforce JSX indentation
+    // //? Fixable: whitespace
+    // '@stylistic/jsx-indent': 'warn',
+    // //% Description: Enforce props indentation in JSX
+    // //? Fixable: code
+    // '@stylistic/jsx-indent-props': 'warn',
+    // //% Description: Enforce maximum of props on a single line in JSX
+    // //? Fixable: code
+    // '@stylistic/jsx-max-props-per-line': 'warn',
+    // //% Description: Require or prevent a new line after jsx elements and expressions.
+    // //? Fixable: code
+    // '@stylistic/jsx-newline': 'warn',
+    // //% Description: Require one JSX element per line
+    // //? Fixable: whitespace
+    // '@stylistic/jsx-one-expression-per-line': 'warn',
+    // //% Description: Disallow multiple spaces between inline JSX props
+    // //? Fixable: code
+    // '@stylistic/jsx-props-no-multi-spaces': 'warn',
+    // //% Description: Enforce the consistent use of either double or single quotes in JSX attributes
+    // //? Fixable: whitespace
+    // '@stylistic/jsx-quotes': 'warn',
+    // //% Description: Disallow extra closing tags for components without children
+    // //? Fixable: code
+    // '@stylistic/jsx-self-closing-comp': 'warn',
+    // //% Description: Enforce props alphabetical sorting
+    // //? Fixable: code
+    // '@stylistic/jsx-sort-props': 'warn',
+    // //% Description: Enforce whitespace in and around the JSX opening and closing brackets
+    // //? Fixable: whitespace
+    // '@stylistic/jsx-tag-spacing': 'warn',
+    // //% Description: Disallow missing parentheses around multiline JSX
+    // //? Fixable: code
+    // '@stylistic/jsx-wrap-multilines': 'warn',
+    // //% Description: Enforce consistent spacing between keys and values in object literal properties
+    // //? Fixable: whitespace
+    // '@stylistic/key-spacing': 'warn',
+    // //% Description: Enforce consistent spacing before and after keywords
+    // //? Fixable: whitespace
+    // '@stylistic/keyword-spacing': 'warn',
+    // //% Description: Enforce consistent linebreak style
+    // //? Fixable: whitespace
+    // '@stylistic/linebreak-style': 'warn',
+    // //% Description: Require empty lines around comments
+    // //? Fixable: whitespace
+    // '@stylistic/lines-around-comment': 'warn',
+    // //% Description: Require or disallow an empty line between class members
+    // //? Fixable: whitespace
+    // '@stylistic/lines-between-class-members': 'warn',
+    // //% Description: Require a specific member delimiter style for interfaces and type literals
+    // //? Fixable: whitespace
+    // '@stylistic/member-delimiter-style': 'warn',
+    // //% Description: Enforce newlines between operands of ternary expressions
+    // //? Fixable: whitespace
+    // '@stylistic/multiline-ternary': 'warn',
+    // //% Description: Enforce or disallow parentheses when invoking a constructor with no arguments
+    // //? Fixable: code
+    // '@stylistic/new-parens': 'warn',
+    // //% Description: Require a newline after each call in a method chain
+    // //? Fixable: whitespace
+    // '@stylistic/newline-per-chained-call': 'warn',
+    // //% Description: Disallow arrow functions where they could be confused with comparisons
+    // //? Fixable: code
+    // '@stylistic/no-confusing-arrow': 'warn',
+    // //% Description: Disallow unnecessary parentheses
+    // //? Fixable: code
+    // '@stylistic/no-extra-parens': 'warn',
+    // //% Description: Disallow unnecessary semicolons
+    // //? Fixable: code
+    // '@stylistic/no-extra-semi': 'warn',
+    // //% Description: Disallow leading or trailing decimal points in numeric literals
+    // //? Fixable: code
+    // '@stylistic/no-floating-decimal': 'warn',
+    // //% Description: Disallow multiple spaces
+    // //? Fixable: whitespace
+    // '@stylistic/no-multi-spaces': 'warn',
+    // //% Description: Disallow multiple empty lines
+    // //? Fixable: whitespace
+    // '@stylistic/no-multiple-empty-lines': 'warn',
+    // //% Description: Disallow trailing whitespace at the end of lines
+    // //? Fixable: whitespace
+    // '@stylistic/no-trailing-spaces': 'warn',
+    // //% Description: Disallow whitespace before properties
+    // //? Fixable: whitespace
+    // '@stylistic/no-whitespace-before-property': 'warn',
+    // //% Description: Enforce the location of single-line statements
+    // //? Fixable: whitespace
+    // '@stylistic/nonblock-statement-body-position': 'warn',
+    // //% Description: Enforce consistent line breaks after opening and before closing braces
+    // //? Fixable: whitespace
+    // '@stylistic/object-curly-newline': 'warn',
+    // //% Description: Enforce consistent spacing inside braces
+    // //? Fixable: whitespace
+    // '@stylistic/object-curly-spacing': 'warn',
+    // //% Description: Enforce placing object properties on separate lines
+    // //? Fixable: whitespace
+    // '@stylistic/object-property-newline': 'warn',
+    // //% Description: Require or disallow newlines around variable declarations
+    // //? Fixable: whitespace
+    // '@stylistic/one-var-declaration-per-line': 'warn',
+    // //% Description: Enforce consistent linebreak style for operators
+    // //? Fixable: code
+    // '@stylistic/operator-linebreak': 'warn',
+    // //% Description: Require or disallow padding within blocks
+    // //? Fixable: whitespace
+    // '@stylistic/padded-blocks': 'warn',
+    // //% Description: Require or disallow padding lines between statements
+    // //? Fixable: whitespace
+    // '@stylistic/padding-line-between-statements': 'warn',
+    // //% Description: Require quotes around object literal property names
+    // //? Fixable: code
+    // '@stylistic/quote-props': 'warn',
+    // //% Description: Enforce the consistent use of either backticks, double, or single quotes
+    // //? Fixable: code
+    // '@stylistic/quotes': 'warn',
+    // //% Description: Enforce spacing between rest and spread operators and their expressions
+    // //? Fixable: whitespace
+    // '@stylistic/rest-spread-spacing': 'warn',
+    // //% Description: Require or disallow semicolons instead of ASI
+    // //? Fixable: code
+    // '@stylistic/semi': 'warn',
+    // //% Description: Enforce consistent spacing before and after semicolons
+    // //? Fixable: whitespace
+    // '@stylistic/semi-spacing': 'warn',
+    // //% Description: Enforce location of semicolons
+    // //? Fixable: whitespace
+    // '@stylistic/semi-style': 'warn',
+    // //% Description: Enforce consistent spacing before blocks
+    // //? Fixable: whitespace
+    // '@stylistic/space-before-blocks': 'warn',
+    // //% Description: Enforce consistent spacing before `function` definition opening parenthesis
+    // //? Fixable: whitespace
+    // '@stylistic/space-before-function-paren': 'warn',
+    // //% Description: Enforce consistent spacing inside parentheses
+    // //? Fixable: whitespace
+    // '@stylistic/space-in-parens': 'warn',
+    // //% Description: Require spacing around infix operators
+    // //? Fixable: whitespace
+    // '@stylistic/space-infix-ops': 'warn',
+    // //% Description: Enforce consistent spacing before or after unary operators
+    // //? Fixable: whitespace
+    // '@stylistic/space-unary-ops': 'warn',
+    // //% Description: Enforce consistent spacing after the `//` or `/*` in a comment
+    // //? Fixable: whitespace
+    // '@stylistic/spaced-comment': 'warn',
+    // //% Description: Enforce spacing around colons of switch statements
+    // //? Fixable: whitespace
+    // '@stylistic/switch-colon-spacing': 'warn',
+    // //% Description: Require or disallow spacing around embedded expressions of template strings
+    // //? Fixable: whitespace
+    // '@stylistic/template-curly-spacing': 'warn',
+    // //% Description: Require or disallow spacing between template tags and their literals
+    // //? Fixable: whitespace
+    // '@stylistic/template-tag-spacing': 'warn',
+    // //% Description: Require consistent spacing around type annotations
+    // //? Fixable: whitespace
+    // '@stylistic/type-annotation-spacing': 'warn',
+    // //% Description: Enforces consistent spacing inside TypeScript type generics
+    // //? Fixable: whitespace
+    // '@stylistic/type-generic-spacing': 'warn',
+    // //% Description: Expect space before the type declaration in the named tuple
+    // //? Fixable: whitespace
+    // '@stylistic/type-named-tuple-spacing': 'warn',
+    // //% Description: Require parentheses around immediate `function` invocations
+    // //? Fixable: code
+    // '@stylistic/wrap-iife': 'warn',
+    // //% Description: Require parenthesis around regex literals
+    // //? Fixable: code
+    // '@stylistic/wrap-regex': 'warn',
+    // //% Description: Require or disallow spacing around the `*` in `yield*` expressions
+    // //? Fixable: whitespace
+    // '@stylistic/yield-star-spacing': 'warn',
+    // //& Description: Enforce or disallow spaces inside of curly braces in JSX attributes and expressions
+    // '@stylistic/jsx-child-element-spacing': 'error',
+    // //& Description: Enforce PascalCase for user-defined JSX components
+    // '@stylistic/jsx-pascal-case': 'error',
+    // //& Description: Enforce a maximum line length
+    // '@stylistic/max-len': 'error',
+    // //& Description: Enforce a maximum number of statements allowed per line
+    // '@stylistic/max-statements-per-line': 'error',
+    // //& Description: Disallow mixed binary operators
+    // '@stylistic/no-mixed-operators': 'error',
+    // //& Description: Disallow mixed spaces and tabs for indentation
+    // '@stylistic/no-mixed-spaces-and-tabs': 'error',
+    // //& Description: Disallow all tabs
+    // '@stylistic/no-tabs': 'error',
   },
 };

@@ -15,5 +15,3 @@ export function getTransformStep(
   }
   return transformStep;
 }
-
-// TASK LIST: [TODO] (Review Documentation) --------------------------

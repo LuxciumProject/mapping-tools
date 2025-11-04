@@ -6,7 +6,6 @@ export type {
   SerialMappingFn,
 } from './MainFunctionsTypes';
 export type {
-  Base,
   BaseOrDeferred,
   Collection,
   CollectionOfDeferred,
@@ -18,6 +17,7 @@ export type {
   SettledValue,
   SettledValues,
 } from './MainTypes';
+export type { Base } from './Base';
 export type {
   ErrLookupFn,
   LookupFn,

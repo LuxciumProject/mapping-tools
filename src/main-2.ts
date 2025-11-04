@@ -5,9 +5,13 @@ import {
 } from './helpers/tools/extractValues';
 
 async function main() {
+  // Lets play with our tools shall we?
+  // We will use the `awaitedMapping` and `serialMapping` functions
+  // to map over an array of numbers and perform an async operation on each element
   const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+  // We will use the `awaitedMapping` function
   const mappedArray = await awaitedMapping(array, async element => {
-    // Async operation on each element
+    // Async operation on each element and simulate an error
     if (2 === element % 4) {
       throw new Error('Error');
     }

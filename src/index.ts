@@ -131,12 +131,41 @@ export type { ErrLookupFn, LookupFn, TransformFn, ValidateFn };
  */
 export { awaitedMapping };
 /**
- * istanbul ignore next
- * UNSAFE: Name of the class will change in future release
- * @experimental
+ * A fluent, chainable API wrapper for mapping-tools functions.
+ * Provides dot-notation chaining for improved ergonomics.
+ *
+ * @example
+ * ```typescript
+ * // Using Chain.of() static method
+ * const result = await Chain.of([1, 2, 3, 4, 5])
+ *   .awaitedMapping(async x => x * 2)
+ *   .getValues();
+ * ```
+ *
+ * @public
  * @beta
  */
 export { Chain };
+
+/**
+ * Convenience factory function to create a fluent, chainable API for mapping operations.
+ *
+ * @example
+ * ```typescript
+ * import { chain } from 'mapping-tools';
+ *
+ * const result = await chain([1, 2, 3, 4, 5])
+ *   .awaitedMapping(async x => x * 2)
+ *   .awaitedMapping(async x => x + 1)
+ *   .getValues();
+ * // result: [3, 5, 7, 9, 11]
+ * ```
+ *
+ * @param collection - An iterable collection or a promise of a collection
+ * @returns A new Chain instance wrapping the collection
+ * @public
+ */
+export { chain } from './classes';
 /**
  *
  * ### generateMapping

@@ -16,41 +16,51 @@ The package provides a set of utility functions for working with collections of 
 
 ## Table of Contents
 
-1. [Table of Contents](#table-of-contents)
-1. [Installation](#installation)
-1. [Usage Overview](#usage-overview)
-1. [Quick Start](#quick-start)
-1. [Main Functions](#main-functions)
-   - [parallelMapping Signature](#parallelmapping)
-   - [serialMapping Signature](#serialmapping)
-   - [awaitedMapping Signature](#awaitedmapping)
-   - [generateMapping Signature](#generatemapping)
-   - [generateMappingAsync Signature](#generatemappingasync)
-   - [Return Types](#return-types)
-   - [Arguments](#arguments)
-1. [Delegates Functions](#delegates-functions)
-   - [transformFn](#transformfn)
-   - [lookupFn](#lookupfn)
-   - [validateFn](#validatefn)
-   - [errLookupFn](#errlookupfn)
-1. [Base Types](#base-types)
-   - [`Base<TVal>`](#basetval)
-   - [`Settled<TVal>`](#settledtval)
-   - [`SettledRight<TVal>`](#settledrighttval)
-   - [`SettledLeft`](#settledleft)
-   - [`PromiseSettledResult<TVal>`](#promisesettledresulttval)
-   - [`PromiseFulfilledResult<TVal>`](#promisefulfilledresulttval)
-   - [`PromiseRejectedResult`](#promiserejectedresult)
-1. [Aliases Types](#aliases-types)
-   - [`Deferred<Base>`](#deferredbase)
-   - [`BaseOrDeferred<Base>`](#baseordeferredbase)
-   - [`Collection<Base>`](#collectionbase)
-   - [`DeferredCollection<Base>`](#deferredcollectionbase)
-   - [`SettledArray<Result>`](#settledarrayresult)
-   - [`NullSymbol`](#nullsymbol)
-   - [`SettledValue<Result>`](#settledvalueresult)
-   - [`SettledValues<Result>`](#settledvaluesresult)
-   - [`OnlySideEffect`](#onlysideeffect)
+- [Mapping Tools](#mapping-tools)
+  - [Table of Contents](#table-of-contents)
+  - [Installation](#installation)
+  - [Usage Overview](#usage-overview)
+  - [Quick Start](#quick-start)
+  - [Chainable API](#chainable-api)
+    - [Creating a Chain](#creating-a-chain)
+    - [Transformation Methods](#transformation-methods)
+    - [Value Extraction](#value-extraction)
+    - [Error Handling](#error-handling)
+  - [Main Functions](#main-functions)
+    - [parallelMapping](#parallelmapping)
+    - [serialMapping](#serialmapping)
+    - [awaitedMapping](#awaitedmapping)
+    - [generateMapping](#generatemapping)
+    - [generateMappingAsync](#generatemappingasync)
+    - [Return Types](#return-types)
+    - [Arguments](#arguments)
+  - [Delegates functions](#delegates-functions)
+    - [transformFn](#transformfn)
+    - [lookupFn](#lookupfn)
+    - [validateFn](#validatefn)
+    - [errLookupFn](#errlookupfn)
+  - [Base Types](#base-types)
+    - [`Base<TVal>`](#basetval)
+    - [`Settled<TVal>`](#settledtval)
+    - [`SettledRight<TVal>`](#settledrighttval)
+    - [`SettledLeft`](#settledleft)
+    - [`PromiseSettledResult<TVal>`](#promisesettledresulttval)
+    - [`PromiseFulfilledResult<TVal>`](#promisefulfilledresulttval)
+    - [`PromiseRejectedResult`](#promiserejectedresult)
+  - [Aliases Types](#aliases-types)
+    - [`Deferred<Base>`](#deferredbase)
+    - [`BaseOrDeferred<Base>`](#baseordeferredbase)
+    - [`Collection<Base>`](#collectionbase)
+    - [`DeferredCollection<Base>`](#deferredcollectionbase)
+    - [`SettledArray<Result>`](#settledarrayresult)
+    - [`NullSymbol`](#nullsymbol)
+    - [`SettledValue<Result>`](#settledvalueresult)
+    - [`SettledValues<Result>`](#settledvaluesresult)
+    - [`OnlySideEffect`](#onlysideeffect)
+  - [Contributing](#contributing)
+  - [The MIT License (MIT)](#the-mit-license-mit)
+    - [Copyright © 2022-2024 · LUXCIUM · (Benjamin Vincent) · luxcium﹫neb401.com](#copyright--2022-2024--luxcium--benjamin-vincent--luxciumneb401com)
+      - [† Scientia est lux principium✨ is a Trade Mark of Benjamin Vincent Kasapoglu](#-scientia-est-lux-principium-is-a-trade-mark-of-benjamin-vincent-kasapoglu)
 
 ## Installation
 
@@ -104,9 +114,32 @@ const mappingTools = require('mapping-tools');
 import * as mappingTools from 'mapping-tools';
 ```
 
-Then, you can use the various functions provided by the library to
-generate, transform, and iterate over maps, as well as to perform
-asynchronous map generation.
+### Chainable API (Recommended)
+
+The easiest way to use mapping-tools is with the fluent, chainable API:
+
+```typescript
+import { chain } from 'mapping-tools';
+
+// Simple transformation chain
+const result = await chain([1, 2, 3, 4, 5])
+  .awaitedMapping(async x => x * 2)
+  .awaitedMapping(async x => x + 1)
+  .getValues();
+// result: [3, 5, 7, 9, 11]
+
+// With error handling
+const results = await chain([1, 2, 3, 4])
+  .awaitedMapping(async x => {
+    if (x === 2) throw new Error('Skip 2');
+    return x * 2;
+  })
+  .getValues();  // Only successful values: [2, 6, 8]
+```
+
+### Functional API
+
+You can also use the standalone functions for more control:
 
 ```typescript
 import { awaitedMapping, helpers } from 'mapping-tools';
@@ -173,6 +206,177 @@ main();
   ]
   settledValues.length :>>  12
 */
+```
+
+## Chainable API
+
+The chainable API provides a fluent, ergonomic interface for composing transformations. This is the recommended approach for most use cases as it reduces cognitive load and makes complex transformations easier to read and maintain.
+
+### Creating a Chain
+
+You can create a chain in two ways:
+
+```typescript
+import { chain, Chain } from 'mapping-tools';
+
+// Using the chain() helper function (recommended)
+const result1 = await chain([1, 2, 3, 4, 5])
+  .awaitedMapping(async x => x * 2)
+  .getValues();
+
+// Using Chain.of() static method
+const result2 = await Chain.of([1, 2, 3, 4, 5])
+  .awaitedMapping(async x => x * 2)
+  .getValues();
+
+// Works with promises too
+const promisedArray = Promise.resolve([1, 2, 3]);
+const result3 = await chain(promisedArray)
+  .awaitedMapping(async x => x * 2)
+  .getValues();
+```
+
+### Transformation Methods
+
+All the core mapping functions are available as chainable methods:
+
+```typescript
+// awaitedMapping - parallel transformations using Promise.all
+await chain([1, 2, 3])
+  .awaitedMapping(async x => x * 2)
+  .awaitedMapping(async x => x + 1)
+  .getValues();
+// Result: [3, 5, 7]
+
+// serialMapping - sequential transformations
+await chain([1, 2, 3])
+  .serialMapping(async x => {
+    await someAsyncOperation();
+    return x * 2;
+  })
+  .getValues();
+
+// parallelMapping - returns array of promises
+await chain([1, 2, 3])
+  .parallelMapping(async x => x * 2)
+  .toArray();
+
+// You can mix different mapping types
+await chain([1, 2, 3])
+  .awaitedMapping(async x => x * 2)
+  .serialMapping(async x => x + 10)
+  .awaitedMapping(async x => x / 2)
+  .getValues();
+// Result: [6, 7, 8]
+```
+
+### Value Extraction
+
+The chain provides multiple methods to extract the final results:
+
+```typescript
+const data = [1, 2, 3, 4, 5];
+
+// getValues() - Get only successful values (recommended)
+// Filters out any rejected/failed transformations
+const values = await chain(data)
+  .awaitedMapping(async x => {
+    if (x === 3) throw new Error('Skip 3');
+    return x * 2;
+  })
+  .getValues();
+// Result: [2, 4, 8, 10] - element at index 2 was filtered out
+
+// toArray() - Get complete settled results
+// Returns Settled<T>[] with both fulfilled and rejected entries
+const settled = await chain(data)
+  .awaitedMapping(async x => x * 2)
+  .toArray();
+// Result: Array of Settled objects with status, value/reason, index, etc.
+
+// getAllValues() - Get all values with NULL_SYMBOL for failures
+// Maintains original array length and positions
+const allValues = await chain(data)
+  .awaitedMapping(async x => {
+    if (x === 3) throw new Error('Skip 3');
+    return x * 2;
+  })
+  .getAllValues();
+// Result: [2, 4, Symbol(null), 8, 10] - preserves position
+```
+
+### Error Handling
+
+The chainable API provides robust error handling:
+
+```typescript
+// Errors are captured and don't stop the chain
+const result = await chain([1, 2, 3, 4, 5])
+  .awaitedMapping(async x => {
+    if (x % 2 === 0) throw new Error('Even number');
+    return x * 2;
+  })
+  .getValues();
+// Result: [2, 6, 10] - only odd numbers (even ones were rejected)
+
+// You can filter fulfilled and rejected values separately
+const withErrors = chain([1, 2, 3, 4]);
+
+const fulfilled = await withErrors
+  .awaitedMapping(async x => {
+    if (x === 2) throw new Error('Error');
+    return x;
+  })
+  .filterRight();
+// fulfilled contains only SettledRight entries
+
+const rejected = await withErrors
+  .awaitedMapping(async x => {
+    if (x === 2) throw new Error('Error');
+    return x;
+  })
+  .filterLeft();
+// rejected contains only SettledLeft entries
+
+// Errors propagate through multiple transformations
+const result2 = await chain([1, 2, 3])
+  .awaitedMapping(async x => {
+    if (x === 2) throw new Error('Error at step 1');
+    return x * 2;
+  })
+  .awaitedMapping(async x => x + 10) // This won't transform the failed entry
+  .toArray();
+// result2[1] will still be rejected from the first transformation
+```
+
+### Advanced Usage
+
+```typescript
+// Using validation and lookup functions
+await chain([1, 2, 3, 4, 5])
+  .awaitedMapping(
+    async x => x * 2,                    // transform
+    value => console.log('Got:', value), // lookup (side effect)
+    async value => {                     // validate
+      if (value > 6) throw new Error('Too large');
+    },
+    (reason, index) => {                 // error lookup
+      console.log(`Error at ${index}:`, reason);
+    }
+  )
+  .getValues();
+
+// Working with complex async operations
+const result = await chain([1, 2, 3, 4, 5])
+  .awaitedMapping(async x => {
+    const data = await fetchData(x);
+    return data.value;
+  })
+  .awaitedMapping(async value => {
+    const processed = await processData(value);
+    return processed;
+  })
+  .getValues();
 ```
 
 ## Main Functions
@@ -514,11 +718,11 @@ type SettledLeft = PromiseRejectedResult & {
   currentRejection: true | false | undefined;
 
   /* The null value of the transformStep and the index is -1 */
-  /* When value is -1 the folowing properties a not enumerated */
+  /* When value is -1 the following properties a not enumerated */
   transformStep: number;
   index: number;
 
-  /* Folowing properties a not enumerated (enumerable: false) */
+  /* Following properties a not enumerated (enumerable: false) */
   rejected: any;
   fulfilled: null;
   value?: undefined;
@@ -642,7 +846,7 @@ We welcome contributions to Mapping Tools! If you have an idea for a new feature
 
 The MIT License (MIT)
 
-Copyright © 2022-2023 · LUXCIUM · (Benjamin Vincent Kasapoglu) · luxcium﹫neb401.com
+Copyright © 2022-2024 · LUXCIUM · (Benjamin Vincent Kasapoglu) · luxcium﹫neb401.com
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -662,84 +866,8 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-<!--
+### Copyright © 2022-2024 · LUXCIUM · (Benjamin Vincent) · luxcium﹫neb401.com
 
-## NO PERMISSION GRANTED - PROVIDED "AS IS" - WITHOUT WARRANTY
+#### † Scientia est lux principium✨ is a Trade Mark of Benjamin Vincent Kasapoglu
 
-† **Scientia est lux principium✨** ™
-
-THESE FILES ARE _NOT_ FIT FOR ANY PARTICULAR PURPOSE IN IT'S CURRENT FORM
-THESE FILES HAVE NOT BEEN TESTED OR RUN YET IN ALL ENVIRONMENTS! _DO NOT_
-RUN THESE FILES UNLESS YOU HAVE REVIEWED THE FULL CONTENT AND TAKE FULL
-RESPONSIBILITY OF ANY PROBLEME IT MAY CAUSE TO YOU (or anyone) OR YOUR
-MACHINE (or any machine).
-
-### NO PERMISSION ARE GRANTED FOR THIS SOFTWARE
-
-1. NOT TO PUBLISH;
-2. NOT TO DISTRIBUTE;
-3. NOT TO SUBLICENSE;
-4. NOT TO SELL COPIES OF;
-
-#### NOTICE
-
-> THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ALL OR ANY KIND,
-> EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-> MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
-> IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS WILL BE LIABLE FOR ALL
-> OR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
-> TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE
-> OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-Copyright © 2022 LUXCIUM
-
-### EXCEPTIONS
-
-#### YOU HAVE THE RIGHT TO
-
-```text
-A) USE IT FOR YOURSELF;
-B) DISTRIBUTE IT TO YOUR FRIENDS;
-C) DISTRIBUTE IT TO YOUR STUDENTS;
-D) DISTRIBUTE IT TO YOUR COWORKER;
-(FOR PERSONAL USE: AT HOME, AT SCHOOL OR AT WORK)
-```
-### Copyright © 2022 - 2023 · LUXCIUM · (Benjamin Vincent Kasapoglu) · luxcium﹫neb401.com
-
-<!--
-1. [Usage](#usage)
-1. [Features](#features)
-1. [Documentation](#documentation)
-
-##
-##
-##
-##
-##
-### Arguments
-## Return Types
-### parallelMapping signature
-### serialMapping signature
-### awaitedMapping signature
-### generateMapping signature
-### generateMappingAsync signature
-## Delegates functions
-###
-###
-###
-###
-
-## Main types
-## Base types
-## Contributing
-## # Luxcium License: NO PERMISSION GRANTED - PROVIDED "AS IS" - WITHOUT WARRANTY
-### NO PERMISSION ARE GRANTED FOR THIS SOFTWARE
-#### NOTICE
-### EXCEPTIONS
-#### YOU HAVE THE RIGHT TO
-### Copyright © 2022 · LUXCIUM · (Benjamin Vincent Kasapoglu) · luxcium﹫neb401.com
-###### † Scientia est lux principium✨ is a Trade Mark of Benjamin Vincent Kasapoglu
-
-###### † Scientia est lux principium✨ is a Trade Mark of Benjamin Vincent Kasapoglu
-
-Text generated by an [AI language model](https://openai.com/) has been used in this work.
+Text generated by an [AI language model](https://openai.com/) has been used to help create parts of the documentation.

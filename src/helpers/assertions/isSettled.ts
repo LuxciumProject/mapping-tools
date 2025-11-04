@@ -19,22 +19,20 @@ export function isSettled<T>(contender: unknown): contender is Settled<T> {
 export function hasTransformStep(
   countender: unknown
 ): countender is TransformStep {
-  let result = false;
   try {
-    result =
-      countender != null &&
+  return countender != null &&
       'object' === typeof countender &&
       'transformStep' in countender &&
       'number' === typeof countender.transformStep;
   } catch {
     // Do nothing
+    return false;
     /*
       The addition of the try/catch block
       ensure that the function does not throw any exceptions
       if an unexpected error occurs.
     */
   }
-  return result;
 }
 
 /**

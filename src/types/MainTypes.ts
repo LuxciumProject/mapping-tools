@@ -1,19 +1,6 @@
 import type { NULL_SYMBOL } from '../constants';
-import type { Settled, SettledLeft, SettledRight } from './Settled';
-
-/**
- * @group Base Types
- * @public
- * */
-
-export type Base<TVal> =
-  | PromiseFulfilledResult<TVal>
-  | PromiseRejectedResult
-  | PromiseSettledResult<TVal>
-  | Settled<TVal>
-  | SettledLeft
-  | SettledRight<TVal>
-  | TVal;
+import { Base } from './Base';
+import type { Settled } from './Settled';
 
 /**
  * Alias for `Iterable<Base<B>>` or `Iterable<PromiseLike<Base<B>>>`
@@ -107,28 +94,30 @@ export type Type3b<B> = PromiseLike<Iterable<PromiseLike<Base<B>>>>;
 // export type MyB = UnboxPromise<Exclude<ExtractCollectionType<typeof MyCollection>, Base<string> | Deferred<string>>>;
 // // This should be `string`
 
-type ExtractCollectionType<T> = T extends Iterable<infer U>
-  ? U extends Deferred<infer V>
-    ? V extends Iterable<infer W>
-      ? ExtractCollectionType<W>
-      : V extends Base<infer X>
-      ? X
-      : never
-    : U extends Base<infer Y>
-    ? Y
-    : never
-  : never;
+type ExtractCollectionType<T> =
+  T extends Iterable<infer U>
+    ? U extends Deferred<infer V>
+      ? V extends Iterable<infer W>
+        ? ExtractCollectionType<W>
+        : V extends Base<infer X>
+          ? X
+          : never
+      : U extends Base<infer Y>
+        ? Y
+        : never
+    : never;
 
 // Example usage
 export type MyType = ExtractCollectionType<Collection<string>>;
 // MyType is string
-type Nested<T> = T extends Iterable<infer U>
-  ? U extends Deferred<infer V>
-    ? Nested<V>
-    : U extends Base<infer W>
-    ? Nested<W>
-    : never
-  : T;
+type Nested<T> =
+  T extends Iterable<infer U>
+    ? U extends Deferred<infer V>
+      ? Nested<V>
+      : U extends Base<infer W>
+        ? Nested<W>
+        : never
+    : T;
 
 export type ExtractCollectionType2<T> = Nested<Collection<T>>;
 
