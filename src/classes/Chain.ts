@@ -299,7 +299,7 @@ export class Chain<B> implements IChain<B> {
   /**
    * Retrieves only the successfully fulfilled values from the chain.
    * This is a convenience method that filters out rejected values.
-   * Equivalent to `toArray()` followed by `extractFulfilledValues()`.
+   * This is an alias for `extractFulfilledValues()` for better API ergonomics.
    *
    * @returns A Promise that resolves to an array of fulfilled values only
    * @public
