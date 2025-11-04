@@ -163,7 +163,6 @@ export type LeftBoxType = WithStatus & {
   readonly boxedReason: any;
 };
 
-LeftBox;
 export type WithIndexAndStep = {
   transformStep: number;
   index: number;

@@ -1,4 +1,4 @@
-const { rules, packages } = await import('@eslint-stylistic/metadata');
+const { rules } = await import('@eslint-stylistic/metadata');
 
 rules.map(
   r =>

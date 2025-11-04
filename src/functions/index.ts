@@ -15,4 +15,4 @@ const branchName = 'feat/chaining'
 const localPath = 'src/functions'
 const fileName = 'index.ts'
 export const url =
-`https://raw.githubusercontent.com/${userName}/${repositoryName}/${repositoryName}/${branchName}/${localPath}/${fileName}`
+`https://raw.githubusercontent.com/${userName}/${repositoryName}/${branchName}/${localPath}/${fileName}`
