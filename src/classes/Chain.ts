@@ -27,19 +27,47 @@ import type {
   ValidateFn,
 } from '../types';
 
-/* istambul ignore next */
+/* istanbul ignore next */
 /**
- * istanbul ignore next
- * UNSAFE: Name of the class will change in future release
- * @experimental
+ * A fluent, chainable API wrapper for mapping-tools functions.
+ * Provides a convenient way to chain transformations on collections.
+ *
+ * @example
+ * ```typescript
+ * // Using the static factory method
+ * const result = await Chain.of([1, 2, 3, 4, 5])
+ *   .awaitedMapping(async x => x * 2)
+ *   .awaitedMapping(async x => x + 1)
+ *   .getValues();
+ * // result: [3, 5, 7, 9, 11]
+ * ```
+ *
+ * @example
+ * ```typescript
+ * // Using the chain helper function
+ * import { chain } from 'mapping-tools';
+ * const result = await chain([1, 2, 3])
+ *   .serialMapping(async x => x * 2)
+ *   .toArray();
+ * ```
+ *
+ * @typeParam B - The type of elements in the collection
+ * @public
  * @beta
  */
-/* istambul ignore next */
+/* istanbul ignore next */
 export class Chain<B> implements IChain<B> {
   collection: Collection<B> | PromiseLike<Collection<B>>;
 
   private readonly _list: Promise<BaseOrDeferred<B>[]>;
 
+  /**
+   * Static factory method to create a new Chain from a collection.
+   *
+   * @param collection - An iterable collection or a promise of a collection
+   * @returns A new Chain instance wrapping the collection
+   * @public
+   */
   static of<BType>(
     collection: Collection<BType> | PromiseLike<Collection<BType>>
   ): Chain<BType> {
@@ -76,6 +104,17 @@ export class Chain<B> implements IChain<B> {
     return this;
   }
 
+  /**
+   * Applies transformations to each item in the collection in series (one after another).
+   * Based on a for...of loop, ensuring sequential processing.
+   *
+   * @param transformFn - Function to transform each item (optional)
+   * @param lookupFn - Function to perform side effects after transformation (optional)
+   * @param validateFn - Function to validate the transformed value (optional)
+   * @param errLookupFn - Function to handle errors (optional)
+   * @returns A new Chain with the transformed collection
+   * @public
+   */
   public serialMapping<R>(
     transformFn?: TransformFn<B, R> | null,
     lookupFn?: LookupFn<B, R> | null,
@@ -92,6 +131,17 @@ export class Chain<B> implements IChain<B> {
     return new Chain(result);
   }
 
+  /**
+   * Applies transformations to each item in parallel using Promise.all.
+   * This is the most commonly used method for async transformations.
+   *
+   * @param transformFn - Function to transform each item (optional)
+   * @param lookupFn - Function to perform side effects after transformation (optional)
+   * @param validateFn - Function to validate the transformed value (optional)
+   * @param errLookupFn - Function to handle errors (optional)
+   * @returns A new Chain with the transformed collection
+   * @public
+   */
   public awaitedMapping<R>(
     transformFn?: TransformFn<B, R> | null,
     lookupFn?: LookupFn<B, R> | null,
@@ -108,6 +158,17 @@ export class Chain<B> implements IChain<B> {
     return new Chain(result);
   }
 
+  /**
+   * Maps over the collection in parallel returning an array of promises.
+   * Based on Array.prototype.map, each element is processed independently.
+   *
+   * @param transformFn - Function to transform each item (optional)
+   * @param lookupFn - Function to perform side effects after transformation (optional)
+   * @param validateFn - Function to validate the transformed value (optional)
+   * @param errLookupFn - Function to handle errors (optional)
+   * @returns A new Chain with promises of settled results
+   * @public
+   */
   public parallelMapping<R>(
     transformFn?: TransformFn<B, R> | null,
     lookupFn?: LookupFn<B, R> | null,
@@ -218,6 +279,44 @@ export class Chain<B> implements IChain<B> {
 
   public async extractSettledValues(): Promise<(B | typeof NULL_SYMBOL)[]> {
     return extractSettledValues<B>(await awaitedMapping(this._list));
+  }
+
+  /**
+   * Retrieves the settled array values with fulfilled and rejected entries.
+   * This is the primary method to extract final results from the chain.
+   * Alias for awaited list collection.
+   *
+   * @returns A Promise that resolves to an array of settled results
+   * @public
+   */
+  public async toArray(): Promise<Settled<B>[]> {
+    const list = [...(await this.collection)];
+    return list.every((item): item is Settled<B> => isSettled(item))
+      ? list
+      : awaitedMapping(list);
+  }
+
+  /**
+   * Retrieves only the successfully fulfilled values from the chain.
+   * This is a convenience method that filters out rejected values.
+   * This is an alias for `extractFulfilledValues()` for better API ergonomics.
+   *
+   * @returns A Promise that resolves to an array of fulfilled values only
+   * @public
+   */
+  public async getValues(): Promise<B[]> {
+    return this.extractFulfilledValues();
+  }
+
+  /**
+   * Retrieves all values including NULL_SYMBOL for rejected entries.
+   * Maintains the original array length and positions.
+   *
+   * @returns A Promise that resolves to an array with fulfilled values and NULL_SYMBOL for rejected entries
+   * @public
+   */
+  public async getAllValues(): Promise<(B | typeof NULL_SYMBOL)[]> {
+    return this.extractSettledValues();
   }
 
   get list(): Promise<BaseOrDeferred<B>[]> {

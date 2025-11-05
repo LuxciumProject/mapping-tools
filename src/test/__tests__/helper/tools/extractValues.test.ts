@@ -19,8 +19,8 @@ describe('filterLeft and filterRight', () => {
         index: -1,
         currentRejection: null,
         fulfilled: 1,
-        rejected: null,
-        reason: undefined,
+        rejected: null as never,
+        reason: undefined as never,
       },
       {
         status: 'rejected',
@@ -29,8 +29,8 @@ describe('filterLeft and filterRight', () => {
         transformStep: -1,
         index: -1,
         rejected: 'value of any type',
-        fulfilled: null,
-        value: undefined,
+        fulfilled: null as never,
+        value: undefined as never,
       },
       {
         status: 'fulfilled',
@@ -39,8 +39,8 @@ describe('filterLeft and filterRight', () => {
         index: -1,
         currentRejection: null,
         fulfilled: 2,
-        rejected: null,
-        reason: undefined,
+        rejected: null as never,
+        reason: undefined as never,
       },
       {
         status: 'rejected',
@@ -49,8 +49,8 @@ describe('filterLeft and filterRight', () => {
         transformStep: -1,
         index: -1,
         rejected: 'value of any type',
-        fulfilled: null,
-        value: undefined,
+        fulfilled: null as never,
+        value: undefined as never,
       },
       {
         status: 'fulfilled',
@@ -59,8 +59,8 @@ describe('filterLeft and filterRight', () => {
         index: -1,
         currentRejection: null,
         fulfilled: 3,
-        rejected: null,
-        reason: undefined,
+        rejected: null as never,
+        reason: undefined as never,
       },
     ];
     const expected = [
@@ -109,8 +109,8 @@ describe('filterLeft and filterRight', () => {
         index: -1,
         currentRejection: null,
         fulfilled: 1,
-        rejected: null,
-        reason: undefined,
+        rejected: null as never,
+        reason: undefined as never,
       },
       {
         status: 'rejected',
@@ -119,8 +119,8 @@ describe('filterLeft and filterRight', () => {
         transformStep: -1,
         index: -1,
         rejected: 'value of any type',
-        fulfilled: null,
-        value: undefined,
+        fulfilled: null as never,
+        value: undefined as never,
       },
       {
         status: 'fulfilled',
@@ -129,8 +129,8 @@ describe('filterLeft and filterRight', () => {
         index: -1,
         currentRejection: null,
         fulfilled: 2,
-        rejected: null,
-        reason: undefined,
+        rejected: null as never,
+        reason: undefined as never,
       },
       {
         status: 'rejected',
@@ -139,8 +139,8 @@ describe('filterLeft and filterRight', () => {
         transformStep: -1,
         index: -1,
         rejected: 'value of any type',
-        fulfilled: null,
-        value: undefined,
+        fulfilled: null as never,
+        value: undefined as never,
       },
       {
         status: 'fulfilled',
@@ -149,8 +149,8 @@ describe('filterLeft and filterRight', () => {
         index: -1,
         currentRejection: null,
         fulfilled: 3,
-        rejected: null,
-        reason: undefined,
+        rejected: null as never,
+        reason: undefined as never,
       },
     ];
     const expected = [
@@ -191,8 +191,8 @@ describe('extractSettledValues', () => {
         index: -1,
         currentRejection: null,
         fulfilled: 1,
-        rejected: null,
-        reason: undefined,
+        rejected: null as never,
+        reason: undefined as never,
       },
       {
         status: 'rejected',
@@ -201,8 +201,8 @@ describe('extractSettledValues', () => {
         transformStep: -1,
         index: -1,
         rejected: 'value of any type',
-        fulfilled: null,
-        value: undefined,
+        fulfilled: null as never,
+        value: undefined as never,
       },
       {
         status: 'fulfilled',
@@ -211,8 +211,8 @@ describe('extractSettledValues', () => {
         index: -1,
         currentRejection: null,
         fulfilled: 2,
-        rejected: null,
-        reason: undefined,
+        rejected: null as never,
+        reason: undefined as never,
       },
       {
         status: 'rejected',
@@ -221,8 +221,8 @@ describe('extractSettledValues', () => {
         transformStep: -1,
         index: -1,
         rejected: 'value of any type',
-        fulfilled: null,
-        value: undefined,
+        fulfilled: null as never,
+        value: undefined as never,
       },
       {
         status: 'fulfilled',
@@ -231,8 +231,8 @@ describe('extractSettledValues', () => {
         index: -1,
         currentRejection: null,
         fulfilled: 3,
-        rejected: null,
-        reason: undefined,
+        rejected: null as never,
+        reason: undefined as never,
       },
     ];
     const expected = [1, NULL_SYMBOL, 2, NULL_SYMBOL, 3];
@@ -253,8 +253,8 @@ describe('extractFulfilledValues', () => {
         index: -1,
         currentRejection: null,
         fulfilled: 1,
-        rejected: null,
-        reason: undefined,
+        rejected: null as never,
+        reason: undefined as never,
       },
       {
         status: 'rejected',
@@ -263,8 +263,8 @@ describe('extractFulfilledValues', () => {
         transformStep: -1,
         index: -1,
         rejected: 'value of any type',
-        fulfilled: null,
-        value: undefined,
+        fulfilled: null as never,
+        value: undefined as never,
       },
       {
         status: 'fulfilled',
@@ -273,8 +273,8 @@ describe('extractFulfilledValues', () => {
         index: -1,
         currentRejection: null,
         fulfilled: 2,
-        rejected: null,
-        reason: undefined,
+        rejected: null as never,
+        reason: undefined as never,
       },
       {
         status: 'rejected',
@@ -283,8 +283,8 @@ describe('extractFulfilledValues', () => {
         transformStep: -1,
         index: -1,
         rejected: 'value of any type',
-        fulfilled: null,
-        value: undefined,
+        fulfilled: null as never,
+        value: undefined as never,
       },
       {
         status: 'fulfilled',
@@ -293,8 +293,8 @@ describe('extractFulfilledValues', () => {
         index: -1,
         currentRejection: null,
         fulfilled: 3,
-        rejected: null,
-        reason: undefined,
+        rejected: null as never,
+        reason: undefined as never,
       },
     ];
     const expected = [1, 2, 3];

@@ -1,6 +1,7 @@
 import { assertions } from '../../helpers';
 import { getTransformStep } from '../../helpers/tools';
-import type { MapperOptions, Settled } from '../../types';
+import type { MapperOptions, Settled, SettledLeft, SettledRight } from '../../types';
+import { defaultMapperOptions } from './defaultMapperOptions';
 import { fulfillementBlock } from './fulfillementBlock';
 import { makeRejection } from './makeRejection';
 import { getSettler } from './makeSettler';
@@ -11,20 +12,11 @@ const {
   isPromiseSettledResult,
 } = assertions;
 
-const defaultMapperOptions = <T, R>(
-  mapperOptions: MapperOptions<T, R>
-): Required<MapperOptions<T, R>> => ({
-  transform: async value => value as any as R,
-  lookup: (value, index, array) => void [value, index, array],
-  validate: async (value, index, array) => void [value, index, array],
-  errLookup: (value, index, currentRejection) =>
-    void [value, index, currentRejection],
-  ...mapperOptions,
-});
-
 // FUNC DEF:(fn_a1f9a<T, R>) -----------------------------------------
 /** @internal */
-export async function fn_a1f9a<T, R>(mapperOptions: MapperOptions<T, R>) {
+export async function fn_a1f9a<T, R>(
+  mapperOptions: MapperOptions<T, R>
+): Promise<SettledLeft | SettledRight<R>> {
   const { item, index, array } = mapperOptions;
   const transformStep = getTransformStep(item, 0);
   const myItem: Settled<T> = await getSettler(item, mapperOptions.index);

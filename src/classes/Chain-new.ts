@@ -1,6 +1,6 @@
 /* istanbul ignore file */
 
-import { BaseOrDeferred, Collection } from '../types';
+import type { BaseOrDeferred, Collection } from '../types';
 
 /* istambul ignore next */
 /**
